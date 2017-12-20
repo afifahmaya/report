@@ -1,0 +1,166 @@
+\documentclass[]{report}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\newcommand{\R}{\mathbb{R}}
+\newtheorem{remark}{Remark}[section]
+% Title Page
+\title{Basic of Finite Element Method}
+\author{Afifah Maya Iknaningrum}
+
+\begin{document}
+%\maketitle
+
+\section{Problem}
+Consider Poisson Equation problem as shown below. We want to find $ u $ such that
+\begin{equation}\label{Poisson}
+\begin{cases}
+-\Delta u = f(x) & \text{ in } \Omega \\
+u = g(x) & \text{ on } \Gamma = \partial \Omega.
+\end{cases}
+\end{equation}
+
+\section{Continuous (Partial Differential Equation)}
+We need to know some notation beforehand.
+\begin{eqnarray}\label{notation} \nonumber
+X &:=& H^{1}(\Omega) \\ \nonumber
+V &:=& H^{1}_{0}(\Omega) \subset X \\ \nonumber
+H^{1}(\Omega) &\equiv& \{ v \in L^{2}(\Omega) ; \dfrac{\partial v}{\partial x} \in L^{2}(\Omega) \} \\ \nonumber
+L^{2}(\Omega) &\equiv& \{ v: \Omega \rightarrow \mathbb{R} ;  \int_{\Omega} v^{2}(x) dx < \infty \} \\ \nonumber
+V(g) &:=& \{ v \in X ; v=g \text{ on } \Gamma \text{ or } v-g \in V \} \\ \nonumber
+V &=& V(0).
+\end{eqnarray}
+
+From the strong form in equation (\ref{Poisson}), we can obtain the weak form
+$ \forall $ test function $ v(x) $, where $ v|_{\Gamma_0} = 0 $, then,
+\begin{align*}
+	&\int_\Omega (-\Delta u)(x) v(x) dx\\
+	&= \int_\Omega \Big(-\dfrac{\partial^2u}{\partial{x_1}^2} (x) v(x) -\dfrac{\partial^2u}{\partial{x_2}^2} (x) v(x) \Big) \ dx \\
+	&= - \int_{\Omega} \dfrac{\partial^{2}u}{\partial x_{1}^{2}}  (x) v(x) \ dx - \int_{\Omega} \dfrac{\partial^{2} u}{\partial x_{2}^{2}} (x) v(x) \ dx\\
+	&= - \Big( \int_{\partial \Omega} \dfrac{\partial u}{\partial x_{1}} (x) v(x) n_{i} \ ds - \int_{\Omega} \dfrac{\partial u}{\partial x_{1}} (x) \dfrac{\partial v}{\partial x_{1}} (x) \ dx \Big) - \Big( \int_{\partial \Omega} \dfrac{\partial u}{\partial x_{2}} (x) v(x) n_{i} \ ds - \int_{\Omega} \dfrac{\partial u}{\partial x_{2}} (x) \dfrac{\partial v}{\partial x_{2}} (x) \ dx \Big)\\
+	&= \Big( \int_{\Gamma_0} \dfrac{\partial u}{\partial x_{1}} (x) v(x) n_{i} + \dfrac{\partial u}{\partial x_{2}} (x) v(x) n_{i} \ ds + \int_{\Gamma_1} \dfrac{\partial u}{\partial x_{1}} (x) v(x) n_{i} + \dfrac{\partial u}{\partial x_{2}} (x) v(x) n_{i} \ ds \Big) \\
+	&+ \int_{\Omega} \dfrac{\partial u}{\partial x_{1}} (x) \dfrac{\partial v}{\partial x_{1}} (x) + \dfrac{\partial u}{\partial x_{2}} (x) \dfrac{\partial v}{\partial x_{2}} (x) \ dx \\
+	&= \int_{\Omega} \nabla u(x) \cdot \nabla v(x) \ dx - \int_{\Gamma_1} (\nabla u(x) \cdot n(x)) v(x) \ ds \\
+	&= \int_{\Omega} \nabla u(x) \cdot \nabla v(x) \ dx - \int_{\Gamma_1} \dfrac{\partial u}{\partial n} (x) v(x) \ ds \\
+	&= \int_{\Omega} \nabla u(x) \cdot \nabla v(x) \ dx - \int_{\Gamma_1} g(x) v(x) \ ds\\
+	&= \int_{\Omega} f(x) v(x) \ dx
+\end{align*}
+such that $ \int_{\Omega} \nabla u \cdot \nabla v \ dx = \int_{\Omega} f v \ dx + \int_{\Gamma_1} g v \ ds $. For simplicity, we assume $ \Omega $
+
+\begin{equation}\label{weakform}
+\begin{cases}
+a(u,v) = l(v), \forall v \in V \\
+u \in V(g).
+\end{cases}
+\end{equation}
+Where $ a(u,v) := \int_{\Omega} \nabla u \cdot \nabla v \ dx$ which is bilinear form and $ l(v) := \int_{\Omega} f \ v \ dx $ which is linear form.
+\begin{remark}
+	$ \exists ! u = \underset{v \in V(g)}{argmin} \ (\dfrac{1}{2} a(v,v)-l(v)) = \underset{w \in V(g)}{argmin} \ J(w)$
+\end{remark}
+\textbf{Remark}\\
+\textbf{Proposition}\\
+For $ J(v) := \dfrac{1}{2} a(v,v) -l (v) $,\\
+$ u = \underset{v \in V(g)}{argmin} \ J(v) \iff (\ref{weakform}) $
+
+\textbf{Proof:}\\
+$ (\Rightarrow) $ if $ u = argmin \ J $ then $ u+tv \in V(g) , \ \forall t \in \mathbb{R}, \forall v \in V = H_{0}^{1} (\Omega) $. Since it is on $ \Gamma $ or boundary, then $ g=u=u+tv $.
+\begin{eqnarray}\nonumber
+J(u) &\leq J(w) &, \forall w \in V(g), \ w=u+tv \in V(g)\\ \nonumber
+J(u) &\leq J(u+tv) &, \forall t \in \mathbb{R}, \ \forall v \in V
+\end{eqnarray}
+Then
+\begin{eqnarray}\nonumber
+J(u+tv) &=& \dfrac{1}{2} a(u+tv,u+tv)-l(u+tv)\\ \nonumber
+&=& \dfrac{1}{2} a(u,u) + t a(u,v) + \dfrac{t^2}{2} a (v,v) - l(u) - t l(v)\\ \nonumber
+&=& \dfrac{t^2}{2} a (v,v) + t (a(u,v) - l(v)) + J(u)\\ \nonumber
+&=:& \varphi(t)
+\end{eqnarray}
+Because $ \varphi(t) $ is in quadratic form, then its minimum obtained at $ t=0 $. So that $ \varphi =0 $ such that $ a(u,v) - l(v) =0 $.\\
+$ (\Leftarrow) $ $ \forall t \in \mathbb{R}, \forall v \in V $ we have
+\begin{equation}\nonumber
+J(u,tv) = J(u) + \dfrac{t^2}{2} a(v,v) \geq J(u).
+\end{equation}
+$ \forall w \in V(g) $, we set $ v := w -u \in V , \ t:=1 , \ w=u+tv $
+\begin{equation}\nonumber
+J(w) = J(u+tv) \geq J(u)
+\end{equation}
+
+\section{Discrete (Finite Element Method)}
+Notation
+\begin{eqnarray}\nonumber
+X_{h} &\subset & X \text{ (usually dim } X_{h} < \infty \text{)} \\ \nonumber
+V_{h} & = & X_{h} \cap V\\ \nonumber
+g_{h} & \in & X_{h} \text{(approximation of } g \text{)} \\ \nonumber
+V_{h}(g_{h}) & = & \{ v_{h} \in X_{h} ; v_{h}-g_{h} \in V_{h} \}.
+\end{eqnarray}
+Then the weak form is approximated with
+\begin{equation} \nonumber
+\begin{cases}
+a(u_{h}, v_{h}) &= l(v_{h}), \ \forall v_{h} \in V_{h} \\
+u_{h} &\in V_{h}(g_{h})
+\end{cases}
+\iff u_{h} = \underset{w_{h} \in V_{h}(g_{h})}{argmin}J(w_{h})
+\end{equation}
+
+Finite element method
+\begin{eqnarray}\nonumber
+X_{h} &=& \{ v_{h} \in C^{0}(\overline{\Omega}) ; {v_{h}|}_{K} \text{ is linear} \} \\ \nonumber
+V_{h} &=& X_{h} \cap H_{0}^{1}(\Omega)
+\end{eqnarray}
+\begin{align*}
+X_h &= \langle \varphi_1, \cdots , \varphi_{N_p} \rangle, \{\varphi_i\}^{N_p}_{i=1} \text{ become a basis of the vector space } X_h\\
+&=\{\sum_{i=1}^{N_p} c_i\varphi_i ; c_i \in \R \}\\
+x &= (x_1,x_2) \in \R^2\\
+\forall v_h \in X_h\\
+v_h (\cdot) &= \sum_{i=1}^{N_p} v_h(P_i) \varphi_i(\cdot) \in X_h\\
+w_h &:= \sum_{i=1}^{N_p} v_h(P_i) \varphi_i \in X_h\\
+w_h(P_j) &= \sum_{i=1}^{N_p} v_h (P_i) \varphi_i (P_j)\\
+&= \sum_{i=1}^{N_p} v_h (P_i) \delta_{ij}\\
+&= v_h (P_j)\\
+\end{align*}
+\textbf{a basis of} $ V_h $
+\begin{align*}
+\Omega \cap \Gamma &= \Phi\\
+\{\varphi_i ; P_i \in \Omega \} &\subset \{P_i \}_{i=1}^{N_p}\\
+\text{for simplicity, we assume}\\
+\{\varphi_i ; P_i \in \Omega \} &= \{P_i\}_{i=1}^N (N < N_p)
+\end{align*}
+$ \text{\textbf{s.t.}} \{P_i\}_{i=1}^N \subset \Omega \text{ and } \{P_i\}_{i=N+1}^{N_p} \subset \Gamma $
+\begin{align*}
+V_h &= \langle \varphi_1, \cdots , \varphi_N \rangle\\
+(\ast \ast) a(u_h , v_h) &= l(v_h) (\forall v_h \in V_h)\\
+&\Updownarrow \\
+a(u_h , \varphi_i) &= l(\varphi_i) (i=1, \cdots , N)\\
+&\Downarrow \text{choose } v_h = \varphi_i \in V\\
+\forall v_h \in V_h, c_i &= v_h (P_i), v_h = \sum_{i=1}^{N} c_i \varphi_i \\
+a(u_h,v_h) &= a(u_h,\sum_{i=1}^{N} c_i \varphi_i)\\
+&=\sum_{i=1}^{N} c_i a (u_h, \varphi_i) = \sum_{i=1}^{N} c_i l(\varphi_i)\\
+&= l(\sum_{i=1}^{N} c_i \varphi_i) = l(v_h)\\
+\end{align*}
+$ \text{\textbf{we set }} u_j := u_h(P_j) \ (j=1, \cdots , N_p) $
+\begin{align*}
+\text{boundary} \rightarrow u_j = g_j &= g_h(P_j) (j=N+1, \cdots , N_p)\\
+u_h & \in v_h(g_h)\\
+P_j  & \in \Gamma\\
+\text{unknown} & : u_1, \cdots , u_N
+\end{align*}
+\begin{align*}
+(\ast \ast) \Leftrightarrow \begin{cases}
+a(u_h, \varphi_i) = l(\varphi_i) (i=1, \cdots , N)\\
+u_h = \sum_{j=1}^{N} u_j \varphi_j + \sum_{j=N+1}^{N_p} g_j \varphi_j (u_h \in V_h (g_h))
+\end{cases}
+\end{align*}
+\textbf{we set} $ a_{ij} := a(u_i, u_j) = a(u_j, u_i)\\
+\text{\textbf{s.t.}} \sum_{j=1}^{N} a_{ij} u_{j} + \sum_{j=N+1}^{N_p} a_{ij} g_j = l(\varphi_i) (i=1, \cdots , N) $
+\begin{align*}
+\text{\textbf{we set }} A &:= (a_{ij}) \in \R_{\text{sym}}^{N \times N}\\
+\text{\textbf{u}} &:= \begin{pmatrix}
+u_i \\
+\vdots \\
+u_N
+\end{pmatrix}\\
+\text{\textbf{b}} &:= (l(u_i) - \sum_{j=N+1}^{N_p} a_{ij} g_j)_{i=1, \cdots , N}
+(\ast \ast) \Leftrightarrow \text{A} \textbf{\text{u}} = \textbf{b}
+\end{align*}
+\end{document}
