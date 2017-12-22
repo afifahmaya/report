@@ -2,6 +2,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{color}
 
 \newcommand{\R}{\mathbb{R}}
 \newtheorem{remark}{Remark}[section]
@@ -11,6 +12,8 @@
 
 \begin{document}
 %\maketitle
+
+\textcolor{red}{Bahasa inggris sama notasi nya uda bener kah ? haha gak yakin aku soale}
 
 \section{Problem}
 Consider Poisson Equation problem as shown below. We want to find $ u $ such that
@@ -34,6 +37,7 @@ V &=& V(0).
 
 From the strong form in equation (\ref{Poisson}), we can obtain the weak form
 $ \forall $ test function $ v(x) $, where $ v|_{\Gamma_0} = 0 $, then,
+
 \begin{align*}
 	&\int_\Omega (-\Delta u)(x) v(x) dx\\
 	&= \int_\Omega \Big(-\dfrac{\partial^2u}{\partial{x_1}^2} (x) v(x) -\dfrac{\partial^2u}{\partial{x_2}^2} (x) v(x) \Big) \ dx \\
@@ -46,24 +50,32 @@ $ \forall $ test function $ v(x) $, where $ v|_{\Gamma_0} = 0 $, then,
 	&= \int_{\Omega} \nabla u(x) \cdot \nabla v(x) \ dx - \int_{\Gamma_1} g(x) v(x) \ ds\\
 	&= \int_{\Omega} f(x) v(x) \ dx
 \end{align*}
-such that $ \int_{\Omega} \nabla u \cdot \nabla v \ dx = \int_{\Omega} f v \ dx + \int_{\Gamma_1} g v \ ds $. For simplicity, we assume $ \Omega = (0.1) $
+such that  
+\begin{equation*}
+\int_{\Omega} \nabla u \cdot \nabla v \ dx = \int_{\Omega} f v \ dx + \int_{\Gamma_1} g v \ ds.
+\end{equation*} 
 
+For simplicity, we assume $ \Omega = (0.1)^{2} $ and $ g=0 $. Then we obtain weak form of equation (\ref{Poisson}),
 \begin{equation}\label{weakform}
 \begin{cases}
 a(u,v) = l(v), \forall v \in V \\
 u \in V(g).
 \end{cases}
 \end{equation}
-Where $ a(u,v) := \int_{\Omega} \nabla u \cdot \nabla v \ dx$ which is bilinear form and $ l(v) := \int_{\Omega} f \ v \ dx $ which is linear form.
+where $ a(u,v) := \int_{\Omega} \nabla u \cdot \nabla v \ dx$ is bilinear form and $ l(v) := \int_{\Omega} f \ v \ dx $ is linear form.
+
+To show that there is exist unique solution $ u $, we can use the Remark below. \textcolor{red}{yang remark, proposition, sama proof, bener kah penjelasane ? Aku lupa hubungane satu sama lain}
 \begin{remark}
 	$ \exists ! u = \underset{v \in V(g)}{argmin} \ (\dfrac{1}{2} a(v,v)-l(v)) = \underset{w \in V(g)}{argmin} \ J(w)$
 \end{remark}
+
+Proofing this Remark, the Proposition below is given with proof.\\
 \textbf{Proposition}\\
-For $ J(v) := \dfrac{1}{2} a(v,v) -l (v) $,\\
+For \hspace{0.5cm} $ J(v) := \dfrac{1}{2} a(v,v) -l (v) $, \hspace{1cm}
 $ u = \underset{v \in V(g)}{argmin} \ J(v) \iff (\ref{weakform}) $
 
 \textbf{Proof:}\\
-$ (\Rightarrow) $ if $ u = argmin \ J $ then $ u+tv \in V(g) , \ \forall t \in \mathbb{R}, \forall v \in V = H_{0}^{1} (\Omega) $. Since it is on $ \Gamma $ or boundary, then $ g=u=u+tv $.
+$ (\Rightarrow) $ if $ u = argmin \ J $ then $ u+tv \in V(g) , \ \forall t \in \mathbb{R}, \forall v \in V = H_{0}^{1} (\Omega) $. Since it is on boundary $ \Gamma $, then $ g=u=u+tv $.
 \begin{eqnarray}\nonumber
 J(u) &\leq J(w) &, \forall w \in V(g), \ w=u+tv \in V(g)\\ \nonumber
 J(u) &\leq J(u+tv) &, \forall t \in \mathbb{R}, \ \forall v \in V
@@ -102,22 +114,24 @@ u_{h} &\in V_{h}(g_{h})
 \iff u_{h} = \underset{w_{h} \in V_{h}(g_{h})}{argmin}J(w_{h})
 \end{equation}
 
-Finite element method
+Using Finite Element Method,
 \begin{eqnarray}\nonumber
 X_{h} &=& \{ v_{h} \in C^{0}(\overline{\Omega}) ; {v_{h}|}_{K} \text{ is linear} \} \\ \nonumber
 V_{h} &=& X_{h} \cap H_{0}^{1}(\Omega)
 \end{eqnarray}
 \begin{align*}
 X_h &= \langle \varphi_1, \cdots , \varphi_{N_p} \rangle, \{\varphi_i\}^{N_p}_{i=1} \text{ become a basis of the vector space } X_h\\
-&=\{\sum_{i=1}^{N_p} c_i\varphi_i ; c_i \in \R \}\\
-x &= (x_1,x_2) \in \R^2\\
-\forall v_h \in X_h\\
+&=\{\sum_{i=1}^{N_p} c_i\varphi_i ; c_i \in \R \}
+\end{align*}
+For $ x = (x_1,x_2) \in \R^2, \forall v_h \in X_h $, we will have
+\begin{align*}
 v_h (\cdot) &= \sum_{i=1}^{N_p} v_h(P_i) \varphi_i(\cdot) \in X_h\\
 w_h &:= \sum_{i=1}^{N_p} v_h(P_i) \varphi_i \in X_h\\
 w_h(P_j) &= \sum_{i=1}^{N_p} v_h (P_i) \varphi_i (P_j)\\
 &= \sum_{i=1}^{N_p} v_h (P_i) \delta_{ij}\\
 &= v_h (P_j)\\
 \end{align*}
+
 \textbf{a basis of} $ V_h $
 \begin{align*}
 \Omega \cap \Gamma &= \Phi\\
