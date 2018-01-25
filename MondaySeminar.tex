@@ -5,6 +5,8 @@
 \usepackage{amsfonts}
 \usepackage{color}
 \usepackage{listings}
+\usepackage{graphicx}
+\usepackage{wrapfig}
 
 \newtheorem{remark}{Remark}[]
 \newtheorem{prop}{Proposition}
@@ -41,7 +43,15 @@ $ \begin{cases}
 	\text{set yrange}[-5:5] \\
 	\text{q \textcolor{red}{quit}}	
 \end{cases} $
+
+\newpage
 \subsubsection{Plot from file}
+\begin{wrapfigure}{r}{5.5cm}
+	\includegraphics[width=5.5cm]{"picture/triangular format"}
+	\caption{}
+	\label{fig:triangular-format}
+\end{wrapfigure}
+
 We have file \textbf{plot.dat or .txt} contains list point of triangular format for 2D as shown below:\\
 $ \begin{matrix}
 	x^{(i)}_{1} & x^{(i)}_{2} & u^{(i)} \\

@@ -2,7 +2,6 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{color}
 
 \newcommand{\R}{\mathbb{R}}
 \newtheorem{remark}{Remark}[section]
@@ -12,8 +11,6 @@
 
 \begin{document}
 %\maketitle
-
-\textcolor{red}{Bahasa inggris sama notasi nya uda bener kah ? haha gak yakin aku soale...}
 
 \section{Problem}
 Consider Poisson Equation problem as shown below. We want to find $ u $ such that
@@ -36,26 +33,23 @@ V &=& V(0).
 \end{eqnarray}
 
 From the strong form in equation (\ref{Poisson}), we can obtain the weak form
-$ \forall $ test function $ v(x) $, where $ v|_{\Gamma_0} = 0 $, then,
+$ \forall $ test function $ v(x) $, where $ v|_{\Gamma} = 0 $, then,
 
 \begin{align*}
 	&\int_\Omega (-\Delta u)(x) v(x) dx\\
 	&= \int_\Omega \Big(-\dfrac{\partial^2u}{\partial{x_1}^2} (x) v(x) -\dfrac{\partial^2u}{\partial{x_2}^2} (x) v(x) \Big) \ dx \\
 	&= - \int_{\Omega} \dfrac{\partial^{2}u}{\partial x_{1}^{2}}  (x) v(x) \ dx - \int_{\Omega} \dfrac{\partial^{2} u}{\partial x_{2}^{2}} (x) v(x) \ dx\\
 	&= - \Big( \int_{\partial \Omega} \dfrac{\partial u}{\partial x_{1}} (x) v(x) n_{i} \ ds - \int_{\Omega} \dfrac{\partial u}{\partial x_{1}} (x) \dfrac{\partial v}{\partial x_{1}} (x) \ dx \Big) - \Big( \int_{\partial \Omega} \dfrac{\partial u}{\partial x_{2}} (x) v(x) n_{i} \ ds - \int_{\Omega} \dfrac{\partial u}{\partial x_{2}} (x) \dfrac{\partial v}{\partial x_{2}} (x) \ dx \Big)\\
-	&= \Big( \int_{\Gamma_0} \dfrac{\partial u}{\partial x_{1}} (x) v(x) n_{i} + \dfrac{\partial u}{\partial x_{2}} (x) v(x) n_{i} \ ds + \int_{\Gamma_1} \dfrac{\partial u}{\partial x_{1}} (x) v(x) n_{i} + \dfrac{\partial u}{\partial x_{2}} (x) v(x) n_{i} \ ds \Big) \\
-	&+ \int_{\Omega} \dfrac{\partial u}{\partial x_{1}} (x) \dfrac{\partial v}{\partial x_{1}} (x) + \dfrac{\partial u}{\partial x_{2}} (x) \dfrac{\partial v}{\partial x_{2}} (x) \ dx \\
-	&= \int_{\Omega} \nabla u(x) \cdot \nabla v(x) \ dx - \int_{\Gamma_1} (\nabla u(x) \cdot n(x)) v(x) \ ds \\
-	&= \int_{\Omega} \nabla u(x) \cdot \nabla v(x) \ dx - \int_{\Gamma_1} \dfrac{\partial u}{\partial n} (x) v(x) \ ds \\
-	&= \int_{\Omega} \nabla u(x) \cdot \nabla v(x) \ dx - \int_{\Gamma_1} g(x) v(x) \ ds\\
+	&= \Big( \int_{\Gamma} \dfrac{\partial u}{\partial x_{1}} (x) v(x) n_{i} + \dfrac{\partial u}{\partial x_{2}} (x) v(x) n_{i} \ ds  \Big) + \int_{\Omega} \dfrac{\partial u}{\partial x_{1}} (x) \dfrac{\partial v}{\partial x_{1}} (x) + \dfrac{\partial u}{\partial x_{2}} (x) \dfrac{\partial v}{\partial x_{2}} (x) \ dx \\
+	&= \int_{\Omega} \nabla u(x) \cdot \nabla v(x) \ dx\\
 	&= \int_{\Omega} f(x) v(x) \ dx
 \end{align*}
 such that  
 \begin{equation*}
-\int_{\Omega} \nabla u \cdot \nabla v \ dx = \int_{\Omega} f v \ dx + \int_{\Gamma_1} g v \ ds.
+\int_{\Omega} \nabla u \cdot \nabla v \ dx = \int_{\Omega} f v \ dx.
 \end{equation*} 
 
-For simplicity, we assume $ \Omega = (0.1)^{2} $ and $ g=0 $. Then we obtain weak form of equation (\ref{Poisson}),
+For simplicity, we assume $ \Omega = (0.1)^{2} $. Then we obtain weak form of equation (\ref{Poisson}),
 \begin{equation}\label{weakform}
 \begin{cases}
 a(u,v) = l(v), \forall v \in V \\
@@ -64,12 +58,12 @@ u \in V(g).
 \end{equation}
 where $ a(u,v) := \int_{\Omega} \nabla u \cdot \nabla v \ dx$ is bilinear form and $ l(v) := \int_{\Omega} f \ v \ dx $ is linear form.
 
-To show that there is exist unique solution $ u $, we can use the Remark below. \textcolor{red}{yang remark, proposition, sama proof, bener kah penjelasane ? Aku lupa hubungane satu sama lain}
+To show that there is exist unique solution $ u $, we can use the Remark below. 
 \begin{remark}
-	$ \exists ! u = \underset{v \in V(g)}{argmin} \ (\dfrac{1}{2} a(v,v)-l(v)) = \underset{w \in V(g)}{argmin} \ J(w)$
+$ \exists ! u = \underset{v \in V(g)}{argmin} \ (\dfrac{1}{2} a(v,v)-l(v)) = \underset{w \in V(g)}{argmin} \ J(w)$
 \end{remark}
 
-Proofing this Remark, the Proposition below is given with proof.\\
+Using this Remark, the Proposition below is given with proof.\\
 \textbf{Proposition}\\
 For \hspace{0.5cm} $ J(v) := \dfrac{1}{2} a(v,v) -l (v) $, \hspace{1cm}
 $ u = \underset{v \in V(g)}{argmin} \ J(v) \iff (\ref{weakform}) $
@@ -117,13 +111,18 @@ u_{h} &\in V_{h}(g_{h})
 Using Finite Element Method,
 \begin{eqnarray}\nonumber
 X_{h} &=& \{ v_{h} \in C^{0}(\overline{\Omega}) ; {v_{h}|}_{K} \text{ is linear} \} \\ \nonumber
-V_{h} &=& X_{h} \cap H_{0}^{1}(\Omega)
+V_{h} &=& X_{h} \cap H_{0}^{1}(\Omega),
 \end{eqnarray}
+or we could write
 \begin{align*}
-X_h &= \langle \varphi_1, \cdots , \varphi_{N_p} \rangle, \{\varphi_i\}^{N_p}_{i=1} \text{ become a basis of the vector space } X_h\\
-&=\{\sum_{i=1}^{N_p} c_i\varphi_i ; c_i \in \R \}
+X_h &= \langle \varphi_1, \dots  , \varphi_{N_p} \rangle\\
+&=\{\sum_{i=1}^{N_p} c_i\varphi_i \ ; \ c_i \in \R \}
 \end{align*}
-For $ x = (x_1,x_2) \in \R^2, \forall v_h \in X_h $, we will have
+where $ \{\varphi_i\}^{N_p}_{i=1} \text{ become a basis of the vector space } X_h $. For nodal points $ \{P_{i}\}_{i=1}^{N_{p}} $ and $ \varphi_{i} \in X_{n} \ ; \ \varphi_{i} (P_{j}) = \delta_{ij} = \begin{cases}
+1 & i=j \\ 0 & i \neq j
+\end{cases} $.
+
+For $ x = (x_1,x_2) \in \R^2 \text{ and } \forall v_h \in X_h $, we will have
 \begin{align*}
 v_h (\cdot) &= \sum_{i=1}^{N_p} v_h(P_i) \varphi_i(\cdot) \in X_h\\
 w_h &:= \sum_{i=1}^{N_p} v_h(P_i) \varphi_i \in X_h\\
@@ -132,7 +131,7 @@ w_h(P_j) &= \sum_{i=1}^{N_p} v_h (P_i) \varphi_i (P_j)\\
 &= v_h (P_j)\\
 \end{align*}
 
-\textbf{a basis of} $ V_h $
+\textbf{A basis of} $ V_h $
 \begin{align*}
 \Omega \cap \Gamma &= \Phi\\
 \{\varphi_i ; P_i \in \Omega \} &\subset \{P_i \}_{i=1}^{N_p}\\
