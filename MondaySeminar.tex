@@ -47,7 +47,7 @@ $ \begin{cases}
 \subsubsection{Plot from file}
 \begin{wrapfigure}{r}{5.5cm}
 	\includegraphics[width=5.5cm]{"picture/triangular format"}
-	\caption{}
+	\caption{One element with point $ i,j,k $}
 	\label{fig:triangular-format}
 \end{wrapfigure}
 
@@ -89,7 +89,12 @@ Example 1 :
 \end{cases}
 \end{equation}
 
-\vspace{4cm}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.37\linewidth]{picture/example1}
+	\caption{Example 1}
+	\label{fig:example1}
+\end{figure}
 
 Example 2:
 \begin{equation}\nonumber
@@ -99,7 +104,21 @@ Example 2:
 \end{cases}
 \end{equation}
 
-\vspace{4cm}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.37\linewidth]{picture/example2}
+	\caption{Example 2}
+	\label{fig:example2}
+\end{figure}
+
+\newpage
+Here are image of how to choose the domain.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/example2-2}
+	\caption{Choose the domain}
+	\label{fig:example2-2}
+\end{figure}
 
 From file : \textbf{membrane.edp}. Find $ \phi : \Omega \rightarrow \mathbb{R} $ such that
 \begin{equation}\label{prob1}
@@ -111,7 +130,12 @@ From file : \textbf{membrane.edp}. Find $ \phi : \Omega \rightarrow \mathbb{R} $
 \end{equation}
 where $ f : \Omega \rightarrow \mathbb{R} $, given $ f(x)=1 $ and $ z : \Gamma_{1} \rightarrow \mathbb{R} $, given $ z(x)=x_{1} $. The equation (\ref{prob1}) is called \textbf{strong form}, because it contain second derivative.
 
-\vspace{4cm}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{picture/strongformdomain}
+	\caption{}
+	\label{fig:strongformdomain}
+\end{figure}
 
 From equation (\ref{prob1}) first line, we multiple it by smooth test function $ w $ and integrate over $ \Omega $ such that  $ \forall w (w|_{\Gamma_{1}}=0 ) $
 \begin{equation*}\nonumber
@@ -144,8 +168,6 @@ In \textbf{1D Case},
 \int_{a}^{b} f(x) g(x) \ dx = [ f(x) g(x) ]_{x=a}^{b} - \int_{a}^{b} f(x) g'(x) \ dx
 \end{equation}
 
-\vspace{2cm}
-
 \begin{eqnarray}\nonumber
 \int_{\partial \Omega} f(x) g(x) n(x) \ dx & = & f(a)g(a)n(a) + f(b)g(b)n(b) \\ \nonumber
 & = & [f(x)g(x)]_{x=a}^{b}
@@ -163,7 +185,12 @@ u = g_{0} & \text{on } \Gamma_{0} \ \text{\textcolor{red}{Dirichlet (or essentia
 \end{equation}
 where $ f : \Omega \rightarrow \mathbb{R} $ , $ g_{0} : \Gamma_{0} \rightarrow \mathbb{R} $ , and $ g_{1} : \Gamma_{1} \rightarrow \mathbb{R} $ is given.
 
-\vspace{4cm}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/strongproblem}
+	\caption{}
+	\label{fig:strongproblem}
+\end{figure}
 
 \begin{eqnarray}\nonumber
 \Omega &\subset &\mathbb{R}^2 \\ \nonumber
@@ -196,14 +223,19 @@ such that
 \int_{\Omega} \nabla u \cdot \nabla v \ dx = \int_{\Omega} f v \ dx + \int_{\Gamma_1} g_{1} v \ ds
 \end{equation*} 
 
-
 \textbf{Note} : Reason why $ \dfrac{\partial u}{\partial n} (x) = (\bigtriangledown u ) \cdot n $
 In 1D Case,
 \begin{equation*}
 u'(x) = \lim\limits_{h\rightarrow 0} \dfrac{u(x+h)-u(x)}{h}
 \end{equation*}
 
-\vspace{3cm}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/reasonIn1D}
+	\caption{}
+	\label{fig:reasonin1d}
+\end{figure}
+
 
 In 2D Case
 \begin{eqnarray}\nonumber
@@ -261,7 +293,12 @@ where $ Np $ is total number of nodal points.
 
 For case as shown by picture below,
 
-\vspace{4cm}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/casepict}
+	\caption{}
+	\label{fig:casepict}
+\end{figure}
 
 we choose basis function
 \begin{eqnarray}\nonumber
@@ -274,7 +311,13 @@ we choose basis function
 Then, in each triangle,
 \[ \varphi_{i}(x) = \alpha_{0} + \alpha_{1}x_{1} + \alpha_{1}x_{2}. \]
 
-\vspace{4cm}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{picture/eachtriangle}
+	\caption{}
+	\label{fig:eachtriangle}
+\end{figure}
+
 
 Then, the problem becomes we want to find $ u_{h} \in V_{h}(g_{0}) $ such that
 \[ a(u_{h}, v_{h}) = l(v_{h}), \ \forall v_{h} \in V_{h} \]
@@ -282,19 +325,29 @@ where
 \[ V_{h}(g_{0}) \equiv \{ v_{h} \in V(g_{0}); \ v_{h}(x) = \sum_{i=1}^{Np} c_{i} \varphi_{i}(x), \ c_{i} \in \mathbb{R}, \ \varphi_{i} \text{ is basis function} \} , \ V_{h} \equiv V_{h}(0). \]
 
 \subsubsection{Problem}
-For simplicity, assume $ \Omega = (0,1)^2 $ and $ g_{0} $ = 0. We want to find $ u \in V \equiv H_{0}^{1}(\Omega) $ or Sobolev space where the boundary is $ 0 $.
+For simplicity, assume $ \Omega = (0,1)^2 $ and $ g_{0} $ = 0. We want to find $ u \in V \equiv H_{0}^{1}(\Omega) $ or Sobolev space where the boundary is $ 0 $. $ \{ P_{i} \}_{i=1}^{Np} $ is set of nodal points. For example,
 
-$ \{ P_{i} \}_{i=1}^{Np} $ is set of nodal points. For example,
-
-\vspace{4cm}
-
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/problem}
+	\caption{}
+	\label{fig:problem}
+\end{figure}
 with nodal point $ Np =11 $ and elements $ Ne =13 $.  The domain $ \tau_{h}= \{K_{k}\}_{k=1}^{13} $ or devided into $ 13 $ triangle area with point $ \{P_{i}\}_{i=1}^{11} $. Using file \textcolor{blue}{Square.edp} and \textcolor{blue}{mesh.msh}, we can read the mesh grid as shown below.
 
-\vspace{4cm}
-.
-\vspace{4cm}
-.
-\vspace{14cm}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.53\linewidth]{picture/labelPict}
+	\caption{}
+	\label{fig:labelpict}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/trianglePict}
+	\caption{}
+	\label{fig:trianglepict}
+\end{figure}
+
 
 Result : \textcolor{blue}{Master/Seminar/1.Read\_mesh/test.c}
 
@@ -374,6 +427,14 @@ X_h &=& \langle \varphi_1, \dots  , \varphi_{Np} \rangle\\ \nonumber
 where $ \{\varphi_i\}^{Np}_{i=1} \text{ become a basis of the vector space } X_h $. For nodal points $ \{P_{i}\}_{i=1}^{Nf{p}} $ and $ \varphi_{i} \in X_{n} \ ; \ \varphi_{i} (P_{j}) = \delta_{ij} = \begin{cases}
 1 & i=j \\ 0 & i \neq j
 \end{cases} $.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.55\linewidth]{picture/implement}
+	\caption{}
+	\label{fig:implement}
+\end{figure}
+
 
 For $ x = (x_1,x_2) \in \mathbb{R}^2 \text{ and } \forall v_h \in X_h $, we will have
 \begin{eqnarray} \nonumber
@@ -495,12 +556,20 @@ with
 
 \subsubsection{Other calculation}
 For any points $ P_{i}(x_{1},x_{2}) $ in triangle $ K $,
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\linewidth]{picture/triangle}
+	\caption{}
+	\label{fig:triangle}
+\end{figure}
+
 \[ \varphi_{i}(x) = c_{0} + c_{1}x_{1} +  c_{2}x_{2}, \ c_{j} \in \mathbb{R} \]
 such that
 \[ \nabla \varphi_{i}(x) = \begin{pmatrix}
 c_{1} \\ c_{2}
 \end{pmatrix}.  \]
 To compute the triangle area $ \int_{K_{k}} 1 \ dx $,
+
 
 \subsection{5 January 2018 (Error Estimate)}
 \subsubsection{Norm}
@@ -512,6 +581,13 @@ In this problem we set $ f(x) = -\nabla u(x) = 2 \pi^2(sin(x\pi)sin(y\pi))$ with
 & v & \mapsto \Pi_{h}v
 \end{eqnarray}
 such that $ (\Pi_{h}v)(P) := v(P) $, $ P $ is nodes.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/grafik1}
+	\caption{}
+	\label{fig:grafik1}
+\end{figure}
 
 \subsubsection{$ L^2(\Omega) $ norm}
 \begin{eqnarray}\nonumber
@@ -581,6 +657,14 @@ M = \begin{pmatrix}
 In our problem, we need to find $ \Vert v_{h} \Vert_{L^2(\Omega)} = \Vert u_{h} - \Pi_{h}u_{e} \Vert_{L^2(\Omega)} $. Then we subtitute
 \[ v_{h}(P) = u_{h}(P) - u_{e}(P) \]
 for every point $ P $.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/grafik2}
+	\caption{}
+	\label{fig:grafik2}
+\end{figure}
+
 
 \subsubsection{$ H_{0}^{1}(\Omega) $ norm}
 \begin{eqnarray} \nonumber

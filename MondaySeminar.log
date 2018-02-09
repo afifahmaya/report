@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/MacPorts 2017_1) (preloaded format=pdflatex 2017.10.6)  9 FEB 2018 18:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/MacPorts 2017_1) (preloaded format=pdflatex 2017.10.6)  9 FEB 2018 19:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -314,17 +314,80 @@ Package pdftex.def Info: "picture/triangular format".png used on input line 49.
 
 (pdftex.def)             Requested size: 156.49014pt x 156.49738pt.
  [3 <./picture/triangular format.png>]
-[4] [5] [6]
-Overfull \hbox (29.82463pt too wide) in alignment at lines 209--218
+<picture/example1.png, id=23, 426.8748pt x 426.8748pt>
+File: picture/example1.png Graphic file (type png)
+
+<use picture/example1.png>
+Package pdftex.def Info: picture/example1.png used on input line 94.
+(pdftex.def)             Requested size: 134.75047pt x 134.75287pt.
+
+<picture/example2.png, id=24, 407.121pt x 407.121pt>
+File: picture/example2.png Graphic file (type png)
+
+<use picture/example2.png>
+Package pdftex.def Info: picture/example2.png used on input line 109.
+(pdftex.def)             Requested size: 134.75047pt x 134.74792pt.
+ [4 <./picture/example1.png> <./picture/example2.png>] <picture/example2-2.png,
+ id=30, 407.121pt x 407.121pt>
+File: picture/example2-2.png Graphic file (type png)
+
+<use picture/example2-2.png>
+Package pdftex.def Info: picture/example2-2.png used on input line 118.
+(pdftex.def)             Requested size: 182.09764pt x 182.09698pt.
+
+<picture/strongformdomain.png, id=31, 302.0886pt x 302.0886pt>
+File: picture/strongformdomain.png Graphic file (type png)
+
+<use picture/strongformdomain.png>
+Package pdftex.def Info: picture/strongformdomain.png used on input line 135.
+(pdftex.def)             Requested size: 145.67589pt x 145.67847pt.
+ [5 <./picture/example2-2.png> <./picture/strongformdomain.png>] <picture/stron
+gproblem.png, id=38, 327.624pt x 327.624pt>
+File: picture/strongproblem.png Graphic file (type png)
+
+<use picture/strongproblem.png>
+Package pdftex.def Info: picture/strongproblem.png used on input line 190.
+(pdftex.def)             Requested size: 182.09764pt x 182.10341pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6] [7 <./picture/strongproblem.png>]
+<picture/reasonIn1D.png, id=49, 350.7504pt x 350.2686pt>
+File: picture/reasonIn1D.png Graphic file (type png)
+
+<use picture/reasonIn1D.png>
+Package pdftex.def Info: picture/reasonIn1D.png used on input line 234.
+(pdftex.def)             Requested size: 182.09764pt x 181.85211pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (29.82463pt too wide) in alignment at lines 241--250
  [][][] []
  []
 
-[7]
+[8] [9 <./picture/reasonIn1D.png>]
 Missing character: There is no ã in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no € in font cmr10!
- [8] [9]
-Overfull \hbox (6.84967pt too wide) detected at line 282
+
+<picture/casepict.png, id=57, 321.8424pt x 321.8424pt>
+File: picture/casepict.png Graphic file (type png)
+
+<use picture/casepict.png>
+Package pdftex.def Info: picture/casepict.png used on input line 298.
+(pdftex.def)             Requested size: 182.09764pt x 182.10156pt.
+ [10]
+<picture/eachtriangle.png, id=61, 321.8424pt x 321.8424pt>
+File: picture/eachtriangle.png Graphic file (type png)
+
+<use picture/eachtriangle.png>
+Package pdftex.def Info: picture/eachtriangle.png used on input line 316.
+(pdftex.def)             Requested size: 145.67589pt x 145.67732pt.
+ [11 <./picture/casepict.png> <./picture/eachtriangle.png>]
+Overfull \hbox (6.84967pt too wide) detected at line 325
 \OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 ) \OMS
 /cmsy/m/n/10 ^^Q f\OML/cmm/m/it/10 v[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 V\OT
 1/cmr/m/n/10 (\OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 );  \OML/cmm/m/it/10 v[]\OT1/
@@ -335,52 +398,114 @@ msy/m/n/10 2 \U/msb/m/n/10 R\OML/cmm/m/it/10 ;  '[][]\OMS/cmsy/m/n/10 g\OML/cmm
 L/cmm/m/it/10 :
  []
 
-[10] [11] [12] [13] [14]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 450.
+<picture/problem.png, id=67, 230.7822pt x 230.7822pt>
+File: picture/problem.png Graphic file (type png)
+
+<use picture/problem.png>
+Package pdftex.def Info: picture/problem.png used on input line 332.
+(pdftex.def)             Requested size: 182.09764pt x 182.0976pt.
+
+<picture/labelPict.png, id=68, 328.1058pt x 328.1058pt>
+File: picture/labelPict.png Graphic file (type png)
+
+<use picture/labelPict.png>
+Package pdftex.def Info: picture/labelPict.png used on input line 340.
+(pdftex.def)             Requested size: 193.02306pt x 193.02502pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<picture/trianglePict.png, id=69, 407.6028pt x 398.6895pt>
+File: picture/trianglePict.png Graphic file (type png)
+
+<use picture/trianglePict.png>
+Package pdftex.def Info: picture/trianglePict.png used on input line 346.
+(pdftex.def)             Requested size: 254.9356pt x 249.36282pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12 <./picture/problem.png>]
+Overfull \vbox (43.04929pt too high) has occurred while \output is active []
+
+
+[13 <./picture/labelPict.png> <./picture/trianglePict.png>] [14]
+<picture/implement.png, id=84, 284.7438pt x 284.7438pt>
+File: picture/implement.png Graphic file (type png)
+
+<use picture/implement.png>
+Package pdftex.def Info: picture/implement.png used on input line 433.
+(pdftex.def)             Requested size: 200.30852pt x 200.31427pt.
+ [15 <./picture/implement.png>] [16]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 511.
 
 
 (/opt/local/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 450.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 511.
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--473
+Underfull \hbox (badness 10000) in paragraph at lines 519--534
 
  []
 
-[15] [16]
-Overfull \hbox (36.83897pt too wide) in alignment at lines 517--572
+[17] <picture/triangle.png, id=96, 264.99pt x 264.99pt>
+File: picture/triangle.png Graphic file (type png)
+
+<use picture/triangle.png>
+Package pdftex.def Info: picture/triangle.png used on input line 561.
+(pdftex.def)             Requested size: 218.5194pt x 218.5224pt.
+ [18] [19 <./picture/triangle.png>]
+<picture/grafik1.png, id=105, 408.5664pt x 408.8073pt>
+File: picture/grafik1.png Graphic file (type png)
+
+<use picture/grafik1.png>
+Package pdftex.def Info: picture/grafik1.png used on input line 587.
+(pdftex.def)             Requested size: 254.9356pt x 255.08598pt.
+
+Overfull \hbox (36.83897pt too wide) in alignment at lines 593--648
  [][][] []
  []
 
-[17] [18] [19] (./MondaySeminar.aux) ) 
+[20 <./picture/grafik1.png>]
+<picture/grafik2.png, id=110, 663.4386pt x 405.1938pt>
+File: picture/grafik2.png Graphic file (type png)
+
+<use picture/grafik2.png>
+Package pdftex.def Info: picture/grafik2.png used on input line 663.
+(pdftex.def)             Requested size: 254.9356pt x 155.70023pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[21] [22 <./picture/grafik2.png>] (./MondaySeminar.aux) ) 
 Here is how much of TeX's memory you used:
- 2881 strings out of 492995
- 39671 string characters out of 6134533
- 119481 words of memory out of 5000000
- 6383 multiletter control sequences out of 15000+600000
+ 2970 strings out of 492995
+ 41682 string characters out of 6134533
+ 120617 words of memory out of 5000000
+ 6458 multiletter control sequences out of 15000+600000
  7822 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,13n,31p,638b,182s stack positions out of 5000i,500n,10000p,200000b,80000s
-</opt/local/share/texmf-texlive/fonts/typ
-e1/public/amsfonts/cm/cmbx10.pfb></opt/local/share/texmf-texlive/fonts/type1/pu
-blic/amsfonts/cm/cmbx12.pfb></opt/local/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmex10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/c
-m/cmmi5.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi
-7.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr5.pfb></opt/l
-ocal/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></opt/local/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></opt/local/share/t
-exmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></opt/local/share/texmf-t
-exlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></opt/local/share/texmf-texliv
-e/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/local/share/texmf-texliv
-e/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MondaySeminar.pdf (19 pages, 204526 bytes).
+ 39i,13n,31p,638b,238s stack positions out of 5000i,500n,10000p,200000b,80000s
+</opt/local/share/texm
+f-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/local/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmbx12.pfb></opt/local/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/local/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmmi10.pfb></opt/local/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmmi5.pfb></opt/local/share/texmf-texlive/fonts/type1/publ
+ic/amsfonts/cm/cmmi7.pfb></opt/local/share/texmf-texlive/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/
+cm/cmr5.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7
+.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></opt/
+local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></opt/local
+/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/local
+/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on MondaySeminar.pdf (22 pages, 954717 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
+ 163 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
