@@ -4,7 +4,6 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{color}
-\usepackage{listings}
 \usepackage{graphicx}
 \usepackage{wrapfig}
 
@@ -167,8 +166,8 @@ where $ f : \Omega \rightarrow \mathbb{R} $ , $ g_{0} : \Gamma_{0} \rightarrow \
 \vspace{4cm}
 
 \begin{eqnarray}\nonumber
-\Omega &\subset &\mathbb{R^2} \\ \nonumber
-n &: \partial \Omega &\rightarrow \mathbb{R^2} \\ \nonumber
+\Omega &\subset &\mathbb{R}^2 \\ \nonumber
+n &: \partial \Omega &\rightarrow \mathbb{R}^2 \\ \nonumber
 &x &\mapsto n(x)
 \end{eqnarray}
 
@@ -447,9 +446,149 @@ A_{ij} &=& a(\varphi_{j}, \varphi_{i}) \\ \nonumber
 &=& \sum_{k=1}^{Ne} \int_{K_{k}} \nabla \varphi_{j}(x) \cdot \nabla \varphi_{i}(x) \ dx \\ \nonumber
 &=& \sum_{k=1}^{Ne} \int_{K_{k}} 1 \ dx \ \big( \nabla \varphi_{j}(x) \cdot \nabla \varphi_{i}(x)\big).
 \end{eqnarray}
-To calculate it, usually we need $ N^3 $ computation for code like
-\begin{lstlisting}
-for $ i=1, \cdot, N $ do
-\end{lstlisting}
-	
+To calculate it, usually we need $ N^3 $ computation for code like \\
+\textgreater \hspace{1cm} for $ i=1, \dots, Np \  \{$ \\
+\textgreater \hspace{1.5cm} for $ j=1, \dots , Np  \ \{$\\
+\textgreater \hspace{2cm} for $ k=1, \dots, Ne \ \{ $  \\
+\textgreater \hspace{2.5cm} $ A_{ij} = A_{ij} + \int_{K_{k}} \nabla\varphi_{j}(x) \cdot \nabla \varphi_{i}(x) dx $\\
+\textgreater \hspace{2cm} $ \} $ \\
+\textgreater \hspace{1.5cm} $ \} $ \\
+\textgreater \hspace{1cm} $ \} $
+
+But, we can simplify it into $ N^2 $ computation using local matrix and global matrix as shown below.\\
+\textgreater \hspace{1cm} for $ k=1, \dots, Ne \ \{$\\
+\textgreater \hspace{1.5cm} (local matrix)\\
+\textgreater \hspace{1.5cm} $ A_{11}^{k} = \int_{K_{k}} \nabla \varphi_{1}(x) \cdot \varphi_{1}(x) \ dx $ \\
+\textgreater \hspace{1.5cm} $ A_{12}^{k} = \int_{K_{k}} \nabla \varphi_{2}(x) \cdot \varphi_{1}(x) \ dx $ \\
+\textgreater \hspace{3.5cm} $ \vdots $ \\
+\textgreater \hspace{1.5cm} $ A_{33}^{k} = \int_{K_{k}} \nabla \varphi_{3}(x) \cdot \varphi_{3}(x) \ dx $ \\
+\textgreater \hspace{1.5cm} (global matrix) \\
+\textgreater \hspace{1.5cm} $ A_{44}= A_{44} + A_{11}^{k}$ \\
+\textgreater \hspace{1.5cm} $ A_{47}= A_{47} + A_{12}^{k}$ \\
+\textgreater \hspace{2.5cm} $ \vdots $ \\
+\textgreater \hspace{1.5cm} $ A_{73}= A_{73} + A_{23}^{k}$ \\
+\textgreater \hspace{2.5cm} $ \vdots $ \\
+\textgreater \hspace{1.5cm} $ A_{33}= A_{33} + A_{33}^{k}$ \\
+\textgreater \hspace{1cm} $ \}$ \\
+
+\subsubsection{Calculate vector $ \mathbf{B} $}
+\begin{eqnarray} \nonumber
+b_{i} &=& \int_{\Omega} f(x) \varphi_{i}(x) \ dx - \sum_{j=1}^{Np} g_{h}(P_{j}) \int_{\Omega} \nabla \varphi_{j}(x) \cdot \nabla \varphi_{i}(x) \ dx \\ \nonumber
+&=& \sum_{k=1}^{Ne} \int_{K_{k}} f(x) \varphi_{i}(x) \ dx - \sum_{j=1}^{Np} g_{h}(P_{j}) \sum_{k=1}^{Ne} \int_{K_{k}} \nabla \varphi_{j}(x) \cdot \nabla \varphi_{i}(x) \ dx
+\end{eqnarray}
+Consider $ g_{h}(P_{j}) = 0 $, with $ f_{h}(x) = \sum_{j=1}^{Np} f(P_{j})\varphi_{j}(x) $ then for each element,
+\begin{eqnarray} \nonumber
+b_{i} &=& b_{i} + \int_{K_{k}} f(x) \varphi_{i}(x) \ dx \\ \nonumber
+&=& b_{i} + \int_{K_{k}} \Big( f(P_{1}) \varphi_{1}(x) + f(P_{2}) \varphi_{2}(x) + f(P_{3}) \varphi_{3}(x) \Big) \varphi_{i}(x) \ dx \\ \nonumber
+&=& b_{i} + \int_{K_{k}} f(P_{1}) \varphi_{1}(x) \cdot \varphi_{i}(x) + f(P_{2}) \varphi_{2}(x) \cdot \varphi_{i}(x) + f(P_{3}) \varphi_{3}(x) \cdot \varphi_{i}(x) \ dx \\ \nonumber
+&=& b_{i} + f(P_{1}) \int_{K_{k}} \varphi_{1}(x) \cdot \varphi_{i}(x) \ dx + f(P_{2}) \int_{K_{k}} \varphi_{2}(x) \cdot \varphi_{i}(x) \ dx + \\ \nonumber
+& & f(P_{3}) \int_{K_{k}} \varphi_{3}(x) \cdot \varphi_{i}(x) \ dx
+\end{eqnarray}
+with
+\[  \int_{K_{k}} \varphi_{i}(x) \varphi_{j}(x) = \begin{cases}
+\dfrac{meas(K_{k})}{6}, & for \ i=j \\
+\dfrac{meas(K_{k})}{12}, & for \ i \neq j 
+\end{cases} \]
+
+
+(way to calculate in program)
+
+\subsubsection{Other calculation}
+For any points $ P_{i}(x_{1},x_{2}) $ in triangle $ K $,
+\[ \varphi_{i}(x) = c_{0} + c_{1}x_{1} +  c_{2}x_{2}, \ c_{j} \in \mathbb{R} \]
+such that
+\[ \nabla \varphi_{i}(x) = \begin{pmatrix}
+c_{1} \\ c_{2}
+\end{pmatrix}.  \]
+To compute the triangle area $ \int_{K_{k}} 1 \ dx $,
+
+\subsection{5 January 2018 (Error Estimate)}
+\subsubsection{Norm}
+After find the solution $ u(x) $, we should check if the solution we found is close enough to the exact solution. For numerical solution $ u_{h} $, we check for $ h = \dfrac{1}{N} $ where $ N $  or devider of each boundary side is set to $ N = 4,8,16,32 $.
+
+In this problem we set $ f(x) = -\nabla u(x) = 2 \pi^2(sin(x\pi)sin(y\pi))$ with exact solution $ u_{e}(x) = sin(x\pi)sin(y\pi) $. We want to calculate $ \Vert u_{h}-\Pi_{h}u_{e} \Vert_{X} ,s \ X = L^2(\Omega), H_{0}^{1}(\Omega)$. Here, $ \Pi_{h} $ is function that mapping continuous function $ C(\bar{\Omega}) $ into piecewise linear finite element space.
+\begin{eqnarray}\nonumber
+\Pi_{h} : & C(\bar{\Omega}) & \rightarrow P1-FEsp \\ \nonumber
+& v & \mapsto \Pi_{h}v
+\end{eqnarray}
+such that $ (\Pi_{h}v)(P) := v(P) $, $ P $ is nodes.
+
+\subsubsection{$ L^2(\Omega) $ norm}
+\begin{eqnarray}\nonumber
+\Vert v_{h} \Vert_{L^2(\Omega)} &=& \sqrt{\int_{\Omega} \big(v_{h}(x)\big)^2 \ dx} \\ \nonumber
+&=& \sqrt{ \sum_{K} \int_{K} \big(v_{h}(x)\big)^2 \ dx} \\ \nonumber
+&=& \sqrt{ \sum_{K} \int_{K} \big( v_{i}\varphi_{i}^{(K)}(x) + v_{j}\varphi_{j}^{(K)}(x) + v_{k}\varphi_{k}^{(K)}(x) \big)^2 \ dx} \\ \nonumber
+&=& \sqrt{ \sum_{K} \int_{K} \Big(
+	\begin{pmatrix}
+	v_{i} & v_{j} & v_{k}
+	\end{pmatrix}
+	\begin{pmatrix}
+	\varphi_{i}^{(K)}(x) \\ \varphi_{j}^{(K)}(x) \\ \varphi_{k}^{(K)}(x) 
+	\end{pmatrix}
+	\Big)^2 \ dx} \\\ \nonumber
+&=& \sqrt{ \sum_{K} \int_{K}
+	\begin{pmatrix}
+	v_{i} & v_{j} & v_{k}
+	\end{pmatrix}
+	\begin{pmatrix}
+	\varphi_{i}^{(K)}(x) \\ \varphi_{j}^{(K)}(x) \\ \varphi_{k}^{(K)}(x) 
+	\end{pmatrix}
+	\begin{pmatrix}
+	\varphi_{i}^{(K)}(x) & \varphi_{j}^{(K)}(x) & \varphi_{k}^{(K)}(x) 
+	\end{pmatrix}
+	\begin{pmatrix}
+	v_{i} \\ v_{j} \\ v_{k}
+	\end{pmatrix} \ dx} \\ \nonumber
+&=& \sqrt{ \sum_{K}
+	\begin{pmatrix}
+	v_{i} & v_{j} & v_{k}
+	\end{pmatrix}
+	\int_{K}
+	\begin{pmatrix}
+	\varphi_{i}^{(K)}\cdot\varphi_{i}^{(K)} & \varphi_{i}^{(K)}\cdot\varphi_{j}^{(K)} & \varphi_{i}^{(K)}\cdot\varphi_{k}^{(K)} \\ \varphi_{j}^{(K)}\cdot\varphi_{i}^{(K)} & \varphi_{j}^{(K)}\cdot\varphi_{j}^{(K)} & \varphi_{j}^{(K)}\cdot\varphi_{k}^{(K)}  \\ \varphi_{k}^{(K)}\cdot\varphi_{i}^{(K)} & \varphi_{k}^{(K)}\cdot\varphi_{j}^{(K)} & \varphi_{k}^{(K)}\cdot\varphi_{k}^{(K)} 
+	\end{pmatrix}
+	\ dx
+	\begin{pmatrix}
+	v_{i} \\ v_{j} \\ v_{k}
+	\end{pmatrix}} \\ \nonumber
+&=& \sqrt{ \sum_{K}
+	\begin{pmatrix}
+	v_{i} & v_{j} & v_{k}
+	\end{pmatrix}
+	\dfrac{\vert K \vert}{12}
+	\begin{pmatrix}
+	2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2
+	\end{pmatrix}
+	\begin{pmatrix}
+	v_{i} \\ v_{j} \\ v_{k}
+	\end{pmatrix}} \\ \nonumber
+&=& \sqrt{ \sum_{K}
+	\dfrac{\vert K \vert}{12}
+	\begin{pmatrix}
+	2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2
+	\end{pmatrix}
+	v^{T} \cdot M \cdot v
+	}
+\end{eqnarray}
+with
+\[ v = \begin{pmatrix}
+v_{i} \\ v_{j} \\ v_{k}
+\end{pmatrix} \hspace{2cm}
+M = \begin{pmatrix}
+2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2
+\end{pmatrix}  \]
+
+In our problem, we need to find $ \Vert v_{h} \Vert_{L^2(\Omega)} = \Vert u_{h} - \Pi_{h}u_{e} \Vert_{L^2(\Omega)} $. Then we subtitute
+\[ v_{h}(P) = u_{h}(P) - u_{e}(P) \]
+for every point $ P $.
+
+\subsubsection{$ H_{0}^{1}(\Omega) $ norm}
+\begin{eqnarray} \nonumber
+\Vert v_{h} \Vert_{H_1^0(\Omega)} &=& \sqrt{\int_{\Omega} \nabla v_{h}(x) \cdot \nabla v_{h}(x) \ dx} \\ \nonumber
+&=& \sqrt{\int_{\Omega} \vert \nabla v_{h}(x) \vert^{2} \ dx} \\ \nonumber
+&=& \sqrt{\sum_{K} \vert \nabla v_{h}|_{K} (x) \vert^{2} \vert K \vert}
+\end{eqnarray}
+with $ \nabla v_{h}|_{K}(x) $ does not depend on $ x $
+\[ \nabla v_{h}|_{K}(x) = v_{i} \begin{pmatrix} c_{1}^{(i)}\\ c_{2}^{(i)} \end{pmatrix} + v_{j} \begin{pmatrix} c_{1}^{(j)}\\ c_{2}^{(j)} \end{pmatrix} + v_{k} \begin{pmatrix} c_{1}^{(i)}\\ c_{2}^{(i)} \end{pmatrix}\] 
+
 \end{document}
