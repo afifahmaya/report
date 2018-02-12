@@ -1,14 +1,16 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/MacPorts 2017_1) (preloaded format=pdflatex 2017.10.6)  10 FEB 2018 09:18
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2018.2.12)  12 FEB 2018 10:39
+>>>>>>> 34b99cdf8900eaa05a77ebc1cecc0c5b490fc96c
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
 **MondaySeminar.tex
-(./MondaySeminar.tex
-LaTeX2e <2017-04-15>
-Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
-(/opt/local/share/texmf-texlive/tex/latex/base/article.cls
+(MondaySeminar.tex
+LaTeX2e <2014/05/01>
+Babel <3.9l> and hyphenation patterns for 68 languages loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/opt/local/share/texmf-texlive/tex/latex/base/size10.clo
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -23,21 +25,22 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/opt/local/share/texmf-texlive/tex/latex/geometry/geometry.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-(/opt/local/share/texmf-texlive/tex/latex/graphics/keyval.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/opt/local/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-(/opt/local/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-(/opt/local/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count87
@@ -52,42 +55,43 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layouthoffset=\dimen109
 \Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks15
-)
-(/opt/local/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2016/11/05 v2.16a AMS math features
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(/opt/local/share/texmf-texlive/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01 AMS text
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01
 
-(/opt/local/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0 generic functions
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks16
 \ex@=\dimen111
 ))
-(/opt/local/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen112
 )
-(/opt/local/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2016/03/08 v2.02 operator names
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count90
-LaTeX Info: Redefining \frac on input line 213.
+LaTeX Info: Redefining \frac on input line 210.
 \uproot@=\count91
 \leftroot@=\count92
-LaTeX Info: Redefining \overline on input line 375.
+LaTeX Info: Redefining \overline on input line 306.
 \classnum@=\count93
 \DOTSCASE@=\count94
-LaTeX Info: Redefining \ldots on input line 472.
-LaTeX Info: Redefining \dots on input line 475.
-LaTeX Info: Redefining \cdots on input line 596.
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
 \big@size=\dimen113
-LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \macc@depth=\count95
 \c@MaxMatrixCols=\count96
 \dotsspace@=\muskip10
@@ -108,11 +112,11 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \multlinegap=\skip44
 \multlinetaggap=\skip45
 \mathdisplay@stack=\toks20
-LaTeX Info: Redefining \[ on input line 2817.
-LaTeX Info: Redefining \] on input line 2818.
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
 )
-(/opt/local/share/texmf-texlive/tex/latex/amscls/amsthm.sty
-Package: amsthm 2015/03/04 v2.20.2
+("C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
+Package: amsthm 2009/07/02 v2.20.1
 \thm@style=\toks21
 \thm@bodyfont=\toks22
 \thm@headfont=\toks23
@@ -123,50 +127,50 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@headsep=\skip48
 \dth@everypar=\toks26
 )
-(/opt/local/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
-(/opt/local/share/texmf-texlive/tex/latex/graphics/color.sty
-Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
 
-(/opt/local/share/texmf-texlive/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: pdftex.def on input line 147.
+Package color Info: Driver file: pdftex.def on input line 137.
 
-(/opt/local/share/texmf-texlive/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(/opt/local/share/texmf-texlive/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(/opt/local/share/texmf-texlive/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count102
 ))
-(/opt/local/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/opt/local/share/texmf-texlive/tex/latex/graphics/graphics.sty
-Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
-(/opt/local/share/texmf-texlive/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/opt/local/share/texmf-texlive/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 )
 \Gin@req@height=\dimen120
 \Gin@req@width=\dimen121
 )
-(/opt/local/share/texmf-texlive/tex/latex/wrapfig/wrapfig.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\wrapfig\wrapfig.sty"
 \wrapoverhang=\dimen122
 \WF@size=\dimen123
 \c@WF@wrappedlines=\count103
@@ -177,9 +181,7 @@ Package: wrapfig 2003/01/31  v 3.6
 \c@remark=\count104
 \c@prop=\count105
 
-(./MondaySeminar.aux)
-\openout1 = `MondaySeminar.aux'.
-
+(MondaySeminar.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
@@ -197,19 +199,19 @@ LaTeX Font Info:    ... okay on input line 13.
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
-* paper: a5paper
+* paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(28.45274pt, 364.1953pt, 28.45274pt)
-* v-part:(T,H,B)=(28.45274pt, 540.60239pt, 28.45274pt)
-* \paperwidth=421.10078pt
-* \paperheight=597.50787pt
-* \textwidth=364.1953pt
-* \textheight=540.60239pt
-* \oddsidemargin=-43.81725pt
-* \evensidemargin=-43.81725pt
-* \topmargin=-80.81725pt
+* h-part:(L,W,R)=(42.67912pt, 512.14963pt, 42.67912pt)
+* v-part:(T,H,B)=(42.67912pt, 759.6886pt, 42.67912pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=512.14963pt
+* \textheight=759.6886pt
+* \oddsidemargin=-29.59087pt
+* \evensidemargin=-29.59087pt
+* \topmargin=-66.59087pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -227,7 +229,7 @@ LaTeX Font Info:    ... okay on input line 13.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/opt/local/share/texmf-texlive/tex/context/base/mkii/supp-pdf.mkii
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count106
 \scratchdimen=\dimen124
@@ -240,73 +242,27 @@ LaTeX Font Info:    ... okay on input line 13.
 \MPnumerator=\count110
 \makeMPintoPDFobject=\count111
 \everyMPtoPDFconversion=\toks29
-) (/opt/local/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
-
-(/opt/local/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/opt/local/share/texmf-texlive/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-(/opt/local/share/texmf-texlive/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-
-(/opt/local/share/texmf-texlive/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-))
-(/opt/local/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-(/opt/local/share/texmf-texlive/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-(/opt/local/share/texmf-texlive/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
-
-(/opt/local/share/texmf-texlive/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 19.
-
-(/opt/local/share/texmf-texlive/tex/latex/base/omscmr.fd
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 19.
  [1
 
-{/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Try loading font information for U+msa on input line 34.
 
-(/opt/local/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 34.
 
-(/opt/local/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2]
-<"picture/triangular format".png, id=15, 215.1237pt x 215.1237pt>
+<"picture/triangular format".png, id=14, 215.1237pt x 215.1237pt>
 File: "picture/triangular format".png Graphic file (type png)
 
 <use "picture/triangular format".png>
@@ -314,133 +270,116 @@ Package pdftex.def Info: "picture/triangular format".png used on input line 49.
 
 (pdftex.def)             Requested size: 156.49014pt x 156.49738pt.
  [3 <./picture/triangular format.png>]
-<picture/example1.png, id=23, 426.8748pt x 426.8748pt>
+<picture/example1.png, id=22, 426.8748pt x 426.8748pt>
 File: picture/example1.png Graphic file (type png)
 
 <use picture/example1.png>
 Package pdftex.def Info: picture/example1.png used on input line 94.
-(pdftex.def)             Requested size: 134.75047pt x 134.75287pt.
+(pdftex.def)             Requested size: 189.49286pt x 189.49297pt.
 
-<picture/example2.png, id=24, 407.121pt x 407.121pt>
+<picture/example2.png, id=23, 407.121pt x 407.121pt>
 File: picture/example2.png Graphic file (type png)
 
 <use picture/example2.png>
 Package pdftex.def Info: picture/example2.png used on input line 109.
-(pdftex.def)             Requested size: 134.75047pt x 134.74792pt.
+(pdftex.def)             Requested size: 189.49286pt x 189.49567pt.
  [4 <./picture/example1.png> <./picture/example2.png>] <picture/example2-2.png,
- id=30, 407.121pt x 407.121pt>
+ id=29, 407.121pt x 407.121pt>
 File: picture/example2-2.png Graphic file (type png)
 
 <use picture/example2-2.png>
 Package pdftex.def Info: picture/example2-2.png used on input line 118.
-(pdftex.def)             Requested size: 182.09764pt x 182.09698pt.
+(pdftex.def)             Requested size: 256.07481pt x 256.09001pt.
 
-<picture/strongformdomain.png, id=31, 302.0886pt x 302.0886pt>
+<picture/strongformdomain.png, id=30, 302.0886pt x 302.0886pt>
 File: picture/strongformdomain.png Graphic file (type png)
 
 <use picture/strongformdomain.png>
 Package pdftex.def Info: picture/strongformdomain.png used on input line 135.
-(pdftex.def)             Requested size: 145.67589pt x 145.67847pt.
+(pdftex.def)             Requested size: 204.85672pt x 204.85977pt.
  [5 <./picture/example2-2.png> <./picture/strongformdomain.png>] <picture/stron
 gproblem.png, id=38, 327.624pt x 327.624pt>
 File: picture/strongproblem.png Graphic file (type png)
 
 <use picture/strongproblem.png>
 Package pdftex.def Info: picture/strongproblem.png used on input line 190.
-(pdftex.def)             Requested size: 182.09764pt x 182.10341pt.
+(pdftex.def)             Requested size: 256.07481pt x 256.09558pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6] [7 <./picture/strongproblem.png>]
-<picture/reasonIn1D.png, id=49, 350.7504pt x 350.2686pt>
+[6] <picture/reasonIn1D.png, id=43, 350.7504pt x 350.2686pt>
 File: picture/reasonIn1D.png Graphic file (type png)
 
 <use picture/reasonIn1D.png>
 Package pdftex.def Info: picture/reasonIn1D.png used on input line 234.
-(pdftex.def)             Requested size: 182.09764pt x 181.85211pt.
+(pdftex.def)             Requested size: 256.07481pt x 255.74205pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Overfull \hbox (29.82463pt too wide) in alignment at lines 241--250
- [][][] []
- []
-
-[8] [9 <./picture/reasonIn1D.png>]
+[7 <./picture/strongproblem.png>]
 Missing character: There is no ã in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no € in font cmr10!
-
-<picture/casepict.png, id=57, 321.8424pt x 321.8424pt>
+ [8 <./picture/reasonIn1D.png>]
+<picture/casepict.png, id=53, 321.8424pt x 321.8424pt>
 File: picture/casepict.png Graphic file (type png)
 
 <use picture/casepict.png>
 Package pdftex.def Info: picture/casepict.png used on input line 298.
-(pdftex.def)             Requested size: 182.09764pt x 182.10156pt.
- [10]
-<picture/eachtriangle.png, id=61, 321.8424pt x 321.8424pt>
+(pdftex.def)             Requested size: 256.07481pt x 256.0943pt.
+ [9 <./picture/casepict.png>]
+<picture/eachtriangle.png, id=58, 321.8424pt x 321.8424pt>
 File: picture/eachtriangle.png Graphic file (type png)
 
 <use picture/eachtriangle.png>
 Package pdftex.def Info: picture/eachtriangle.png used on input line 316.
-(pdftex.def)             Requested size: 145.67589pt x 145.67732pt.
- [11 <./picture/casepict.png> <./picture/eachtriangle.png>]
-Overfull \hbox (6.84967pt too wide) detected at line 325
-\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 ) \OMS
-/cmsy/m/n/10 ^^Q f\OML/cmm/m/it/10 v[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 V\OT
-1/cmr/m/n/10 (\OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 );  \OML/cmm/m/it/10 v[]\OT1/
-cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = [] \OML/cmm/m/it/10 c[]'[]\OT
-1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  c[] \OMS/c
-msy/m/n/10 2 \U/msb/m/n/10 R\OML/cmm/m/it/10 ;  '[][]\OMS/cmsy/m/n/10 g\OML/cmm
-/m/it/10 ;  V[] \OMS/cmsy/m/n/10 ^^Q \OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (0)\OM
-L/cmm/m/it/10 :
- []
+(pdftex.def)             Requested size: 204.85672pt x 204.86365pt.
 
-<picture/problem.png, id=67, 230.7822pt x 230.7822pt>
+<picture/problem.png, id=59, 230.7822pt x 230.7822pt>
 File: picture/problem.png Graphic file (type png)
 
 <use picture/problem.png>
 Package pdftex.def Info: picture/problem.png used on input line 332.
-(pdftex.def)             Requested size: 182.09764pt x 182.0976pt.
+(pdftex.def)             Requested size: 256.07481pt x 256.07266pt.
 
-<picture/labelPict.png, id=68, 328.1058pt x 328.1058pt>
+<picture/labelPict.png, id=60, 328.1058pt x 328.1058pt>
 File: picture/labelPict.png Graphic file (type png)
 
 <use picture/labelPict.png>
 Package pdftex.def Info: picture/labelPict.png used on input line 340.
-(pdftex.def)             Requested size: 193.02306pt x 193.02502pt.
+(pdftex.def)             Requested size: 271.43867pt x 271.4466pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<picture/trianglePict.png, id=69, 407.6028pt x 398.6895pt>
+<picture/trianglePict.png, id=61, 407.6028pt x 398.6895pt>
 File: picture/trianglePict.png Graphic file (type png)
 
 <use picture/trianglePict.png>
 Package pdftex.def Info: picture/trianglePict.png used on input line 346.
-(pdftex.def)             Requested size: 254.9356pt x 249.36282pt.
+(pdftex.def)             Requested size: 358.50317pt x 350.66533pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12 <./picture/problem.png>]
-Overfull \vbox (43.04929pt too high) has occurred while \output is active []
+[10 <./picture/eachtriangle.png> <./picture/problem.png>]
+Overfull \vbox (4.6034pt too high) has occurred while \output is active []
 
 
-[13 <./picture/labelPict.png> <./picture/trianglePict.png>] [14]
-<picture/implement.png, id=84, 284.7438pt x 284.7438pt>
+[11 <./picture/labelPict.png> <./picture/trianglePict.png>]
+<picture/implement.png, id=71, 284.7438pt x 284.7438pt>
 File: picture/implement.png Graphic file (type png)
 
 <use picture/implement.png>
 Package pdftex.def Info: picture/implement.png used on input line 433.
-(pdftex.def)             Requested size: 200.30852pt x 200.31427pt.
- [15 <./picture/implement.png>] [16]
+(pdftex.def)             Requested size: 281.68385pt x 281.70605pt.
+ [12] [13 <./picture/implement.png>]
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 511.
 
 
-(/opt/local/share/texmf-texlive/tex/latex/base/omlcmr.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
@@ -450,62 +389,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 519--534
 
  []
 
-[17] <picture/triangle.png, id=96, 264.99pt x 264.99pt>
+[14] <picture/triangle.png, id=86, 264.99pt x 264.99pt>
 File: picture/triangle.png Graphic file (type png)
 
 <use picture/triangle.png>
 Package pdftex.def Info: picture/triangle.png used on input line 561.
-(pdftex.def)             Requested size: 218.5194pt x 218.5224pt.
- [18] [19 <./picture/triangle.png>]
-<picture/grafik1.png, id=105, 408.5664pt x 408.8073pt>
+(pdftex.def)             Requested size: 307.2929pt x 307.31583pt.
+ [15]
+<picture/grafik1.png, id=90, 408.5664pt x 408.8073pt>
 File: picture/grafik1.png Graphic file (type png)
 
 <use picture/grafik1.png>
 Package pdftex.def Info: picture/grafik1.png used on input line 587.
-(pdftex.def)             Requested size: 254.9356pt x 255.08598pt.
-
-Overfull \hbox (36.83897pt too wide) in alignment at lines 593--648
- [][][] []
- []
-
-[20 <./picture/grafik1.png>]
-<picture/grafik2.png, id=110, 663.4386pt x 405.1938pt>
-File: picture/grafik2.png Graphic file (type png)
-
-<use picture/grafik2.png>
-Package pdftex.def Info: picture/grafik2.png used on input line 663.
-(pdftex.def)             Requested size: 254.9356pt x 155.70023pt.
+(pdftex.def)             Requested size: 358.50317pt x 358.71603pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[21] [22 <./picture/grafik2.png>] (./MondaySeminar.aux) ) 
+[16 <./picture/triangle.png>]
+Overfull \vbox (8.13313pt too high) has occurred while \output is active []
+
+
+[17 <./picture/grafik1.png>]
+<picture/grafik2.png, id=99, 663.4386pt x 405.1938pt>
+File: picture/grafik2.png Graphic file (type png)
+
+<use picture/grafik2.png>
+Package pdftex.def Info: picture/grafik2.png used on input line 663.
+(pdftex.def)             Requested size: 358.50317pt x 218.96214pt.
+ [18 <./picture/grafik2.png>] (MondaySeminar.aux) ) 
 Here is how much of TeX's memory you used:
- 2970 strings out of 492995
- 41682 string characters out of 6134533
- 120617 words of memory out of 5000000
- 6458 multiletter control sequences out of 15000+600000
- 7822 words of font info for 30 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 39i,13n,31p,638b,238s stack positions out of 5000i,500n,10000p,200000b,80000s
-</opt/local/share/texm
-f-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/local/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmbx12.pfb></opt/local/share/texmf-texlive/
-fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/local/share/texmf-texlive/fonts
-/type1/public/amsfonts/cm/cmmi10.pfb></opt/local/share/texmf-texlive/fonts/type
-1/public/amsfonts/cm/cmmi5.pfb></opt/local/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmmi7.pfb></opt/local/share/texmf-texlive/fonts/type1/public/ams
-fonts/cm/cmr10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/
-cm/cmr5.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7
-.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></opt/
-local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></opt/local
-/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.pfb></opt/local
-/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MondaySeminar.pdf (22 pages, 954717 bytes).
+ 2615 strings out of 493698
+ 34973 string characters out of 3144371
+ 108478 words of memory out of 3000000
+ 5904 multiletter control sequences out of 15000+200000
+ 7822 words of font info for 30 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 27i,13n,31p,638b,240s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/symbols/msbm7.pfb>
+Output written on MondaySeminar.pdf (18 pages, 997515 bytes).
 PDF statistics:
- 163 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
+ 148 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
