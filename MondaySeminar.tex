@@ -26,9 +26,8 @@
 	\item \textcolor{red}{.} : here
 	\item \textcolor{red}{cd ..} : back to previous
 \end{itemize}
-\newpage
-\section{Gnuplot}
 
+\section{Gnuplot}
 \subsection{16 October 2017}
 \subsubsection{Plot from terminal}
 $ \begin{cases}
@@ -43,7 +42,6 @@ $ \begin{cases}
 	\text{q \textcolor{red}{quit}}	
 \end{cases} $
 
-\newpage
 \subsubsection{Plot from file}
 \begin{wrapfigure}{r}{5.5cm}
 	\includegraphics[width=5.5cm]{"picture/triangular format"}
@@ -128,7 +126,7 @@ From file : \textbf{membrane.edp}. Find $ \phi : \Omega \rightarrow \mathbb{R} $
 \dfrac{\partial \phi}{\partial n} = 0 & \text{on } \Gamma_{2}
 \end{cases}
 \end{equation}
-where $ f : \Omega \rightarrow \mathbb{R} $, given $ f(x)=1 $ and $ z : \Gamma_{1} \rightarrow \mathbb{R} $, given $ z(x)=x_{1} $. The equation (\ref{prob1}) is called \textbf{strong form}, because it contain second derivative.
+where $ f : \Omega \rightarrow \mathbb{R} $, given $ f(x)=1 $ and $ z : \Gamma_{1} \rightarrow \mathbb{R} $, given $ z(x)=x_{1} $. The equation (\ref{prob1}) is called \textbf{strong form}, because it contains second derivative.
 
 \begin{figure}[h!]
 	\centering
@@ -137,7 +135,7 @@ where $ f : \Omega \rightarrow \mathbb{R} $, given $ f(x)=1 $ and $ z : \Gamma_{
 	\label{fig:strongformdomain}
 \end{figure}
 
-From equation (\ref{prob1}) first line, we multiple it by smooth test function $ w $ and integrate over $ \Omega $ such that  $ \forall w (w|_{\Gamma_{1}}=0 ) $
+We multiple equation (\ref{prob1})'s first line by smooth test function $ w $ and integrate over $ \Omega $ such that  $ \forall w (w|_{\Gamma_{1}}=0 ) $
 \begin{equation*}\nonumber
 \int_{\Omega} -\bigtriangleup \phi(x) w(x) \ dx = \int_{\Omega} f(x) w(x) \ dx
 \end{equation*}
@@ -167,7 +165,7 @@ In \textbf{1D Case},
 \begin{equation}\label{GG1D}
 \int_{a}^{b} f(x) g(x) \ dx = [ f(x) g(x) ]_{x=a}^{b} - \int_{a}^{b} f(x) g'(x) \ dx
 \end{equation}
-
+where
 \begin{eqnarray}\nonumber
 \int_{\partial \Omega} f(x) g(x) n(x) \ dx & = & f(a)g(a)n(a) + f(b)g(b)n(b) \\ \nonumber
 & = & [f(x)g(x)]_{x=a}^{b}
@@ -198,21 +196,20 @@ n &: \partial \Omega &\rightarrow \mathbb{R}^2 \\ \nonumber
 &x &\mapsto n(x)
 \end{eqnarray}
 
-We have notation $ \bigtriangleup = \sum_{i=1}^{2} \dfrac{\partial^2}{\partial x_{1}^{2}} $ such that $ -\bigtriangleup u(x) = -\big( \dfrac{\partial^{2}}{\partial x_{1}^{2}} + \dfrac{\partial^{2}}{\partial x_{2}^{2}} u(x) \big) $. So we have
+We have notation $ \bigtriangleup = \sum_{i=1}^{2} \dfrac{\partial^2}{\partial x_{1}^{2}} $ such that $ -\bigtriangleup u(x) = -\big( \dfrac{\partial^{2}}{\partial x_{1}^{2}} + \dfrac{\partial^{2}}{\partial x_{2}^{2}} \big)  u(x) $. So we have
 \begin{eqnarray}\nonumber
-& -\bigtriangleup u(x) = f(x) \\ \nonumber
-\leftrightarrow &  - \big( \dfrac{\partial^{2}}{\partial x_{1}^{2}} + \dfrac{\partial^{2}}{\partial x_{2}^{2}} \big) u(x) = f(x)
+&&-\bigtriangleup u(x) = f(x) \\ \nonumber
+&\Leftrightarrow &  - \big( \dfrac{\partial^{2}}{\partial x_{1}^{2}} + \dfrac{\partial^{2}}{\partial x_{2}^{2}} \big) u(x) = f(x).
 \end{eqnarray}
 
-For all smooth test function $ v(x) $, where $ v|_{\Gamma_{0}}=0 $ and $ \int_{\Omega} \ dx $
+For all smooth test function $ v(x) $, where $ v|_{\Gamma_{0}}=0 $ %and $ \int_{\Omega} \ dx $
 \begin{eqnarray} \nonumber
  \int_\Omega (-\Delta u)(x) v(x) dx &=&\int_\Omega \Big(-\dfrac{\partial^2u}{\partial{x_1}^2} (x) v(x) -\dfrac{\partial^2u}{\partial{x_2}^2} (x) v(x) \Big) \ dx \\ \nonumber
 &=& - \int_{\Omega} \dfrac{\partial^{2}u}{\partial x_{1}^{2}}  (x) v(x) \ dx - \int_{\Omega} \dfrac{\partial^{2} u}{\partial x_{2}^{2}} (x) v(x) \ dx\\ \nonumber
 &=& - \Big( \int_{\partial \Omega} \dfrac{\partial u}{\partial x_{1}} (x) v(x) n_{i} \ ds - \int_{\Omega} \dfrac{\partial u}{\partial x_{1}} (x) \dfrac{\partial v}{\partial x_{1}} (x) \ dx \Big) \\ \nonumber
 && - \Big( \int_{\partial \Omega} \dfrac{\partial u}{\partial x_{2}} (x) v(x) n_{i} \ ds - \int_{\Omega} \dfrac{\partial u}{\partial x_{2}} (x) \dfrac{\partial v}{\partial x_{2}} (x) \ dx \Big) \\ \nonumber
-&=& \Big( \int_{\Gamma_0} \dfrac{\partial u}{\partial x_{1}} (x) v(x) n_{i} + \dfrac{\partial u}{\partial x_{2}} (x) v(x) n_{i} \ ds \\ \nonumber
-&& + \int_{\Gamma_1} \dfrac{\partial u}{\partial x_{1}} (x) v(x) n_{i} + \dfrac{\partial u}{\partial x_{2}} (x) v(x) n_{i} \ ds \Big) \\ \nonumber
-&& + \int_{\Omega} \dfrac{\partial u}{\partial x_{1}} (x) \dfrac{\partial v}{\partial x_{1}} (x) + \dfrac{\partial u}{\partial x_{2}} (x) \dfrac{\partial v}{\partial x_{2}} (x) \ dx \\ \nonumber
+&=& \int_{\Omega}\Big( \dfrac{\partial u}{\partial x_{1}} (x) \dfrac{\partial v}{\partial x_{1}} (x) + \dfrac{\partial u}{\partial x_{2}} (x) \dfrac{\partial v}{\partial x_{2}} (x) \Big) \ dx + \int_{\Gamma_0} \Big(\dfrac{\partial u}{\partial x_{1}} (x) v(x) n_{i} + \dfrac{\partial u}{\partial x_{2}} (x) v(x) n_{i}\Big) \ ds \\ \nonumber
+&& + \int_{\Gamma_1} \Big(\dfrac{\partial u}{\partial x_{1}} (x) v(x) n_{i} + \dfrac{\partial u}{\partial x_{2}} (x) v(x) n_{i}\Big) \ ds \\ \nonumber
 &=& \int_{\Omega} \nabla u(x) \cdot \nabla v(x) \ dx - \int_{\Gamma_1} (\nabla u(x) \cdot n(x)) v(x) \ ds \\ \nonumber
 &=& \int_{\Omega} \nabla u(x) \cdot \nabla v(x) \ dx - \int_{\Gamma_1} \dfrac{\partial u}{\partial n} (x) v(x) \ ds \\ \nonumber
 &=& \int_{\Omega} \nabla u(x) \cdot \nabla v(x) \ dx - \int_{\Gamma_1} g_{1}(x) v(x) \ ds\\ \nonumber
@@ -224,7 +221,7 @@ such that
 \end{equation*} 
 
 \textbf{Note} : Reason why $ \dfrac{\partial u}{\partial n} (x) = (\bigtriangledown u ) \cdot n $
-In 1D Case,
+In 1D case,
 \begin{equation*}
 u'(x) = \lim\limits_{h\rightarrow 0} \dfrac{u(x+h)-u(x)}{h}
 \end{equation*}
@@ -236,13 +233,11 @@ u'(x) = \lim\limits_{h\rightarrow 0} \dfrac{u(x+h)-u(x)}{h}
 	\label{fig:reasonin1d}
 \end{figure}
 
-
-In 2D Case
+In 2D case,
 \begin{eqnarray}\nonumber
 \dfrac{\partial u}{\partial n}(x) &=& \lim\limits_{h \rightarrow 0} \dfrac{u(x+hn)-u(x)}{h} \\ \nonumber
 &=& \lim\limits_{h \rightarrow 0} \dfrac{1}{h} \big[ u(x_{1}+hn_{1}, \ x_{2}+hn_{2}) - u(x_{1},x_{2}) \big] \\ \nonumber
-&=& \lim\limits_{h \rightarrow 0} \dfrac{1}{h} \big[ u(x_{1}+hn_{1}, \ x_{2}+hn_{2}) - u(x_{1},x_{2}+hn_{2}) \\ \nonumber
-& &+ u(x_{1},x_{2}+hn_{2}) - u(x_{1},x_{2})  \big] \\ \nonumber
+&=& \lim\limits_{h \rightarrow 0} \dfrac{1}{h} \big[ u(x_{1}+hn_{1}, \ x_{2}+hn_{2}) - u(x_{1},x_{2}+hn_{2})+ u(x_{1},x_{2}+hn_{2}) - u(x_{1},x_{2})  \big] \\ \nonumber
 &=& \lim\limits_{h \rightarrow 0} \dfrac{u(x_{1}+hn_{1}, \ x_{2}+hn_{2}) - u(x_{1},x_{2}+hn_{2})+ u(x_{1},x_{2}+hn_{2}) - u(x_{1},x_{2})}{hn_{1}} n_{1} \\ \nonumber
 & & \lim\limits_{h \rightarrow 0} \dfrac{u(x_{1}+hn_{2}, \ x_{2}+hn_{2}) - u(x_{1},x_{2}+hn_{2})+ u(x_{1},x_{2}+hn_{2}) - u(x_{1},x_{2})}{hn_{2}} n_{2} \\ \nonumber
 &=& \dfrac{\partial u}{\partial x_{1}} (x_{1},x_{2}) n_{1} + \dfrac{\partial u}{\partial x_{2}} (x_{1},x_{2})n_{2} \\ \nonumber
@@ -268,7 +263,7 @@ For examples,
 f(x) &=& \dfrac{1}{x}　\in L^{2}(1, \infty) ; \ \int_{1}^{\infty} f^{2}(x) \ dx = [ -x^{-1} ]^{\infty}_{1} =1 \\ \nonumber
 f(x) &=& \dfrac{1}{\sqrt{x}} not \in L^{2}(1,\infty); \ \int_{1}^{\infty} \ dx = [log x]_{1}^{\infty} = \infty
 \end{eqnarray}
-Furthermore, $ L^2(\Omega) $ is a \textcolor{red}{Hilbert space} or complete space with inner product. 
+Furthermore, $ L^2(\Omega) $ is a Hilbert space or complete space with inner product. 
 \begin{equation*}
 H^{1}(\Omega) \equiv \{ v \in L^2(\Omega); \ \dfrac{\partial v}{\partial x_{i}} \in L^2(\Omega), \ i=1,2. \}
 \end{equation*}
@@ -325,7 +320,7 @@ where
 \[ V_{h}(g_{0}) \equiv \{ v_{h} \in V(g_{0}); \ v_{h}(x) = \sum_{i=1}^{Np} c_{i} \varphi_{i}(x), \ c_{i} \in \mathbb{R}, \ \varphi_{i} \text{ is basis function} \} , \ V_{h} \equiv V_{h}(0). \]
 
 \subsubsection{Problem}
-For simplicity, assume $ \Omega = (0,1)^2 $ and $ g_{0} $ = 0. We want to find $ u \in V \equiv H_{0}^{1}(\Omega) $ or Sobolev space where the boundary is $ 0 $. $ \{ P_{i} \}_{i=1}^{Np} $ is set of nodal points. For example,
+For simplicity, assume $ \Omega = (0,1)^2 $ and $ g_{0} $ = 0. We want to find $ u \in V \equiv H_{0}^{1}(\Omega) $ which the value on boundary is $ 0 $. $ \{ P_{i} \}_{i=1}^{Np} $ is set of nodal points. For example,
 
 \begin{figure}[h!]
 	\centering
@@ -333,7 +328,7 @@ For simplicity, assume $ \Omega = (0,1)^2 $ and $ g_{0} $ = 0. We want to find $
 	\caption{}
 	\label{fig:problem}
 \end{figure}
-with nodal point $ Np =11 $ and elements $ Ne =13 $.  The domain $ \tau_{h}= \{K_{k}\}_{k=1}^{13} $ or devided into $ 13 $ triangle area with point $ \{P_{i}\}_{i=1}^{11} $. Using file \textcolor{blue}{Square.edp} and \textcolor{blue}{mesh.msh}, we can read the mesh grid as shown below.
+with nodal point $ Np =11 $ and elements $ Ne =13 $.  The domain $ \tau_{h}= \{K_{k}\}_{k=1}^{13} $ or devided into $ 13 $ triangle area with point $ \{P_{i}\}_{i=1}^{11} $. %Using file \textcolor{blue}{Square.edp} and \textcolor{blue}{mesh.msh}, we can read the mesh grid as shown below.
 
 \begin{figure}[h!]
 	\centering
@@ -349,14 +344,14 @@ with nodal point $ Np =11 $ and elements $ Ne =13 $.  The domain $ \tau_{h}= \{K
 \end{figure}
 
 
-Result : \textcolor{blue}{Master/Seminar/1.Read\_mesh/test.c}
+%Result : \textcolor{blue}{Master/Seminar/1.Read\_mesh/test.c}
 
-\subsection{13 November 2017 (LINEAR ELASTICITY)}
+%\subsection{13 November 2017 (LINEAR ELASTICITY)}
+%
+%\subsubsection{Basic Equations}
+%Let $ \Omega $ be a non-deformed reference configulation of an elastic body in 3d. We assume $ \Omega $ is a bounded Lipschitz domain in $ \mathbb{R}^{3} $. The position vector in $ \overline{\Omega} $ is denoted by $ x = (x_{1},x_{2},x_{3})^{T} \in \overline{\Omega} \subset \mathbb{R} $. For other notation, we use $ \partial_{j} := \dfrac{\partial}{\partial x_{j}} $, $ \bigtriangledown = (\partial_{1}, \partial_{2}, \partial_{3})^{T} $, $ \bigtriangledown^{T} u = (\partial_{j}u_{i}) \in \mathbb{R}^{3\times3} $, and $ \bigtriangledown u^{T} = (\bigtriangledown^{T} u)^{T}$ for $ u(x) \in \mathbb{R}^{3} $.
 
-\subsubsection{Basic Equations}
-Let $ \Omega $ be a non-deformed reference configulation of an elastic body in 3d. We assume $ \Omega $ is a bounded Lipschitz domain in $ \mathbb{R}^{3} $. The position vector in $ \overline{\Omega} $ is denoted by $ x = (x_{1},x_{2},x_{3})^{T} \in \overline{\Omega} \subset \mathbb{R} $. For other notation, we use $ \partial_{j} := \dfrac{\partial}{\partial x_{j}} $, $ \bigtriangledown = (\partial_{1}, \partial_{2}, \partial_{3})^{T} $, $ \bigtriangledown^{T} u = (\partial_{j}u_{i}) \in \mathbb{R}^{3\times3} $, and $ \bigtriangledown u^{T} = (\bigtriangledown^{T} u)^{T}$ for $ u(x) \in \mathbb{R}^{3} $.
-
-\subsection{20 November 2017}
+%\subsection{20 November 2017}
 
 \subsection{4 December 2017}
 
@@ -496,7 +491,7 @@ u_i \\ \vdots \\ u_{N}
 \text{\textbf{b}} &:=& \Big(l(u_i) - \sum_{j=N+1}^{Np} a_{ij} g_j\Big) \text{, for }{i=1, \cdots , N}
 \end{eqnarray}
 
-\subsubsection{GIT}
+%\subsubsection{GIT}
 
 \subsection{25 Desember 2017}
 
@@ -639,11 +634,7 @@ such that $ (\Pi_{h}v)(P) := v(P) $, $ P $ is nodes.
 	v_{i} \\ v_{j} \\ v_{k}
 	\end{pmatrix}} \\ \nonumber
 &=& \sqrt{ \sum_{K}
-	\dfrac{\vert K \vert}{12}
-	\begin{pmatrix}
-	2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2
-	\end{pmatrix}
-	v^{T} \cdot M \cdot v
+	\dfrac{\vert K \vert}{12} \ v^{T} \cdot M \cdot v
 	}
 \end{eqnarray}
 with
@@ -658,14 +649,6 @@ In our problem, we need to find $ \Vert v_{h} \Vert_{L^2(\Omega)} = \Vert u_{h} 
 \[ v_{h}(P) = u_{h}(P) - u_{e}(P) \]
 for every point $ P $.
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.7\linewidth]{picture/grafik2}
-	\caption{}
-	\label{fig:grafik2}
-\end{figure}
-
-
 \subsubsection{$ H_{0}^{1}(\Omega) $ norm}
 \begin{eqnarray} \nonumber
 \Vert v_{h} \Vert_{H_1^0(\Omega)} &=& \sqrt{\int_{\Omega} \nabla v_{h}(x) \cdot \nabla v_{h}(x) \ dx} \\ \nonumber
@@ -673,6 +656,13 @@ for every point $ P $.
 &=& \sqrt{\sum_{K} \vert \nabla v_{h}|_{K} (x) \vert^{2} \vert K \vert}
 \end{eqnarray}
 with $ \nabla v_{h}|_{K}(x) $ does not depend on $ x $
-\[ \nabla v_{h}|_{K}(x) = v_{i} \begin{pmatrix} c_{1}^{(i)}\\ c_{2}^{(i)} \end{pmatrix} + v_{j} \begin{pmatrix} c_{1}^{(j)}\\ c_{2}^{(j)} \end{pmatrix} + v_{k} \begin{pmatrix} c_{1}^{(i)}\\ c_{2}^{(i)} \end{pmatrix}\] 
+\[ \nabla v_{h}|_{K}(x) = v_{i} \begin{pmatrix} c_{1}^{(i)}\\ c_{2}^{(i)} \end{pmatrix} + v_{j} \begin{pmatrix} c_{1}^{(j)}\\ c_{2}^{(j)} \end{pmatrix} + v_{k} \begin{pmatrix} c_{1}^{(i)}\\ c_{2}^{(i)} \end{pmatrix}.\] 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/grafik2}
+	\caption{}
+	\label{fig:grafik2}
+\end{figure}
 
 \end{document}
