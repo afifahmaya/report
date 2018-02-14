@@ -665,4 +665,45 @@ with $ \nabla v_{h}|_{K}(x) $ does not depend on $ x $
 	\label{fig:grafik2}
 \end{figure}
 
+\section{13 February 2018}
+\subsection{Heat Equation}
+\subsubsection{Problem}
+Find $ u : \Omega \times (0,T) \rightarrow \mathbb{R} $ such that
+\[ \begin{cases}
+u_{t} - \nu \triangle u = f &\text{ in } \Omega \times (0,T) \\
+u = g &\text{ on } \partial\Omega \times (0,T) \\
+u = u^{0} &\text{ in } \Omega \text{ at } t=0
+\end{cases} \]
+where $ f,g,u^{0} $ is given.
+
+\subsubsection{Weak Form}
+We want to find $ \{ u(t) \in V(g(t)) ; t \in (0,T)\} $ with $ V := H_{0}^{1}(\Omega) $, $ g : \partial\Omega \rightarrow \mathbb{R} $ smooth function, and $ V(g) := \{ v+g \in H^{1}(\Omega) ; v \in V \} $ such that
+\[ \begin{cases}
+(u_{t}(t),v) + a(u(t),v) = (f(t),v) &, \forall v \in V \\
+u(0) = u^{0} & \in V(g(0))
+\end{cases} \]
+where $ a(u,v) := \nu \int_{\Omega} \nabla u \cdot \nabla v \ dx $
+
+\subsubsection{Finite Element Method}
+For $ n=1, \dots, N_{T}, \ \triangle t > 0, \ N_{T} := \lfloor \dfrac{T}{\triangle t} \rfloor \in \mathbb{N} $, we looking for $ \{u_{h}^{n} \in V_{h}(g^{n}) \} $ such that
+\[ \begin{cases}
+\Big( \dfrac{u_{h}^{n}-u_{h}^{n-1}}{\triangle t} , v_{h} \Big) + a(u_{h}^{n}, v_{h}) = (f^{n},v_{h}) &, \forall v_{h} \in V_{h} \\
+u_{h}^{0} = \Pi_{h}u^{0} &\in V_{h}(g^{0})
+\end{cases} \]
+where 
+\begin{eqnarray} \nonumber
+V_{h} \subset V &:& P1-FEspace \\ \nonumber
+V_{h}(g) &:=& \{ v_{h} + g \in V(g); v_{h} \in V_{h} \} \\ \nonumber
+\Pi_{h}&:& C(\bar{\Omega}) \rightarrow X_{h} \\ \nonumber
+X_{h} \subset H^{1}(\Omega) &:& P1-FEspace \\ \nonumber
+(V_{h} \subset X_{h}) &\Rightarrow& V_{h} \subset H_{0}^{1}(\Omega), \ X_{h} \subset H^{1}(\Omega)\\ \nonumber
+(\Pi_{h} u^{0})(P) &=& u^{0}(P), \ P : \text{nodal point}
+\end{eqnarray}
+
+Then the problem become
+\begin{eqnarray}\nonumber
+\dfrac{1}{\triangle t} (u_{h}^{n} , v_{h}) + a(u_{h}^{n} , v_{h}) &=& \dfrac{1}{\triangle t} (u_{h}^{n-1} , v_{h}) + (f^{n},v_{h}), \ \forall v_{h} \in V_{h} \\ \nonumber
+\dfrac{1}{\triangle t} M_{Np \times Np} + A_{Np \times Np} &=& b_{Np \times 1}. 
+\end{eqnarray}
+
 \end{document}
