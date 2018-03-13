@@ -6,7 +6,6 @@
 \usepackage{color}
 \usepackage{graphicx}
 \usepackage{wrapfig}
-
 \newtheorem{remark}{Remark}[]
 \newtheorem{prop}{Proposition}
 
@@ -660,9 +659,9 @@ with $ \nabla v_{h}|_{K}(x) $ does not depend on $ x $
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{picture/grafik2}
+	\includegraphics[width=0.7\linewidth]{picture/Figure}
 	\caption{}
-	\label{fig:grafik2}
+	\label{fig:figure}
 \end{figure}
 
 \section{13 February 2018}
@@ -705,5 +704,35 @@ Then the problem become
 \dfrac{1}{\triangle t} (u_{h}^{n} , v_{h}) + a(u_{h}^{n} , v_{h}) &=& \dfrac{1}{\triangle t} (u_{h}^{n-1} , v_{h}) + (f^{n},v_{h}), \ \forall v_{h} \in V_{h} \\ \nonumber
 \Big[\dfrac{1}{\triangle t} M_{Np \times Np} + A_{Np \times Np}\Big]\big[U_{Np \times 1}\big] &=& b_{Np \times 1}. 
 \end{eqnarray}
+
+\subsubsection{Flowchart}
+The algorithm used to solve heat equation problem is shown as flowchart in Figure 17 and 18
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1.2\linewidth, angle=90,origin=c]{picture/heatEquationFlowchart}
+	\caption{}
+	\label{fig:heatequationflowchart}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\linewidth]{picture/heatEquationFlowchart2}
+	\caption{}
+	\label{fig:heatequationflowchart2}
+\end{figure}
+
+
+\newpage
+\subsubsection{Numerical experiment}
+We consider problem
+\begin{eqnarray} \nonumber
+\begin{cases}
+u_{t} - \nu \triangle u = (1+2\nu\pi^{2}t)sin(\pi x_{1})sin(\pi x_{2}) &, \Omega \times (0,T)\\
+u = 0 &, \partial \Omega \times (0,T)\\
+u = 0 &, \Omega \text{ at } t=0
+\end{cases}
+\end{eqnarray}
+with exact solution
+\[ u(x_{1},x_{2},t) = t \ sin(\pi x_{1}) sin(\pi x_{2}) \]
+
 
 \end{document}
