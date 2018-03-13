@@ -704,7 +704,7 @@ Then the problem become
 \dfrac{1}{\triangle t} (u_{h}^{n} , v_{h}) + a(u_{h}^{n} , v_{h}) &=& \dfrac{1}{\triangle t} (u_{h}^{n-1} , v_{h}) + (f^{n},v_{h}), \ \forall v_{h} \in V_{h} \\ \nonumber
 \Big[\dfrac{1}{\triangle t} M_{Np \times Np} + A_{Np \times Np}\Big]\big[U_{Np \times 1}\big] &=& b_{Np \times 1}. 
 \end{eqnarray}
-
+\newpage
 \subsubsection{Flowchart}
 The algorithm used to solve heat equation problem is shown as flowchart in Figure 17 and 18
 \begin{figure}[h!]
@@ -713,13 +713,13 @@ The algorithm used to solve heat equation problem is shown as flowchart in Figur
 	\caption{}
 	\label{fig:heatequationflowchart}
 \end{figure}
+\newpage
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.9\linewidth]{picture/heatEquationFlowchart2}
 	\caption{}
 	\label{fig:heatequationflowchart2}
 \end{figure}
-
 
 \newpage
 \subsubsection{Numerical experiment}
@@ -733,6 +733,5 @@ u = 0 &, \Omega \text{ at } t=0
 \end{eqnarray}
 with exact solution
 \[ u(x_{1},x_{2},t) = t \ sin(\pi x_{1}) sin(\pi x_{2}) \]
-
 
 \end{document}
