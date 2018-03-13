@@ -4,7 +4,8 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{color}
-\usepackage{graphicx}
+\usepackage[final]{graphicx}
+\usepackage{subcaption}
 \usepackage{wrapfig}
 \newtheorem{remark}{Remark}[]
 \newtheorem{prop}{Proposition}
@@ -732,6 +733,72 @@ u = 0 &, \Omega \text{ at } t=0
 \end{cases}
 \end{eqnarray}
 with exact solution
-\[ u(x_{1},x_{2},t) = t \ sin(\pi x_{1}) sin(\pi x_{2}) \]
+\[ u(x_{1},x_{2},t) = t \ sin(\pi x_{1}) sin(\pi x_{2}). \]
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/L2norm}
+	\caption{}
+	\label{fig:l2norm}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/Hnorm}
+	\caption{}
+	\label{fig:hnorm}
+\end{figure}
+
+
+\newpage
+\begin{figure}[h!]
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{picture/heatplot_frame-004}
+		\caption{$ 4 \ dt $}
+		\label{}
+	\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{picture/heatplot_frame-008}
+		\caption{$ 8 \ dt $}
+		\label{}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{picture/heatplot_frame-012}
+		\caption{$ 12 \ dt $}
+		\label{}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{picture/heatplot_frame-016}
+		\caption{$ 16 \ dt $}
+		\label{}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{picture/heatplot_frame-020}
+		\caption{$ 20 \ dt $}
+		\label{}
+	\end{subfigure}
+`	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{picture/heatplot_frame-024}
+		\caption{$ 24 \ dt $}
+		\label{}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{picture/heatplot_frame-028}
+		\caption{$ 28 \ dt $}
+		\label{}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{picture/heatplot_frame-032}
+		\caption{$ 32 \ dt $}
+		\label{}
+	\end{subfigure}
+\end{figure}
 
 \end{document}
