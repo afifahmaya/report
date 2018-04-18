@@ -72,7 +72,7 @@ Solving using Sobolev Space in Isotropic Case, equation \ref{energy_density} bec
 \begin{equation}\nonumber
 c_{ijkl} = \lambda \delta_{ij} \delta_{kl} + \mu(\delta_{ik} \delta_{jl} + \delta_{il} \delta_{jk})
 \end{equation}
-\centering with $\lambda, \mu$ called Lame Constant
+with $\lambda, \mu$ called Lame Constant
 \begin{equation}\nonumber
 \delta_{ij} = \begin{cases}
 1, i = j\\
@@ -101,9 +101,26 @@ Positivity of $\C$
 (\C \xi) : \xi = \lambda |\text{tr }\xi|^2 + 2\mu|\xi|^2\\
 \end{aligned}
 \end{equation}
-\centering If $\lambda \geq 0, \mu > 0$, then $C_* = 2 \mu$
+If $\lambda \geq 0, \mu > 0$, then $C_* = 2 \mu$
 \begin{equation}\nonumber
 \xi = (\xi_{ij}), |\xi|^2 = \xi_{ij} \xi_{ij} = \sum_{i = 1 \dots d}^{d} \sum_{j = 1 \dots d}^{d} |\xi_{ij}|^2
 \end{equation}
 \end{remark}
+\subsection{Elasticity Problem}
+\begin{equation}\nonumber
+\begin{cases}
+-\text{div } \sigma[u] &= f(x) \text{ in } \Omega \subset \R^d\\
+u &= g(x) \text{ on } \Gamma_D\\
+\sigma[u]v &= q(x) \text{ on } \Gamma_N
+\end{cases}
+\end{equation}
+\subsection{Crack Problem}
+\begin{equation}\nonumber
+\begin{cases}
+-\text{div } \sigma[u] &= f(x) \text{ in } \Omega \setminus \Sigma \subset \R^d\\
+u &= g(x) \text{ on } \Gamma_D\\
+\sigma[u]v &= q(x) \text{ on } \Gamma_N\\
+\sigma[u]v &= 0 \text{ on } \Sigma^+ \cup \Sigma^-
+\end{cases}
+\end{equation}
 \end{document}          
