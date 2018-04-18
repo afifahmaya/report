@@ -13,6 +13,13 @@
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\Vspace}{\mathbb{V}}
+\newcommand{\Hspace}{\mathbb{H}}
+\newcommand{\Lspace}{\mathbb{L}}
+\newcommand{\Lagr}{\mathcal{L}}
 
 
 % Title Page
@@ -31,14 +38,14 @@ x & \mapsto u(x)
 \end{aligned}
 \end{equation}
 \subsection{Strain Tensor}
-\begin{equation}\nonumber
+\begin{equation}
 \begin{aligned}
 e[u] & = (e_{ij}[u]) \in \R^{d x d}_{sym}\\
 e[u] & := \frac{1}{2} (\bigtriangledown^Tu + (\bigtriangledown^Tu)^T)
 \end{aligned}
 \end{equation}
 \subsection{Stress Tensor}
-\begin{equation}\nonumber
+\begin{equation}
 \begin{aligned}
 \sigma[u] &= (\sigma{ij}[u]) \in \R^{d x d}_{sym}\\
 \end{aligned}
@@ -46,11 +53,11 @@ e[u] & := \frac{1}{2} (\bigtriangledown^Tu + (\bigtriangledown^Tu)^T)
 Based on Hook's Law, stress tensor must have equality with strain so that
 \begin{equation}\nonumber
 \begin{aligned}
-\sigma &= \C e\\
-\text{with } \C &= \C_{ijkl} \text{(is a 4th order elasticity tensor)}\\
-\sigma{ij} &= \C_{ijkl} e_{kl}\\
-\C_{ijkl} &= \C_{ijlk} = \C_{klij} \text{(symmetry)}\\
-\C_{ijkl} \xi_{ij} \xi_{kl} & \geq \C_* |\xi|^2
+\sigma &= \textbf{C} e\\
+\text{with } \textbf{C} &= \textbf{C}_{ijkl} \text{(is a 4th order elasticity tensor)}\\
+\sigma{ij} &= \textbf{C}{ijkl} e_{kl}\\
+\textbf{C}_{ijkl} &= \textbf{C}_{ijlk} = \textbf{C}_{klij} \text{(symmetry)}\\
+\textbf{C}_{ijkl} \xi_{ij} \xi_{kl} & \geq \textbf{C}_* |\xi|^2
 \end{aligned}
 \end{equation}
 \subsection{Boundary Value Problem}
@@ -94,11 +101,11 @@ with $\lambda, \mu$ called Lame Constant
 \end{aligned}
 \end{equation}
 \begin{remark}
-Positivity of $\C$
+Positivity of \textbf{C}
 \begin{equation}\nonumber
 \begin{aligned}
-(\C \xi) : \xi \geq C_* |\xi|^2 (\forall \xi \in \R^{d x d}_{sym})\\
-(\C \xi) : \xi = \lambda |\text{tr }\xi|^2 + 2\mu|\xi|^2\\
+(\textbf{C} \xi) : \xi \geq \textbf{C}_* |\xi|^2 (\forall \xi \in \R^{d x d}_{sym})\\
+(\textbf{C} \xi) : \xi = \lambda |\text{tr }\xi|^2 + 2\mu|\xi|^2\\
 \end{aligned}
 \end{equation}
 If $\lambda \geq 0, \mu > 0$, then $C_* = 2 \mu$
@@ -107,7 +114,7 @@ If $\lambda \geq 0, \mu > 0$, then $C_* = 2 \mu$
 \end{equation}
 \end{remark}
 \subsection{Elasticity Problem}
-\begin{equation}\nonumber
+\begin{equation}
 \begin{cases}
 -\text{div } \sigma[u] &= f(x) \text{ in } \Omega \subset \R^d\\
 u &= g(x) \text{ on } \Gamma_D\\
@@ -115,7 +122,7 @@ u &= g(x) \text{ on } \Gamma_D\\
 \end{cases}
 \end{equation}
 \subsection{Crack Problem}
-\begin{equation}\nonumber
+\begin{equation}
 \begin{cases}
 -\text{div } \sigma[u] &= f(x) \text{ in } \Omega \setminus \Sigma \subset \R^d\\
 u &= g(x) \text{ on } \Gamma_D\\
@@ -123,4 +130,100 @@ u &= g(x) \text{ on } \Gamma_D\\
 \sigma[u]v &= 0 \text{ on } \Sigma^+ \cup \Sigma^-
 \end{cases}
 \end{equation}
-\end{document}          
+\subsection{Lebesque Measurable Theory}
+\begin{equation}
+L^p(\Omega) := \Bigg\{v:\Omega \rightarrow \R|\begin{cases}
+v = \text{Lebesque measurable}\\
+\int_\Omega|v(x)|^p dx < \infty
+\end{cases}\Bigg\}
+\end{equation}
+\begin{remark}
+	for $u,v \in \Lspace^p(\Omega), \text{ if } \exists N \subset \Omega$
+	such that $\begin{cases}
+		u(x) = v(x) (x \in \Omega \setminus \text{N})\\
+		\Lagr^d(N) = 0,
+	\end{cases}$
+	then we identify $u$ and $v$,
+	$\Lagr^d(N) = 0 \Leftrightarrow \text{volume of N } = 0$
+	for simplicity, we also can say that
+	$u(x) = v(x) \text{ for a.e. } x \in \Omega$
+\end{remark}
+for example
+\begin{equation}
+\begin{aligned}
+&v:\R \rightarrow \R\\
+&v(x) = \begin{cases}
+1, x \in \Q\\
+0, x \in \R \setminus \Q\\
+\end{cases}\\
+&\int_\R v dx = 0, \Lagr^1(\Q) = 0\\
+&v(x) = 0 \text{ on } \R \setminus \Q, \text{ or we can say } v = 0 \text{ a.e. in } \R
+\end{aligned}
+\end{equation}
+\subsection{Sobolev Space}
+\begin{equation}
+\W^{1,p}(\Omega) := \bigg\{v\in\Lspace^p(\Omega)\frac{\partial v}{\partial x_j}_{(j=1\dots d)}\in\Lspace^p(\Omega)\bigg\}
+\end{equation}
+such $\frac{\partial v}{\partial x_j}$ we called it distribution sence.\\
+example of Sobolev Space is as follow:
+\begin{equation}\nonumber
+v \in \Lspace^p(\Omega) \text{ if } \exists \omega_j \in \Lspace(\Omega)
+\end{equation}
+such that
+\begin{equation}\nonumber
+\begin{aligned}
+\int_\Omega v \frac{\partial \varphi}{\partial x_j} dx = -\int_\Omega \omega_j \varphi dx (\forall \varphi \in \C_0^\infty(\Omega))\\
+\Rightarrow \frac{\partial \varphi}{\partial x_j} = \omega_j \text{ in distribution sence}
+\end{aligned}
+\end{equation}
+for
+\begin{equation}\nonumber
+\begin{aligned}
+v \in \C^1(\Omega), &\frac{\partial v}{\partial x_j} (x) = \omega_j(x)\\
+&\Updownarrow\\
+\int_\Omega \omega_j \varphi dx &= -\int_\Omega v \frac{\partial \varphi}{\partial x_j}dx (\forall \varphi \in \C_0^\infty(\Omega))
+\end{aligned}
+\end{equation}
+In particular,
+\begin{equation}\nonumber
+\Hspace^1(\Omega) := \W^{1,2}(\Omega), \bigtriangledown u = \left(\begin{array}{c}
+\frac{\partial u}{\partial x_1}\\
+\vdots\\
+\frac{\partial u}{\partial x_d}
+\end{array}\right)
+\end{equation}
+inner product
+\begin{equation}\nonumber
+(u,v)_{\Hspace^1(\Omega)} := \int_\Omega uv\ dx + \int_\Omega \bigtriangledown u \cdot \bigtriangledown v\ dx
+\end{equation}
+norm
+\begin{equation}\nonumber
+||u||_{\Hspace^1(\Omega)} := \sqrt{(u,v)_{\Hspace^1(\Omega)}} = \sqrt{\int_\Omega|u|^2dx + \int_\Omega|\bigtriangledown u|^2dx}
+\end{equation}
+$\Hspace^1(\Omega)$ is complete ($\Hspace^1(\Omega)$ is a Hilbert Space)
+\begin{equation}\nonumber
+(u,v)_{\Lspace^2(\Omega)} = \int_\Omega uv dx
+\end{equation}
+\subsection{Incomplete Hilbert Space}
+$\Vspace : \text{ a vector space in } \R$
+\begin{equation}\nonumber
+\begin{aligned}
+\begin{cases}
+u,v\ \in \Vspace \Rightarrow \alpha u + \beta v \in \Vspace\\
+\alpha,\beta\ \in \R
+\end{cases}
+\end{aligned}
+\end{equation}
+$\text{If } (\cdot,\cdot) : \Vspace \times \Vspace \rightarrow \R \text{ satisfies}$
+\begin{equation}\nonumber
+\begin{aligned}
+\begin{cases}
+(u\cdot v) \geq 0 \text{ and } (u,u) = 0 \Leftrightarrow u = 0_v \in \Vspace\\
+(u,v) = (v,u)\\
+(\alpha u + \beta v, \omega) = \alpha(u,\omega) + \beta (v,\omega)
+\end{cases}
+\end{aligned}
+\end{equation}
+then we call $[\Vspace \times \Vspace]$ pre Hilbert space or incomplete Hilbert Space.
+\subsection{Property of $\Lspace^2(\Omega)$}
+\end{document}
