@@ -1,0 +1,109 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, hmargin={3cm,2cm}, vmargin={2cm,2cm}]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{color}
+\usepackage[final]{graphicx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\newtheorem{remark}{Remark}[]
+\newtheorem{prop}{Proposition}
+\usepackage{amssymb}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+
+% Title Page
+\title{Seminar Notes Alifian}
+\author{Alifian Mahardhika Maulana}
+
+
+\begin{document}
+\maketitle
+\section{3D Linear Elasticity}
+\begin{equation}\nonumber
+\begin{aligned}
+\Omega \subset \R^d & (d=2,3) \\
+u = \Omega & \rightarrow \R^2 \text{(small displacement)}\\
+x & \mapsto u(x)
+\end{aligned}
+\end{equation}
+\subsection{Strain Tensor}
+\begin{equation}\nonumber
+\begin{aligned}
+e[u] & = (e_{ij}[u]) \in \R^{d x d}_{sym}\\
+e[u] & := \frac{1}{2} (\bigtriangledown^Tu + (\bigtriangledown^Tu)^T)
+\end{aligned}
+\end{equation}
+\subsection{Stress Tensor}
+\begin{equation}\nonumber
+\begin{aligned}
+\sigma[u] &= (\sigma{ij}[u]) \in \R^{d x d}_{sym}\\
+\end{aligned}
+\end{equation}
+Based on Hook's Law, stress tensor must have equality with strain so that
+\begin{equation}\nonumber
+\begin{aligned}
+\sigma &= \C e\\
+\text{with } \C &= \C_{ijkl} \text{(is a 4th order elasticity tensor)}\\
+\sigma{ij} &= \C_{ijkl} e_{kl}\\
+\C_{ijkl} &= \C_{ijlk} = \C_{klij} \text{(symmetry)}\\
+\C_{ijkl} \xi_{ij} \xi_{kl} & \geq \C_* |\xi|^2
+\end{aligned}
+\end{equation}
+\subsection{Boundary Value Problem}
+\begin{equation}
+\begin{cases}
+-\partial_i \sigma_{ij}[u] &= f_j(x), x \in \Omega\\
+u &= g(x), x \in \Gamma_D\\
+\sigma[u]_\nu &= q(x), x \in \Gamma_N
+\end{cases}
+\end{equation}
+\newpage
+\subsection{Equilibrium Equations of Force in $\Omega$ and on $\Gamma_N$}
+\subsubsection{Strain Energy Density}
+\begin{equation}
+\label{energy_density}
+\omega[u](x) := \frac{1}{2} \sigma[u] : e[u]
+\end{equation}
+Solving using Sobolev Space in Isotropic Case, equation \ref{energy_density} becomes
+\begin{equation}\nonumber
+c_{ijkl} = \lambda \delta_{ij} \delta_{kl} + \mu(\delta_{ik} \delta_{jl} + \delta_{il} \delta_{jk})
+\end{equation}
+\centering with $\lambda, \mu$ called Lame Constant
+\begin{equation}\nonumber
+\delta_{ij} = \begin{cases}
+1, i = j\\
+0, i \neq j
+\end{cases}
+\end{equation}
+\begin{equation}\nonumber
+\begin{aligned}
+\sigma[u] &= (\sigma_{ij}[u])\\
+\sigma_{ij}[u] &= c_{ijkl} e_{kl}[u]\\
+&= \lambda(\delta_k u_k)\delta_{ij} + \mu(\delta_i u_j + \delta_j u_i)\\
+&= \lambda(\text{div } u) I + 2\mu e[u]
+\end{aligned}
+\end{equation}
+\begin{equation}\nonumber
+\begin{aligned}
+\omega[u] = \frac{1}{2} (\lambda(\text{div } u) I + 2\mu e[u]) : e[u]\\
+\omega[u] = \frac{1}{2} (\lambda(\text{div } u)^2 + \mu |e[u]|^2\\
+\end{aligned}
+\end{equation}
+\begin{remark}
+Positivity of $\C$
+\begin{equation}\nonumber
+\begin{aligned}
+(\C \xi) : \xi \geq C_* |\xi|^2 (\forall \xi \in \R^{d x d}_{sym})\\
+(\C \xi) : \xi = \lambda |\text{tr }\xi|^2 + 2\mu|\xi|^2\\
+\end{aligned}
+\end{equation}
+\centering If $\lambda \geq 0, \mu > 0$, then $C_* = 2 \mu$
+\begin{equation}\nonumber
+\xi = (\xi_{ij}), |\xi|^2 = \xi_{ij} \xi_{ij} = \sum_{i = 1 \dots d}^{d} \sum_{j = 1 \dots d}^{d} |\xi_{ij}|^2
+\end{equation}
+\end{remark}
+\end{document}          
