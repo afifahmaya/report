@@ -226,7 +226,15 @@ $\text{If } (\cdot,\cdot) : \Vspace \times \Vspace \rightarrow \R \text{ satisfi
 \end{equation}
 then we call $[\Vspace \times \Vspace]$ pre Hilbert space or incomplete Hilbert Space.
 \subsection{Property of $\Lspace^2(\Omega)$}
-$u,v \in \Lspace^2(\Omega)$
+For $v \in \C^1(\Omega),$
+\begin{equation}\nonumber
+\begin{aligned}
+\frac{\partial v}{\partial x_j}(x)&=w_j(x)\\
+&\Updownarrow\\
+\int_\Omega w_j\varphi dx &= -\int\Omega v \frac{\partial \varphi}{\partial x_j} dx\ \big(\forall\varphi\in\C_0^\infty(\Omega)\big)\\
+\end{aligned}
+\end{equation}
+$(u,v)_{\Lspace^2(\Omega)} = \int_\Omega uv dx\\$
 \begin{equation}\nonumber
 \Rightarrow \bigg|\int_{\Omega}uvdx\bigg| \leq \int_{\Omega}|u||v|dx \leq ||u||_{\Lspace^2(\Omega)} ||v||_{\Lspace^2(\Omega)}
 \end{equation}
@@ -247,4 +255,17 @@ $u,v \in \Hspace^1(\Omega)$
 \begin{equation}
 \therefore \bigg| \int_{\Omega} \triangledown u \cdot \triangledown v dx \bigg| \leq \sqrt{\int_\Omega\big| \triangledown u \big|^2 dx} \sqrt{\int_\Omega\big| \triangledown v \big|^2 dx}
 \end{equation}
+\subsection{Energy (Revisited)}
+\begin{equation}
+E(u) := \frac{1}{2}\int_\Omega \sigma[u]:e[u]dx -\int_\Omega f\cdot u dx -\int_{\Gamma_N} q\cdot u ds
+\end{equation}
+with $u$ is a vector of the elasticity problem define by:
+\begin{equation}\nonumber
+\begin{aligned}
+u\in\Hspace^1(\Omega:\R^d) &:= \{ u:\Omega \rightarrow\R^d |u=(u_i, \cdots, u_d), u_i\in\Hspace^1(\Omega) \}\\
+&\Rightarrow E(u) < \infty
+\end{aligned}
+\end{equation}
+$u:$ become solution $\Leftrightarrow u = argmin_{v\in\Hspace^1(\Omega:\R^d)}E(v)$
+such a technique we call it variational principle.
 \end{document}
