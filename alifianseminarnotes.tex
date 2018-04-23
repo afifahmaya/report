@@ -226,4 +226,25 @@ $\text{If } (\cdot,\cdot) : \Vspace \times \Vspace \rightarrow \R \text{ satisfi
 \end{equation}
 then we call $[\Vspace \times \Vspace]$ pre Hilbert space or incomplete Hilbert Space.
 \subsection{Property of $\Lspace^2(\Omega)$}
+$u,v \in \Lspace^2(\Omega)$
+\begin{equation}\nonumber
+\Rightarrow \bigg|\int_{\Omega}uvdx\bigg| \leq \int_{\Omega}|u||v|dx \leq ||u||_{\Lspace^2(\Omega)} ||v||_{\Lspace^2(\Omega)}
+\end{equation}
+$u,v \in \Hspace^1(\Omega)$
+\begin{equation}\nonumber
+\begin{aligned}
+\Rightarrow \frac{\partial u}{\partial x_j}, \frac{\partial v}{\partial x_j} & \in {\Lspace^2(\Omega)}\\
+\bigg| \int_\Omega \frac{\partial u}{\partial x_j} \frac{\partial v}{\partial x_j}dx\bigg| \leq \int_\Omega \bigg| \frac{\partial u}{\partial x_j} \bigg| \bigg| \frac{\partial v}{\partial x_j} \bigg| dx & \leq \bigg|\bigg| \frac{\partial u}{\partial x_j}\bigg|\bigg|_{\Lspace^2(\Omega)} \bigg|\bigg| \frac{\partial v}{\partial x_j} \bigg|\bigg|_{\Lspace^2(\Omega)}\\
+\triangledown u \cdot \triangledown v &= \sum_{j=1}^{d}\frac{\partial u}{\partial x_j} \frac{\partial v}{\partial x_j}\\
+\bigg| \int_{\Omega} \triangledown u \cdot \triangledown v dx \bigg| &= \bigg| \int \sum_{j=1}^{d}\frac{\partial u}{\partial x_j} \frac{\partial v}{\partial x_j} dx \bigg| \leq  \sum_{j=1}^{d} \int \bigg| \frac{\partial u}{\partial x_j} \bigg| \bigg|  \frac{\partial v}{\partial x_j} \bigg| dx\\
+&\leq \sum_{j=1}^{d} \bigg|\bigg| \frac{\partial u}{\partial x_j} \bigg|\bigg|_{\Lspace^2(\Omega)} \bigg|\bigg| \frac{\partial v}{\partial x_j} \bigg|\bigg|_{\Lspace^2(\Omega)}\\
+&\leq \sqrt{\sum_{j=1}^{d} \bigg|\bigg| \frac{\partial u}{\partial x_j} \bigg|\bigg|_{\Lspace^2(\Omega)}} \sqrt{\sum_{j=1}^{d} \bigg|\bigg| \frac{\partial v}{\partial x_j} \bigg|\bigg|_{\Lspace^2(\Omega)}}\\
+&= \sqrt{\sum_{j=1}^{d}\int_\Omega\bigg|\frac{\partial u}{\partial x_j}\bigg|^2 dx} \sqrt{\sum_{j=1}^{d}\int_\Omega\bigg|\frac{\partial v}{\partial x_j}\bigg|^2 dx}\\
+&= \sqrt{\int_\Omega\bigg(\sum_{j=1}^{d}\bigg|\frac{\partial u}{\partial x_j}\bigg|^2\bigg) dx} \sqrt{\int_\Omega\bigg(\sum_{j=1}^{d}\bigg|\frac{\partial v}{\partial x_j}\bigg|^2\bigg) dx}\\
+&= \sqrt{\int_\Omega\big| \triangledown u \big|^2 dx} \sqrt{\int_\Omega\big| \triangledown v \big|^2 dx}\\
+\end{aligned}
+\end{equation}
+\begin{equation}
+\therefore \bigg| \int_{\Omega} \triangledown u \cdot \triangledown v dx \bigg| \leq \sqrt{\int_\Omega\big| \triangledown u \big|^2 dx} \sqrt{\int_\Omega\big| \triangledown v \big|^2 dx}
+\end{equation}
 \end{document}
