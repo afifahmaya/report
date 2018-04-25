@@ -268,4 +268,40 @@ u\in\Hspace^1(\Omega:\R^d) &:= \{ u:\Omega \rightarrow\R^d |u=(u_i, \cdots, u_d)
 \end{equation}
 $u:$ become solution $\Leftrightarrow u = argmin_{v\in\Hspace^1(\Omega:\R^d)}E(v)$
 such a technique we call it variational principle.
+\subsection{Variational Principle}
+Let's consider a Poisson Equation Problem:
+\begin{equation}\label{poissoneq}
+\Omega \subset \R^d \begin{cases}
+-\triangle u &= f(x) \in\Omega\\
+u &= g(x) \text{ on } \Gamma_D\\
+\frac{\partial u}{\partial v} &= q(x) \text{ on } \Gamma_N
+\end{cases}
+f\in L^2(\Omega), g\in H^1(\Omega), q\in L^2(\Gamma_N)
+\end{equation}
+\begin{remark}
+	\begin{equation}\nonumber
+	v \in H^1(\Omega) \Rightarrow \exists v|_\Gamma \in L^2(\Gamma)
+	\end{equation}
+	we choose $v \text{ on } L^2 \text{ because it will has value on the boundary }$
+\end{remark}
+\subsubsection{Definition of Weak Solution}
+\begin{equation}\nonumber
+u \in H^1(\Omega)\text{ s.t. } \begin{cases}
+\int_\Omega \triangle u \cdot \triangle v dx = \int_\Omega fv dx + \int_{\Gamma_N} qv ds\\
+\bigg(\forall v \in V := {v \in H^1(\Omega)\big| v|_{\Gamma_D}}\bigg)\\
+v|_{\Gamma_D} = g|_{\Gamma_D} (v-g\in V)
+\end{cases}
+\end{equation}
+$(v-g\in V)$ mean $(v\in V+g:={v+g|v\in V})$ with $V$ is an affine space.
+\subsubsection{Definition of Strong Solution}
+$u \in H^2(\Omega)$ and $u$ satisfies \eqref{poissoneq}
+\begin{remark}
+	\begin{equation}\nonumber
+	\begin{aligned}
+	H^2(\Omega):= \{ u\in L^2(\Omega) \frac{\partial u}{\partial x_j},\frac{\partial^2 u}{\partial x_i x_j} \in L^2(\Omega)\}\\
+	u \in H^2(\Omega) \Rightarrow \frac{\partial u}{\partial x_j} \in H^1(\Omega)\\
+	\frac{\partial u}{\partial}
+	\end{aligned}
+	\end{equation}
+\end{remark}
 \end{document}
