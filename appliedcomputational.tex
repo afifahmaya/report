@@ -36,11 +36,11 @@
 	\end{equation}
 	then we define:
 	\begin{equation}\label{fdef}
-	f_x(r)=-\frac{\partial U(r)}{\partial x} = -\frac{x}{r} \frac{\partial U(r)}{\partial r}\ \text{: x-component of the force.}
+	f_x(r)=-\frac{\partial U(r)}{\partial x}\ \text{: x-component of the force.}
 	\end{equation}
 	with
 	\begin{equation}\label{udef}
-	U(r) = 4 \bigg(\frac{1}{r^{12}}-\frac{1}{r^6}\bigg) \longrightarrow f_x(r) = \frac{48x}{r^2}\bigg(\frac{1}{r^{12}}-\frac{1}{2}\cdot\frac{1}{r^6}\bigg)\ \text{: Lennard-Jones Potential}
+	U(r) = 4 \bigg(\frac{1}{r^{12}}-\frac{1}{r^6}\bigg)\ \text{: Lennard-Jones Potential System}
 	\end{equation}
 \end{enumerate}
 Derive the $f_x,f_y,\ \text{and}\ f_z$ component of Lennard-Jones Potential System.\\
@@ -53,13 +53,47 @@ f_x(r) &=-\frac{\partial U(r)}{\partial x}\\
 \end{aligned}
 \end{equation}
 then we substitute $r$ and $U(r)$ from equation $\eqref{rdef}\ \text{and}\ \eqref{udef} \rightarrow\eqref{derf}$, therefore:
-\begin{equation}
+\begin{equation}\label{fxcomp}
 \begin{aligned}
 f_x(r) &= - \bigg( \frac{\partial}{\partial x} \sqrt{x^2+y^2+z^2}\ \frac{\partial}{\partial r} 4 \bigg(\frac{1}{r^{12}}-\frac{1}{r^6}\bigg) \bigg) \\
 &= - \bigg( \frac{1}{2} \frac{1}{\sqrt{x^2+y^2+z^2}}2x\ \bigg( \frac{-48}{r^{13}}+\frac{24}{r^7} \bigg) \bigg)\\
 &= - \bigg( \frac{x}{\sqrt{x^2+y^2+z^2}} \frac{48}{r} \bigg( \frac{-1}{r^{12}}+\frac{1}{2} \cdot \frac{1}{r^6} \bigg) \bigg)\\
-&= - \frac{x}{r} \frac{48}{r} \bigg( \frac{1}{r^{12}}-\frac{1}{2} \cdot \frac{1}{r^6} \bigg)\\
-&= - \frac{48x}{r^2} \bigg( \frac{1}{r^{12}}-\frac{1}{2} \cdot \frac{1}{r^6} \bigg)\\
+&=  \frac{x}{r} \frac{48}{r} \bigg( \frac{1}{r^{12}}-\frac{1}{2} \cdot \frac{1}{r^6} \bigg)\\
+&=  \frac{48x}{r^2} \bigg( \frac{1}{r^{12}}-\frac{1}{2} \cdot \frac{1}{r^6} \bigg)\\
+\end{aligned}
+\end{equation}
+For the $f_y$ component, we define:
+\begin{equation}\label{fydef}
+\begin{aligned}
+f_y(r) &=-\frac{\partial U(r)}{\partial y}\\
+&= -\frac{\partial r}{\partial y}\frac{\partial U(r)}{\partial r}
+\end{aligned}
+\end{equation}
+Again we substitute $r$ and $U(r)$ from equation $\eqref{rdef}\ \text{and}\ \eqref{udef} \rightarrow\eqref{fydef}$, thus:
+\begin{equation}\label{fycomp}
+\begin{aligned}
+f_y(r) &= - \bigg( \frac{\partial}{\partial y} \sqrt{x^2+y^2+z^2}\ \frac{\partial}{\partial r} 4 \bigg(\frac{1}{r^{12}}-\frac{1}{r^6}\bigg) \bigg) \\
+&= - \bigg( \frac{1}{2} \frac{1}{\sqrt{x^2+y^2+z^2}}2y\ \bigg( \frac{-48}{r^{13}}+\frac{24}{r^7} \bigg) \bigg)\\
+&= - \bigg( \frac{x}{\sqrt{x^2+y^2+z^2}} \frac{48}{r} \bigg( \frac{-1}{r^{12}}+\frac{1}{2} \cdot \frac{1}{r^6} \bigg) \bigg)\\
+&=  \frac{y}{r} \frac{48}{r} \bigg( \frac{1}{r^{12}}-\frac{1}{2} \cdot \frac{1}{r^6} \bigg)\\
+&=  \frac{48y}{r^2} \bigg( \frac{1}{r^{12}}-\frac{1}{2} \cdot \frac{1}{r^6} \bigg)\\
+\end{aligned}
+\end{equation}
+For the $f_y$ component, we define:
+\begin{equation}\label{fzdef}
+\begin{aligned}
+f_z(r) &=-\frac{\partial U(r)}{\partial z}\\
+&= -\frac{\partial r}{\partial z}\frac{\partial U(r)}{\partial r}
+\end{aligned}
+\end{equation}
+Again we substitute $r$ and $U(r)$ from equation $\eqref{rdef}\ \text{and}\ \eqref{udef} \rightarrow\eqref{fzdef}$, thus:
+\begin{equation}\label{fzcomp}
+\begin{aligned}
+f_z(r) &= - \bigg( \frac{\partial}{\partial z} \sqrt{x^2+y^2+z^2}\ \frac{\partial}{\partial r} 4 \bigg(\frac{1}{r^{12}}-\frac{1}{r^6}\bigg) \bigg) \\
+&= - \bigg( \frac{1}{2} \frac{1}{\sqrt{x^2+y^2+z^2}}2z\ \bigg( \frac{-48}{r^{13}}+\frac{24}{r^7} \bigg) \bigg)\\
+&= - \bigg( \frac{x}{\sqrt{x^2+y^2+z^2}} \frac{48}{r} \bigg( \frac{-1}{r^{12}}+\frac{1}{2} \cdot \frac{1}{r^6} \bigg) \bigg)\\
+&=  \frac{z}{r} \frac{48}{r} \bigg( \frac{1}{r^{12}}-\frac{1}{2} \cdot \frac{1}{r^6} \bigg)\\
+&=  \frac{48z}{r^2} \bigg( \frac{1}{r^{12}}-\frac{1}{2} \cdot \frac{1}{r^6} \bigg)\\
 \end{aligned}
 \end{equation}
 \end{document}
