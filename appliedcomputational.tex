@@ -52,5 +52,14 @@ f_x(r) &=-\frac{\partial U(r)}{\partial x}\\
 &= -\frac{\partial r}{\partial x}\frac{\partial U(r)}{\partial r}
 \end{aligned}
 \end{equation}
-then we substitute $r$ and $U(r)$ from equation $\eqref{rdef}\ \text{and}\ \eqref{udef} \rightarrow\eqref{derf}$
+then we substitute $r$ and $U(r)$ from equation $\eqref{rdef}\ \text{and}\ \eqref{udef} \rightarrow\eqref{derf}$, therefore:
+\begin{equation}
+\begin{aligned}
+f_x(r) &= - \bigg( \frac{\partial}{\partial x} \sqrt{x^2+y^2+z^2}\ \frac{\partial}{\partial r} 4 \bigg(\frac{1}{r^{12}}-\frac{1}{r^6}\bigg) \bigg) \\
+&= - \bigg( \frac{1}{2} \frac{1}{\sqrt{x^2+y^2+z^2}}2x\ \bigg( \frac{-48}{r^{13}}+\frac{24}{r^7} \bigg) \bigg)\\
+&= - \bigg( \frac{x}{\sqrt{x^2+y^2+z^2}} \frac{48}{r} \bigg( \frac{-1}{r^{12}}+\frac{1}{2} \cdot \frac{1}{r^6} \bigg) \bigg)\\
+&= - \frac{x}{r} \frac{48}{r} \bigg( \frac{1}{r^{12}}-\frac{1}{2} \cdot \frac{1}{r^6} \bigg)\\
+&= - \frac{48x}{r^2} \bigg( \frac{1}{r^{12}}-\frac{1}{2} \cdot \frac{1}{r^6} \bigg)\\
+\end{aligned}
+\end{equation}
 \end{document}
