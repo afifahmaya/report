@@ -8,7 +8,8 @@
 \usepackage{subcaption}
 \usepackage{wrapfig}
 \newtheorem{remark}{Remark}[]
-\newtheorem{prop}{Proposition}
+\newtheorem{prop}{Properties}
+\newtheorem{theorem}{Theorem}
 \usepackage{amssymb}
 
 \newcommand{\R}{\mathbb{R}}
@@ -300,8 +301,137 @@ $u \in H^2(\Omega)$ and $u$ satisfies \eqref{poissoneq}
 	\begin{aligned}
 	H^2(\Omega):= \{ u\in L^2(\Omega) \frac{\partial u}{\partial x_j},\frac{\partial^2 u}{\partial x_i x_j} \in L^2(\Omega)\}\\
 	u \in H^2(\Omega) \Rightarrow \frac{\partial u}{\partial x_j} \in H^1(\Omega)\\
-	\frac{\partial u}{\partial}
+	\frac{\partial u}{\partial v} = \sum v_i \frac{\partial v}{\partial x_i}
 	\end{aligned}
 	\end{equation}
 \end{remark}
+\begin{prop}
+	\begin{equation}\nonumber
+	u: \text{ strong solution } \Leftrightarrow \begin{cases}
+	u: \text{ weak solution}\\
+	u \in H^2(\Omega)
+	\end{cases}
+	\end{equation}
+\end{prop}
+\begin{equation}\nonumber
+\text{Energy } E(v) := \frac{1}{2} \int_\Omega |\triangledown v|^2 dx - \int_\Omega fv dx - \int_{\Gamma_N} qv ds
+\end{equation}
+\begin{theorem}\label{theorem1}
+	\begin{equation}\nonumber
+	u: \text{ weak solution } \Leftrightarrow u= \text{ argmin}_{v\in V+g} E(v)
+	\end{equation}
+\end{theorem}
+\begin{theorem}\label{theorem2}
+	\begin{equation}\nonumber
+	\exists! u = \text{ argmin}_{v\in V+g} E(v)
+	\end{equation}
+\end{theorem}
+\begin{proof}of Theorem \ref{theorem1}
+	\begin{equation}\nonumber
+	\begin{aligned}
+		(\Leftarrow) \text{ If } u = \text{ argmin }_{w\in V+g} E(w)\\
+		\text{since } u+fv \in V+g\ (\forall v \in V, \forall t\in \R)\\
+		\frac{d}{dt} E(u+tv)|_{t=0} = 0 \text{ (First Variation)}\\
+	\end{aligned}
+	\end{equation}
+	\begin{equation}\nonumber
+	\begin{aligned}
+	0 &= \frac{d}{dt} E(u+tv)|_{t=0}\\
+	&= \frac{d}{dt}\bigg[ \frac{1}{2} \int_\Omega |\triangledown u|^2 + 2t \triangledown u \cdot \triangledown v + t^2 |\triangledown v|^2 dx - \int_\Omega fu dx -\int_{\Gamma_N} qu ds - t(\int_\Omega fv dx + \int_{\Gamma_N} qv ds) \bigg]_{t=0}\\
+	&= \int_\Omega \triangledown u \cdot \triangledown v dx - \int_\Omega fv dx - \int_{\Gamma_N} qv ds\\
+	&\therefore u=\text{ weak solution }
+	\end{aligned}
+	\end{equation}
+\end{proof}
+\begin{proof} of Theorem \ref{theorem1} $\Leftrightarrow$ Theorem \ref{theorem2}\\
+	$(\Rightarrow)$ If u is a weak solution\\
+	for any $w\in V+g,(v:= w-u \in V)$\\
+	\begin{equation}\nonumber
+	\begin{aligned}
+	E(w) - E(u) &= E(u+v) - E(u)\\
+	&= \int_\Omega(\triangledown u \cdot \triangledown v + \frac{1}{2} |\triangledown v|^2) dx - \int_\Omega fv dx -\int_{\Gamma_N} qv ds\\
+	&= \frac{1}{2} \int_\Omega |\triangledown v|^2 dx \geq 0\\
+	&\therefore E(w) \geq E(u) (\forall w \in V+g)\\
+	&\therefore u = \text{ argmin}_{w\in V+g} E(w)
+	\end{aligned}
+	\end{equation}
+\end{proof}
+\section{Abstract Theory}
+X: a real Hilbert Space (ex: $H^1(\Omega)$)\\
+V: a closed subspace of X (ex: $V \subset H^1(\Omega)$) in case of Poisson Equation (Linear)
+\subsection{Definition}
+\begin{enumerate}
+	\item a : X $\times$ X $\rightarrow \R$ is a bilinear form, if\\
+	$\begin{cases}
+	\cdot u \mapsto a(u,v)\ \text{is linear for all}\ v \in X\\
+	\cdot v \mapsto a(u,v)\ \text{is linear for all}\ u \in X\\
+	\end{cases}$
+	\item a bilinear form $a(u,v)$ is \underline{bounded}, if $\exists a_0>0$ s.t. $|a(u,v)| \leq a_0 ||u||_x ||v||_x (\forall u,v\in X)$
+	\item a bilinear form $a(\cdot,\cdot)$ is \underline{symmetric}, if $a(u,v) = a(v,u)(\forall u,v \in X)$
+	\item a bilinear form $a(\cdot,\cdot)$ is \underline{coercive}, if $\exists \alpha > 0$ s.t. $a(u,u)\geq \alpha ||u||^2_x (\forall u \in X)$
+\end{enumerate}
+\begin{remark}
+	A bilinear form $a(\cdot,\cdot)$ is bounded iff $a: X \times X \rightarrow \R$ is continuous
+\end{remark}
+\subsection{Definition}
+\begin{enumerate}
+	\item $l: x \rightarrow \R$ is a linear form, if $l: x \rightarrow \R\ (\in u \mapsto l(u))$ is linear
+	\item A linear form $l$ is bounded, if $|l(u)| \leq \exists c||u||_x\ (\forall u \in x)$
+\end{enumerate}
+\begin{remark}
+	A linear form $l$ is bounded iff $l: x \rightarrow \R$ is continuous.
+\end{remark}
+\subsection{Theorem (Lax - Milgram)}
+We suppose $a(\cdot,\cdot)$ is a bounded bilinear form on $X\times X$, and $l$ is a bounded linear form on $X$.\\
+If $a(\cdot,\cdot)$ is coercive on $V\times V$, then for any $g\in X,\\ \exists! u\in V+g\ \text{s.t.}\ a(u,v)=l(v)(\forall v \in V)$
+\subsubsection{Example}
+\begin{equation}\nonumber
+\begin{aligned}
+X=H^1(\Omega), V={v \in H^1(\Omega)|v|_{\Gamma_D}=0}\\
+a(u,v) := \int_\Omega \triangledown u \cdot \triangledown v dx\\
+l(v) := \int_\Omega fv dx + \int_{\Gamma_N} qv ds
+\end{aligned}
+\end{equation}
+\underline{\textbf{Coercivity}}\\
+\begin{equation}\nonumber
+\begin{aligned}
+\exists \alpha_0 > 0: \int_\Omega |\triangledown v|^2 dx &\geq \alpha_0 \bigg( \int_\Omega |\triangledown v|^2 dx + \int_\Omega |v|^2 dx \bigg)\\
+&\Updownarrow\ \text{If we choose $\alpha_0$ so small}\\
+\exists \alpha_1 > 0 : \int_\Omega |\triangledown v|^2 dx &\geq \alpha_1 \int_\Omega |v|^2 dx (\forall v \in V)
+\end{aligned}
+\end{equation}
+\underline{\textbf{Boundedness}}\\
+\begin{equation}\nonumber
+|a(u,v)| \leq \sqrt{\int_\Omega |\triangledown u|^2 dx} \sqrt{\int_\Omega |\triangledown v|^2 dx} \leq ||u||_x ||v||_x
+\end{equation}
+\begin{equation}\nonumber
+|l(v)| \leq ||f||_{L^2(\Omega)} ||v||_{L^2(\Omega)} + ||q||_{L^2(\Gamma_N)} ||v||_{L^2(\Gamma_N)} \leq \bigg( ||f||_{L^2(\Omega)} + C||q||_{L^2(\Gamma_N)}\bigg)||v||_x
+\end{equation}
+Another Example:\\
+Energy $E(u) := \frac{1}{2} a(u,u) - l(u)$
+\begin{theorem}(Variational Principle) for $g \in X,$
+\begin{equation*}
+\begin{cases}
+u \in V+g\\
+a(u,v) = l(v) (\forall v \in V) \Leftrightarrow\ \text{argmin}_{w \in V+g} E(w)
+\end{cases}
+\end{equation*}
+\begin{proof}
+	\begin{equation*}
+	\begin{aligned}
+	(\Leftarrow) \forall t \in \R,& \forall v \in V, u+tv \in V+g\\
+	\frac{d}{dt} E(u+tv)|_{t=0} &= 0\\
+	E(u+tv) &= \frac{1}{2} a(u+tv, u+tv) -l(u+tv)\\
+	&= \frac{1}{2}\bigg(a(u,u)+2ta(u,v)+t^2a(v,v)-l(u)-tl(u)\bigg)
+	\end{aligned}
+	\end{equation*}
+	\begin{equation*}
+	\begin{aligned}
+	a(u,v) &= l(v) (\forall v \in V)\\
+	\Rightarrow\ \text{For}\ w \in V+g&\ (v:=w-u\in V)\\
+	E(w) - E(v) &= \frac{1}{2} a(v,v) \geq \frac{1}{2} \alpha ||v||_x^2 \geq 0  
+	\end{aligned}
+	\end{equation*}
+\end{proof}
+\end{theorem}
 \end{document}
