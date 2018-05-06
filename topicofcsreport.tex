@@ -1,5 +1,5 @@
 \documentclass[a4paper,12pt]{article}
-\usepackage[a4paper, hmargin={3cm,2cm}, vmargin={2cm,2cm}]{geometry}
+\usepackage[a4paper, hmargin={2cm,1.5cm}, vmargin={1.5cm,1.5cm}]{geometry}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
@@ -10,6 +10,7 @@
 \newtheorem{remark}{Remark}[]
 \newtheorem{prop}{Proposition}
 \usepackage{amssymb}
+\usepackage{verbatim}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
@@ -36,6 +37,7 @@ The finite difference approximations for derivatives was already known by L. Eul
 u'(x) = \lim_{h\to 0} \frac{u(x+h)-u(x)}{h}
 \end{equation}
 when $h$ tends to 0 (without vanishing), the quotient on the right-hand side provides good approximation of the derivative. The approximation is good when the error commited in this approximation (i.e. when replacing the derivative by the differential quotient) tends towards zero when $h$ tends to zero. If the function $u$ is sufficiently smooth in the neighborhood of x, it is possible to quantify this error using a Taylor expansion.
+\iftrue
 \subsection{Taylor Expansion}
 Suppose the function $u$ is $C^2$ continuous in the neighborhood of $x$. For any $h>0$ we have:
 \begin{equation}\label{taylorex}
@@ -50,6 +52,24 @@ where $O(h^2)$ indicates the error is proportional to $h^2$. From equation \ref{
 \bigg| \frac{u(x+h)-u(x)}{h} - u'(x) \bigg| \leq Ch, C=\sup_{y\in |x,x+h_0|} \frac{|u''(y)|}{2},
 \end{equation*}
 for $h\leq h_0$ ($h_0 > 0$ given). The error commited by replacing the derivative $u'(x)$ by the differential quotient is of order $h$. The approximation of $u'$ at point x is said to be consistant at the first order. This approximation is known as the forward difference approximant of $u'$.
+\fi
+
+\subsection{Example}
+Let's consider Poisson Equation:
+\begin{equation}
+\begin{cases}\label{poissonfdm}
+-\triangle u = f(x),\ (x\in \Omega)\\
+u=g(x),\ (x\in \Gamma)
+\end{cases}
+\end{equation}
+\subsubsection{Discretization}
+We solve using central difference scheme, thus equation \ref{poissonfdm} becomes:
+\begin{equation}
+\begin{cases}
+\frac{u_{i+1,j}+u_{i-1,j}-4u_{i,j}+u_{i,j+1}+u_{i,j-1}}{h^2},\ (\xi_{ij}\in \omega_h)\\
+u_{i,j} = g_{i,j},\ (\xi_{ij}\in \gamma_h)
+\end{cases}
+\end{equation}
 \section{Finite Element Method}
 \subsection{General Principle}
 The Finite Element Method (FEM) originated from the need to solve complex elasticity and structural analysis problems in civil and aeronautical engineering. Its development can be traced back to the work by A. Hrennikoff and R. Courant in the early 1940s. FEM divides a large domain problem into smaller subdomain, called finite elements with each subdomain represented by a set of element equations to the original problem. The simple equations that model these finite elements are then assembled into a larger system of equations that models the entire problem. FEM then uses variational principle to approximate a solution by minimizing an associated error function. FEM also known as the implicit method to solve Partial Differential Equation (PDE)\\
@@ -78,10 +98,16 @@ A_{ij} = a(e_j,e_i),\ f_i=f(e_i)
 \end{equation}
 The matrix $A_{ij}$ is symmetric iff the bilinear form $a(\cdot,\cdot)$ is symmetric.
 \section{Advantage and Disadvantage of FEM over FDM}
+\subsection{Advantage}
 \begin{enumerate}
-	\item The finite element method takes significantly less time and is more accurate than the finite difference method for certain finite element formulations.
-	\item  The possibility exists for the derivation of new, more exact finite elements which will produce better results in correspondingly shorter times.
-	\item In practice the overrelaxation coefficient for the FDM is never known a priori. Since the FDM time requirement is highly dependent upon the overrelaxation coefficient, any guess signifi- cantly different from the optimum one could produce times which are even more lengthy.
-	\item The only disadvantage is that more computer core storage is required by the finite element method. Therefore, the possibility exists that it could not be used on a smaller computer.
+	\item FEM takes significantly less time and is more accurate than FDM for certain finite element formulations. Because FDM highly depend on overrelaxation coefficient to converge, any guess significantly different from the optimum one could produce times which are even more lengthy.
+	\item There exist possibility for the derivation of new, more exact finite elements which will produce better results in correspondingly shorter times.
+	\item Flexibility of the element, in other word we can use unstructured mesh in FEM, while in FDM we have to use rectangle mesh for better result.
+\end{enumerate}
+\subsection{Disadvantage}
+\begin{enumerate}
+	\item FEM takes more computer core storage. Therefore, the possibility exists that it could not be used on a smaller computer.
+	\item Need a high level mathematics to derive the solution.
+	\item FDM considerably simpler numerical implementation than FEM.
 \end{enumerate}
 \end{document}
