@@ -23,14 +23,65 @@
 
 
 % Title Page
-\title{Topics in Computational Science Report \\ Comparison Between Finite Difference Method and Finite Element Method}
+\title{Topics in Computational Science Report \\ Introduction to Comparison Between Finite Difference Method and Finite Element Method}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
-\section{Definition}
-\subsection{Finite Difference Method}
-\subsection{Finite Element Method}
-
+\section{Finite Difference Method}
+\subsection{General Principle}
+The finite difference approximations for derivatives was already known by L. Euler (1707-1783), in one dimension of space. Finite Difference Methods (FDM) approximating the differential operator by replacing the derivatives in the equation using differential quotients. FDM also known as explicit method to solve PDE in the case of forward FDM. The domain is partitioned in space and in time and approximations of the solution are computed at the space or time points. The error between the numerical solution and the exact solution is determined by the error that is commited by going from a differential operator to a difference operator. This error is called the discretization error or truncation error. The term truncation error reflects the fact that a finite part of a Taylor series is used in the approximation. For simplicity, we consider one-dimensional case. The main concept behind any finite difference scheme is related to the definition of the derivative of a smooth function $u$ at a point $x\in \R$:
+\begin{equation}
+u'(x) = \lim_{h\to 0} \frac{u(x+h)-u(x)}{h}
+\end{equation}
+when $h$ tends to 0 (without vanishing), the quotient on the right-hand side provides good approximation of the derivative. The approximation is good when the error commited in this approximation (i.e. when replacing the derivative by the differential quotient) tends towards zero when $h$ tends to zero. If the function $u$ is sufficiently smooth in the neighborhood of x, it is possible to quantify this error using a Taylor expansion.
+\subsection{Taylor Expansion}
+Suppose the function $u$ is $C^2$ continuous in the neighborhood of $x$. For any $h>0$ we have:
+\begin{equation}\label{taylorex}
+u(x+h) = u(x) + hu'(x) + \frac{h^2}{2}u''(x+h_1)
+\end{equation}
+where $h_1$ is a number between 0 and $h$ (i.e. $x+h_1$ is point of $|x,x+h|$). For simplicity, we retain only the first two terms of equation \ref{taylorex}:
+\begin{equation*}
+u(x+h) = u(x) + hu'(x) + O(h^2)
+\end{equation*}
+where $O(h^2)$ indicates the error is proportional to $h^2$. From equation \ref{taylorex}, we deduce that there exists a constant $C>0$ s.t. for $h>0$ sufficiently small we have:
+\begin{equation*}
+\bigg| \frac{u(x+h)-u(x)}{h} - u'(x) \bigg| \leq Ch, C=\sup_{y\in |x,x+h_0|} \frac{|u''(y)|}{2},
+\end{equation*}
+for $h\leq h_0$ ($h_0 > 0$ given). The error commited by replacing the derivative $u'(x)$ by the differential quotient is of order $h$. The approximation of $u'$ at point x is said to be consistant at the first order. This approximation is known as the forward difference approximant of $u'$.
+\section{Finite Element Method}
+\subsection{General Principle}
+The Finite Element Method (FEM) originated from the need to solve complex elasticity and structural analysis problems in civil and aeronautical engineering. Its development can be traced back to the work by A. Hrennikoff and R. Courant in the early 1940s. FEM divides a large domain problem into smaller subdomain, called finite elements with each subdomain represented by a set of element equations to the original problem. The simple equations that model these finite elements are then assembled into a larger system of equations that models the entire problem. FEM then uses variational principle to approximate a solution by minimizing an associated error function. FEM also known as the implicit method to solve Partial Differential Equation (PDE)\\
+FEM commonly introduced Galerkin method, the process to construct an integral of the inner product of the residual and the weight function or we usually called it test function then set the integral to zero, the purpose of this technique is to "convert" the strong form of the PDE to become weak form of PDE. In simple terms, it is a procedure that minimizes the error of approximation by fitting trial functions into the PDE. The residual is the error caused by the trial functions, and the test functions are usually polynomial approximation functions that project the residual. FEM approximating the local elements with a set of function which linear if the underlying PDE is linear, and vice versa. Then, the local elements solved using numerical linear algebra methods (i.e. Conjugate Gradient, Gauss Scheidel, etc). After we solve the local elements, then systematically we recombining all sets of element equations into a global system of equations. The global system of equations has known solution techniques, and can be calculated from the initial values of the original problem to obtain a numerical answer. The global system is generated through a transformation of coordinates from the subdomain's local nodes to the domain's global nodes. This spatial transformation includes appropriate orientation adjustments as applied in relation to the reference coordinate system. The process is often carried out by FEM software using coordinate data generated from the subdomains.
+\subsection{Galerkin Method}
+Galerkin methods converting a continuous operator problem to a discrete problem. In principle, it is the equivalent of applying the method of variation of parameters to a function space, by converting the equation to a weak formulation. Typically one then applies some constraints on the function space to characterize the space with a finite set of basis functions.\\
+Let $V$ on a Hilbert Space, then we define the problem:
+\begin{equation}
+\text{find}\ u \in V\ \text{s.t.}\ \forall v \in V, a(u,v) = f(v)
+\end{equation}
+with $a(\cdot,\cdot)$ is a bilinear form and $f$ is a bounded linear functional on $V$. Then, we choose a subspace $V_n \subset V$, the problem becomes:
+\begin{equation}
+\text{find}\ u_n \in V_n\ \text{s.t.}\ \forall v_n \in V_n, a(u_n,v_n) = f(v_n)
+\end{equation}
+now the vector space of the problem reduced to a finite-dimensional vector subspace allows us to numerically compute $u_n$ as a finite linear combination of the basis vectors in $V_n$. Then, we build a linear system using $e_1,e_2,\cdots,e_n$ as the basis for $V_n$. Then, use it for testing the problem, i.e.: find $u_n\in V_n$ such that:
+\begin{equation}\label{basisfunc}
+a(u_n,e_i) = f(e_i),\ i=1,\cdots,n.
+\end{equation}
+then we expand $u_n$ with respect to the basis, $u_n = \sum_{j=1}^n u_j e_j$ and insert it into the equation \ref{basisfunc} yield:
+\begin{equation}\label{linsys}
+a\bigg( \sum_{j=1}^{n}u_j e_j,e_i \bigg) = \sum_{j=1}^{n} u_j a(e_j,e_i) = f(e_i),\ i=1,\cdots,n.
+\end{equation}
+Equation \ref{linsys} is actually a linear system $Au = f$, where
+\begin{equation}
+A_{ij} = a(e_j,e_i),\ f_i=f(e_i)
+\end{equation}
+The matrix $A_{ij}$ is symmetric iff the bilinear form $a(\cdot,\cdot)$ is symmetric.
+\section{Advantage and Disadvantage of FEM over FDM}
+\begin{enumerate}
+	\item The finite element method takes significantly less time and is more accurate than the finite difference method for certain finite element formulations.
+	\item  The possibility exists for the derivation of new, more exact finite elements which will produce better results in correspondingly shorter times.
+	\item In practice the overrelaxation coefficient for the FDM is never known a priori. Since the FDM time requirement is highly dependent upon the overrelaxation coefficient, any guess signifi- cantly different from the optimum one could produce times which are even more lengthy.
+	\item The only disadvantage is that more computer core storage is required by the finite element method. Therefore, the possibility exists that it could not be used on a smaller computer.
+\end{enumerate}
 \end{document}
