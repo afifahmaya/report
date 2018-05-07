@@ -1,0 +1,92 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[a4paper, hmargin={3cm,2cm}, vmargin={2cm,2cm}]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{color}
+\usepackage[final]{graphicx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\newtheorem{prob}{Problem}[]
+\newtheorem{prop}{Proposition}
+\usepackage{amssymb}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+
+% Title Page
+\title{Analysis Ia Report}
+\author{Alifian Mahardhika Maulana}
+
+
+\begin{document}
+\maketitle
+\begin{prob}
+	Suppose that for every $n\in \N$ we have:
+	\begin{equation*}
+	b_n \leq a_n \leq c_n
+	\end{equation*}
+	Let \begin{equation*}
+	\lim_{n\to\infty}b_n = l =\lim_{n\to\infty}c_n
+	\end{equation*}
+	given $\epsilon > 0$, then it follows from the convergence of $b_n\ \text{and}\ c_n\ \text{to}\ l$ that there exists a natural number $N$ such that if $n\geq N$ then:
+	\begin{equation*}
+	\begin{aligned}
+	|b_n-l|<\epsilon\\
+	-\epsilon < b_n-l < \epsilon
+	\end{aligned}
+	\ \text{and}\
+	\begin{aligned}
+	|c_n-l|<\epsilon\\
+	-\epsilon < c_n-l < \epsilon
+	\end{aligned}	
+	\end{equation*}
+	Since the hypothesis implies that
+	\begin{equation*}
+	\begin{aligned}
+	b_n-l \leq &a_n-l \leq c_n-l\\
+	-\epsilon<b_n-l \leq &a_n-l \leq c_n-l < \epsilon
+	\end{aligned}
+	\end{equation*}
+	it follows that
+	\begin{equation*}
+	-\epsilon < a_n-l < \epsilon
+	\end{equation*}
+	for all $n\geq K.$ Since $\epsilon > 0$ is arbitrary, this implies that
+	\begin{equation*}
+	\lim_{n\to\infty} a_n =l
+	\end{equation*}
+\end{prob}
+\begin{prob}
+	Prove if a sequence of real numbers converges, then it is bounded and it is a Cauchy sequence.
+	\begin{enumerate}
+		\item If a sequence of real numbers converges, then it is bounded.
+		\begin{proof}
+			Suppose $x_n$ be a sequence converges to $x$ and let $\epsilon:=1$. Then there exist a natural number $K=K(1)$ such that $|x_n-x|<1\ \text{for all}\ n\geq K$. Then if we apply Triangle Inequality with $n\geq K$ we obtain
+			\begin{equation*}
+			|x_n|=|x_n-x+x|\leq|x_n-x|+|x|<1+|x|
+			\end{equation*}
+			put
+			\begin{equation*}
+			M:=\sup\{|x_1|,|x_2|,\cdots,|x_{K-1}|,1+|x|\},
+			\end{equation*}
+			then it follows that $|x_n|\leq M$ for all $n\in \N$.
+		\end{proof}
+	\newpage
+		\item If a sequence of real numbers converges, then it is a Cauchy sequence.
+		\begin{proof}
+			Suppose $x_n$ be a sequence converges to $x$ and let $\epsilon:=\frac{\epsilon}{2}$, then there exist a natural number $K=K(1)$ such that $|x_n-x|<\frac{\epsilon}{2}\ \text{for all}\ n\geq K$.\\
+			Let $x_m$ be a sequence converges to $x$ and let $\epsilon:=\frac{\epsilon}{2}$, then there exist a natural number $K=K(1)$ such that $|x_m-x|<\frac{\epsilon}{2}\ \text{for all}\ m\geq K$.\\
+			Applying Triangular Inequality to substraction of $x_n\ \text{and}\ x_m$, we obtain
+			\begin{equation*}
+			\begin{aligned}
+			|x_n - x_m|&=|x_n-x+x-x_m|\leq|x_n-x|+|x_m-x| < \frac{\epsilon}{2}+\frac{\epsilon}{2}\\
+			&=|x_n-x+x-x_m|\leq|x_n-x|+|x_m-x| < \epsilon
+			\end{aligned}
+			\end{equation*}
+			then it follows that $|x_n - x_m|<\epsilon$.
+		\end{proof}
+	\end{enumerate}
+\end{prob}
+\end{document}
