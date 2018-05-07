@@ -21,7 +21,7 @@
 \newcommand{\Hspace}{\mathbb{H}}
 \newcommand{\Lspace}{\mathbb{L}}
 \newcommand{\Lagr}{\mathcal{L}}
-
+\newcommand{\Cmod}{\mathcal{C}}
 
 % Title Page
 \title{Seminar Notes Alifian}
@@ -363,8 +363,8 @@ V: a closed subspace of X (ex: $V \subset H^1(\Omega)$) in case of Poisson Equat
 \begin{enumerate}
 	\item a : X $\times$ X $\rightarrow \R$ is a bilinear form, if\\
 	$\begin{cases}
-	\cdot u \mapsto a(u,v)\ \text{is linear for all}\ v \in X\\
-	\cdot v \mapsto a(u,v)\ \text{is linear for all}\ u \in X\\
+	u \mapsto a(u,v)\ \text{is linear for all}\ v \in X\\
+	v \mapsto a(u,v)\ \text{is linear for all}\ u \in X\\
 	\end{cases}$
 	\item a bilinear form $a(u,v)$ is \underline{bounded}, if $\exists a_0>0$ s.t. $|a(u,v)| \leq a_0 ||u||_x ||v||_x (\forall u,v\in X)$
 	\item a bilinear form $a(\cdot,\cdot)$ is \underline{symmetric}, if $a(u,v) = a(v,u)(\forall u,v \in X)$
@@ -434,4 +434,70 @@ a(u,v) = l(v) (\forall v \in V) \Leftrightarrow\ \text{argmin}_{w \in V+g} E(w)
 	\end{equation*}
 \end{proof}
 \end{theorem}
+\begin{remark} Uniqueness in Lax-Milgram
+	If $u$ and $w$ are both the minimizer of $E$ among $V+g$, then
+	\begin{equation*}
+	0=E(w) - E(u) = \frac{1}{2} a(v,v) \geq \frac{\alpha}{2} ||v||^2_x \geqq 0
+	\end{equation*}
+	$\therefore v=0,\ \therefore w = u$
+\end{remark}
+\section{Linear Elasticity}
+We define:
+\begin{equation*}
+\begin{aligned}
+&\Omega \subset \R^d\ (d=2,3)\\
+&u:\Omega \rightarrow \R^d\ \text{(displacement)}\\
+&e[u]:= \frac{1}{2}(\triangledown^T u + \triangledown u^T)\ \text{(strain)}\\
+&\sigma[u]:=\Cmod e[u]\\
+&\Cmod=(C_{ijkl})\begin{cases}
+C_{ijkl}=C_{klij}=C_{jikl}\\
+(C_\xi):\xi \geq C_* |\xi|^2 (\forall \xi \in \R_{sym}^{d\times d})
+\end{cases}
+\end{aligned}
+\end{equation*}
+Let's consider linear elasticity problem:
+\begin{equation}\label{linearelcase}
+(**)\begin{cases}
+-div\ \sigma[u]=f(x),\ \text{in}\ \Omega\\
+u=g(x)\ \text{on}\ \Gamma_D\\
+\sigma[u] \nu = q(x)\ \text{on}\ \Gamma_N
+\end{cases}
+\end{equation}
+\begin{equation*}
+f \in L^2(\Omega : \R^d,\ g\in H^1(\Omega : \R^d),\ q\in L^2(\Gamma_N:\R^d))
+\end{equation*}
+\subsection{Strong Solution}
+\begin{equation*}
+u\in H^2 (\Omega : \R^d)\ \text{satisfies}\ (**)\ \text{then we call $u:$ a strong solution}
+\end{equation*}
+\subsection{Weak Solution}
+\begin{equation*}
+\begin{cases}
+\int_\Omega \sigma[u] : e[v] dx = \int_\Omega f\cdot v dx + \int_{\Gamma_N} q\cdot v ds \big( \forall v \in V:= \{ v \in H^1\ (\Omega : \R^d)\ |v|_{\Gamma_D} = 0 \}\big)\\
+u \in V+g
+\end{cases}
+\end{equation*}
+\subsection{Properties}
+\begin{equation*}
+u:\ \text{strong solution}\ \Leftrightarrow \begin{cases}
+u:\ \text{weak solution}\\
+u\in H^2\ (\Omega : \R^d)
+\end{cases}
+\end{equation*}
+\begin{equation*}
+\begin{aligned}
+&X:= H^1(\Omega : \R^d)\\
+&a(u,v) := \int_\Omega \sigma[u] : e[v] dx\\
+&l(v) := \int_\Omega f\cdot v dx + \int_{\Gamma_N} q \cdot v ds\\
+\end{aligned}
+\begin{aligned}
+a(u,v) &= \int_\Omega (\Cmod e[u]) : e[v] dx\\
+&= \int_\Omega e[v] : (\Cmod e[u]) dx\\
+&= a(v,u)
+\end{aligned}
+\end{equation*}
+For $v \in V$
+\begin{equation*}
+
+\end{equation*}
 \end{document}
