@@ -8,7 +8,7 @@
 \usepackage{subcaption}
 \usepackage{wrapfig}
 \newtheorem{remark}{Remark}[]
-\newtheorem{prop}{Properties}
+\newtheorem{prop}{Proposition}
 \newtheorem{theorem}{Theorem}
 \usepackage{amssymb}
 
@@ -23,6 +23,7 @@
 \newcommand{\Lagr}{\mathcal{L}}
 \newcommand{\Cmod}{\mathcal{C}}
 
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
 % Title Page
 \title{Seminar Notes Alifian}
 \author{Alifian Mahardhika Maulana}
@@ -498,6 +499,25 @@ a(u,v) &= \int_\Omega (\Cmod e[u]) : e[v] dx\\
 \end{equation*}
 For $v \in V$
 \begin{equation*}
-
+\begin{aligned}
+a(v,v) &= \int_\Omega (\Cmod e[v]) : e[v] dx\\
+&\geqq C_* \int_\Omega |e[v]|^2 dx\\
+&\geqq C_* ||v||^2_x
+\end{aligned}
 \end{equation*}
+\begin{prop}
+	\begin{itemize}
+		\item $a(\cdot,\cdot)$ is bounded symmetric, bilinear form on $X \times X$.
+		\item $a(\cdot,\cdot)$ is coercive on $V \times V$.
+		\item $l$ is bounded linear form on $X$.
+	\end{itemize}
+\end{prop}
+\begin{theorem}
+	For any $g\in H^1(\Omega : \R^d)$,
+	\begin{equation*}
+	\exists! u:a\ \text{weak solution of}\ (**),\ \text{and}\ \begin{cases}
+	u=\argmin_{w\in V+g}E(w)
+	\end{cases}
+	\end{equation*}
+\end{theorem}
 \end{document}
