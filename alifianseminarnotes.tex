@@ -8,7 +8,7 @@
 \usepackage{subcaption}
 \usepackage{wrapfig}
 \newtheorem{remark}{Remark}[]
-\newtheorem{prop}{Proposition}
+\newtheorem{prop}{Properties}
 \newtheorem{theorem}{Theorem}
 \usepackage{amssymb}
 
@@ -314,6 +314,29 @@ $u \in H^2(\Omega)$ and $u$ satisfies \eqref{poissoneq}
 	\end{cases}
 	\end{equation}
 \end{prop}
+\begin{proof}
+	Let's consider one dimension for simplicity, then:
+	\begin{equation*}
+	\begin{aligned}
+	(\Rightarrow)
+	-\triangle u = f(x)\\
+	-\frac{\partial^2 u}{\partial x^2} = f(x)
+	\end{aligned}
+	\end{equation*}
+	Suppose we take $v,\forall v \in V:={v \in H^1(\Omega)|v|_{\Gamma_D} = 0}$, if $v$ is smooth enough, then we take integral for both side, thus the equation becomes:
+	\begin{equation*}
+	\begin{aligned}
+	\int_\Omega -\frac{\partial^2 u}{\partial x^2} v dx = \int_\Omega f(x) v dx\\
+	\int_\Omega -\frac{\partial}{\partial x}\frac{\partial u}{\partial x} v dx = \int_\Omega f(x) v dx\\
+	\text{using integration by parts, the left handside equation becomes:}\\
+	\int_\Omega -\frac{\partial}{\partial x}\frac{\partial u}{\partial x} v dx = \bigg[-v \cdot \frac{du}{dx}\bigg]_{\partial\Omega} + \int_\Omega \frac{du}{dx}\frac{dv}{dx} dx\\
+	\text{consider dirichlet boundary condition, thus the equation becomes:}\\
+	-\int_{\Gamma_N} qv ds + \int_\Omega \frac{du}{dx}\frac{dv}{dx} dx = \int_\Omega fv dx\\
+	\text{in general}\\
+	\int_\Omega \triangledown u \cdot \triangledown v dx = \int_\Omega fv dx + \int_{\Gamma_N} qv ds
+	\end{aligned}
+	\end{equation*}
+\end{proof}
 \begin{equation}\nonumber
 \text{Energy } E(v) := \frac{1}{2} \int_\Omega |\triangledown v|^2 dx - \int_\Omega fv dx - \int_{\Gamma_N} qv ds
 \end{equation}

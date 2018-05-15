@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.4.18)  7 MAY 2018 17:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.4.18)  16 MAY 2018 08:44
 entering extended mode
 **./alifianseminarnotes.tex
 (alifianseminarnotes.tex
@@ -325,44 +325,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 238--240
 
  []
 
-[4] [5]
-Overfull \hbox (29.64769pt too wide) detected at line 345
+[4] [5] [6]
+Overfull \hbox (29.64769pt too wide) detected at line 368
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--350
+Underfull \hbox (badness 10000) in paragraph at lines 370--373
 
  []
 
-[6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 395--397
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 418--420
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--405
+Underfull \hbox (badness 10000) in paragraph at lines 426--428
 
  []
 
-[8]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 510.
+[8] [9]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 533.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 510.
- [9] [10]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 533.
+ [10]
 (alifianseminarnotes.aux) ) 
 Here is how much of TeX's memory you used:
  4167 strings out of 493308
  60855 string characters out of 3138732
- 138406 words of memory out of 3000000
+ 138405 words of memory out of 3000000
  7648 multiletter control sequences out of 15000+200000
  15794 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,15n,40p,400b,237s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,15n,40p,400b,243s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10
@@ -379,7 +379,7 @@ rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 
 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on alifianseminarnotes.pdf (10 pages, 221542 bytes).
+Output written on alifianseminarnotes.pdf (10 pages, 222816 bytes).
 PDF statistics:
  103 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
