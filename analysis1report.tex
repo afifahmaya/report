@@ -1,5 +1,5 @@
 \documentclass[a4paper,12pt]{article}
-\usepackage[a4paper, hmargin={3cm,2cm}, vmargin={2cm,2cm}]{geometry}
+\usepackage[a4paper, hmargin={2cm,2cm}, vmargin={2cm,2cm}]{geometry}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
@@ -10,6 +10,7 @@
 \newtheorem{prob}{Problem}[]
 \newtheorem{prop}{Proposition}
 \usepackage{amssymb}
+\usepackage{enumitem}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
@@ -23,70 +24,147 @@
 \begin{document}
 \maketitle
 \begin{prob}
-	Suppose that for every $n\in \N$ we have:
-	\begin{equation*}
-	b_n \leq a_n \leq c_n
-	\end{equation*}
-	Let \begin{equation*}
-	\lim_{n\to\infty}b_n = l =\lim_{n\to\infty}c_n
-	\end{equation*}
-	given $\epsilon > 0$, then it follows from the convergence of $b_n\ \text{and}\ c_n\ \text{to}\ l$ that there exists a natural number $N$ such that if $n\geq N$ then:
-	\begin{equation*}
-	\begin{aligned}
-	|b_n-l|<\epsilon\\
-	-\epsilon < b_n-l < \epsilon
-	\end{aligned}
-	\ \text{and}\
-	\begin{aligned}
-	|c_n-l|<\epsilon\\
-	-\epsilon < c_n-l < \epsilon
-	\end{aligned}	
-	\end{equation*}
-	Since the hypothesis implies that
-	\begin{equation*}
-	\begin{aligned}
-	b_n-l \leq &a_n-l \leq c_n-l\\
-	-\epsilon<b_n-l \leq &a_n-l \leq c_n-l < \epsilon
-	\end{aligned}
-	\end{equation*}
-	it follows that
-	\begin{equation*}
-	-\epsilon < a_n-l < \epsilon
-	\end{equation*}
-	for all $n\geq K.$ Since $\epsilon > 0$ is arbitrary, this implies that
-	\begin{equation*}
-	\lim_{n\to\infty} a_n =l
-	\end{equation*}
+	Suppose:
+	\begin{equation}\label{eq:metric1}
+	d_2(f,g) := \bigg( \int_{a}^{b}\{f(x)-g(x)\}^2dx \bigg)^{\frac{1}{2}},f:[a,b]\rightarrow \R
+	\end{equation}
+	we will show $(C([a,b]),d_2)$ is a \textbf{metric space}.
+	\begin{enumerate}[label=(\alph*)]
+		\item \textbf{Positivity}\\
+		Take: $h=\int_{a}^{b}\{f(x)-g(x)\}^2dx$, then equation \eqref{eq:metric1} becomes:
+		\begin{equation*}
+		d_2(f,g) = \sqrt{h}
+		\end{equation*}
+		Since the value of $(f(x)-g(x))^2\geq 0$ then $\sqrt{h}\geq 0,\ \forall h\in C[a,b]$, then:
+		\begin{equation*}
+		d_2(f,g) \geq 0
+		\end{equation*}
+		
+		\item \textbf{Definiteness}\\
+		$(\Leftarrow)$ put $f(x) = g(x)$, then equation \eqref{eq:metric1} becomes:
+		\begin{equation*}
+		\begin{aligned}
+		d_2(f,g) &= \sqrt{\int_{a}^{b}\{f(x)-g(x)\}^2dx}\\
+		&= \sqrt{\int_{a}^{b}\{g(x)-g(x)\}^2dx}\\
+		d_2(f,g) &= 0
+		\end{aligned}
+		\end{equation*}
+		
+		$(\Rightarrow)$ put $d_2(f,g) = 0$, then equation \eqref{eq:metric1} becomes:
+		\begin{equation*}
+		\begin{aligned}
+		0 &= \sqrt{\int_{a}^{b}\{f(x)-g(x)\}^2dx}\\
+		0^2 &=\Bigg( \sqrt{\int_{a}^{b}\{f(x)-g(x)\}^2dx} \Bigg)^2\\
+		0 &= \int_{a}^{b}\{f(x)-g(x)\}^2dx
+		\end{aligned}
+		\end{equation*}
+		to satisfies $(\Rightarrow),\ \forall a,b \in \R$
+		\begin{equation*}
+		\begin{aligned}
+		f(x) - g(x) &= 0\\
+		\therefore f(x) &= g(x)
+		\end{aligned}
+		\end{equation*}
+		
+		\item \textbf{Symmetry}
+		\begin{equation*}
+		\begin{aligned}
+		d_2(f,g) &= \sqrt{\int_{a}^{b}\{f(x)-g(x)\}^2dx}\\
+		d_2(f,g) &= \sqrt{\int_{a}^{b}\bigg( f(x)^2 -2f(x)g(x) + g(x)^2 \bigg)dx}\\
+		d_2(f,g) &= \sqrt{\int_{a}^{b}\bigg( g(x)^2 -2g(x)f(x) + f(x)^2 \bigg)dx}\\
+		d_2(f,g) &= \sqrt{\int_{a}^{b}\{g(x)-f(x)\}^2dx}\\
+		d_2(f,g) &= d_2(g,f),\ \forall f,g \in C
+		\end{aligned}
+		\end{equation*}
+		
+		\item \textbf{Triangle Inequality}\\
+		Put $g(x)\leq h(x)\leq f(x)$
+		\begin{equation*}
+		\begin{aligned}
+		d_2(f,g) &= \sqrt{\int_{a}^{b}\{f(x)-h(x)+h(x)-g(x)\}^2dx}\\
+		\end{aligned}
+		\end{equation*}
+		then we take $r(x)=f(x)-h(x)$,and $s(x)=h(x)-g(x)$\\
+		\begin{equation*}
+		\begin{aligned}
+		d_2(f,g) &= \sqrt{\int_{a}^{b}r(x)^2 +2r(x)s(x) + s(x)^2dx}\\
+		&= \sqrt{\int_{a}^{b}r(x)^2 dx +2\int_{a}^{b}r(x)s(x) dx + \int_{a}^{b}s(x)^2dx}\\
+		\end{aligned}
+		\end{equation*}
+		according to Cauchy-Schwartz inequality:
+		\begin{equation*}
+		\int_{a}^{b}r(x)s(x) dx \leq \sqrt{\int_{a}^{b}r(x)^2 dx} \sqrt{\int_{a}^{b}s(x)^2 dx}
+		\end{equation*}
+		thus:
+		\begin{equation*}
+		\begin{aligned}
+		d_2(f,g) &\leq \sqrt{\int_{a}^{b}r(x)^2 dx +2\sqrt{\int_{a}^{b}r(x)^2 dx} \sqrt{\int_{a}^{b}s(x)^2 dx} + \int_{a}^{b}s(x)^2dx}\\
+		&\leq \sqrt{\Bigg( \sqrt{\int_{a}^{b}r(x)^2 dx} + \sqrt{\int_{a}^{b}s(x)^2dx} \Bigg)^2}\\
+		&\leq \sqrt{\int_{a}^{b}r(x)^2 dx} + \sqrt{\int_{a}^{b}s(x)^2dx}\\
+		d_2(f,g) &\leq \sqrt{\int_{a}^{b}\{ f(x)-h(x) \}^2 dx} + \sqrt{\int_{a}^{b}\{ h(x)-g(x) \}^2dx}\\
+		\therefore d_2(f,g) &\leq d_2(f,h) + d_2(h,g)
+		\end{aligned}
+		\end{equation*}
+	\end{enumerate}
 \end{prob}
+
 \begin{prob}
-	Prove if a sequence of real numbers converges, then it is bounded and it is a Cauchy sequence.
-	\begin{enumerate}
-		\item If a sequence of real numbers converges, then it is bounded.
-		\begin{proof}
-			Suppose $x_n$ be a sequence converges to $x$ and let $\epsilon:=1$. Then there exist a natural number $K=K(1)$ such that $|x_n-x|<1\ \text{for all}\ n\geq K$. Then if we apply Triangle Inequality with $n\geq K$ we obtain
-			\begin{equation*}
-			|x_n|=|x_n-x+x|\leq|x_n-x|+|x|<1+|x|
-			\end{equation*}
-			put
-			\begin{equation*}
-			M:=\sup\{|x_1|,|x_2|,\cdots,|x_{K-1}|,1+|x|\},
-			\end{equation*}
-			then it follows that $|x_n|\leq M$ for all $n\in \N$.
-		\end{proof}
-	\newpage
-		\item If a sequence of real numbers converges, then it is a Cauchy sequence.
-		\begin{proof}
-			Suppose $x_n$ be a sequence converges to $x$ and let $\epsilon:=\frac{\epsilon}{2}$, then there exist a natural number $K=K(1)$ such that $|x_n-x|<\frac{\epsilon}{2}\ \text{for all}\ n\geq K$.\\
-			Let $x_m$ be a sequence converges to $x$ and let $\epsilon:=\frac{\epsilon}{2}$, then there exist a natural number $K=K(1)$ such that $|x_m-x|<\frac{\epsilon}{2}\ \text{for all}\ m\geq K$.\\
-			Applying Triangular Inequality to substraction of $x_n\ \text{and}\ x_m$, we obtain
-			\begin{equation*}
-			\begin{aligned}
-			|x_n - x_m|&=|x_n-x+x-x_m|\leq|x_n-x|+|x_m-x| < \frac{\epsilon}{2}+\frac{\epsilon}{2}\\
-			&=|x_n-x+x-x_m|\leq|x_n-x|+|x_m-x| < \epsilon
-			\end{aligned}
-			\end{equation*}
-			then it follows that $|x_n - x_m|<\epsilon$.
-		\end{proof}
+	Let $(X,d)$ be a metric space, suppose:
+	\begin{equation}\label{eq:metric2}
+	\tilde{d}(x,y) := \frac{d(x,y)}{1+d(x,y)}\ (x,y\in X)
+	\end{equation}
+	we will show that $\tilde{d}(x,y)$ is also \textbf{metric} on $X$
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item \textbf{Positivity}\\
+		Since $d(x,y)$ is a metric, it satisfies $d(x,y) \geq 0$, thus:
+		\begin{equation*}
+		\tilde{d}(x,y) = \frac{d(x,y)}{1+d(x,y)} \geq 0
+		\end{equation*}
+		\item \textbf{Definiteness}\\
+		$(\Leftarrow)$ put $x=y$\\
+		Since $d(x,y)$ is a metric, it satisfies $x=y \Rightarrow d(x,y)=0$, thus:
+		\begin{equation*}
+		\tilde{d}(x,y) = \frac{d(x,y)}{1+d(x,y)} = \frac{0}{1+0} = 0
+		\end{equation*}
+		\begin{equation*}
+		\therefore \tilde{d}(x,y) = 0 \Leftarrow x = y
+		\end{equation*}
+		$(\Rightarrow)$ put $\tilde{d}(x,y) = 0$\\
+		\begin{equation*}
+		\begin{aligned}
+		\tilde{d}(x,y) &= \frac{d(x,y)}{1+d(x,y)}\\
+		0 &= \frac{d(x,y)}{1+d(x,y)}\\
+		\end{aligned}
+		\end{equation*}
+		to satisfies the equation, $d(x,y) = 0$\\
+		and since $d(x,y)$ is a metric, it satisfies $d(x,y) = 0 \Rightarrow x=y$
+		then $x$ should be equal to $y$\\
+		\begin{equation*}
+		\therefore \tilde{d}(x,y) = 0 \Rightarrow x=y
+		\end{equation*}
+		\item \textbf{Symmetry}\\
+		Since $d(x,y)$ is a metric, it satisfies $d(x,y) = d(y,x)$,\\
+		then we can rewrite equation \eqref{eq:metric2} as:
+		\begin{equation*}
+		\begin{aligned}[center]
+		\tilde{d}(x,y) &= \frac{d(x,y)}{1+d(x,y)}\\
+		&= \frac{d(y,x)}{1+d(y,x)} = \tilde{d}(y,x)\\
+		\therefore \tilde{d}(x,y) &= \tilde{d}(y,x)
+		\end{aligned}
+		\end{equation*}
+		
+		\item \textbf{Triangle Inequality}\\
+		Since $d(x,y)$ is a metric, it satisfies $d(x,y) \leq d(x,z) + d(z,y),\ \forall x,y,z \in X$,\\
+		then we can rewrite equation \eqref{eq:metric2} as:
+		\begin{equation*}
+		\begin{aligned}[center]
+		\tilde{d}(x,y) = \frac{d(x,y)}{1+d(x,y)} &\leq \frac{d(x,z) + d(z,y)}{1+d(x,z) + d(z,y)}\\
+		&\leq \frac{d(x,z)}{1+d(x,z) + d(z,y)} + \frac{d(z,y)}{1+d(x,z) + d(z,y)}\\
+		&\leq \tilde{d}(x,z) + \tilde{d}(z,y)\\
+		\therefore \tilde{d}(x,y) &\leq \tilde{d}(x,z) + \tilde{d}(z,y)
+		\end{aligned}
+		\end{equation*}
 	\end{enumerate}
 \end{prob}
 \end{document}
