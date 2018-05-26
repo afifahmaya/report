@@ -11,6 +11,7 @@
 \newtheorem{prop}{Properties}
 \newtheorem{theorem}{Theorem}
 \usepackage{amssymb}
+\usepackage{enumitem}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
@@ -23,7 +24,8 @@
 \newcommand{\Lagr}{\mathcal{L}}
 \newcommand{\Cmod}{\mathcal{C}}
 
-\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\DeclareMathOperator*{\argmin}{argmin}
+
 % Title Page
 \title{Seminar Notes Alifian}
 \author{Alifian Mahardhika Maulana}
@@ -543,4 +545,73 @@ a(v,v) &= \int_\Omega (\Cmod e[v]) : e[v] dx\\
 	\end{cases}
 	\end{equation*}
 \end{theorem}
+
+\subsection{Abstract Theory (cont.)}
+$X:$ a Hilbert Space, $V \subset X:$ a closed subspace, $a:X \times X \rightarrow \R$ a bilinear form.
+\begin{equation*}
+(*)\begin{cases}
+\text{Continuous}\\
+\text{Symmetric}\\
+\text{Coercive}\ a(u,u) \geq\ \text{on}\ V \times V, \alpha ||u||^2_x (\forall u \in V)
+\end{cases}
+\end{equation*}
+
+\subsection{Lax-Milgram}
+If $a$ satisfies $(*),\ \forall l:x \rightarrow \R$ continuous, linear form,
+\begin{equation*}
+\forall g \in X,\ \exists! u \in V+g
+\end{equation*}
+s.t. $a(u,v) = l(v)(\forall v \in V)$\\
+Moreover, 
+\begin{equation*}
+u= \argmin_{w\in V+g}
+\end{equation*} 
+where $E(w):= \frac{1}{2}a(w,w)-l(w)$
+\subsubsection{Example 1}
+\begin{equation*}
+\begin{cases}
+|\Gamma_D| > 0\\
+X = H^1(\Omega)\\
+V={v \in H^1(\Omega)|\ v|_{\Gamma_D}=0}\\
+a(u,v) := \int_\Omega \triangledown u \cdot \triangledown v dx\\
+l(v) := \int_\Omega fv dx + \int_{\Gamma_N} qv ds
+\end{cases}
+\end{equation*}
+Using poincare inequality,
+\begin{equation*}
+\exists c>0\ \text{s.t.}\ \int_\Omega |\triangledown v|^2 dx \geqq c \int_\Omega |v|^2 dx (\forall v \in V)
+\end{equation*}
+\begin{equation*}
+\begin{aligned}
+\Rightarrow v \in V \Rightarrow a(v,v) &= \frac{1}{2} \int_\Omega |\triangledown v|^2 dx\\
+&\geqq \frac{1}{2} \int_\Omega |\triangledown v|^2 dx + \frac{1}{2}c \int_\Omega |v|^2 dx\\
+&\geqq \frac{1}{2} \min(1,c) \bigg( \int_\Omega |\triangledown v|^2 dx + \int_\Omega |v|^2 dx \bigg) \\
+&= \alpha ||v||^2_{H^1(\Omega)}
+\end{aligned}
+\end{equation*}
+$\therefore a$ is coercive on $V \times V$\\
+L-M $\Rightarrow \exists! u:$ a weak solution for:
+\begin{equation*}
+\begin{cases}
+-\triangle u = f\ \text{in}\ \Omega\\
+u = g\ \text{on}\ \Gamma_D\\
+\frac{\partial u}{\partial \nu} = q\ \text{on}\ \Gamma_N
+\end{cases}
+\end{equation*}
+\begin{equation*}
+u= \argmin_{w\in V+g} \bigg( \frac{1}{2} \int_\Omega |\triangledown w|^2 dx -\int_\Omega fw dx - \int_{\Gamma_N} qw ds \bigg)
+\end{equation*}
+
+\subsubsection{Example 2}
+\begin{equation*}
+\begin{cases}
+X=H^1(\Omega : \R^d), d=2,3\\
+V={v \in H^1(\Omega: \R^d): v|_{\Gamma_D}=0}\\
+a(u,v) := \int_\Omega \sigma[u] : e[v] dx\\
+l(v) := \int_\Omega f\cdot v dx + \int_{\Gamma_N} q\cdot v ds \begin{cases}
+f \in L^2(\Omega:\R^d)\\
+q \in L^2(\Gamma_N : \R^d), q \in X
+\end{cases}
+\end{cases}
+\end{equation*}
 \end{document}
