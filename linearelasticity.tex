@@ -1,5 +1,5 @@
 \documentclass[a4paper,11pt]{article}
-\usepackage[a4paper, hmargin={1.5cm,1.5cm}, vmargin={1.5cm,1.5cm}]{geometry}
+\usepackage[a4paper, hmargin={3cm,2cm}, vmargin={2cm,2cm}]{geometry}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
@@ -15,6 +15,7 @@
 \usepackage{tikz}
 \usepackage{smartdiagram}
 \usepackage{hyperref}
+\usepackage{array}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
@@ -42,7 +43,12 @@ We define:
 \begin{aligned}
 &\Omega \subset \R^d\ (d=2,3)\\
 &u:\Omega \rightarrow \R^d\ \text{(displacement)}\\
-&e[u]:= \frac{1}{2}(\triangledown^T u + \triangledown u^T)\ \text{(strain)}\\
+&e[v]:= \frac{1}{2}(\triangledown^T v + \triangledown v^T)\ \text{(strain)}\\
+&\triangledown^T v := \begin{pmatrix}
+\partial_1 v_1 & \partial_2 v_2\\
+\partial_1 v_2 & \partial_2 v_1
+\end{pmatrix}\\
+& \triangledown v^T := ( \triangledown^T v)^T\\
 &\sigma[u]:=\Cmod e[u]\\
 &\Cmod=(C_{ijkl})\begin{cases}
 C_{ijkl}=C_{klij}=C_{jikl}\\
@@ -72,25 +78,106 @@ u\in H^2 (\Omega : \R^d)\ \text{satisfies}\ (**)\ \text{then we call $u:$ a stro
 u \in V+g
 \end{cases}
 \end{equation*}
-\subsection{Properties}
+\subsection{Proposition}
 \begin{equation*}
 u:\ \text{strong solution}\ \Leftrightarrow \begin{cases}
 u:\ \text{weak solution}\\
 u\in H^2\ (\Omega : \R^d)
 \end{cases}
 \end{equation*}
-\begin{equation*}
-\begin{aligned}
-&X:= H^1(\Omega : \R^d)\\
-&a(u,v) := \int_\Omega \sigma[u] : e[v] dx\\
-&l(v) := \int_\Omega f\cdot v dx + \int_{\Gamma_N} q \cdot v ds\\
-\end{aligned}
-\begin{aligned}
-a(u,v) &= \int_\Omega (\Cmod e[u]) : e[v] dx\\
-&= \int_\Omega e[v] : (\Cmod e[u]) dx\\
-&= a(v,u)
-\end{aligned}
-\end{equation*}
+\begin{proof}
+	($\Rightarrow$)
+	Assume we choose $v \in V:= \{ v \in H^1\ (\Omega : \R^d)\ |v|_{\Gamma_D} = 0 \}$, with $v$ is a very smooth test function. Then we take integral over the domain for equation \eqref{linearelcase} on both side.
+	\begin{equation*}
+	\begin{aligned}[center]
+	\int_\Omega -div\sigma[u] \cdot v dx &= \int_\Omega f \cdot v dx\\
+	\int_\Omega \sigma[u] : \triangledown v dx - \int_\Gamma \sigma[u]\nu \cdot v ds &= \int_\Omega f \cdot v dx\  \text{(by Divergence Formula)}\\
+	\int_\Omega \sigma[u] : \triangledown v dx - \bigg(\int_{\Gamma_D} \sigma[u]\nu \cdot v ds + \int_{\Gamma_N} \sigma[u]\nu \cdot v ds\bigg) &= \int_\Omega f \cdot v dx\\	
+	\end{aligned}
+	\end{equation*}
+	From Boundary Condition we know that:
+	\begin{equation*}
+	\begin{cases}
+	v = 0\ \text{on}\ \Gamma_D\\
+	\sigma[u] \nu = q\ \text{on}\ \Gamma_N
+	\end{cases}
+	\end{equation*}
+	Hence, we have:
+	\begin{equation}\label{weakproof}
+	\begin{aligned}[center]
+	\int_\Omega \sigma[u] : e[v] dx - \int_{\Gamma_N} q \cdot v ds &= \int_\Omega f \cdot v dx\\
+	\int_\Omega \sigma[u] : e[v] dx &= \int_\Omega f \cdot v dx + \int_{\Gamma_N} q \cdot v ds \\
+	\end{aligned}
+	\end{equation}
+	with:
+	\begin{equation*}
+	\begin{aligned}
+	&X:= H^1(\Omega : \R^d)\\
+	&a(u,v) := \int_\Omega \sigma[u] : e[v] dx\\
+	&l(v) := \int_\Omega f\cdot v dx + \int_{\Gamma_N} q \cdot v ds\\
+	\end{aligned}
+	\begin{aligned}
+	a(u,v) &= \int_\Omega (\Cmod e[u]) : e[v] dx\\
+	&= \int_\Omega e[v] : (\Cmod e[u]) dx\\
+	&= a(v,u)
+	\end{aligned}
+	\end{equation*}
+	Then we rewrite equation \eqref{weakproof} in a bilinear and linear form:
+	\begin{equation*}
+	a(u,v) = l(v)
+	\end{equation*}
+	
+	($\Leftarrow$)
+	Since $u\in H^2\ (\Omega : \R^2), div(\sigma[u]) \in L^2(\Omega: \R^2)$ and $a(u,v)=0$ for all $v \in V$, we have:
+	\begin{equation*}
+	\begin{aligned}[center]
+	0 &= \int_\Omega \sigma[u] : e[v] dx\\
+	0 &= \int_\Omega \begin{pmatrix}
+	\sigma_{11} & \sigma_{12}\\
+	\sigma_{21} & \sigma_{22}\\
+	\end{pmatrix} : \begin{pmatrix}
+	\triangledown v_1 & \triangledown v_2
+	\end{pmatrix} dx\\
+	0 &= \int_\Omega \begin{pmatrix}
+	\sigma_{11}\\
+	\sigma_{21}
+	\end{pmatrix} \cdot \triangledown v_1 + \begin{pmatrix}
+	\sigma_{12}\\
+	\sigma_{22}
+	\end{pmatrix} \cdot \triangledown v_2 dx\\
+	0 &= \int_\Omega div \begin{pmatrix}
+	\sigma_{11}\\
+	\sigma_{21}
+	\end{pmatrix} v_1 + div \begin{pmatrix}
+	\sigma_{12}\\
+	\sigma_{22}
+	\end{pmatrix} v_2 - \int_{\partial\Omega} \begin{pmatrix}
+	\sigma_{11}\\
+	\sigma_{21}
+	\end{pmatrix} \cdot \nu v_1 + \begin{pmatrix}
+	\sigma_{12}\\
+	\sigma_{22}
+	\end{pmatrix} \cdot \nu v_2 ds\\
+	0 &= \int_\Omega (f + div \sigma[u]) \cdot v dx - \int_{\partial\Omega} (\sigma[u]\nu)\cdot v ds\\
+	0 &= \int_\Omega f \cdot v dx + \int_\Omega div \sigma[u] \cdot v dx - \int_{\partial\Omega} (\sigma[u]\nu)\cdot v ds
+	\end{aligned}
+	\end{equation*}
+	then, assume we choose $v \in C_0^\infty (\Omega) \subset V, v = 0\ \text{near}\ \partial\Omega$\\
+	$f \in L^1(\Omega),$ then we have:
+	\begin{equation*}
+	\begin{aligned}[center]
+	\int_\Omega (f + div \sigma[u]) \cdot v dx &= 0\ (\forall v \in C_0^\infty(\Omega,\R^2))\\
+	\therefore f + div \sigma[u] &= 0\ \text{in}\ \Omega
+	\end{aligned}
+	\end{equation*}
+	then, $\forall v \in C_0^\infty (\bar{\Omega})$ s.t. $(supp(v) \cap \partial\Omega) \subset \Gamma_N$
+	\begin{equation*}
+	\begin{aligned}[center]
+	\int_{\Gamma_N} (\sigma[u]\nu)\cdot v ds &= 0\\
+	\sigma[u]\nu &= 0\ \text{on}\ \Gamma_N
+	\end{aligned}
+	\end{equation*}
+\end{proof}
 For $v \in V$
 \begin{equation*}
 \begin{aligned}
@@ -114,4 +201,79 @@ a(v,v) &= \int_\Omega (\Cmod e[v]) : e[v] dx\\
 	\end{cases}
 	\end{equation*}
 \end{theorem}
+\newpage
+\section{Modelling and Simulation}
+In this simulation, we use a cantilever beam as the domain, which is a thin rectangular cross section introduced by Timoshenkol Goodier (1970), then we must specify nondimensionalized value for simulation as shown in table \ref{parametertable}.
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		Numerical Parameter & Typical Value [unit] & Nondimensionalized value\\
+		\hline
+		Young's modulus (E) & $2.0 \times 10^7$ [kN/$m^2$] & 20\\
+		Poisson's ratio ($\nu$) & 0.15 [-] & 0.15\\
+		Gravity constant (f) & 9.80655 [N/kg] & 0.00980655\\
+		Weight (q) & 1 [N] & 0.001\\
+		Length (L) & 6.0 [m] & 6\\
+		Depth (h) & 1.6 [m] & 1.6\\
+		Width (b) & 0.2 [m] & 0.2\\
+		\hline
+	\end{tabular}
+\caption{Material properties and numerical parameters}
+\label{parametertable}
+\end{table}
+\newline
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/3dmodellinearelasticity}
+	\caption{3D Model of cantilever beam. We use gravity force as the body force \textbf{f} and fixed the left part of the beam, and then we give a 1 Newton weight force act on the right part of the beam as the neumann boundary condition \textbf{q}.}
+	\label{fig:3dmodel}
+\end{figure}
+With the help of FreeFem++ software, we created a 2D and 3D model as shown in figure \ref{fig:3dmodel}, then we solve the displacement vector ($u$, $v$) after solving the displacement, we calculate $\sigma$ which stand for stress force acting on surface of the cantilever beam using equation below:
+\begin{equation*}
+\begin{aligned}[center]
+\sigma = (d \lambda^2 + 4\lambda\mu)div(u)^2 + (4\mu^2 |e[u]|^2),\ d=2,3\\
+\lambda\ \text{(Lame's first parameter)}\ := \frac{E\nu}{(1+\nu)(1-2\nu)}\\
+\mu\ \text{Lame's second parameter}\ := \frac{E}{2(1+\nu)}
+\end{aligned}
+\end{equation*}
+\newpage
+\section{Result and Discussion}
+The simulation used mesh P1 finite element method on FreeFEM++, where $u$ and $v$ calculated for division number of mesh equal 16. In the figure \ref{fig:displacementresult} we can see the deformation of the cantilever beam in 2D and 3D graphics.
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.8\linewidth]{picture/mesh2d}
+		\caption{Deformation in 2D. Green line show condition before gravity and weight force applied to the domain. Red line show condition after we solve linear elasticity with gravity and weight force applied to the domain. Maximal Displacement ($u = 0.12\ [m]$)}
+		\label{fig:2dresult}
+	\end{subfigure}
+\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.8\linewidth]{picture/mesh3d}
+		\caption{Deformation in 3D. Green line show condition before gravity and weight force applied to the domain. Red line show condition after we solve linear elasticity with gravity and weight force applied to the domain. Maximal Displacement ($u = 0.28\ [m]$)}
+		\label{fig:3dresult}
+	\end{subfigure}
+\caption{Deformation in 2D and 3D}
+\label{fig:displacementresult}
+\end{figure}
+\newline
+While in the figure \ref{fig:stresstensor} we can see result from calculating the stress tensor on 2D and 3D case (upper side).
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/stresstensor2d}
+		\caption{Calculated $\sigma$ on 2D case. The value of $\sigma$ on the domain, maped by the color in the picture with respect to the color palette on the right side of the graph.}
+		\label{fig:2dstress}
+	\end{subfigure}
+\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/stresstensor3d}
+		\caption{Calculated $\sigma$ on 3D case. The value of $\sigma$ on the domain, maped by the color in the picture with respect to the color palette on the right side of the graph.}
+		\label{fig:3dstress}
+	\end{subfigure}
+\caption{Stress Tensor in 2D and 3D (upper side)}
+\label{fig:stresstensor}
+\end{figure}
 \end{document}
