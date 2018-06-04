@@ -16,6 +16,8 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 
+\DeclareMathOperator*{\capmod}{\cap}
+
 % Title Page
 \title{Analysis Ia Report}
 \author{Alifian Mahardhika Maulana}
@@ -24,147 +26,60 @@
 \begin{document}
 \maketitle
 \begin{prob}
-	Suppose:
-	\begin{equation}\label{eq:metric1}
-	d_2(f,g) := \bigg( \int_{a}^{b}\{f(x)-g(x)\}^2dx \bigg)^{\frac{1}{2}},f:[a,b]\rightarrow \R
-	\end{equation}
-	we will show $(C([a,b]),d_2)$ is a \textbf{metric space}.
-	\begin{enumerate}[label=(\alph*)]
-		\item \textbf{Positivity}\\
-		Take: $h=\int_{a}^{b}\{f(x)-g(x)\}^2dx$, then equation \eqref{eq:metric1} becomes:
+	Let $M=(S,d)$ be a metric space.\\
+	Let $G \subseteq S$. Then, $G$ is open in $M \iff$ it is a union of open balls.
+	\begin{proof}
+		($\Rightarrow$)
+		Let $G$ be open set in $M$.
+		Let $x \in G$.\\
+		by definition of open set:
 		\begin{equation*}
-		d_2(f,g) = \sqrt{h}
+		\exists \delta_x \in \R^n : B_{\delta_x}(x,d) \subseteq G
 		\end{equation*}
-		Since the value of $(f(x)-g(x))^2\geq 0$ then $\sqrt{h}\geq 0,\ \forall h\in C[a,b]$, then:
+		where $B_{\delta_x}(x,d)$ is the open $\delta_x$-ball of $x$ in $M$.
 		\begin{equation*}
-		d_2(f,g) \geq 0
+		\therefore G = \capmod_{x\in G} B_{\delta_x}(x,d)
 		\end{equation*}
-		
-		\item \textbf{Definiteness}\\
-		$(\Leftarrow)$ put $f(x) = g(x)$, then equation \eqref{eq:metric1} becomes:
+		($\Leftarrow$) Let $G$ be an union of open balls in $M$.\\
+		Let the outer of the open balls be the elements of an indexing set $I$.\\
+		Then $G$ can be written:
 		\begin{equation*}
-		\begin{aligned}
-		d_2(f,g) &= \sqrt{\int_{a}^{b}\{f(x)-g(x)\}^2dx}\\
-		&= \sqrt{\int_{a}^{b}\{g(x)-g(x)\}^2dx}\\
-		d_2(f,g) &= 0
-		\end{aligned}
+		G = \capmod_{x\in I} B_{\delta_x}(x,d)
 		\end{equation*}
-		
-		$(\Rightarrow)$ put $d_2(f,g) = 0$, then equation \eqref{eq:metric1} becomes:
+		where $\delta_x \in \R^n$ is the radius of open ball-of $x$.\\
+		Let $y\in G$. By definition of union:
 		\begin{equation*}
-		\begin{aligned}
-		0 &= \sqrt{\int_{a}^{b}\{f(x)-g(x)\}^2dx}\\
-		0^2 &=\Bigg( \sqrt{\int_{a}^{b}\{f(x)-g(x)\}^2dx} \Bigg)^2\\
-		0 &= \int_{a}^{b}\{f(x)-g(x)\}^2dx
-		\end{aligned}
+		\exists x \in I : y \in B_{\delta_x}(x,d)
 		\end{equation*}
-		to satisfies $(\Rightarrow),\ \forall a,b \in \R$
+		because an open ball is neighborhood of all points inside, we can say that $B_{\delta_x}(x,d)$ is neighborhood of $y$, by set: $B_{\delta_x}(x,d) \subseteq G$,from theory of superset of neighborhood in Metric Space, it follows that $G$ is a neighborhood of $y$.\\
+		Since $y$ is arbitrary, it follows that $G$ is a neighborhood of its point. Hence, by definition:
 		\begin{equation*}
-		\begin{aligned}
-		f(x) - g(x) &= 0\\
-		\therefore f(x) &= g(x)
-		\end{aligned}
+		\therefore G\ \text{is open in}\ M
 		\end{equation*}
-		
-		\item \textbf{Symmetry}
-		\begin{equation*}
-		\begin{aligned}
-		d_2(f,g) &= \sqrt{\int_{a}^{b}\{f(x)-g(x)\}^2dx}\\
-		d_2(f,g) &= \sqrt{\int_{a}^{b}\bigg( f(x)^2 -2f(x)g(x) + g(x)^2 \bigg)dx}\\
-		d_2(f,g) &= \sqrt{\int_{a}^{b}\bigg( g(x)^2 -2g(x)f(x) + f(x)^2 \bigg)dx}\\
-		d_2(f,g) &= \sqrt{\int_{a}^{b}\{g(x)-f(x)\}^2dx}\\
-		d_2(f,g) &= d_2(g,f),\ \forall f,g \in C
-		\end{aligned}
-		\end{equation*}
-		
-		\item \textbf{Triangle Inequality}\\
-		Put $g(x)\leq h(x)\leq f(x)$
-		\begin{equation*}
-		\begin{aligned}
-		d_2(f,g) &= \sqrt{\int_{a}^{b}\{f(x)-h(x)+h(x)-g(x)\}^2dx}\\
-		\end{aligned}
-		\end{equation*}
-		then we take $r(x)=f(x)-h(x)$,and $s(x)=h(x)-g(x)$\\
-		\begin{equation*}
-		\begin{aligned}
-		d_2(f,g) &= \sqrt{\int_{a}^{b}r(x)^2 +2r(x)s(x) + s(x)^2dx}\\
-		&= \sqrt{\int_{a}^{b}r(x)^2 dx +2\int_{a}^{b}r(x)s(x) dx + \int_{a}^{b}s(x)^2dx}\\
-		\end{aligned}
-		\end{equation*}
-		according to Cauchy-Schwartz inequality:
-		\begin{equation*}
-		\int_{a}^{b}r(x)s(x) dx \leq \sqrt{\int_{a}^{b}r(x)^2 dx} \sqrt{\int_{a}^{b}s(x)^2 dx}
-		\end{equation*}
-		thus:
-		\begin{equation*}
-		\begin{aligned}
-		d_2(f,g) &\leq \sqrt{\int_{a}^{b}r(x)^2 dx +2\sqrt{\int_{a}^{b}r(x)^2 dx} \sqrt{\int_{a}^{b}s(x)^2 dx} + \int_{a}^{b}s(x)^2dx}\\
-		&\leq \sqrt{\Bigg( \sqrt{\int_{a}^{b}r(x)^2 dx} + \sqrt{\int_{a}^{b}s(x)^2dx} \Bigg)^2}\\
-		&\leq \sqrt{\int_{a}^{b}r(x)^2 dx} + \sqrt{\int_{a}^{b}s(x)^2dx}\\
-		d_2(f,g) &\leq \sqrt{\int_{a}^{b}\{ f(x)-h(x) \}^2 dx} + \sqrt{\int_{a}^{b}\{ h(x)-g(x) \}^2dx}\\
-		\therefore d_2(f,g) &\leq d_2(f,h) + d_2(h,g)
-		\end{aligned}
-		\end{equation*}
-	\end{enumerate}
+	\end{proof}
 \end{prob}
 \newpage
 \begin{prob}
-	Let $(X,d)$ be a metric space, suppose:
-	\begin{equation}\label{eq:metric2}
-	\tilde{d}(x,y) := \frac{d(x,y)}{1+d(x,y)}\ (x,y\in X)
-	\end{equation}
-	we will show that $\tilde{d}(x,y)$ is also \textbf{metric} on $X$
-	
-	\begin{enumerate}[label=(\alph*)]
-		\item \textbf{Positivity}\\
-		Since $d(x,y)$ is a metric, it satisfies $d(x,y) \geq 0$, thus:
+	Let $C([0,1])$ be the set of all continuous functions $f:[0,1]\rightarrow \R$, for $f,g \in C([0,1])$. Show that $(C([0,1]),d_1)$ is not complete.\\
+	\begin{proof}
+		Suppose that:
 		\begin{equation*}
-		\tilde{d}(x,y) = \frac{d(x,y)}{1+d(x,y)} \geq 0
+		d_1 (f,g) := \int_{0}^{1} |f(x)-g(x)| dx,\ f,g \in C[0,1]
 		\end{equation*}
-		\item \textbf{Definiteness}\\
-		$(\Leftarrow)$ put $x=y$\\
-		Since $d(x,y)$ is a metric, it satisfies $x=y \Rightarrow d(x,y)=0$, thus:
+		Let's consider a sequence $\{f_n\}_{n\geq 3}:$
 		\begin{equation*}
-		\tilde{d}(x,y) = \frac{d(x,y)}{1+d(x,y)} = \frac{0}{1+0} = 0
-		\end{equation*}
-		\begin{equation*}
-		\therefore \tilde{d}(x,y) = 0 \Leftarrow x = y
-		\end{equation*}
-		$(\Rightarrow)$ put $\tilde{d}(x,y) = 0$\\
-		\begin{equation*}
+		f_n(x) = \begin{cases}
 		\begin{aligned}
-		\tilde{d}(x,y) &= \frac{d(x,y)}{1+d(x,y)}\\
-		0 &= \frac{d(x,y)}{1+d(x,y)}\\
+		&0,\ &0 &\leq x < \frac{1}{2}-\frac{1}{n},\\
+		&n\Bigg(x+\frac{1}{n}-\frac{1}{2}\Bigg), \ &\frac{1}{2}-\frac{1}{n} &\leq x < \frac{1}{2},\\
+		&1,\ &\frac{1}{2} &\leq x \leq 1
 		\end{aligned}
+		\end{cases}
 		\end{equation*}
-		to satisfies the equation, $d(x,y) = 0$\\
-		and since $d(x,y)$ is a metric, it satisfies $d(x,y) = 0 \Rightarrow x=y$
-		then $x$ should be equal to $y$\\
+		It shows that the sequence $(f_n)$ converges to discontinuous function $f(x):= 0$ for $0 \leq x < \frac{1}{2}$ and $f(x):=1$ for $\frac{1}{2}\leq x \leq 1$. Hence, $f \notin C[0,1];$
 		\begin{equation*}
-		\therefore \tilde{d}(x,y) = 0 \Rightarrow x=y
+		\therefore\ \text{there is no}\ g \in C[0,1]\ \text{s.t.}\ d_1(f_n,g) \rightarrow 0
 		\end{equation*}
-		\item \textbf{Symmetry}\\
-		Since $d(x,y)$ is a metric, it satisfies $d(x,y) = d(y,x)$,\\
-		then we can rewrite equation \eqref{eq:metric2} as:
-		\begin{equation*}
-		\begin{aligned}[center]
-		\tilde{d}(x,y) &= \frac{d(x,y)}{1+d(x,y)}\\
-		&= \frac{d(y,x)}{1+d(y,x)} = \tilde{d}(y,x)\\
-		\therefore \tilde{d}(x,y) &= \tilde{d}(y,x)
-		\end{aligned}
-		\end{equation*}
-		
-		\item \textbf{Triangle Inequality}\\
-		Since $d(x,y)$ is a metric, it satisfies $d(x,y) \leq d(x,z) + d(z,y),\ \forall x,y,z \in X$,\\
-		then we can rewrite equation \eqref{eq:metric2} as:
-		\begin{equation*}
-		\begin{aligned}[center]
-		\tilde{d}(x,y) = \frac{d(x,y)}{1+d(x,y)} &\leq \frac{d(x,z) + d(z,y)}{1+d(x,z) + d(z,y)}\\
-		&\leq \frac{d(x,z)}{1+d(x,z) + d(z,y)} + \frac{d(z,y)}{1+d(x,z) + d(z,y)}\\
-		&\leq \tilde{d}(x,z) + \tilde{d}(z,y)\\
-		\therefore \tilde{d}(x,y) &\leq \tilde{d}(x,z) + \tilde{d}(z,y)
-		\end{aligned}
-		\end{equation*}
-	\end{enumerate}
+	\end{proof}
 \end{prob}
 \end{document}
