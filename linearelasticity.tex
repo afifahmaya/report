@@ -203,20 +203,20 @@ a(v,v) &= \int_\Omega (\Cmod e[v]) : e[v] dx\\
 \end{theorem}
 \newpage
 \section{Modelling and Simulation}
-In this simulation, we use a cantilever beam as the domain, which is a thin rectangular cross section introduced by Timoshenkol Goodier (1970), then we must specify nondimensionalized value for simulation as shown in table \ref{parametertable}.
+In this simulation, we use a cantilever beam (Mild Steel Material) as the domain, which is a thin rectangular cross section introduced by Timoshenkol Goodier (1970), then we must specify nondimensionalized value for simulation as shown in table \ref{parametertable}.
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|l|l|l|}
 		\hline
 		Numerical Parameter & Typical Value [unit] & Nondimensionalized value\\
 		\hline
-		Young's modulus (E) & $2.0 \times 10^7$ [kN/$m^2$] & 20\\
-		Poisson's ratio ($\nu$) & 0.15 [-] & 0.15\\
-		Gravity constant (f) & 9.80655 [N/kg] & 0.00980655\\
-		Weight (q) & 1 [N] & 0.001\\
-		Length (L) & 6.0 [m] & 6\\
-		Depth (h) & 1.6 [m] & 1.6\\
-		Width (b) & 0.2 [m] & 0.2\\
+		Young's modulus (E) & $2.1 \times 10^7$ [Pa] & 210\\
+		Poisson's ratio ($\nu$) & 0.3 [-] & 0.3\\
+		Gravity constant (f) & 9.80655 [N/kg] & 9.80655\\
+		Weight (q) & 0 [N] & 0\\
+		Length (L) & 3.0 [m] & 3.0\\
+		Depth (h) & 0.2 [m] & 0.2\\
+		Width (b) & 0.25 [m] & 0.25\\
 		\hline
 	\end{tabular}
 \caption{Material properties and numerical parameters}
@@ -243,37 +243,90 @@ The simulation used mesh P1 finite element method on FreeFEM++, where $u$ and $v
 \begin{figure}[h!]
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=0.8\linewidth]{picture/mesh2d}
-		\caption{Deformation in 2D. Green line show condition before gravity and weight force applied to the domain. Red line show condition after we solve linear elasticity with gravity and weight force applied to the domain. Maximal Displacement ($u = 0.12\ [m]$)}
+		\includegraphics[width=\linewidth]{picture/conference/2d1}
+		\caption{Deformation in 2D. Green line show condition before gravity and weight force applied to the domain. Red line show condition after we solve linear elasticity with gravity and weight force applied to the domain. Maximal Displacement ($u = 0.03\ [m]$)}
 		\label{fig:2dresult}
 	\end{subfigure}
 \quad
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=0.8\linewidth]{picture/mesh3d}
-		\caption{Deformation in 3D. Green line show condition before gravity and weight force applied to the domain. Red line show condition after we solve linear elasticity with gravity and weight force applied to the domain. Maximal Displacement ($u = 0.28\ [m]$)}
+		\includegraphics[width=\linewidth]{picture/conference/3d1}
+		\caption{Deformation in 3D. Green line show condition before gravity and weight force applied to the domain. Red line show condition after we solve linear elasticity with gravity and weight force applied to the domain. Maximal Displacement ($u = 0.05\ [m]$)}
 		\label{fig:3dresult}
 	\end{subfigure}
 \caption{Deformation in 2D and 3D}
 \label{fig:displacementresult}
 \end{figure}
 \newline
-While in the figure \ref{fig:stresstensor} we can see result from calculating the stress tensor on 2D and 3D case (upper side).
+While in the figure \ref{fig:stresstensor} we can see result from calculating the stress tensor on 2D and 3D case.
 \begin{figure}[h!]
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{picture/stresstensor2d}
-		\caption{Calculated $\sigma$ on 2D case. The value of $\sigma$ on the domain, maped by the color in the picture with respect to the color palette on the right side of the graph.}
+		\includegraphics[width=\linewidth]{picture/conference/2dstress}
+		\caption{Calculated $\sigma$ on 2D case. The value of $\sigma$ on the domain, maped by the color in the picture with respect to the color palette on the lower side of the graph. Maximal stress given on the surface ($\sigma = 158.612\ [GPa]$)}
 		\label{fig:2dstress}
 	\end{subfigure}
 \quad
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{picture/stresstensor3d}
-		\caption{Calculated $\sigma$ on 3D case. The value of $\sigma$ on the domain, maped by the color in the picture with respect to the color palette on the right side of the graph.}
+		\includegraphics[width=\linewidth]{picture/conference/3dstress}
+		\caption{Calculated $\sigma$ on 3D case. The value of $\sigma$ on the domain, maped by the color in the picture with respect to the color palette on the lower side of the graph. Maximal stress given on the surface ($\sigma = 567.034\ [GPa]$)}
 		\label{fig:3dstress}
 	\end{subfigure}
-\caption{Stress Tensor in 2D and 3D (upper side)}
+\caption{Stress Tensor in 2D and 3D}
 \label{fig:stresstensor}
+\end{figure}
+\newpage
+On the figure \ref{fig:3dsliceview} below, we can see the result from sliced view on 3D case, in this case, we sliced through the Y-normal plane of the 3D model.
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/3dslice3}
+		\caption{Slicing Parts}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/3dslice2}
+		\caption{Inside of the 3D model}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/3dslice4}
+		\caption{Front View}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/3dslice5}
+		\caption{Back View}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/3dslice6}
+		\caption{Right View}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/3dslice7}
+		\caption{Left View}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/3dslice8}
+		\caption{Top View}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/3dslice9}
+		\caption{Wireframed-Sliced View}
+	\end{subfigure}
+	\caption{3D Sliced View}
+	\label{fig:3dsliceview}
 \end{figure}
 \end{document}
