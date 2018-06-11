@@ -1,5 +1,5 @@
 \documentclass[a4paper,12pt]{article}
-\usepackage[a4paper, hmargin={3cm,2cm}, vmargin={2cm,2cm}]{geometry}
+\usepackage[a4paper, hmargin={1.5cm,1.5cm}, vmargin={2cm,2cm}]{geometry}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
@@ -9,6 +9,7 @@
 \usepackage{wrapfig}
 \newtheorem{remark}{Remark}[]
 \newtheorem{prop}{Proposition}
+\newtheorem{theorem}{Theorem}
 \usepackage{amssymb}
 
 \newcommand{\R}{\mathbb{R}}
@@ -23,74 +24,124 @@
 
 
 % Title Page
-\title{Assignment 1\\ Topics of Mathematical Science}
+\title{Assignment 2\\ Topics of Mathematical Science}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
-\section*{Chain Rule}
+\section*{Exercise: Q1}
 \begin{enumerate}
-	\item Let $f(x)=x^2,g(y)=y^3+2y,$ then $(g\circ f) = x^6 + 2x^2$
+	\item Show that:
 	\begin{equation*}
-	\therefore \frac{d(g\circ f)}{dx}=6x^5 + 4x
+	\begin{aligned}[center]
+	\frac{d^2}{dt^2} &F(x(t),y(t))\\
+	= &F_{xx}(x(t),y(t)) \bigg( \frac{dx}{dt}(t) \bigg)^2 + 2 F_{xy}(x(t),y(t)) \frac{dx}{dt}(t) \frac{dy}{dt}(t)\\
+	+ &F_{yy}(x(t),y(t)) \bigg( \frac{dy}{dt}(t) \bigg)^2 + F_{x}(x(t),y(t)) \frac{d^2x}{dt^2}(t) + F_{y}(x(t),y(t)) \frac{d^2y}{dt^2}(t)
+	\end{aligned}
 	\end{equation*}
-	
-	\item Let $f(x)=x^3+2x,g(y)=y^2+3y,$ then $(g\circ f) = x^6 + 4x^4 + 13x^2 + 6$
+	Use fact that $F_{xy}(a,b) = F_{yx}(a,b)$ since $F$ is of class $C^2$ around a point $P(a,b).$\\
+	\newline
+	\textbf{Answer}:\\
+	Take second derivative of $F(x(t),y(t))$ over time, and use chain rule, so that:
 	\begin{equation*}
-	\therefore \frac{d(g\circ f)}{dx}=6x^5 + 16x^3 + 26x
+	\begin{aligned}[center]
+	\frac{d^2}{dt^2} F(x(t),y(t)) = &\frac{d}{dt} \bigg( \frac{d}{dt} \big( F(x(t),y(t)) \big) \bigg)\\
+	= & \frac{d}{dt} \bigg( F_{x}(x(t),y(t)) \frac{dx}{dt}(t) + F_{y}(x(t),y(t)) \frac{dy}{dt}(t) \bigg)\\
+	= & F_{xx}(x(t),y(t)) \bigg( \frac{dx}{dt}(t) \bigg)^2 + F_{x}(x(t),y(t)) \frac{d^2x}{dt^2}(t) + F_{xy}(x(t),y(t)) \frac{dx}{dt}(t)\\
+	&+ F_{yx}(x(t),y(t)) \frac{dy}{dt}(t) + F_{yy}(x(t),y(t)) \bigg( \frac{dy}{dt}(t) \bigg)^2 + F_{y}(x(t),y(t)) \frac{d^2y}{dt^2}(t)\\
+	\text{Use fact that}\ F_{xy} = F_{yx}\\
+	\therefore\frac{d^2}{dt^2} F(x(t),y(t)) = & F_{xx}(x(t),y(t)) \bigg( \frac{dx}{dt}(t) \bigg)^2 + F_{x}(x(t),y(t)) \frac{d^2x}{dt^2}(t) + 2 F_{xy}(x(t),y(t)) \frac{dx}{dt}(t) \frac{dy}{dt}(t)\\
+	&+ F_{yy}(x(t),y(t)) \bigg( \frac{dy}{dt}(t) \bigg)^2 + F_{y}(x(t),y(t)) \frac{d^2y}{dt^2}(t)\\
+	\end{aligned}
 	\end{equation*}
-	
-	\item Let $\gamma(t) = (t^2,t^3+t), f(x,y) = x^3y$ then $(f\circ \gamma) = t^9 + t^7$
+
+	\newpage
+	\item Show that:
 	\begin{equation*}
-	\therefore \frac{d(f\circ \gamma)}{dt}=9t^8 + 7t^6
+	\varphi''(a) = -\frac{F_{xx}(a,b)F_{y}(a,b)^2 -2F_{xy}(a,b)F_{x}(a,b)F_{y}(a,b) + F_{yy}(a,b)F_{x}(a,b)^2}{F_{y}(a,b)^3}
 	\end{equation*}
-	
-	\item Let $\gamma(t) = (t,t^2+t), f(x,y) = xe^y$ then $(f\circ \gamma) = te^{t^2+t}$
+	\newline
+	\textbf{Answer}:\\
+	Take second derivative of $F(x,\varphi(x))$ over $x$, and use chain rule, so that:
 	\begin{equation*}
-	\therefore \frac{d(f\circ \gamma)}{dt}=e^{t^2+t} + te^{t^2+t}(2t+1) = e^{t^2+t} (2t^2+t+1)
+	\begin{aligned}[center]
+	\frac{d^2}{dx^2} F(x,\varphi(x)) = &\frac{d}{dx} \bigg( \frac{d}{dx} F(x,\varphi(x)) \bigg)\\
+	= & \frac{d}{dx} \bigg( F_x(x,\varphi(x)) F_y(x,\varphi(x)) + F_y(x,\varphi(x)) \varphi'(x) \bigg)\\
+	= & F_{xx}(x,\varphi(x)) F_{y}(x,\varphi(x))^2 + F_{xy}(x,\varphi(x))F_{y}(x,\varphi(x))\\
+	&+ F_{yx}(x,\varphi(x))F_{y}(x,\varphi(x)) + F_{yy}(x,\varphi(x)) F_{x}(x,\varphi(x))^2 + \varphi''(x) F_{y}(x,\varphi(x))\\
+	\text{Use fact that}\ F_{xy} = F_{yx}\\
+	\end{aligned}
 	\end{equation*}
-	
-	\item Let $f(x,y)=(ax+by, cx+dy), g(u,v)=(pu+qv, ru+sv)\ \text{with}(a,b,c,d,p,q,r,s)\ \text{are constant}$ then $(g\circ f) = (p(ax+by)+q(cx+dy), r(ax+by)+s(cx+dy))$
+	And bring all derivation of $F(x,\varphi(x))$ to the left side, hence:
 	\begin{equation*}
-	\therefore J(g\circ f) = \begin{pmatrix}
-	pa+qc & pb+qd\\
-	ra+sc & rb+sd
-	\end{pmatrix}
+	\varphi''(x) = -\frac{F_{xx}(x,\varphi(x)) F_{y}(x,\varphi(x))^2 + 2 F_{xy}(x,\varphi(x))F_{y}(x,\varphi(x)) F_{x}(x,\varphi(x)) + F_{yy}(x,\varphi(x)) F_{x}(x,\varphi(x))^2}{F_{y}(x,\varphi(x))^3}
 	\end{equation*}
+	take $x=a$,
 	\begin{equation*}
-	Jac(f) = \det J(f) = \det \begin{pmatrix}
-	a & b\\
-	c & d
-	\end{pmatrix} = ad-bc
+	\therefore\varphi''(a) = -\frac{F_{xx}(a,b) F_{y}(a,b)^2 + 2 F_{xy}(a,b)F_{y}(a,b) F_{x}(a,b) + F_{yy}(a,b) F_{x}(a,b)^2}{F_{y}(a,b)^3}
 	\end{equation*}
-	
-	\item Let $f(x,y)=(x^2y,x^5y^2), g(u,v)=(u^2,v^3)$ then $(g\circ f) = ((x^4y^2), (x^{15}y^6))$
+	\newpage
+	\item Let
 	\begin{equation*}
-	\therefore J(g\circ f) = \begin{pmatrix}
-	4x^3y^2 & x^4 2y\\
-	15x^{14} & x^{15}6y^5
-	\end{pmatrix}
+	\begin{aligned}
+	D_1 = &{(x,y) \in \R^2 | 0 \leq x \leq 1,\ 0 \leq y \leq 2}\\
+	D_2 = &{(x,y) \in \R^2 | 1 \leq x \leq 2,\ 0 \leq y \leq 1 + x^2}
+	\end{aligned}
 	\end{equation*}
+	Calculate the following integral:
+	\begin{enumerate}
+		\item \begin{equation*}
+		\iint_{D_1} xy^2 dx dy = \int_{0}^{2} \int_{0}^{1} xy^2 dx dy = \int_{0}^{2} \frac{1}{2} x^2 y^2 \Biggr|_0^1 dy = \int_{0}^{2} \frac{1}{2} y^2 dy = \frac{1}{6} y^3 \Biggr|_0^2 = \frac{4}{3} \approx 1.333
+		\end{equation*}
+		
+		\item \begin{equation*}
+		\begin{aligned}
+		\iint_{D_1} (x+y)^2 dx dy =& \int_{0}^{2} \int_{0}^{1} (x+y)^2 dx dy\\
+		=& \int_{0}^{2} \int_{0}^{1} x^2 + 2xy + y^2 dx dy\\
+		=& \int_{0}^{2} \frac{1}{3}x^3 + x^2y + y^2 \Biggr|_0^1 dy\\
+		=& \int_{0}^{2} \frac{1}{3} + y + y^2 dy\\
+		=& \frac{1}{3}y + \frac{1}{2}y^2 + \frac{1}{3}y^3 \Biggr|_0^2 = \frac{16}{3} \approx 5.333
+		\end{aligned}
+		\end{equation*}
+		
+		\item \begin{equation*}
+		\begin{aligned}
+		\iint_{D_2} (x^2+y)^2 dx dy =& \int_{1}^{2} \int_{0}^{1+x^2} (x^2+y)^2 dy dx\\
+		=& \int_{1}^{2} \int_{0}^{1+x^2} x^4 + 2x^2y + y^2 dy dx\\
+		=& \int_{1}^{2} x^4y + x^2y^2 + \frac{1}{3}y^3 \Biggr|_0^{1+x^2} dx\\
+		=& \int_{1}^{2} x^4(1+x^2) + x^2(1+x^2)^2 + \frac{1}{3}(1+x^2)^3 dx\\
+		=& \int_{1}^{2} 4x^4 + \frac{7}{3} x^6 + 2x^2 + \frac{1}{3} dx\\
+		=& \frac{4}{5}x^5 + \frac{1}{3}x^7 + \frac{2}{3}x^3 + \frac{1}{3}x \Biggr|_1^2 \approx 72.133
+		\end{aligned}
+		\end{equation*}
+	\end{enumerate}
+
+	\newpage
+	\item Suppose $D$ is a bounded domain with smooth boundary. Using Green Theorem, show that the line integral:
+	\begin{equation}\label{eq:4}
+	\int_{\partial D} -ydx + xdy
+	\end{equation}
+	equal to the area of D.\\
+	\newline
+	\textbf{Answer:}
+	\begin{theorem} Green Theorem\\
+		Let $C$ be a positively oriented, piecewise smooth, simple closed curve in a plane, and let $D$ be the region bounded by $C$. If $L$ and $M$ are functions of $(x,y)$ defined on an open region containing $D$ and have continuous partial derivatives there, then:
+		\begin{equation*}
+		\oint_C (L dx + M dy) = \iint_{D} \bigg( \frac{\partial M}{\partial x} - \frac{\partial L}{\partial y} \bigg) dx dy
+		\end{equation*}
+	\end{theorem}
+	We define area of $D$ as:
 	\begin{equation*}
-	Jac(f) = \det J(f) = \det \begin{pmatrix}
-	2xy & x^2\\
-	5x^4y^2 & x^52y
-	\end{pmatrix} = 4x^6y^2 - 5x^6y^2 = -x^6y^2
+	\iint_{D} dx dy
 	\end{equation*}
-	
-	\item Let $f(r,\theta)=(r\cos\theta,r\sin\theta), g(x,y)=(x^2,y)$ then $(g\circ f) = ((r\cos\theta)^2, (r\sin\theta))$
+	using Green Theorem, we can rewrite \eqref{eq:4} becomes:
 	\begin{equation*}
-	\therefore J(g\circ f) = \begin{pmatrix}
-	2r\cos^2\theta & -2r^2\cos\theta\sin\theta\\
-	\sin\theta & r\cos\theta
-	\end{pmatrix}
-	\end{equation*}
-	\begin{equation*}
-	Jac(f) = \det J(f) = \det \begin{pmatrix}
-	\cos\theta & -r\sin\theta\\
-	\sin\theta & r\cos\theta
-	\end{pmatrix} = r\cos^2\theta + r\sin^2\theta = r(\cos^2\theta + \sin^2\theta) = r
+	\begin{aligned}
+	\int_{\partial D} -ydx + xdy =& \iint_{D} \bigg( \frac{\partial (x)}{\partial x} - \frac{\partial (-y)}{\partial y} \bigg) dx dy\\
+	=& \iint_{D} 1 + 1 dx dy\\
+	=& 2 \iint_{D} dx dy = 2\times \text{Area of}\ D
+	\end{aligned}
 	\end{equation*}
 \end{enumerate}
 \end{document}
