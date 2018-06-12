@@ -35,7 +35,7 @@ def jacobi(b):
         #print(np.max(v))
         if np.max(np.abs(v - v_old)) < 1e-4:
             break
-    return(k)
+    return (k)
 
 #Gauss-Seidel
 def gauss_seidel(b):
@@ -49,7 +49,7 @@ def gauss_seidel(b):
         #print(np.max(v))
         if np.max(np.abs(v - v_old)) < 1e-4:
             break
-    return(k)
+    return (k)
 
 #SOR
 def sor(omega,b):
@@ -63,12 +63,13 @@ def sor(omega,b):
         #print(np.max(v))
         if np.max(np.abs(v - v_old)) < 1e-4:
             break
-    return(k)
+    return (k)
 
 #Calculate Optimum Omega for SOR
 def calc_op_omega(A):
-    L = np.diag(np.diag(A,-1),-1)
-    U = np.diag(np.diag(A,1),1)
+    D = np.diag(np.diag(A))
+    L = np.tril(A) - D
+    U = np.triu(A) - D
     T = 1/np.diag(A)*(L+U)
     rho = np.max(np.linalg.eigvals(T))
     opt_omega = 2/(1+np.sqrt(1-rho*rho))

@@ -200,16 +200,15 @@
 		for simplicity, we rewrite:
 		$$D :=\sin(\pi hi)$$
 		$$E := \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} \cos (\pi h) \bigg)} \Bigg)$$
-		using triangle inequality, we get:
 		\begin{equation*}
 		\begin{aligned}
-		\max_{1\leq i \leq N-1} \bigr|DE\bigr| &\leq \max_{1\leq i \leq N-1} \bigr|D\bigr| \max_{1\leq i \leq N-1} \bigr|E\bigr|\\
-		& \leq 1 \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} \cos (\pi h) \bigg)} \Bigg)
+		\max_{1\leq i \leq N-1} \bigr|DE\bigr| &= \max_{1\leq i \leq N-1} \bigr|D\bigr| \max_{1\leq i \leq N-1} \bigr|E\bigr|\\
+		& = 1 \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} \cos (\pi h) \bigg)} \Bigg)
 		\end{aligned}
 		\end{equation*}
 		then, the explicit formula for $\epsilon (h)$ is:
 		\begin{equation}\label{eq:11}
-		\epsilon(h) \leq \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} \cos (\pi h) \bigg)} \Bigg)
+		\epsilon(h) = \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} \cos (\pi h) \bigg)} \Bigg)
 		\end{equation}
 		around $h=0$, leading order of taylor expansion of $\epsilon (h)$ can be obtained by expand $\cos(\pi h)$, so that
 		$$\cos(\pi h) \approx \cos(a) + \frac{\cos'(a)(\pi h - a)}{1!} + \frac{\cos''(a)(\pi h - a)^2}{2!} + \cdots$$
@@ -218,8 +217,8 @@
 		substitute it to \eqref{eq:11} we get:
 		\begin{equation*}
 		\begin{aligned}
-		\epsilon(h) &\leq \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} (1-\frac{1}{2}(\pi h)^2) \bigg)} \Bigg)\\
-		\epsilon(h) &\leq \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{(\alpha + \pi^2)} \Bigg)
+		\epsilon(h) &= \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} (1-\frac{1}{2}(\pi h)^2) \bigg)} \Bigg)\\
+		\epsilon(h) &= \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{(\alpha + \pi^2)} \Bigg)
 		\end{aligned}
 		\end{equation*}
 		which is just a constant, so the leading order is depend on what order of taylor expansion we choose to approximate the value of $\cos(\pi h)$ around $h=0$. In this case if we choose taylor expansion orde 2, we get the leading term of $\epsilon$ is $\mathbb{O}(F)$ with $F$ is a constant.
@@ -371,9 +370,9 @@
 		substitute $H$ and $G$ to $2H=(4-\lambda-G)$, we get
 		\begin{equation*}
 		\begin{aligned}
-		2 \cos\bigg(\frac{m\pi i}{N}\bigg) = 4-\lambda -2 \cos\bigg(\frac{m\pi j}{N}\bigg)\\
-		\lambda = 4 -2 \cos\bigg(\frac{m\pi i}{N}\bigg) -2 \cos\bigg(\frac{m\pi j}{N}\bigg)\\
-		\therefore \lambda = 4 -2 \bigg(\cos\bigg(\frac{m\pi i}{N}\bigg) + \cos\bigg(\frac{m\pi j}{N}\bigg) \bigg)\\
+		2 \cos\bigg(\frac{m\pi}{N}\bigg) = 4-\lambda -2 \cos\bigg(\frac{m\pi}{N}\bigg)\\
+		\lambda = 4 -2 \cos\bigg(\frac{m\pi}{N}\bigg) -2 \cos\bigg(\frac{m\pi}{N}\bigg)\\
+		\therefore \lambda = 4 -2 \bigg(\cos\bigg(\frac{m\pi}{N}\bigg) + \cos\bigg(\frac{m\pi}{N}\bigg) \bigg)\\
 		\end{aligned}
 		\end{equation*}
 		for the eigenvectors, we already know that 
@@ -411,9 +410,9 @@
 		
 		\item Optimal $\omega_b$ for SOR:
 		\begin{enumerate}
-			\item N = 10, $\omega_b$ = 1.0446
-			\item N = 20, $\omega_b$ = 1.0446
-			\item N = 50, $\omega_b$ = 1.0446
+			\item N = 10, $\omega_b$ = 1.16527511683289
+			\item N = 20, $\omega_b$ = 1.2933223938735654
+			\item N = 50, $\omega_b$ = 1.3746381523099196
 		\end{enumerate}
 	\end{enumerate}
 \end{prob}
