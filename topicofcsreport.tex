@@ -26,11 +26,7 @@
 
 
 % Title Page
-<<<<<<< HEAD
 \title{Topics in Computational Science Report \\ Logistic Map and Sensitivity on Initial Condition}
-=======
-\title{Topics in Computational Science Report \\ Derivation of Position Function on Chaos Process}
->>>>>>> ec0886fb5912f3cf981cd19ab7d0c464752efe57
 \author{Alifian Mahardhika Maulana}
 
 
@@ -51,19 +47,20 @@
 		\item a = 4.0
 	\end{enumerate}
 \end{enumerate}
-Below is the graph of the solution from \eqref{eq:1}, i plot it using Python Code i attached on the next page.
+Below is the graph of the solution from \eqref{eq:1}, plotted using Python Code attached on the next page.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{picture/logisticmap}
+	\includegraphics[width=0.5\linewidth]{picture/logisticmap}
 	\caption{Logistic Map of various a}
 	\label{fig:logisticmap}
 \end{figure}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{picture/sensitivity}
-	\caption{Calculated error on 2D case using optimum displacement vector on mesh size (1/316) = 0.00316456}
+	\includegraphics[width=0.5\linewidth]{picture/sensitivity}
+	\caption{Sensitivity to Initial Condition Plot}
 	\label{fig:sensitivity}
 \end{figure}
-\section{Attachment}\label{code}
-\lstinputlisting[basicstyle=\ttfamily\tiny,language=Python]{logisticmap.py}
+\newline
+\section{Python Code}\label{code}
+\lstinputlisting[basicstyle=\ttfamily\scriptsize,language=Python]{logisticmap.py}
 \end{document}
