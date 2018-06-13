@@ -12,6 +12,7 @@
 \newtheorem{prob}{Problem}
 \usepackage{amssymb}
 \usepackage{verbatim}
+\usepackage{listings}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
@@ -25,72 +26,40 @@
 
 
 % Title Page
-\title{Topics in Computational Science Report \\ Derivation of Position Function on Random Walk Process}
+\title{Topics in Computational Science Report \\ Logistic Map and Sensitivity on Initial Condition}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
-\begin{prob}
-	For $\alpha \in \R^+$ and $x(t) : \R^+ \rightarrow \R$, Let:
-	\begin{equation}
-	\frac{dx}{dt} = \alpha(1-x)x
+\begin{enumerate}
+	\item Plot the solution of the following map:
+	\begin{equation}\label{eq:1}
+	\begin{cases}
+	x_{n+1} = ax_n(1-x_n), & n = 1\cdots 100\\
+	x_0 = 0.35
+	\end{cases}
 	\end{equation}
-	Proof the following:
-	\begin{equation*}
-	x(t) = \frac{1}{1+Ae^{-\alpha t}},\ \text{with}\ A=\frac{1-x(0)}{x(0)}
-	\end{equation*}
-\end{prob}
-\begin{proof}
-	\begin{equation*}
-	\begin{aligned}[center]
-		\frac{dx}{dt} &= \alpha(1-x)x\\
-		\frac{dx}{(1-x)x} &= \alpha dt\\
-		\bigg(\frac{1}{x} + \frac{1}{(1-x)}\bigg) dx &= \alpha dt\\
-	\end{aligned}
-	\end{equation*}
-	taking integral on the both side, we obtain:
-	\begin{equation*}
-	\begin{aligned}[center]
-	\int \frac{1}{x} dx + \int \frac{1}{(1-x)} dx &= \int \alpha dt\\
-	\ln(x) - \ln(1-x) &= \alpha t + C\\
-	\ln\bigg(\frac{x}{(1-x)}\bigg) &= \alpha t + C
-	\end{aligned}
-	\end{equation*}
-	multiplied by $e(\exp)$ on the both side, we obtain:
-	\begin{equation*}
-	\begin{aligned}[center]
-	\exp\bigg(\ln\bigg(\frac{x}{(1-x)}\bigg)\bigg) &= \exp(\alpha t + C)\\
-	\frac{x}{(1-x)} &= e^{\alpha t + C}\\
-	\end{aligned}
-	\end{equation*}
-	let $e^{\alpha t + C} = e^{\alpha t}e^{C}=Ce^{\alpha t}$, thus:
-	\begin{equation}\label{eq:2}
-	\begin{aligned}[center]
-	\frac{x}{(1-x)} &= Ce^{\alpha t}\\
-	\end{aligned}
-	\end{equation}
-	for $t=0$, we get:
-	\begin{equation*}
-	\begin{aligned}[center]
-	\frac{x(0)}{(1-x(0))} &= C\\
-	\end{aligned}
-	\end{equation*}
-	insert $C$ to equation \eqref{eq:2}, hence the equation becomes:
-	\begin{equation*}\label{eq:3}
-	\begin{aligned}[center]
-	\frac{x}{(1-x)} &= \frac{x(0)}{(1-x(0))}e^{\alpha t}\\
-	\frac{(1-x)}{x} &= \frac{(1-x(0))}{x(0)}e^{-\alpha t}\\
-	\frac{1}{x} - 1 &= \frac{(1-x(0))}{x(0)}e^{-\alpha t}\\
-	\end{aligned}
-	\end{equation*}
-	let $A=\frac{(1-x(0))}{x(0)}$ thus the equation becomes:
-	\begin{equation*}
-	\begin{aligned}[center]
-	\frac{1}{x} - 1 &= Ae^{-\alpha t}\\
-	\frac{1}{x} &= 1 + Ae^{-\alpha t}\\
-	\therefore x &= \frac{1}{1 + Ae^{-\alpha t}}
-	\end{aligned}
-	\end{equation*}
-\end{proof}
+	\begin{enumerate}
+		\item a = 0.5
+		\item a = 1.5
+		\item a = 3.3
+		\item a = 4.0
+	\end{enumerate}
+\end{enumerate}
+Below is the graph of the solution from \eqref{eq:1}, i plot it using Python Code i attached on the next page.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{picture/logisticmap}
+	\caption{Logistic Map of various a}
+	\label{fig:logisticmap}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{picture/sensitivity}
+	\caption{Calculated error on 2D case using optimum displacement vector on mesh size (1/316) = 0.00316456}
+	\label{fig:sensitivity}
+\end{figure}
+\section{Attachment}\label{code}
+\lstinputlisting[basicstyle=\ttfamily\tiny,language=Python]{logisticmap.py}
 \end{document}
