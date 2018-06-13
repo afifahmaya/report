@@ -276,15 +276,28 @@ While in the figure \ref{fig:stresstensor} we can see result from calculating th
 \caption{Stress Tensor in 2D and 3D}
 \label{fig:stresstensor}
 \end{figure}
-\newpage
-On the figure \ref{fig:3dsliceview} below, we can see the result from sliced view on 3D case, in this case, we sliced through the Y-normal plane of the 3D model.
+\newline
+In the figure \ref{fig:errorplot} we can see convergence on 2D and 3D case.
 \begin{figure}[h!]
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{picture/conference/3dslice3}
-		\caption{Slicing Parts}
+		\includegraphics[width=\linewidth]{picture/conference/2derror}
+		\caption{Calculated error on 2D case using optimum displacement vector on mesh size (1/316) = 0.00316456}
+		\label{fig:2derror}
 	\end{subfigure}
 	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/3derror}
+		\caption{Calculated error on 3D case using optimum displacement vector on mesh size (1/60) = 0.016667}
+		\label{fig:3derror}
+	\end{subfigure}
+	\caption{Error Plot in 2D and 3D}
+	\label{fig:errorplot}
+\end{figure}
+\newpage
+On the figure \ref{fig:3dsliceview} below, we can see the result from sliced view on 3D case, in this case, we sliced through the Y-normal plane of the 3D model.
+\begin{figure}[h!]
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{picture/conference/3dslice2}
@@ -295,12 +308,6 @@ On the figure \ref{fig:3dsliceview} below, we can see the result from sliced vie
 		\centering
 		\includegraphics[width=\linewidth]{picture/conference/3dslice4}
 		\caption{Front View}
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{picture/conference/3dslice5}
-		\caption{Back View}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[b]{0.5\linewidth}
