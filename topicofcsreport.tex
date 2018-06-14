@@ -13,6 +13,7 @@
 \usepackage{amssymb}
 \usepackage{verbatim}
 \usepackage{listings}
+\usepackage{multicol}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
@@ -26,41 +27,92 @@
 
 
 % Title Page
-\title{Topics in Computational Science Report \\ Logistic Map and Sensitivity on Initial Condition}
+\title{Topics in Computational Science Report \\ Norbert Pozar Class}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
 \begin{enumerate}
-	\item Plot the solution of the following map:
+	\item Suppose that $u$ is a twice continuously differentiable positive solution of the porous medium equation:
 	\begin{equation}\label{eq:1}
-	\begin{cases}
-	x_{n+1} = ax_n(1-x_n), & n = 1\cdots 100\\
-	x_0 = 0.35
-	\end{cases}
+	u_t - \triangle (u^m) = 0, \quad x \in \R^n, t>0
 	\end{equation}
-	\begin{enumerate}
-		\item a = 0.5
-		\item a = 1.5
-		\item a = 3.3
-		\item a = 4.0
-	\end{enumerate}
+	In the pressure form:
+	\begin{equation}\label{eq:2}
+	p_t - (m-1)p \triangle p - |\triangledown p|^2 = 0
+	\end{equation}
+	Then, we define:
+	\begin{equation}\label{eq:3}
+	p(x,t) := \frac{m}{m-1} u^{m-1}(x,t)
+	\end{equation}
+	Show that \eqref{eq:3} is a solution of \eqref{eq:1} in \eqref{eq:2} form.\\
+	\newline
+	\textbf{Answer:}\\
+	First we compute:
+	\begin{eqnarray} \label{eq:4}
+	p_t = \frac{d}{dt}p(x,t), & \triangle p = \frac{d^2}{dx^2} p(x,t) = \frac{d}{dx} \triangledown p\\ \label{eq:5}
+	\triangledown p = \frac{d}{dx} p(x,t), & \triangle (u^m) = \frac{d^2}{dx^2} u^m
+	\end{eqnarray}
+	Applied Chain Rule to \eqref{eq:4},\eqref{eq:5}, we get:
+	\begin{multicols}{2}
+		\begin{equation}\label{eq:6}
+		\begin{aligned}
+		p_t &= \frac{d}{dt}p(x,t)\\
+		&= \frac{dp}{du} \frac{du}{dt}\\
+		&= \frac{m}{(m-1)} (m-1) u^{(m-2)} \frac{d}{dt}u\\
+		&= m u^{(m-2)} u_t
+		\end{aligned}
+		\end{equation}
+		\newline
+		\begin{equation}\label{eq:7}
+		\begin{aligned}
+		\triangledown p &= \frac{d}{dx} p(x,t)\\
+		&= \frac{dp}{du} \frac{du}{dx}\\
+		&= \frac{m}{(m-1)} (m-1) u^{(m-2)} \frac{d}{dx}u\\
+		&= m u^{(m-2)} \triangledown u
+		\end{aligned}
+		\end{equation}
+		\columnbreak
+		\begin{equation}\label{eq:8}
+		\begin{aligned}
+		\triangle p &= \frac{d}{dx} \triangledown p\\
+		&= \frac{d}{dx} \big(mu^{(m-2)} \triangledown u\big)\\
+		&=\big(m(m-2)u^{(m-3)}\triangledown u\big)\triangledown u + mu^{(m-2)} \triangle u\\
+		&= m(m-2)u^{(m-3)} |\triangledown u|^2 + mu^{(m-2)} \triangle u
+		\end{aligned}
+		\end{equation}
+		\newline
+		\begin{equation}\label{eq:9}
+		\begin{aligned}
+		\triangle (u^m) &= \frac{d^2}{dx^2} u^m\\
+		&= \frac{d}{dx} \bigg(\frac{d}{dx}u^m\bigg)\\
+		&= \frac{d}{dx} \bigg(mu^{(m-1)}\triangledown u\bigg)\\
+		&= \big(m(m-1)u^{(m-2)}\triangledown u\big)\triangledown u + (mu^{(m-1)}) \triangle u\\
+		&= m(m-1)u^{(m-2)}|\triangledown u|^2 + mu^{(m-1)}
+		\end{aligned}
+		\end{equation}
+	\end{multicols}
+	Substitute \eqref{eq:6}, \eqref{eq:7} $\rightarrow$ \eqref{eq:2}, we get:
+	\begin{equation}\label{eq:10}
+	m u^{(m-2)} u_t - mu^{(m-1)} \triangle p - m^2u^{2(m-2)} |\triangledown u|^2 = 0
+	\end{equation}
+	Divide \eqref{eq:10} with $mu^{(m-2)}$, we get:
+	\begin{equation}\label{eq:11}
+	u_t - u \triangle p - m u^{(m-2)} |\triangledown u|^2 = 0
+	\end{equation}
+	Substitute \eqref{eq:8} $\rightarrow$ \eqref{eq:11}, we get:
+	\begin{equation}\label{eq:12}
+	\begin{aligned}
+	u_t - u \bigg( m(m-2)u^{(m-3)} |\triangledown u|^2 + mu^{(m-2)} \triangle u \bigg) - m u^{(m-2)} |\triangledown u|^2 = 0\\
+	u_t - \bigg( m(m-2)u^{(m-2)} |\triangledown u|^2 + mu^{(m-1)} \triangle u \bigg) - m u^{(m-2)} |\triangledown u|^2 = 0\\
+	u_t - m u^{(m-2)} |\triangledown u|^2\bigg( (m-2) + 1 \bigg) - mu^{(m-1)} \triangle u = 0\\
+	u_t - m(m-1) u^{(m-2)} |\triangledown u|^2 - mu^{(m-1)} \triangle u = 0\\
+	\end{aligned}
+	\end{equation}
+	Substitute \eqref{eq:9} $\rightarrow$ \eqref{eq:12},
+	\begin{equation}
+	\therefore u_t - \triangle (u^m) = 0
+	\end{equation}
 \end{enumerate}
-Below is the graph of the solution from \eqref{eq:1}, plotted using Python Code attached on the next page.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\linewidth]{picture/logisticmap}
-	\caption{Logistic Map of various a}
-	\label{fig:logisticmap}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\linewidth]{picture/sensitivity}
-	\caption{Sensitivity to Initial Condition Plot}
-	\label{fig:sensitivity}
-\end{figure}
-\newline
-\section{Python Code}\label{code}
-\lstinputlisting[basicstyle=\ttfamily\scriptsize,language=Python]{logisticmap.py}
 \end{document}
