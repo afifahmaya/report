@@ -1,5 +1,5 @@
 \documentclass[a4paper,9pt]{article}
-\usepackage[a4paper, hmargin={1.5cm,1.5cm}, vmargin={1.5cm,1.5cm}]{geometry}
+\usepackage[a4paper, hmargin={2cm,2cm}, vmargin={2cm,2cm}]{geometry}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
@@ -51,33 +51,33 @@
 	\textbf{Answer:}\\
 	First we compute:
 	\begin{eqnarray} \label{eq:4}
-	p_t = \frac{d}{dt}p(x,t), & \triangle p = \frac{d^2}{dx^2} p(x,t) = \frac{d}{dx} \triangledown p\\ \label{eq:5}
-	\triangledown p = \frac{d}{dx} p(x,t), & \triangle (u^m) = \frac{d^2}{dx^2} u^m
+	p_t = \frac{\partial}{\partial t}p(x,t), & \triangle p = \frac{\partial^2}{\partial x^2} p(x,t) = \frac{\partial}{\partial x} \triangledown p\\ \label{eq:5}
+	\triangledown p = \frac{\partial}{\partial x} p(x,t), & \triangle (u^m) = \frac{\partial^2}{\partial x^2} u^m
 	\end{eqnarray}
 	Applied Chain Rule to \eqref{eq:4},\eqref{eq:5}, we get:
 	\begin{multicols}{2}
 		\begin{equation}\label{eq:6}
 		\begin{aligned}
-		p_t &= \frac{d}{dt}p(x,t)\\
-		&= \frac{dp}{du} \frac{du}{dt}\\
-		&= \frac{m}{(m-1)} (m-1) u^{(m-2)} \frac{d}{dt}u\\
+		p_t &= \frac{\partial}{\partial t}p(x,t)\\
+		&= \frac{\partial p}{\partial u} \frac{\partial u}{\partial t}\\
+		&= \frac{m}{(m-1)} (m-1) u^{(m-2)} \frac{\partial}{\partial t}u\\
 		&= m u^{(m-2)} u_t
 		\end{aligned}
 		\end{equation}
 		\newline
 		\begin{equation}\label{eq:7}
 		\begin{aligned}
-		\triangledown p &= \frac{d}{dx} p(x,t)\\
-		&= \frac{dp}{du} \frac{du}{dx}\\
-		&= \frac{m}{(m-1)} (m-1) u^{(m-2)} \frac{d}{dx}u\\
+		\triangledown p &= \frac{\partial}{\partial x} p(x,t)\\
+		&= \frac{\partial p}{\partial u} \frac{\partial u}{\partial x}\\
+		&= \frac{m}{(m-1)} (m-1) u^{(m-2)} \frac{\partial}{\partial x}u\\
 		&= m u^{(m-2)} \triangledown u
 		\end{aligned}
 		\end{equation}
 		\columnbreak
 		\begin{equation}\label{eq:8}
 		\begin{aligned}
-		\triangle p &= \frac{d}{dx} \triangledown p\\
-		&= \frac{d}{dx} \big(mu^{(m-2)} \triangledown u\big)\\
+		\triangle p &= \frac{\partial}{\partial x} \triangledown p\\
+		&= \frac{\partial}{\partial x} \big(mu^{(m-2)} \triangledown u\big)\\
 		&=\big(m(m-2)u^{(m-3)}\triangledown u\big)\triangledown u + mu^{(m-2)} \triangle u\\
 		&= m(m-2)u^{(m-3)} |\triangledown u|^2 + mu^{(m-2)} \triangle u
 		\end{aligned}
@@ -85,9 +85,9 @@
 		\newline
 		\begin{equation}\label{eq:9}
 		\begin{aligned}
-		\triangle (u^m) &= \frac{d^2}{dx^2} u^m\\
-		&= \frac{d}{dx} \bigg(\frac{d}{dx}u^m\bigg)\\
-		&= \frac{d}{dx} \bigg(mu^{(m-1)}\triangledown u\bigg)\\
+		\triangle (u^m) &= \frac{\partial^2}{\partial x^2} u^m\\
+		&= \frac{\partial}{\partial x} \bigg(\frac{\partial}{\partial x}u^m\bigg)\\
+		&= \frac{\partial}{\partial x} \bigg(mu^{(m-1)}\triangledown u\bigg)\\
 		&= \big(m(m-1)u^{(m-2)}\triangledown u\big)\triangledown u + (mu^{(m-1)}) \triangle u\\
 		&= m(m-1)u^{(m-2)}|\triangledown u|^2 + mu^{(m-1)}
 		\end{aligned}
@@ -114,5 +114,104 @@
 	\begin{equation}
 	\therefore u_t - \triangle (u^m) = 0
 	\end{equation}
+	\newpage
+	\item For $n \in \N$ and constants $m>1,C>0,\alpha >0, \beta > 0$. We define function $u:\R x (0,\infty)\rightarrow \R$ as
+	\begin{equation}\label{eq:14}
+	u(x,t) = t^{-\alpha} \bigg( max\bigg( C - \frac{\beta(m-1)}{2m} \frac{|x^2|}{t^{2\beta}},0 \bigg) \bigg)^\frac{1}{m-1} \quad x \in \R^n, t>0,
+	\end{equation}
+	with $|x|:= (\sum_{i=1}^{n}x_i^2)^{1/2}$\\
+	\newline
+	\textbf{Answer:}
+	\begin{enumerate}
+		\item We want to find $\alpha$ and $\beta$ in terms of $m$ and $n$ so that $u$ is a solution of \eqref{eq:14} in the set $${(x,t): x \in \R^n, t>0, u(x,t)>0}$$
+		Because of the set of $u(x,t) > 0$, so we choose $u(x,t)$ as:
+		\begin{equation}\label{eq:15}
+		u(x,t) = t^{-\alpha} \bigg( C - \frac{\beta(m-1)}{2m} \frac{|x^2|}{t^{2\beta}} \bigg)^\frac{1}{m-1}
+		\end{equation}
+		Then we substitute \eqref{eq:15} $\rightarrow$ \eqref{eq:3}, we get:
+		\begin{equation}\label{eq:16}
+		p(x,t) = \frac{m}{(m-1)} t^{-\alpha(m-1)} \bigg(C- \frac{\beta(m-1)}{2m}\frac{|x|^2}{t^{2\beta}}\bigg)
+		\end{equation}
+		After that, we compute $p_t,\triangledown p,\ \text{and}\ \triangle p$ of \eqref{eq:16}.
+		\begin{equation}\label{eq:17}
+		p_t = \frac{\partial}{\partial t} p(x,t) = -\alpha m \bigg( C- \frac{\beta(m-1)}{2m}\frac{|x|^2}{t^{2\beta}} \bigg)t^{(-\alpha(m-1)-1)}  + \beta^2 |x|^2t^{(-\alpha(m-1)-2\beta-1)}
+		\end{equation}
+		\begin{equation}\label{eq:18}
+		\triangledown p = \frac{\partial}{\partial x} p(x,t) = -\beta x t^{(-\alpha(m-1)-2\beta)}
+		\end{equation}
+		\begin{equation}\label{eq:19}
+		\triangle p = - \beta n t^{(-\alpha(m-1)-2\beta)}
+		\end{equation}
+		Then, we substitute \eqref{eq:17}, \eqref{eq:18}, and \eqref{eq:19} to \eqref{eq:2}, we get:
+		\begin{equation}\label{eq:20}
+		\begin{aligned}
+		0=&-\alpha m \bigg( C- \frac{\beta(m-1)}{2m}\frac{|x|^2}{t^{2\beta}} \bigg)t^{(-\alpha(m-1)-1)}  + \beta^2 |x|^2t^{(-\alpha(m-1)-2\beta-1)}\\
+		&+(m-1)p\beta n t^{(-\alpha(m-1)-2\beta)} - \beta^2 |x|^2 t^{2(-\alpha (m-1)-2\beta-1)}\\
+		0=&p(x,t)(m-1)\bigg( -\frac{\alpha}{t} + \beta n t ^{(-\alpha(m-1)-2\beta)} \bigg) + \beta^2 |x|^2 \bigg( t ^{(-\alpha(m-1)-2\beta -1)} + t^{2(-\alpha(m-1)-2\beta)} \bigg)
+		\end{aligned}
+		\end{equation}
+		From here, we recall the set is $u(x,t) > 0, m>1,\ \text{and}\ \beta>0$ which implied $p(x,t) > 0$,
+		therefore \eqref{eq:20} holds for:
+		$$-\frac{\alpha}{t} + \beta n t ^{(-\alpha(m-1)-2\beta)} = 0$$
+		Then,
+		\begin{equation}\label{eq:21}
+		\begin{aligned}
+		\beta n t ^{(-\alpha(m-1)-2\beta)} = \alpha t^{-1}\\
+		\end{aligned}
+		\end{equation}
+		To satisfies \eqref{eq:21},
+		\begin{equation}\label{eq:22}
+		\alpha = \frac{1}{(m-1)+2}, \qquad \beta = \frac{1}{n(m-1)+2}
+		\end{equation}
+		
+		\item For given $t>0$, the set $\Omega(t) := {x \in \R^n : u(x,t)>0}$ an $n$-dimensional ball. We want to find its radius $r = r(t)$ and $\lim_{t\rightarrow 0+} r(t)$ and $\lim_{t\rightarrow \infty} r(t)$.\\
+		In the set $\Omega$, for $\alpha > 0$, $$u(x,t)>0 \iff C - \frac{\beta(m-1)}{2m} \frac{|x^2|}{t^{2\beta}} \geq 0$$
+		with $x$ as its radius in domain $\Omega$, hence,
+		\begin{equation}\label{eq:23}
+		\begin{aligned}
+		C - \frac{\beta(m-1)}{2m} \frac{|r^2|}{t^{2\beta}} &= 0\\
+		\frac{\beta(m-1)}{2m} \frac{|r^2|}{t^{2\beta}} &= C\\
+		|r^2| &= \frac{C 2m t}{\beta (m-1)}\\
+		\therefore r(t) &= \bigg(\frac{2m t C}{\beta (m-1)}\bigg)^{1/2}
+		\end{aligned}
+		\end{equation}
+		Then we compute the limit:
+		\begin{equation}
+		\lim_{t\rightarrow 0+} r(t) = 0,\qquad \lim_{t\rightarrow \infty} r(t) \bigg(\frac{2m t C}{\beta (m-1)}\bigg)^{1/2} = \infty
+		\end{equation}
+		
+		\item With $\alpha$ and $\beta$ from \eqref{eq:22}, $n=2$, we define:
+		$$M(t):=\int_{\R^n}u(x,t)dx$$
+		in polar coordinates,
+		$$M(t)=\int_{\R^2}u(x,t)dxdy = \iint r u(x,t)dr d\theta$$
+		then, we compute $M(t)$ for $t>0$,
+		\begin{equation}\label{eq:25}
+		\begin{aligned}
+		\int_{0}^{2\pi}\int_{0}^{\infty} r u(x,t)dr d\theta= \int_{0}^{2\pi}\int_{0}^{r(t)} r u(x,t) dr d\theta + \int_{0}^{2\pi}\int_{r(t)}^{\infty} r u(x,t) dr d\theta
+		\end{aligned}
+		\end{equation}
+		for $r>r(t)$, we know from \eqref{eq:15}, $u(x,t)$ tend to $0$, hence \eqref{eq:25} becomes:
+		\begin{equation}\label{eq:26}
+		\begin{aligned}
+		\int_{0}^{2\pi}\int_{0}^{\infty} r u(x,t)dr d\theta&= \int_{0}^{2\pi}\int_{0}^{r(t)} r u(x,t) dr d\theta\\
+		&=\int_{0}^{2\pi}\int_{0}^{r(t)} t^{-\alpha} r \bigg( C - \frac{\beta(m-1)}{2m} \frac{r^2}{t^{2\beta}} \bigg) dr d\theta\\
+		&=\int_{0}^{2\pi} t^{-\alpha} \bigg( \frac{C}{2} r^2 - \frac{\beta(m-1)}{2m t^{2\beta}} \frac{r^4}{4} \bigg)\Biggr|^{r(t)}_0 d\theta\\
+		&=\int_{0}^{2\pi} t^{-\alpha} \bigg( \frac{Cr^2(t)}{2} - \frac{\beta(m-1)r^4(t)}{8m t^{2\beta}} \bigg) d\theta
+		\end{aligned}
+		\end{equation}
+		From here, we substitute $r(t)$ defined in \eqref{eq:23} to \eqref{eq:26}, we get:
+		\begin{equation}\label{eq:27}
+		\begin{aligned}
+		\int_{0}^{2\pi}\int_{0}^{\infty} r u(x,t)dr d\theta&=\int_{0}^{2\pi} t^{-\alpha} \bigg( \frac{C 2mt^{\beta}C}{2\beta(m-1)} - \frac{\beta(m-1)4m^2t^{4\beta C^2}}{8m t^{2\beta}\beta^2(m-1)^2} \bigg) d\theta\\
+		&= \int_{0}^{2\pi} t^{-\alpha} \frac{mt^{2\beta}C^2}{2\beta(m-1)} d\theta\\
+		&= \frac{mt^{2\beta}C^2}{2\beta(m-1)} 2\pi
+		\end{aligned}
+		\end{equation}
+		from here, we substitute $\alpha$ and $\beta$ from \eqref{eq:22} to \eqref{eq:27}, we get:
+		\begin{equation}\label{eq:28}
+		\therefore M(t) = \int_{0}^{2\pi}\int_{0}^{\infty} r u(x,t)dr d\theta = \frac{2m^2C^2\pi}{m-1}
+		\end{equation}
+		From \eqref{eq:28} we know $M(t)$ on $t>0$ is constant over time, therefore the mass $M(t)$ conserved.
+	\end{enumerate}
 \end{enumerate}
 \end{document}
