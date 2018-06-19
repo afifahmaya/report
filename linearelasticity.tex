@@ -31,7 +31,7 @@
 \DeclareMathOperator*{\argmin}{argmin}
 
 % Title Page
-\title{Linear Elasticity Modelling in 2D and 3D\\ Using Finite Element Method}
+\title{Linear Elasticity and Crack Modelling in 2D and 3D\\ Using Finite Element Method}
 \author{Alifian Mahardhika Maulana}
 
 
@@ -335,5 +335,33 @@ On the figure \ref{fig:3dsliceview} below, we can see the result from sliced vie
 	\end{subfigure}
 	\caption{3D Sliced View}
 	\label{fig:3dsliceview}
+\end{figure}
+\newpage
+\section{Elasticity with Crack Problem}
+Below is the graph of Linear Elasticity Problem with Crack Model in 2D.
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/2dcrack}
+		\caption{Elasticity with Crack Problem Model in 2D}
+		\label{fig:2dcrack}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/2dcrackfinal}
+		\caption{Calculated $\sigma$ on 2D crack case. The value of $\sigma$ on the domain, maped by the color in the picture with respect to the color palette on the lower side of the graph. Maximal stress given on the surface ($\sigma = 100.921\ [GPa]$)}
+		\label{fig:2dcrackfinal}
+	\end{subfigure}
+	\caption{Elasticity with Crack Problem in 2D}
+	\label{fig:crackmodel}
+\end{figure}
+\newline
+From figure \ref{fig:crackmodel}, we calculated the elastic energy through various length of crack, below is the result of the energy profile from our model in \ref{fig:crackmodel}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{picture/conference/elastic}
+	\caption{Elasticity Energy Profile Crack Problem Model in 2D}
+	\label{fig:elasticenergy}
 \end{figure}
 \end{document}
