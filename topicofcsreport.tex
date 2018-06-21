@@ -10,6 +10,7 @@
 \newtheorem{remark}{Remark}[]
 \newtheorem{prop}{Proposition}
 \newtheorem{prob}{Problem}
+\newtheorem{defn}{Definition}[section]
 \usepackage{amssymb}
 \usepackage{verbatim}
 \usepackage{listings}
@@ -27,191 +28,208 @@
 
 
 % Title Page
-\title{Topics in Computational Science Report \\ Norbert Pozar Class}
+\title{Topics in Computational Science Report \\ Knot Theory}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
 \begin{enumerate}
-	\item Suppose that $u$ is a twice continuously differentiable positive solution of the porous medium equation:
-	\begin{equation}\label{eq:1}
-	u_t - \triangle (u^m) = 0, \quad x \in \R^n, t>0
-	\end{equation}
-	In the pressure form:
-	\begin{equation}\label{eq:2}
-	p_t - (m-1)p \triangle p - |\triangledown p|^2 = 0
-	\end{equation}
-	Then, we define:
-	\begin{equation}\label{eq:3}
-	p(x,t) := \frac{m}{m-1} u^{m-1}(x,t)
-	\end{equation}
-	Show that \eqref{eq:3} is a solution of \eqref{eq:1} in \eqref{eq:2} form.\\
-	\newline
-	\textbf{Answer:}\\
-	First we compute:
-	\begin{eqnarray} \label{eq:4}
-	p_t = \frac{\partial}{\partial t}p(x,t), & \triangle p = \frac{\partial^2}{\partial x^2} p(x,t) = \frac{\partial}{\partial x} \triangledown p\\ \label{eq:5}
-	\triangledown p = \frac{\partial}{\partial x} p(x,t), & \triangle (u^m) = \frac{\partial^2}{\partial x^2} u^m
-	\end{eqnarray}
-	Applied Chain Rule to \eqref{eq:4},\eqref{eq:5}, we get:
-	\begin{multicols}{2}
-		\begin{equation}\label{eq:6}
-		\begin{aligned}
-		p_t &= \frac{\partial}{\partial t}p(x,t)\\
-		&= \frac{\partial p}{\partial u} \frac{\partial u}{\partial t}\\
-		&= \frac{m}{(m-1)} (m-1) u^{(m-2)} \frac{\partial}{\partial t}u\\
-		&= m u^{(m-2)} u_t
-		\end{aligned}
-		\end{equation}
-		\newline
-		\begin{equation}\label{eq:7}
-		\begin{aligned}
-		\triangledown p &= \frac{\partial}{\partial x} p(x,t)\\
-		&= \frac{\partial p}{\partial u} \frac{\partial u}{\partial x}\\
-		&= \frac{m}{(m-1)} (m-1) u^{(m-2)} \frac{\partial}{\partial x}u\\
-		&= m u^{(m-2)} \triangledown u
-		\end{aligned}
-		\end{equation}
-		\columnbreak
-		\begin{equation}\label{eq:8}
-		\begin{aligned}
-		\triangle p &= \frac{\partial}{\partial x} \triangledown p\\
-		&= \frac{\partial}{\partial x} \big(mu^{(m-2)} \triangledown u\big)\\
-		&=\big(m(m-2)u^{(m-3)}\triangledown u\big)\triangledown u + mu^{(m-2)} \triangle u\\
-		&= m(m-2)u^{(m-3)} |\triangledown u|^2 + mu^{(m-2)} \triangle u
-		\end{aligned}
-		\end{equation}
-		\newline
-		\begin{equation}\label{eq:9}
-		\begin{aligned}
-		\triangle (u^m) &= \frac{\partial^2}{\partial x^2} u^m\\
-		&= \frac{\partial}{\partial x} \bigg(\frac{\partial}{\partial x}u^m\bigg)\\
-		&= \frac{\partial}{\partial x} \bigg(mu^{(m-1)}\triangledown u\bigg)\\
-		&= \big(m(m-1)u^{(m-2)}\triangledown u\big)\triangledown u + (mu^{(m-1)}) \triangle u\\
-		&= m(m-1)u^{(m-2)}|\triangledown u|^2 + mu^{(m-1)}
-		\end{aligned}
-		\end{equation}
-	\end{multicols}
-	Substitute \eqref{eq:6}, \eqref{eq:7} $\rightarrow$ \eqref{eq:2}, we get:
-	\begin{equation}\label{eq:10}
-	m u^{(m-2)} u_t - mu^{(m-1)} \triangle p - m^2u^{2(m-2)} |\triangledown u|^2 = 0
-	\end{equation}
-	Divide \eqref{eq:10} with $mu^{(m-2)}$, we get:
-	\begin{equation}\label{eq:11}
-	u_t - u \triangle p - m u^{(m-2)} |\triangledown u|^2 = 0
-	\end{equation}
-	Substitute \eqref{eq:8} $\rightarrow$ \eqref{eq:11}, we get:
-	\begin{equation}\label{eq:12}
-	\begin{aligned}
-	u_t - u \bigg( m(m-2)u^{(m-3)} |\triangledown u|^2 + mu^{(m-2)} \triangle u \bigg) - m u^{(m-2)} |\triangledown u|^2 = 0\\
-	u_t - \bigg( m(m-2)u^{(m-2)} |\triangledown u|^2 + mu^{(m-1)} \triangle u \bigg) - m u^{(m-2)} |\triangledown u|^2 = 0\\
-	u_t - m u^{(m-2)} |\triangledown u|^2\bigg( (m-2) + 1 \bigg) - mu^{(m-1)} \triangle u = 0\\
-	u_t - m(m-1) u^{(m-2)} |\triangledown u|^2 - mu^{(m-1)} \triangle u = 0\\
-	\end{aligned}
-	\end{equation}
-	Substitute \eqref{eq:9} $\rightarrow$ \eqref{eq:12},
-	\begin{equation}
-	\therefore u_t - \triangle (u^m) = 0
-	\end{equation}
-	\newpage
-	\item For $n \in \N$ and constants $m>1,C>0,\alpha >0, \beta > 0$. We define function $u:\R x (0,\infty)\rightarrow \R$ as
-	\begin{equation}\label{eq:14}
-	u(x,t) = t^{-\alpha} \bigg( max\bigg( C - \frac{\beta(m-1)}{2m} \frac{|x^2|}{t^{2\beta}},0 \bigg) \bigg)^\frac{1}{m-1} \quad x \in \R^n, t>0,
-	\end{equation}
-	with $|x|:= (\sum_{i=1}^{n}x_i^2)^{1/2}$\\
-	\newline
-	\textbf{Answer:}
+	\item Suppose we have knot as shown in figure \ref{fig:mainmodel}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\linewidth]{picture/knotpict/knot-0}
+		\caption{Figure-Eight Knot}
+		\label{fig:mainmodel}
+	\end{figure}
+\newline
+Then we define knot invariants,
+\begin{defn} Knot Invariants:
 	\begin{enumerate}
-		\item We want to find $\alpha$ and $\beta$ in terms of $m$ and $n$ so that $u$ is a solution of \eqref{eq:14} in the set $${(x,t): x \in \R^n, t>0, u(x,t)>0}$$
-		Because of the set of $u(x,t) > 0$, so we choose $u(x,t)$ as:
-		\begin{equation}\label{eq:15}
-		u(x,t) = t^{-\alpha} \bigg( C - \frac{\beta(m-1)}{2m} \frac{|x^2|}{t^{2\beta}} \bigg)^\frac{1}{m-1}
-		\end{equation}
-		Then we substitute \eqref{eq:15} $\rightarrow$ \eqref{eq:3}, we get:
-		\begin{equation}\label{eq:16}
-		p(x,t) = \frac{m}{(m-1)} t^{-\alpha(m-1)} \bigg(C- \frac{\beta(m-1)}{2m}\frac{|x|^2}{t^{2\beta}}\bigg)
-		\end{equation}
-		After that, we compute $p_t,\triangledown p,\ \text{and}\ \triangle p$ of \eqref{eq:16}.
-		\begin{equation}\label{eq:17}
-		p_t = \frac{\partial}{\partial t} p(x,t) = -\alpha m \bigg( C- \frac{\beta(m-1)}{2m}\frac{|x|^2}{t^{2\beta}} \bigg)t^{(-\alpha(m-1)-1)}  + \beta^2 |x|^2t^{(-\alpha(m-1)-2\beta-1)}
-		\end{equation}
-		\begin{equation}\label{eq:18}
-		\triangledown p = \frac{\partial}{\partial x} p(x,t) = -\beta x t^{(-\alpha(m-1)-2\beta)}
-		\end{equation}
-		\begin{equation}\label{eq:19}
-		\triangle p = - \beta n t^{(-\alpha(m-1)-2\beta)}
-		\end{equation}
-		Then, we substitute \eqref{eq:17}, \eqref{eq:18}, and \eqref{eq:19} to \eqref{eq:2}, we get:
-		\begin{equation}\label{eq:20}
-		\begin{aligned}
-		0=&-\alpha m \bigg( C- \frac{\beta(m-1)}{2m}\frac{|x|^2}{t^{2\beta}} \bigg)t^{(-\alpha(m-1)-1)}  + \beta^2 |x|^2t^{(-\alpha(m-1)-2\beta-1)}\\
-		&+(m-1)p\beta n t^{(-\alpha(m-1)-2\beta)} - \beta^2 |x|^2 t^{2(-\alpha (m-1)-2\beta-1)}\\
-		0=&p(x,t)(m-1)\bigg( -\frac{\alpha}{t} + \beta n t ^{(-\alpha(m-1)-2\beta)} \bigg) + \beta^2 |x|^2 \bigg( t ^{(-\alpha(m-1)-2\beta -1)} + t^{2(-\alpha(m-1)-2\beta)} \bigg)
-		\end{aligned}
-		\end{equation}
-		From here, we recall the set is $u(x,t) > 0, m>1,\ \text{and}\ \beta>0$ which implied $p(x,t) > 0$,
-		therefore \eqref{eq:20} holds for:
-		$$-\frac{\alpha}{t} + \beta n t ^{(-\alpha(m-1)-2\beta)} = 0$$
-		Then,
-		\begin{equation}\label{eq:21}
-		\begin{aligned}
-		\beta n t ^{(-\alpha(m-1)-2\beta)} = \alpha t^{-1}\\
-		\end{aligned}
-		\end{equation}
-		To satisfies \eqref{eq:21},
-		\begin{equation}\label{eq:22}
-		\alpha = \frac{1}{(m-1)+2}, \qquad \beta = \frac{1}{n(m-1)+2}
-		\end{equation}
-		
-		\item For given $t>0$, the set $\Omega(t) := {x \in \R^n : u(x,t)>0}$ an $n$-dimensional ball. We want to find its radius $r = r(t)$ and $\lim_{t\rightarrow 0+} r(t)$ and $\lim_{t\rightarrow \infty} r(t)$.\\
-		In the set $\Omega$, for $\alpha > 0$, $$u(x,t)>0 \iff C - \frac{\beta(m-1)}{2m} \frac{|x^2|}{t^{2\beta}} \geq 0$$
-		with $x$ as its radius in domain $\Omega$, hence,
-		\begin{equation}\label{eq:23}
-		\begin{aligned}
-		C - \frac{\beta(m-1)}{2m} \frac{|r^2|}{t^{2\beta}} &= 0\\
-		\frac{\beta(m-1)}{2m} \frac{|r^2|}{t^{2\beta}} &= C\\
-		|r^2| &= \frac{C 2m t}{\beta (m-1)}\\
-		\therefore r(t) &= \bigg(\frac{2m t C}{\beta (m-1)}\bigg)^{1/2}
-		\end{aligned}
-		\end{equation}
-		Then we compute the limit:
-		\begin{equation}
-		\lim_{t\rightarrow 0+} r(t) = 0,\qquad \lim_{t\rightarrow \infty} r(t) \bigg(\frac{2m t C}{\beta (m-1)}\bigg)^{1/2} = \infty
-		\end{equation}
-		
-		\item With $\alpha$ and $\beta$ from \eqref{eq:22}, $n=2$, we define:
-		$$M(t):=\int_{\R^n}u(x,t)dx$$
-		in polar coordinates,
-		$$M(t)=\int_{\R^2}u(x,t)dxdy = \iint r u(x,t)dr d\theta$$
-		then, we compute $M(t)$ for $t>0$,
-		\begin{equation}\label{eq:25}
-		\begin{aligned}
-		\int_{0}^{2\pi}\int_{0}^{\infty} r u(x,t)dr d\theta= \int_{0}^{2\pi}\int_{0}^{r(t)} r u(x,t) dr d\theta + \int_{0}^{2\pi}\int_{r(t)}^{\infty} r u(x,t) dr d\theta
-		\end{aligned}
-		\end{equation}
-		for $r>r(t)$, we know from \eqref{eq:15}, $u(x,t)$ tend to $0$, hence \eqref{eq:25} becomes:
-		\begin{equation}\label{eq:26}
-		\begin{aligned}
-		\int_{0}^{2\pi}\int_{0}^{\infty} r u(x,t)dr d\theta&= \int_{0}^{2\pi}\int_{0}^{r(t)} r u(x,t) dr d\theta\\
-		&=\int_{0}^{2\pi}\int_{0}^{r(t)} t^{-\alpha} r \bigg( C - \frac{\beta(m-1)}{2m} \frac{r^2}{t^{2\beta}} \bigg) dr d\theta\\
-		&=\int_{0}^{2\pi} t^{-\alpha} \bigg( \frac{C}{2} r^2 - \frac{\beta(m-1)}{2m t^{2\beta}} \frac{r^4}{4} \bigg)\Biggr|^{r(t)}_0 d\theta\\
-		&=\int_{0}^{2\pi} t^{-\alpha} \bigg( \frac{Cr^2(t)}{2} - \frac{\beta(m-1)r^4(t)}{8m t^{2\beta}} \bigg) d\theta
-		\end{aligned}
-		\end{equation}
-		From here, we substitute $r(t)$ defined in \eqref{eq:23} to \eqref{eq:26}, we get:
-		\begin{equation}\label{eq:27}
-		\begin{aligned}
-		\int_{0}^{2\pi}\int_{0}^{\infty} r u(x,t)dr d\theta&=\int_{0}^{2\pi} t^{-\alpha} \bigg( \frac{C 2mt^{\beta}C}{2\beta(m-1)} - \frac{\beta(m-1)4m^2t^{4\beta C^2}}{8m t^{2\beta}\beta^2(m-1)^2} \bigg) d\theta\\
-		&= \int_{0}^{2\pi} t^{-\alpha} \frac{mt^{2\beta}C^2}{2\beta(m-1)} d\theta\\
-		&= \frac{mt^{2\beta}C^2}{2\beta(m-1)} 2\pi
-		\end{aligned}
-		\end{equation}
-		from here, we substitute $\alpha$ and $\beta$ from \eqref{eq:22} to \eqref{eq:27}, we get:
-		\begin{equation}\label{eq:28}
-		\therefore M(t) = \int_{0}^{2\pi}\int_{0}^{\infty} r u(x,t)dr d\theta = \frac{2m^2C^2\pi}{m-1}
-		\end{equation}
-		From \eqref{eq:28} we know $M(t)$ on $t>0$ is constant over time, therefore the mass $M(t)$ conserved.
+		\item function $f$ assigning to any knot diagram a number (a tuple of numbers, a polynomial, a rational function etc.
+		\item for any two diagrams of the same knot f assigns the same number.
+		\item Color the diagram into 3 colors. The coloring is correct if at each crossing,
+		the three meeting arcs are either all of the same color, or all of the different
+		colors.
+		\item Coloring invariant $col_3$(D) is the number of correct colorings.
 	\end{enumerate}
+\end{defn}
+we want to find every combination of coloring or numbering that satisfies 3-colorings or 3 "trivial" colorings from figure \ref{fig:mainmodel}.\\
+\newpage
+\textbf{Answer}.\\
+The combination of coloring figure \ref{fig:mainmodel} is as follows:
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.25\linewidth}
+		\centering
+		\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-1}
+		\caption{1st Combination}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.25\linewidth}
+		\centering
+		\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-2}
+		\caption{2nd Combination}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.25\linewidth}
+		\centering
+		\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-3}
+		\caption{3rd Combination}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.25\linewidth}
+		\centering
+		\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-4}
+		\caption{4th Combination}
+	\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-5}
+	\caption{5th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-6}
+	\caption{6th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-7}
+	\caption{7th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-8}
+	\caption{8th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-9}
+	\caption{9th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-10}
+	\caption{10th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-11}
+	\caption{11th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-12}
+	\caption{12th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-13}
+	\caption{13th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-14}
+	\caption{14th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-15}
+	\caption{15th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-16}
+	\caption{16th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-17}
+	\caption{17th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-18}
+	\caption{18th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-19}
+	\caption{19th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-20}
+	\caption{20th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-21}
+	\caption{21th Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-22}
+	\caption{22nd Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-23}
+	\caption{23rd Combination}
+\end{subfigure}
+\qquad
+\begin{subfigure}[b]{0.25\linewidth}
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/knotpict/knot-24}
+	\caption{24th Combination}
+\end{subfigure}
+\caption{3 Colorings Combination of Figure-Eight Knot}
+\label{fig:coloring knot}
+\end{figure}
+\newpage
+Now for trivial colorings, we've shown in figure \ref{fig:trivialcolor} below:\\
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.3\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/knotpict/knot-25}
+		\caption{25th Combination}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.3\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/knotpict/knot-26}
+		\caption{26th Combination}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.3\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/knotpict/knot-27}
+		\caption{27th Combination}
+	\end{subfigure}
+	\qquad
+	\caption{Trivial Colorings Knot}
+	\label{fig:trivialcolor}
+\end{figure}
+\newline
+It is clear from figure \ref{fig:coloring knot} and \ref{fig:trivialcolor}, the colorings that satisfies definition of knot invariants, is just the \textbf{trivial colorings}, therefore there is \textbf{no 3-colorings} in \textbf{Figure-Eight Knot}, in other word, Figure-Eight Knot is not tricolorable because it has 4 edges with each pair of edge meeting at some crossing. If three of the edge had the same color, then all edge would be forced to be the same color. Otherwise each of these four edge must have a distinct color.
 \end{enumerate}
 \end{document}
