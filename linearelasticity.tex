@@ -31,13 +31,13 @@
 \DeclareMathOperator*{\argmin}{argmin}
 
 % Title Page
-\title{Linear Elasticity and Crack Modelling in 2D and 3D\\ Using Finite Element Method}
+\title{Variational Approach to Crack Propagation\\ in a Cantilever Beam}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
-\section{Basic Theory}
+\section{Linear Elasticity Basic Theory}
 We define:
 \begin{equation*}
 \begin{aligned}
@@ -57,7 +57,7 @@ C_{ijkl}=C_{klij}=C_{jikl}\\
 \end{aligned}
 \end{equation*}
 Let's consider linear elasticity problem:
-\begin{equation}\label{linearelcase}
+\begin{equation}\label{eq:stronglinear}
 (**)\begin{cases}
 -div\ \sigma[u]=f(x),\ \text{in}\ \Omega\\
 u=g(x)\ \text{on}\ \Gamma_D\\
@@ -68,16 +68,16 @@ u=g(x)\ \text{on}\ \Gamma_D\\
 f \in L^2(\Omega : \R^d,\ g\in H^1(\Omega : \R^d),\ q\in L^2(\Gamma_N:\R^d))
 \end{equation*}
 \subsection{Strong Solution}
-\begin{equation*}
+\begin{equation}
 u\in H^2 (\Omega : \R^d)\ \text{satisfies}\ (**)\ \text{then we call $u:$ a strong solution}
-\end{equation*}
+\end{equation}
 \subsection{Weak Solution}
-\begin{equation*}
+\begin{equation}\label{eq:weaklinear}
 \begin{cases}
 \int_\Omega \sigma[u] : e[v] dx = \int_\Omega f\cdot v dx + \int_{\Gamma_N} q\cdot v ds \big( \forall v \in V:= \{ v \in H^1\ (\Omega : \R^d)\ |v|_{\Gamma_D} = 0 \}\big)\\
 u \in V+g
 \end{cases}
-\end{equation*}
+\end{equation}
 \subsection{Proposition}
 \begin{equation*}
 u:\ \text{strong solution}\ \Leftrightarrow \begin{cases}
@@ -87,7 +87,7 @@ u\in H^2\ (\Omega : \R^d)
 \end{equation*}
 \begin{proof}
 	($\Rightarrow$)
-	Assume we choose $v \in V:= \{ v \in H^1\ (\Omega : \R^d)\ |v|_{\Gamma_D} = 0 \}$, with $v$ is a very smooth test function. Then we take integral over the domain for equation \eqref{linearelcase} on both side.
+	Assume we choose $v \in V:= \{ v \in H^1\ (\Omega : \R^d)\ |v|_{\Gamma_D} = 0 \}$, with $v$ is a very smooth test function. Then we take integral over the domain for equation \eqref{eq:stronglinear} on both side.
 	\begin{equation*}
 	\begin{aligned}[center]
 	\int_\Omega -div\sigma[u] \cdot v dx &= \int_\Omega f \cdot v dx\\
@@ -201,9 +201,31 @@ a(v,v) &= \int_\Omega (\Cmod e[v]) : e[v] dx\\
 	\end{cases}
 	\end{equation*}
 \end{theorem}
+\section{Linear Elasticity with Crack Propagation Case}
+\subsection{Strong Form}
+Let's consider Linear Elasticity with Crack Propagation Case:
+\begin{equation}\label{eq:strongcrack}
+\begin{cases}
+-div \sigma[u] = f(x), & (x\in \Omega \setminus \Sigma(L))\\
+u = g & (x \in \Gamma_D)\\
+\sigma[u] \nu = q & (x \in \Gamma_l)\\
+\sigma[u] \nu = 0 & (x \in\Gamma_0 \cup \Sigma^+(L) \cup \Sigma^-(L))
+\end{cases}
+\end{equation}
+\subsection{Weak Form}
+We define $$V_L := {v \in H^1(\Omega_L : \R^2)| v=0}\ \text{on}\ \Gamma_D$$
+then the problem \eqref{eq:strongcrack} becomes:
+Find $u\in V_L$ such that,
+\begin{equation}\label{eq:weakcrack}
+\int_{\Omega_L} \sigma[u] : e[v] dx = \int_{\Omega_L} fv dx + \int_{\Gamma_l} qv ds\ (\forall  v \in V_L)
+\end{equation}
+then, we define elastic energy:
+\begin{equation}\label{eq:elasticen}
+E(v,L) := \frac{1}{2}a_L(v,v) - l(v),\ (v\in V_L)
+\end{equation}
 \newpage
 \section{Modelling and Simulation}
-In this simulation, we use a cantilever beam (Mild Steel Material) as the domain, which is a thin rectangular cross section introduced by Timoshenkol Goodier (1970), then we must specify nondimensionalized value for simulation as shown in table \ref{parametertable}.
+In this simulation, we use a cantilever beam (Mild Steel Material) as the domain, which is a thin rectangular cross section introduced by Timoshenkol Goodier (1970), then we specify nondimensionalized parameter for simulation as shown in table \ref{parametertable}.
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|l|l|l|}
@@ -220,7 +242,7 @@ In this simulation, we use a cantilever beam (Mild Steel Material) as the domain
 		\hline
 	\end{tabular}
 \caption{Material properties and numerical parameters}
-\label{parametertable}
+\label{tab:parametertable}
 \end{table}
 \newline
 \begin{figure}[h!]
@@ -229,7 +251,7 @@ In this simulation, we use a cantilever beam (Mild Steel Material) as the domain
 	\caption{3D Model of cantilever beam. We use gravity force as the body force \textbf{f} and fixed the left part of the beam, and then we give a 1 Newton weight force act on the right part of the beam as the neumann boundary condition \textbf{q}.}
 	\label{fig:3dmodel}
 \end{figure}
-With the help of FreeFem++ software, we created a 2D and 3D model as shown in figure \ref{fig:3dmodel}, then we solve the displacement vector ($u$, $v$) after solving the displacement, we calculate $\sigma$ which stand for stress force acting on surface of the cantilever beam using equation below:
+With the help of FreeFem++ software, we created a 2D and 3D model as shown in figure \ref{fig:3dmodel}, then we solve the displacement vector ($u$, $v$). After solving the displacement, we calculate $\sigma$ which stand for stress force acting on surface of the cantilever beam using equation below:
 \begin{equation*}
 \begin{aligned}[center]
 \sigma = (d \lambda^2 + 4\lambda\mu)div(u)^2 + (4\mu^2 |e[u]|^2),\ d=2,3\\
@@ -239,7 +261,7 @@ With the help of FreeFem++ software, we created a 2D and 3D model as shown in fi
 \end{equation*}
 \newpage
 \section{Result and Discussion}
-The simulation used mesh P1 finite element method on FreeFEM++, where $u$ and $v$ calculated for division number of mesh equal 16. In the figure \ref{fig:displacementresult} we can see the deformation of the cantilever beam in 2D and 3D graphics.
+We solved the problem in \eqref{eq:weaklinear} by using P1 finite element method on FreeFEM++, where $u$ and $v$ calculated for division number of mesh = 32. In the figure \ref{fig:displacementresult} we can see the deformation of the cantilever beam in 2D and 3D graphics.
 \begin{figure}[h!]
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
@@ -276,34 +298,27 @@ While in the figure \ref{fig:stresstensor} we can see result from calculating th
 \caption{Stress Tensor in 2D and 3D}
 \label{fig:stresstensor}
 \end{figure}
-\newline
-In the figure \ref{fig:errorplot} we can see convergence on 2D and 3D case.
+\newpage
+On the figure \ref{fig:comparison}, we can see comparison of calculated surface stress on 2D and 3D case (sliced on the side).
 \begin{figure}[h!]
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{picture/conference/2derror}
-		\caption{Calculated error on 2D case using optimum displacement vector on mesh size (1/316) = 0.00316456}
-		\label{fig:2derror}
+		\includegraphics[width=\linewidth]{picture/conference/2dstress1}
+		\caption{Calculated surface stress on 2D}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{picture/conference/3derror}
-		\caption{Calculated error on 3D case using optimum displacement vector on mesh size (1/60) = 0.016667}
-		\label{fig:3derror}
+		\includegraphics[width=\linewidth]{picture/conference/3dstress1}
+		\caption{Calculated surface stress on 3D}
+		\label{}
 	\end{subfigure}
-	\caption{Error Plot in 2D and 3D}
-	\label{fig:errorplot}
+	\caption{Comparison of Stress Tensor in 2D and 3D}
+	\label{fig:comparison}
 \end{figure}
-\newpage
+\newline
 On the figure \ref{fig:3dsliceview} below, we can see the result from sliced view on 3D case, in this case, we sliced through the Y-normal plane of the 3D model.
 \begin{figure}[h!]
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{picture/conference/3dslice2}
-		\caption{Inside of the 3D model}
-	\end{subfigure}
-	\quad
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{picture/conference/3dslice4}
@@ -314,12 +329,6 @@ On the figure \ref{fig:3dsliceview} below, we can see the result from sliced vie
 		\centering
 		\includegraphics[width=\linewidth]{picture/conference/3dslice6}
 		\caption{Right View}
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{picture/conference/3dslice7}
-		\caption{Left View}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[b]{0.5\linewidth}
@@ -337,27 +346,88 @@ On the figure \ref{fig:3dsliceview} below, we can see the result from sliced vie
 	\label{fig:3dsliceview}
 \end{figure}
 \newpage
-\section{Elasticity with Crack Problem}
-Below is the graph of Linear Elasticity Problem with Crack Model in 2D.
+\subsection{Convergence Analysis}
+Since we don't have an exact solution for problem \eqref{eq:stronglinear}, we will define $$u_h:= u^k \iff \max|u^k-u^{k-1}| \leq \epsilon$$ $k$ is index of the current solution and $\epsilon$ is a small number, $\epsilon > 0$.\\
+There are three types of error that we will compute, Infinity Error, $H^1(\Omega)$ and $L^2(\Omega)$, each of them defined by:
+\begin{eqnarray}
+||u_h - u||_\infty = \max|u_h-u|\\
+||u||^2_{H^1(\Omega)} = \int_\Omega |u|^2 dx + \int_\Omega |\triangledown u|^2 dx\\
+||u||^2_{L^2(\Omega)} = \int_\Omega |u|^2 dx
+\end{eqnarray}
+We can see the result from 2D and 3D case in the figure \ref{fig:errorplot} below:
 \begin{figure}[h!]
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{picture/conference/2dcrack}
-		\caption{Elasticity with Crack Problem Model in 2D}
+		\includegraphics[width=\linewidth]{picture/conference/all2derror}
+		\caption{2D Error Plot in Logscale}
+		\label{fig:2derror}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/all3derror}
+		\caption{3D Error Plot in Logscale}
+		\label{fig:3derror}
+	\end{subfigure}
+	\caption{Error Plot in Logscale}
+	\label{fig:errorplot}
+\end{figure}
+
+\newpage
+\section{Linear Elasticity with Crack Propagation}
+We solved problem \eqref{eq:weakcrack} using same model as shown in figure \ref{fig:3dmodel} and numerical parameter like in table \ref{tab:parametertable}, the difference from linear elasticity problem is the domain. In the crack propagation case, we disturb the domain with adding some so called "crack path" into the domain. For this case, we use n(division number) = 32 and d(width of the crack) = 0.001 [m]. The result of our simulation shown the figure \ref{fig:crackmodel} for 2D case:
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/crackmodel2d}
+		\caption{Elasticity with Crack Propagation Model in 2D}
 		\label{fig:2dcrack}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{picture/conference/2dcrackfinal}
-		\caption{Calculated $\sigma$ on 2D crack case. The value of $\sigma$ on the domain, maped by the color in the picture with respect to the color palette on the lower side of the graph. Maximal stress given on the surface ($\sigma = 100.921\ [GPa]$)}
+		\includegraphics[width=\linewidth]{picture/conference/cracksol2d}
+		\caption{Deformation of the material in Crack Propagation Case on 2D}
 		\label{fig:2dcrackfinal}
 	\end{subfigure}
-	\caption{Elasticity with Crack Problem in 2D}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/crackmodel3d}
+		\caption{Elasticity with Crack Propagation Model in 3D}
+		\label{fig:3dcrack}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/cracksol3d}
+		\caption{Deformation of the material in Crack Propagation Case on 3D}
+		\label{fig:3dcrackfinal}
+	\end{subfigure}
+	\caption{Elasticity with Crack Propagation Case in 2D and 3D}
 	\label{fig:crackmodel}
+\end{figure}\\
+\newpage
+After that, we also compare our 2D and 3D model in crack propagation case, the result is shown in the figure \ref{fig:compelast}\\
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/compare2d}
+		\caption{Solution in 2D}
+		\label{fig:2dcomp}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/compare3d}
+		\caption{Solution in 3D}
+		\label{fig:3dcomp}
+	\end{subfigure}
+	\caption{Elasticity with Crack Propagation Case in 2D and 3D}
+	\label{fig:compelast}
 \end{figure}
 \newline
-From figure \ref{fig:crackmodel}, we calculated the elastic energy through various length of crack, below is the result of the energy profile from our model in \ref{fig:crackmodel}.
+We also calculated the elastic energy using equation \eqref{eq:elasticen}, below is the result of the energy profile from our model in figure \ref{fig:crackmodel}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\linewidth]{picture/conference/elastic}

@@ -16,19 +16,26 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Basic Theory}{1}{section.1}}
-\newlabel{linearelcase}{{1}{1}{Basic Theory}{equation.1.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Linear Elasticity Basic Theory}{1}{section.1}}
+\newlabel{eq:stronglinear}{{1}{1}{Linear Elasticity Basic Theory}{equation.1.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Strong Solution}{1}{subsection.1.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Weak Solution}{1}{subsection.1.2}}
+\newlabel{eq:weaklinear}{{3}{1}{Weak Solution}{equation.1.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Proposition}{1}{subsection.1.3}}
-\newlabel{weakproof}{{2}{2}{Proposition}{equation.1.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Modelling and Simulation}{4}{section.2}}
+\newlabel{weakproof}{{4}{2}{Proposition}{equation.1.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Linear Elasticity with Crack Propagation Case}{3}{section.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Strong Form}{3}{subsection.2.1}}
+\newlabel{eq:strongcrack}{{5}{3}{Strong Form}{equation.2.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Weak Form}{3}{subsection.2.2}}
+\newlabel{eq:weakcrack}{{6}{3}{Weak Form}{equation.2.6}{}}
+\newlabel{eq:elasticen}{{7}{3}{Weak Form}{equation.2.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Modelling and Simulation}{4}{section.3}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Material properties and numerical parameters\relax }}{4}{table.caption.1}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{parametertable}{{1}{4}{Material properties and numerical parameters\relax }{table.caption.1}{}}
+\newlabel{tab:parametertable}{{1}{4}{Material properties and numerical parameters\relax }{table.caption.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 3D Model of cantilever beam. We use gravity force as the body force \textbf  {f} and fixed the left part of the beam, and then we give a 1 Newton weight force act on the right part of the beam as the neumann boundary condition \textbf  {q}.\relax }}{4}{figure.caption.2}}
 \newlabel{fig:3dmodel}{{1}{4}{3D Model of cantilever beam. We use gravity force as the body force \textbf {f} and fixed the left part of the beam, and then we give a 1 Newton weight force act on the right part of the beam as the neumann boundary condition \textbf {q}.\relax }{figure.caption.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Result and Discussion}{5}{section.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Result and Discussion}{5}{section.4}}
 \newlabel{fig:2dresult}{{2a}{5}{Deformation in 2D. Green line show condition before gravity and weight force applied to the domain. Red line show condition after we solve linear elasticity with gravity and weight force applied to the domain. Maximal Displacement ($u = 0.03\ [m]$)\relax }{figure.caption.3}{}}
 \newlabel{sub@fig:2dresult}{{a}{5}{Deformation in 2D. Green line show condition before gravity and weight force applied to the domain. Red line show condition after we solve linear elasticity with gravity and weight force applied to the domain. Maximal Displacement ($u = 0.03\ [m]$)\relax }{figure.caption.3}{}}
 \newlabel{fig:3dresult}{{2b}{5}{Deformation in 3D. Green line show condition before gravity and weight force applied to the domain. Red line show condition after we solve linear elasticity with gravity and weight force applied to the domain. Maximal Displacement ($u = 0.05\ [m]$)\relax }{figure.caption.3}{}}
@@ -41,20 +48,35 @@
 \newlabel{sub@fig:3dstress}{{b}{5}{Calculated $\sigma $ on 3D case. The value of $\sigma $ on the domain, maped by the color in the picture with respect to the color palette on the lower side of the graph. Maximal stress given on the surface ($\sigma = 567.034\ [GPa]$)\relax }{figure.caption.4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Stress Tensor in 2D and 3D\relax }}{5}{figure.caption.4}}
 \newlabel{fig:stresstensor}{{3}{5}{Stress Tensor in 2D and 3D\relax }{figure.caption.4}{}}
-\newlabel{fig:2derror}{{4a}{6}{Calculated error on 2D case using optimum displacement vector on mesh size (1/316) = 0.00316456\relax }{figure.caption.5}{}}
-\newlabel{sub@fig:2derror}{{a}{6}{Calculated error on 2D case using optimum displacement vector on mesh size (1/316) = 0.00316456\relax }{figure.caption.5}{}}
-\newlabel{fig:3derror}{{4b}{6}{Calculated error on 3D case using optimum displacement vector on mesh size (1/60) = 0.016667\relax }{figure.caption.5}{}}
-\newlabel{sub@fig:3derror}{{b}{6}{Calculated error on 3D case using optimum displacement vector on mesh size (1/60) = 0.016667\relax }{figure.caption.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Error Plot in 2D and 3D\relax }}{6}{figure.caption.5}}
-\newlabel{fig:errorplot}{{4}{6}{Error Plot in 2D and 3D\relax }{figure.caption.5}{}}
+\newlabel{}{{4b}{6}{Calculated surface stress on 3D\relax }{figure.caption.5}{}}
+\newlabel{sub@}{{b}{6}{Calculated surface stress on 3D\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Comparison of Stress Tensor in 2D and 3D\relax }}{6}{figure.caption.5}}
+\newlabel{fig:comparison}{{4}{6}{Comparison of Stress Tensor in 2D and 3D\relax }{figure.caption.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 3D Sliced View\relax }}{6}{figure.caption.6}}
 \newlabel{fig:3dsliceview}{{5}{6}{3D Sliced View\relax }{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Elasticity with Crack Problem}{7}{section.4}}
-\newlabel{fig:2dcrack}{{6a}{7}{Elasticity with Crack Problem Model in 2D\relax }{figure.caption.7}{}}
-\newlabel{sub@fig:2dcrack}{{a}{7}{Elasticity with Crack Problem Model in 2D\relax }{figure.caption.7}{}}
-\newlabel{fig:2dcrackfinal}{{6b}{7}{Calculated $\sigma $ on 2D crack case. The value of $\sigma $ on the domain, maped by the color in the picture with respect to the color palette on the lower side of the graph. Maximal stress given on the surface ($\sigma = 100.921\ [GPa]$)\relax }{figure.caption.7}{}}
-\newlabel{sub@fig:2dcrackfinal}{{b}{7}{Calculated $\sigma $ on 2D crack case. The value of $\sigma $ on the domain, maped by the color in the picture with respect to the color palette on the lower side of the graph. Maximal stress given on the surface ($\sigma = 100.921\ [GPa]$)\relax }{figure.caption.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Elasticity with Crack Problem in 2D\relax }}{7}{figure.caption.7}}
-\newlabel{fig:crackmodel}{{6}{7}{Elasticity with Crack Problem in 2D\relax }{figure.caption.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Elasticity Energy Profile Crack Problem Model in 2D\relax }}{7}{figure.caption.8}}
-\newlabel{fig:elasticenergy}{{7}{7}{Elasticity Energy Profile Crack Problem Model in 2D\relax }{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Convergence Analysis}{7}{subsection.4.1}}
+\newlabel{fig:2derror}{{6a}{7}{2D Error Plot in Logscale\relax }{figure.caption.7}{}}
+\newlabel{sub@fig:2derror}{{a}{7}{2D Error Plot in Logscale\relax }{figure.caption.7}{}}
+\newlabel{fig:3derror}{{6b}{7}{3D Error Plot in Logscale\relax }{figure.caption.7}{}}
+\newlabel{sub@fig:3derror}{{b}{7}{3D Error Plot in Logscale\relax }{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Error Plot in Logscale\relax }}{7}{figure.caption.7}}
+\newlabel{fig:errorplot}{{6}{7}{Error Plot in Logscale\relax }{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Linear Elasticity with Crack Propagation}{8}{section.5}}
+\newlabel{fig:2dcrack}{{7a}{8}{Elasticity with Crack Propagation Model in 2D\relax }{figure.caption.8}{}}
+\newlabel{sub@fig:2dcrack}{{a}{8}{Elasticity with Crack Propagation Model in 2D\relax }{figure.caption.8}{}}
+\newlabel{fig:2dcrackfinal}{{7b}{8}{Deformation of the material in Crack Propagation Case on 2D\relax }{figure.caption.8}{}}
+\newlabel{sub@fig:2dcrackfinal}{{b}{8}{Deformation of the material in Crack Propagation Case on 2D\relax }{figure.caption.8}{}}
+\newlabel{fig:3dcrack}{{7c}{8}{Elasticity with Crack Propagation Model in 3D\relax }{figure.caption.8}{}}
+\newlabel{sub@fig:3dcrack}{{c}{8}{Elasticity with Crack Propagation Model in 3D\relax }{figure.caption.8}{}}
+\newlabel{fig:3dcrackfinal}{{7d}{8}{Deformation of the material in Crack Propagation Case on 3D\relax }{figure.caption.8}{}}
+\newlabel{sub@fig:3dcrackfinal}{{d}{8}{Deformation of the material in Crack Propagation Case on 3D\relax }{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Elasticity with Crack Propagation Case in 2D and 3D\relax }}{8}{figure.caption.8}}
+\newlabel{fig:crackmodel}{{7}{8}{Elasticity with Crack Propagation Case in 2D and 3D\relax }{figure.caption.8}{}}
+\newlabel{fig:2dcomp}{{8a}{9}{Solution in 2D\relax }{figure.caption.9}{}}
+\newlabel{sub@fig:2dcomp}{{a}{9}{Solution in 2D\relax }{figure.caption.9}{}}
+\newlabel{fig:3dcomp}{{8b}{9}{Solution in 3D\relax }{figure.caption.9}{}}
+\newlabel{sub@fig:3dcomp}{{b}{9}{Solution in 3D\relax }{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Elasticity with Crack Propagation Case in 2D and 3D\relax }}{9}{figure.caption.9}}
+\newlabel{fig:compelast}{{8}{9}{Elasticity with Crack Propagation Case in 2D and 3D\relax }{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Elasticity Energy Profile Crack Problem Model in 2D\relax }}{9}{figure.caption.10}}
+\newlabel{fig:elasticenergy}{{9}{9}{Elasticity Energy Profile Crack Problem Model in 2D\relax }{figure.caption.10}{}}
