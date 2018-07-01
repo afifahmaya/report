@@ -24,124 +24,19 @@
 
 
 % Title Page
-\title{Assignment 2\\ Topics of Mathematical Science}
+\title{Assignment 3\\ Topics of Mathematical Science}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
-\section*{Exercise: Q1}
 \begin{enumerate}
-	\item Show that:
-	\begin{equation*}
-	\begin{aligned}[center]
-	\frac{d^2}{dt^2} &F(x(t),y(t))\\
-	= &F_{xx}(x(t),y(t)) \bigg( \frac{dx}{dt}(t) \bigg)^2 + 2 F_{xy}(x(t),y(t)) \frac{dx}{dt}(t) \frac{dy}{dt}(t)\\
-	+ &F_{yy}(x(t),y(t)) \bigg( \frac{dy}{dt}(t) \bigg)^2 + F_{x}(x(t),y(t)) \frac{d^2x}{dt^2}(t) + F_{y}(x(t),y(t)) \frac{d^2y}{dt^2}(t)
-	\end{aligned}
-	\end{equation*}
-	Use fact that $F_{xy}(a,b) = F_{yx}(a,b)$ since $F$ is of class $C^2$ around a point $P(a,b).$\\
-	\newline
-	\textbf{Answer}:\\
-	Take second derivative of $F(x(t),y(t))$ over time, and use chain rule, so that:
-	\begin{equation*}
-	\begin{aligned}[center]
-	\frac{d^2}{dt^2} F(x(t),y(t)) = &\frac{d}{dt} \bigg( \frac{d}{dt} \big( F(x(t),y(t)) \big) \bigg)\\
-	= & \frac{d}{dt} \bigg( F_{x}(x(t),y(t)) \frac{dx}{dt}(t) + F_{y}(x(t),y(t)) \frac{dy}{dt}(t) \bigg)\\
-	= & F_{xx}(x(t),y(t)) \bigg( \frac{dx}{dt}(t) \bigg)^2 + F_{x}(x(t),y(t)) \frac{d^2x}{dt^2}(t) + F_{xy}(x(t),y(t)) \frac{dx}{dt}(t)\\
-	&+ F_{yx}(x(t),y(t)) \frac{dy}{dt}(t) + F_{yy}(x(t),y(t)) \bigg( \frac{dy}{dt}(t) \bigg)^2 + F_{y}(x(t),y(t)) \frac{d^2y}{dt^2}(t)\\
-	\text{Use fact that}\ F_{xy} = F_{yx}\\
-	\therefore\frac{d^2}{dt^2} F(x(t),y(t)) = & F_{xx}(x(t),y(t)) \bigg( \frac{dx}{dt}(t) \bigg)^2 + F_{x}(x(t),y(t)) \frac{d^2x}{dt^2}(t) + 2 F_{xy}(x(t),y(t)) \frac{dx}{dt}(t) \frac{dy}{dt}(t)\\
-	&+ F_{yy}(x(t),y(t)) \bigg( \frac{dy}{dt}(t) \bigg)^2 + F_{y}(x(t),y(t)) \frac{d^2y}{dt^2}(t)\\
-	\end{aligned}
-	\end{equation*}
-
-	\newpage
-	\item Show that:
-	\begin{equation*}
-	\varphi''(a) = -\frac{F_{xx}(a,b)F_{y}(a,b)^2 -2F_{xy}(a,b)F_{x}(a,b)F_{y}(a,b) + F_{yy}(a,b)F_{x}(a,b)^2}{F_{y}(a,b)^3}
-	\end{equation*}
-	\newline
-	\textbf{Answer}:\\
-	Take second derivative of $F(x,\varphi(x))$ over $x$, and use chain rule, so that:
-	\begin{equation*}
-	\begin{aligned}[center]
-	\frac{d^2}{dx^2} F(x,\varphi(x)) = &\frac{d}{dx} \bigg( \frac{d}{dx} F(x,\varphi(x)) \bigg)\\
-	= & \frac{d}{dx} \bigg( F_x(x,\varphi(x)) F_y(x,\varphi(x)) + F_y(x,\varphi(x)) \varphi'(x) \bigg)\\
-	= & F_{xx}(x,\varphi(x)) F_{y}(x,\varphi(x))^2 + F_{xy}(x,\varphi(x))F_{y}(x,\varphi(x))\\
-	&+ F_{yx}(x,\varphi(x))F_{y}(x,\varphi(x)) + F_{yy}(x,\varphi(x)) F_{x}(x,\varphi(x))^2 + \varphi''(x) F_{y}(x,\varphi(x))\\
-	\text{Use fact that}\ F_{xy} = F_{yx}\\
-	\end{aligned}
-	\end{equation*}
-	And bring all derivation of $F(x,\varphi(x))$ to the left side, hence:
-	\begin{equation*}
-	\varphi''(x) = -\frac{F_{xx}(x,\varphi(x)) F_{y}(x,\varphi(x))^2 + 2 F_{xy}(x,\varphi(x))F_{y}(x,\varphi(x)) F_{x}(x,\varphi(x)) + F_{yy}(x,\varphi(x)) F_{x}(x,\varphi(x))^2}{F_{y}(x,\varphi(x))^3}
-	\end{equation*}
-	take $x=a$,
-	\begin{equation*}
-	\therefore\varphi''(a) = -\frac{F_{xx}(a,b) F_{y}(a,b)^2 + 2 F_{xy}(a,b)F_{y}(a,b) F_{x}(a,b) + F_{yy}(a,b) F_{x}(a,b)^2}{F_{y}(a,b)^3}
-	\end{equation*}
-	\newpage
-	\item Let
-	\begin{equation*}
-	\begin{aligned}
-	D_1 = &{(x,y) \in \R^2 | 0 \leq x \leq 1,\ 0 \leq y \leq 2}\\
-	D_2 = &{(x,y) \in \R^2 | 1 \leq x \leq 2,\ 0 \leq y \leq 1 + x^2}
-	\end{aligned}
-	\end{equation*}
-	Calculate the following integral:
-	\begin{enumerate}
-		\item \begin{equation*}
-		\iint_{D_1} xy^2 dx dy = \int_{0}^{2} \int_{0}^{1} xy^2 dx dy = \int_{0}^{2} \frac{1}{2} x^2 y^2 \Biggr|_0^1 dy = \int_{0}^{2} \frac{1}{2} y^2 dy = \frac{1}{6} y^3 \Biggr|_0^2 = \frac{4}{3} \approx 1.333
-		\end{equation*}
-		
-		\item \begin{equation*}
-		\begin{aligned}
-		\iint_{D_1} (x+y)^2 dx dy =& \int_{0}^{2} \int_{0}^{1} (x+y)^2 dx dy\\
-		=& \int_{0}^{2} \int_{0}^{1} x^2 + 2xy + y^2 dx dy\\
-		=& \int_{0}^{2} \frac{1}{3}x^3 + x^2y + y^2 \Biggr|_0^1 dy\\
-		=& \int_{0}^{2} \frac{1}{3} + y + y^2 dy\\
-		=& \frac{1}{3}y + \frac{1}{2}y^2 + \frac{1}{3}y^3 \Biggr|_0^2 = \frac{16}{3} \approx 5.333
-		\end{aligned}
-		\end{equation*}
-		
-		\item \begin{equation*}
-		\begin{aligned}
-		\iint_{D_2} (x^2+y)^2 dx dy =& \int_{1}^{2} \int_{0}^{1+x^2} (x^2+y)^2 dy dx\\
-		=& \int_{1}^{2} \int_{0}^{1+x^2} x^4 + 2x^2y + y^2 dy dx\\
-		=& \int_{1}^{2} x^4y + x^2y^2 + \frac{1}{3}y^3 \Biggr|_0^{1+x^2} dx\\
-		=& \int_{1}^{2} x^4(1+x^2) + x^2(1+x^2)^2 + \frac{1}{3}(1+x^2)^3 dx\\
-		=& \int_{1}^{2} 4x^4 + \frac{7}{3} x^6 + 2x^2 + \frac{1}{3} dx\\
-		=& \frac{4}{5}x^5 + \frac{1}{3}x^7 + \frac{2}{3}x^3 + \frac{1}{3}x \Biggr|_1^2 \approx 72.133
-		\end{aligned}
-		\end{equation*}
-	\end{enumerate}
-
-	\newpage
-	\item Suppose $D$ is a bounded domain with smooth boundary. Using Green Theorem, show that the line integral:
-	\begin{equation}\label{eq:4}
-	\int_{\partial D} -ydx + xdy
+	\item Prove by Cauchy's Product formula that:
+	\begin{equation}
+	e^{z+w} = e^z e^w,\quad \forall z,w \in \C
 	\end{equation}
-	equal to the area of D.\\
-	\newline
-	\textbf{Answer:}
-	\begin{theorem} Green Theorem\\
-		Let $C$ be a positively oriented, piecewise smooth, simple closed curve in a plane, and let $D$ be the region bounded by $C$. If $L$ and $M$ are functions of $(x,y)$ defined on an open region containing $D$ and have continuous partial derivatives there, then:
-		\begin{equation*}
-		\oint_C (L dx + M dy) = \iint_{D} \bigg( \frac{\partial M}{\partial x} - \frac{\partial L}{\partial y} \bigg) dx dy
-		\end{equation*}
-	\end{theorem}
-	We define area of $D$ as:
-	\begin{equation*}
-	\iint_{D} dx dy
-	\end{equation*}
-	using Green Theorem, we can rewrite \eqref{eq:4} becomes:
-	\begin{equation*}
-	\begin{aligned}
-	\int_{\partial D} -ydx + xdy =& \iint_{D} \bigg( \frac{\partial (x)}{\partial x} - \frac{\partial (-y)}{\partial y} \bigg) dx dy\\
-	=& \iint_{D} 1 + 1 dx dy\\
-	=& 2 \iint_{D} dx dy = 2\times \text{Area of}\ D
-	\end{aligned}
-	\end{equation*}
+	
+	\item Prove:\\
+	Suppose FPS $$f(z) = \sum_{n=0}^{\infty} a_n(z-z_0)^n$$ converges absolutely on any compact set on ${|z-z_0|<R}$ and $f'(z) = \sum_{n=1}^{\infty} n a_n(z-z_0)^{n-1}$
 \end{enumerate}
 \end{document}
