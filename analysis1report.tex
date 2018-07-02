@@ -19,67 +19,28 @@
 \DeclareMathOperator*{\capmod}{\cap}
 
 % Title Page
-\title{Analysis Ia Report}
+\title{Assignment 3 \\ Analysis Ia Report}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
-\begin{prob}
-	Let $M=(S,d)$ be a metric space.\\
-	Let $G \subseteq S$. Then, $G$ is open in $M \iff$ it is a union of open balls.
-	\begin{proof}
-		($\Rightarrow$)
-		Let $G$ be open set in $M$.
-		Let $x \in G$.\\
-		by definition of open set:
-		\begin{equation*}
-		\exists \delta_x \in \R^n : B_{\delta_x}(x,d) \subseteq G
-		\end{equation*}
-		where $B_{\delta_x}(x,d)$ is the open $\delta_x$-ball of $x$ in $M$.
-		\begin{equation*}
-		\therefore G = \capmod_{x\in G} B_{\delta_x}(x,d)
-		\end{equation*}
-		($\Leftarrow$) Let $G$ be an union of open balls in $M$.\\
-		Let the outer of the open balls be the elements of an indexing set $I$.\\
-		Then $G$ can be written:
-		\begin{equation*}
-		G = \capmod_{x\in I} B_{\delta_x}(x,d)
-		\end{equation*}
-		where $\delta_x \in \R^n$ is the radius of open ball-of $x$.\\
-		Let $y\in G$. By definition of union:
-		\begin{equation*}
-		\exists x \in I : y \in B_{\delta_x}(x,d)
-		\end{equation*}
-		because an open ball is neighborhood of all points inside, we can say that $B_{\delta_x}(x,d)$ is neighborhood of $y$, by set: $B_{\delta_x}(x,d) \subseteq G$,from theory of superset of neighborhood in Metric Space, it follows that $G$ is a neighborhood of $y$.\\
-		Since $y$ is arbitrary, it follows that $G$ is a neighborhood of its point. Hence, by definition:
-		\begin{equation*}
-		\therefore G\ \text{is open in}\ M
-		\end{equation*}
-	\end{proof}
-\end{prob}
-\newpage
-\begin{prob}
-	Let $C([0,1])$ be the set of all continuous functions $f:[0,1]\rightarrow \R$, for $f,g \in C([0,1])$. Show that $(C([0,1]),d_1)$ is not complete.\\
-	\begin{proof}
-		Suppose that:
-		\begin{equation*}
-		d_1 (f,g) := \int_{0}^{1} |f(x)-g(x)| dx,\ f,g \in C[0,1]
-		\end{equation*}
-		Let's consider a sequence $\{f_n\}_{n\geq 3}:$
-		\begin{equation*}
-		f_n(x) = \begin{cases}
-		\begin{aligned}
-		&0,\ &0 &\leq x < \frac{1}{2}-\frac{1}{n},\\
-		&n\Bigg(x+\frac{1}{n}-\frac{1}{2}\Bigg), \ &\frac{1}{2}-\frac{1}{n} &\leq x < \frac{1}{2},\\
-		&1,\ &\frac{1}{2} &\leq x \leq 1
-		\end{aligned}
-		\end{cases}
-		\end{equation*}
-		It shows that the sequence $(f_n)$ converges to discontinuous function $f(x):= 0$ for $0 \leq x < \frac{1}{2}$ and $f(x):=1$ for $\frac{1}{2}\leq x \leq 1$. Hence, $f \notin C[0,1];$
-		\begin{equation*}
-		\therefore\ \text{there is no}\ g \in C[0,1]\ \text{s.t.}\ d_1(f_n,g) \rightarrow 0
-		\end{equation*}
-	\end{proof}
-\end{prob}
+\begin{enumerate}
+	\item Let $(X,d)$ be a complete metric space and let $f:X \to X$ be a map. Suppose the iterated map
+	\begin{equation}\label{eq:1}
+	f^k = f \circ \cdots \circ f \quad \text{(k times)}
+	\end{equation}
+	is a contraction for some $k\geq 2$. Prove that $f$ has a unique fixed point $x \in X$.\\
+	\newline
+	\textbf{Answer:}\\
+	By the contraction mapping theorem, $f^k$ has a unique fixed point, let's call it $x$, so that
+	\begin{equation}\label{eq:2}
+	f^k(x) = x
+	\end{equation}
+	by \eqref{eq:2} and \eqref{eq:1} we note that $$f^k(f(x)) = f(f^k(x)) = f(x)$$
+	Therefore, $f(x)$ and $x$ are both fixed points of $f^k$. Since $f^k$ has a unique fixed point, $f(x) = x$. Now, we show that for any $x_0 \in X$ the points $f^k(x_0)$ converges to $x$ as $k\to \infty$. Let's consider $f^k(x_0)$ as $k$ runs through some iteration until $N$. i.e. pick $0 \leq i \leq N-1$ look at the points $f^{kN+i}(x_0)$ as $k\to\infty$. Since
+	$$f^{kN+i}(x_0) = f^{kN}(f^i(x_0)) = (f^k)^N(f^i(x_0))$$
+	and $f^k$ is a contraction, it must be tend to $x$ by the contraction mapping theorem. So all k sequences $\{f^{kN+i}(x_0)\}_{k\geq 1}$ tend to $x$.\\
+	$\therefore f$ has a unique fixed point $x \in X$.
+\end{enumerate}
 \end{document}
