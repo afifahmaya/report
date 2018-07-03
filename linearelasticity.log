@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.4.18)  27 JUN 2018 05:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.4.18)  3 JUL 2018 23:54
 entering extended mode
 **./linearelasticity.tex
 (linearelasticity.tex
@@ -1058,134 +1058,139 @@ Overfull \hbox (13.38336pt too wide) in paragraph at lines 322--345
 [6 <./picture/conference/2dstress1.png> <./picture/conference/3dstress1.png> <.
 /picture/conference/3dslice4.png> <./picture/conference/3dslice6.png> <./pictur
 e/conference/3dslice8.png> <./picture/conference/3dslice9.png>]
-Package epstopdf Info: Source file: <picture/conference/all2derror.eps>
-(epstopdf)                    date: 2018-06-27 01:22:45
-(epstopdf)                    size: 29330 bytes
-(epstopdf)             Output file: <picture/conference/all2derror-eps-converte
-d-to.pdf>
-(epstopdf)                    date: 2018-06-27 04:13:08
-(epstopdf)                    size: 18576 bytes
-(epstopdf)             Command: <epstopdf --outfile=picture/conference/all2derr
-or-eps-converted-to.pdf picture/conference/all2derror.eps>
-(epstopdf)             \includegraphics on input line 361.
-Package epstopdf Info: Output file is already uptodate.
-<picture/conference/all2derror-eps-converted-to.pdf, id=165, 402.50375pt x 308.
-15125pt>
-File: picture/conference/all2derror-eps-converted-to.pdf Graphic file (type pdf
-)
-<use picture/conference/all2derror-eps-converted-to.pdf>
-Package pdftex.def Info: picture/conference/all2derror-eps-converted-to.pdf  us
-ed on input line 361.
-(pdftex.def)             Requested size: 227.62206pt x 174.26094pt.
+<picture/conference/all2derrorP1.jpg, id=165, 475.7775pt x 309.155pt>
+File: picture/conference/all2derrorP1.jpg Graphic file (type jpg)
+<use picture/conference/all2derrorP1.jpg>
+Package pdftex.def Info: picture/conference/all2derrorP1.jpg  used on input lin
+e 361.
+(pdftex.def)             Requested size: 227.62206pt x 147.90681pt.
+<picture/conference/all2derrorP2.jpg, id=166, 475.7775pt x 309.155pt>
+File: picture/conference/all2derrorP2.jpg Graphic file (type jpg)
+<use picture/conference/all2derrorP2.jpg>
+Package pdftex.def Info: picture/conference/all2derrorP2.jpg  used on input lin
+e 368.
+(pdftex.def)             Requested size: 227.62206pt x 147.90681pt.
+<picture/conference/all3derrorP1.jpg, id=167, 473.77pt x 309.155pt>
+File: picture/conference/all3derrorP1.jpg Graphic file (type jpg)
+<use picture/conference/all3derrorP1.jpg>
+Package pdftex.def Info: picture/conference/all3derrorP1.jpg  used on input lin
+e 374.
+(pdftex.def)             Requested size: 227.62206pt x 148.52951pt.
 Package epstopdf Info: Source file: <picture/conference/all3derror.eps>
-(epstopdf)                    date: 2018-06-27 01:22:45
-(epstopdf)                    size: 30226 bytes
+(epstopdf)                    date: 2018-07-03 23:13:41
+(epstopdf)                    size: 38899 bytes
 (epstopdf)             Output file: <picture/conference/all3derror-eps-converte
 d-to.pdf>
-(epstopdf)                    date: 2018-06-27 04:13:11
-(epstopdf)                    size: 19328 bytes
+(epstopdf)                    date: 2018-07-03 23:15:08
+(epstopdf)                    size: 20989 bytes
 (epstopdf)             Command: <epstopdf --outfile=picture/conference/all3derr
 or-eps-converted-to.pdf picture/conference/all3derror.eps>
-(epstopdf)             \includegraphics on input line 368.
+(epstopdf)             \includegraphics on input line 381.
 Package epstopdf Info: Output file is already uptodate.
-<picture/conference/all3derror-eps-converted-to.pdf, id=166, 402.50375pt x 308.
+<picture/conference/all3derror-eps-converted-to.pdf, id=168, 464.73625pt x 308.
 15125pt>
 File: picture/conference/all3derror-eps-converted-to.pdf Graphic file (type pdf
 )
 <use picture/conference/all3derror-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/all3derror-eps-converted-to.pdf  us
-ed on input line 368.
-(pdftex.def)             Requested size: 227.62206pt x 174.26094pt.
+ed on input line 381.
+(pdftex.def)             Requested size: 227.62206pt x 150.9249pt.
 
-Overfull \hbox (13.38336pt too wide) in paragraph at lines 359--372
-[][]  [] 
- []
-
-[7 <./picture/conference/all2derror-eps-converted-to.pdf> <./picture/conference
-/all3derror-eps-converted-to.pdf>]
-<picture/conference/crackmodel2d.png, id=266, 1816.7875pt x 1575.8875pt>
-File: picture/conference/crackmodel2d.png Graphic file (type png)
-<use picture/conference/crackmodel2d.png>
-Package pdftex.def Info: picture/conference/crackmodel2d.png  used on input lin
-e 382.
-(pdftex.def)             Requested size: 227.62206pt x 197.41827pt.
-<picture/conference/cracksol2d.png, id=267, 1816.7875pt x 1575.8875pt>
-File: picture/conference/cracksol2d.png Graphic file (type png)
-<use picture/conference/cracksol2d.png>
-Package pdftex.def Info: picture/conference/cracksol2d.png  used on input line 
-389.
-(pdftex.def)             Requested size: 227.62206pt x 197.41827pt.
-<picture/conference/crackmodel3d.png, id=268, 1816.7875pt x 1575.8875pt>
-File: picture/conference/crackmodel3d.png Graphic file (type png)
-<use picture/conference/crackmodel3d.png>
-Package pdftex.def Info: picture/conference/crackmodel3d.png  used on input lin
-e 396.
-(pdftex.def)             Requested size: 227.62206pt x 197.41827pt.
-<picture/conference/cracksol3d.png, id=269, 1816.7875pt x 1575.8875pt>
-File: picture/conference/cracksol3d.png Graphic file (type png)
-<use picture/conference/cracksol3d.png>
-Package pdftex.def Info: picture/conference/cracksol3d.png  used on input line 
-403.
-(pdftex.def)             Requested size: 227.62206pt x 197.41827pt.
-
-Overfull \hbox (13.38336pt too wide) in paragraph at lines 380--407
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 359--385
 [][]  []
  []
 
 
-Overfull \hbox (13.38336pt too wide) in paragraph at lines 380--407
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 359--385
+[]  [] 
+ []
+
+[7 <./picture/conference/all2derrorP1.jpg> <./picture/conference/all2derrorP2.j
+pg> <./picture/conference/all3derrorP1.jpg> <./picture/conference/all3derror-ep
+s-converted-to.pdf>]
+<picture/conference/crackmodel2d.png, id=229, 1816.7875pt x 1575.8875pt>
+File: picture/conference/crackmodel2d.png Graphic file (type png)
+<use picture/conference/crackmodel2d.png>
+Package pdftex.def Info: picture/conference/crackmodel2d.png  used on input lin
+e 395.
+(pdftex.def)             Requested size: 227.62206pt x 197.41827pt.
+<picture/conference/cracksol2d.png, id=230, 1816.7875pt x 1575.8875pt>
+File: picture/conference/cracksol2d.png Graphic file (type png)
+<use picture/conference/cracksol2d.png>
+Package pdftex.def Info: picture/conference/cracksol2d.png  used on input line 
+402.
+(pdftex.def)             Requested size: 227.62206pt x 197.41827pt.
+<picture/conference/crackmodel3d.png, id=231, 1816.7875pt x 1575.8875pt>
+File: picture/conference/crackmodel3d.png Graphic file (type png)
+<use picture/conference/crackmodel3d.png>
+Package pdftex.def Info: picture/conference/crackmodel3d.png  used on input lin
+e 409.
+(pdftex.def)             Requested size: 227.62206pt x 197.41827pt.
+<picture/conference/cracksol3d.png, id=232, 1816.7875pt x 1575.8875pt>
+File: picture/conference/cracksol3d.png Graphic file (type png)
+<use picture/conference/cracksol3d.png>
+Package pdftex.def Info: picture/conference/cracksol3d.png  used on input line 
+416.
+(pdftex.def)             Requested size: 227.62206pt x 197.41827pt.
+
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 393--420
+[][]  []
+ []
+
+
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 393--420
 []  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--410
+Underfull \hbox (badness 10000) in paragraph at lines 391--423
 
  []
 
 [8 <./picture/conference/crackmodel2d.png> <./picture/conference/cracksol2d.png
 > <./picture/conference/crackmodel3d.png> <./picture/conference/cracksol3d.png>
 ]
-<picture/conference/compare2d.png, id=280, 1816.7875pt x 1575.8875pt>
+<picture/conference/compare2d.png, id=243, 1816.7875pt x 1575.8875pt>
 File: picture/conference/compare2d.png Graphic file (type png)
 <use picture/conference/compare2d.png>
 Package pdftex.def Info: picture/conference/compare2d.png  used on input line 4
-15.
+28.
 (pdftex.def)             Requested size: 227.62206pt x 197.41827pt.
-<picture/conference/compare3d.png, id=281, 1816.7875pt x 1575.8875pt>
+<picture/conference/compare3d.png, id=244, 1816.7875pt x 1575.8875pt>
 File: picture/conference/compare3d.png Graphic file (type png)
 <use picture/conference/compare3d.png>
 Package pdftex.def Info: picture/conference/compare3d.png  used on input line 4
-22.
+35.
 (pdftex.def)             Requested size: 227.62206pt x 197.41827pt.
 
-Overfull \hbox (13.38336pt too wide) in paragraph at lines 413--426
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 426--439
 [][]  [] 
  []
 
 Package epstopdf Info: Source file: <picture/conference/elastic.eps>
-(epstopdf)                    date: 2018-06-27 01:33:47
-(epstopdf)                    size: 26380 bytes
+(epstopdf)                    date: 2018-07-03 23:13:41
+(epstopdf)                    size: 26913 bytes
 (epstopdf)             Output file: <picture/conference/elastic-eps-converted-t
 o.pdf>
-(epstopdf)                    date: 2018-06-27 01:35:22
-(epstopdf)                    size: 24960 bytes
+(epstopdf)                    date: 2018-07-03 23:15:10
+(epstopdf)                    size: 24688 bytes
 (epstopdf)             Command: <epstopdf --outfile=picture/conference/elastic-
 eps-converted-to.pdf picture/conference/elastic.eps>
-(epstopdf)             \includegraphics on input line 433.
+(epstopdf)             \includegraphics on input line 446.
 Package epstopdf Info: Output file is already uptodate.
-<picture/conference/elastic-eps-converted-to.pdf, id=284, 433.62pt x 289.08pt>
+<picture/conference/elastic-eps-converted-to.pdf, id=247, 433.62pt x 289.08pt>
 File: picture/conference/elastic-eps-converted-to.pdf Graphic file (type pdf)
 <use picture/conference/elastic-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/elastic-eps-converted-to.pdf  used 
-on input line 433.
+on input line 446.
 (pdftex.def)             Requested size: 364.19667pt x 242.80789pt.
 [9 <./picture/conference/compare2d.png> <./picture/conference/compare3d.png> <.
 /picture/conference/elastic-eps-converted-to.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 437.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 437.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 450.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 450.
  (linearelasticity.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 437.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 437.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 450.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 450.
 Package rerunfilecheck Info: File `linearelasticity.out' has not changed.
 (rerunfilecheck)             Checksum: EBCFF458A815201B00DCD4530118611F;721.
 
@@ -1194,10 +1199,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 27723 strings out of 493308
- 541735 string characters out of 3138732
- 609727 words of memory out of 3000000
- 30830 multiletter control sequences out of 15000+200000
+ 27737 strings out of 493308
+ 542079 string characters out of 3138732
+ 609978 words of memory out of 3000000
+ 30842 multiletter control sequences out of 15000+200000
  540730 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,13n,73p,10415b,670s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1216,9 +1221,9 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX
 s/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/symbols/msbm10.pfb>
-Output written on linearelasticity.pdf (9 pages, 1436791 bytes).
+Output written on linearelasticity.pdf (9 pages, 1543349 bytes).
 PDF statistics:
- 392 PDF objects out of 1000 (max. 8388607)
+ 355 PDF objects out of 1000 (max. 8388607)
  40 named destinations out of 1000 (max. 500000)
- 309 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 319 words of extra memory for PDF output out of 10000 (max. 10000000)
 
