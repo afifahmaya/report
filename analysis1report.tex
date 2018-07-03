@@ -42,5 +42,35 @@
 	$$f^{kN+i}(x_0) = f^{kN}(f^i(x_0)) = (f^k)^N(f^i(x_0))$$
 	and $f^k$ is a contraction, it must be tend to $x$ by the contraction mapping theorem. So all k sequences $\{f^{kN+i}(x_0)\}_{k\geq 1}$ tend to $x$.\\
 	$\therefore f$ has a unique fixed point $x \in X$.
+	\newpage
+	\item Complete the proof of Picard-Lindelof Theorem by showing that $A:M \to M$ is a contraction if $h$ is small\\
+	\newline
+	\textbf{Answer:}\\
+	We define:
+	\begin{equation}\label{eq:fa}
+	\text{for}\ x\in M,\quad A(x,t) = x_0 + \int_{t_0}^{t} f(s,x(t)) ds
+	\end{equation}
+	and also consider Lipschitz-continuous
+	\begin{equation}\label{eq:lipschitz}
+	d(f(x,t) - f(y,t)) \leq Ld(x-y)\bigr|\forall(x,t),(y,t)\in S \quad \text{for some}\ L > 0
+	\end{equation}
+	Let's consider two function $x,y \in M$, we want to show
+	\begin{equation}\label{eq:contr}
+	d(A(x), A(y)) \leq K d(x,y)\quad \text{for some}\ K \in (0,1).
+	\end{equation}
+	So let $t$ be such that
+	\begin{equation*}
+	d(A(x), A(y)) = d(A(x,t), A(y,t))
+	\end{equation*}
+	then using definition of $A$
+	\begin{equation}\label{eq:proof}
+	\begin{aligned}
+		d(A(x,t), A(y,t)) &= d\bigg(\int_{t_0}^{t}(f(s,x(t)) - f(s,y(t))) ds \bigg)\\
+		&= \int_{t_0}^{t} d(f(s,x(t)) - f(s,y(t))) ds\\
+		&\leq L \int_{t_0}^{t} d(x-y) ds,\quad f\ \text{is Lipschitz-continuous}\\
+		&\leq Lhd(x-y)\\
+	\end{aligned}
+	\end{equation}
+	based on \eqref{eq:lipschitz} we know that $L>0$, therefore \eqref{eq:proof} is a contraction if $h<\frac{1}{L}$($h$ is small enough).
 \end{enumerate}
 \end{document}
