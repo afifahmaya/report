@@ -447,6 +447,48 @@ We also calculated the elastic energy using equation \eqref{eq:elasticen}, below
 	\caption{Elasticity Energy Profile Crack Problem Model in 2D}
 	\label{fig:elasticenergy}
 \end{figure}
+\newpage
+\subsection{Convergence Analysis}
+Since we don't have an exact solution for problem \eqref{eq:weakcrack}, we will define $$u_h:= u^k \iff \max|u^k-u^{k-1}| \leq \epsilon$$ $k$ is index of the current solution and $\epsilon$ is a small number, $\epsilon > 0$.\\
+There are three types of error that we will compute, Infinity Error, $H^1(\Omega)$ and $L^2(\Omega)$, each of them defined by:
+\begin{eqnarray}
+||u_h - u||_\infty = \max|u_h-u|\\
+||u||^2_{H^1(\Omega)} = \int_\Omega |u|^2 dx + \int_\Omega |\triangledown u|^2 dx\\
+||u||^2_{L^2(\Omega)} = \int_\Omega |u|^2 dx
+\end{eqnarray}
+We can see the result from 2D and 3D case in the figure \ref{fig:errorplotcrack} below:
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/all2derrorP1crack}
+		\caption{2D Crack Error P1 Plot in Logscale}
+		\label{fig:2derrorP1crack}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/all2derrorP2crack}
+		\caption{2D Crack Error P2 Plot in Logscale}
+		\label{fig:2derrorP2crack}
+	\end{subfigure}
+\iffalse
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/all3derrorP1}
+		\caption{3D Error P1 Plot in Logscale}
+		\label{fig:3derrorP1}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/all3derrorP2}
+		\caption{3D Error P2 Plot in Logscale}
+		\label{fig:3derrorP2}
+	\end{subfigure}
+\fi
+	\caption{Error Plot in Logscale}
+	\label{fig:errorplotcrack}
+\end{figure}
 
 \newpage
 \section{Manufactured Solution}
