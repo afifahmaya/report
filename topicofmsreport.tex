@@ -24,64 +24,34 @@
 
 
 % Title Page
-\title{Assignment 3\\ Topics of Mathematical Science}
+\title{Assignment 5\\ Topics of Mathematical Science}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
 \begin{enumerate}
-	\item Prove by Cauchy's Product formula that:
-	\begin{equation}
-	e^{z+w} = e^z e^w,\quad \forall z,w \in \C
+	\item Suppose $h:$ continuous on $[a,b]$ (complex valued), proof that:
+	\begin{equation}\label{eq:1}
+	\Rightarrow \Bigr|\int_{a}^{b}h(t) dt\Bigr| \leq \int_{a}^{b} |h(t)| dt
 	\end{equation}
-	\textbf{Answer}:
-	\begin{theorem}Cauchy Product Rule\\
-		Let's consider these power series:
-		$\sum\limits_{i=0}^{\infty}a_i x_i$ and $\sum\limits_{j=0}^{\infty}b_j x_j$
-		With ${a_i}$ and ${b_j}$ be a complex coefficient. The Cauchy product of these power series are as follows:
-		\begin{equation}
-		\bigg( \sum\limits_{i=0}^{\infty}a_i x_i \bigg) \cdot \bigg( \sum\limits_{j=0}^{\infty}b_j x_j \bigg) = \sum\limits_{k=0}^{\infty} \sum\limits_{l=0}^{k} (a_l b_{k-l})x^k
-		\end{equation}
-	\end{theorem}
-	then, we define $e^z$ and $e^w$ in form of Formal Power Series:
-	\begin{align}\label{eq:ez}
-	e^z = \sum\limits_{i=0}^{\infty} \frac{z^i}{i!}  \quad	e^w = \sum\limits_{j=0}^{\infty} \frac{w^j}{j!}
-	\end{align}
-	hence, the cauchy product of \eqref{eq:ez} are:
-	\begin{equation}\label{eq:proof1}
-	\begin{aligned}
-	e^ze^w = \bigg( \sum\limits_{i=0}^{\infty} \frac{z^i}{i!} \bigg)	\cdot \bigg( \sum\limits_{j=0}^{\infty} \frac{w^j}{j!} \bigg) &= \sum\limits_{n=0}^{\infty}\sum\limits_{i=0}^{n} \frac{z^i}{i!} \frac{y^{n-i}}{(n-i)!} \\
-	& = \sum\limits_{n=0}^{\infty}\frac{1}{n!} \sum\limits_{i=0}^{n} \begin{pmatrix}
-	n\\
-	i
-	\end{pmatrix} z^i w^{n-1} = \sum\limits_{n=0}^{\infty}\frac{(z+w)^n}{n!} = e^{z+w}
-	\end{aligned}
-	\end{equation}
-	\newpage
-	\item Prove:\\
-	Suppose FPS:
-	\begin{equation}\label{eq:fz}
-	f(z) = \sum_{n=0}^{\infty} a_n(z-z_0)^n
-	\end{equation}
-	converges absolutely on any compact set on ${|z-z_0|<R}$. Then \eqref{eq:fz} is complex differentiable on ${|z-z_0|<R}$ and $f'(z) = \sum_{n=1}^{\infty} n a_n(z-z_0)^{n-1}$\\
 	\newline
-	\textbf{Answer}:
-	\eqref{eq:fz} is complex differentiable at $z$ if the limit
-	\begin{equation}\label{eq:df}
-	\lim_{h\to 0}\frac{f(z+h) - f(z)}{h}
-	\end{equation} exist. This limit is denoted by $f'(z)$ or $\frac{df}{dz}$ Then, we calculate $f'(z)$ of \eqref{eq:fz} as follows:
-	\begin{equation}
+	\textbf{Answer:}\\
+	\newline
+	Approximating left hand side of \eqref{eq:1} as Riemann sum, we have:
+	\begin{equation}\label{eq:2}
+	\Bigr|\int_{a}^{b}h(t) dt\Bigr| \approxeq \Bigr|\sum_{k=1}^{n} h(t_k) \triangle t\Bigr|
+	\end{equation}
+	By triangle inequality,
+	\begin{equation}\label{eq:3}
+	\Bigr|\sum_{k=1}^{n} h(t_k) \triangle t\Bigr| \leq \sum_{k=1}^{n} |h(t_k)| \triangle t
+	\end{equation}
+	we know that $\sum_{k=1}^{n} |h(t_k)| \triangle t$ is Riemann sum of $\int_{a}^{b} |h(t)| dt$.
+	Hence,
+	\begin{equation}\label{eq:4}
 	\begin{aligned}
-	f'(z) = \lim_{h\to 0}\frac{f(z+h) - f(z)}{h} &= \lim_{h\to 0}\frac{\sum_{n=0}^{\infty} a_n(z+h-z_0)^n - \sum_{n=0}^{\infty} a_n(z-z_0)^n}{h}\\
-	&= \lim_{h\to 0}\sum_{n=0}^{\infty} a_n\frac{(z+h-z_0)^n - (z-z_0)^n}{h}\\
-	&= \lim_{h\to 0}\sum_{n=0}^{\infty} a_n\frac{(z-z_0)^n + \sum_{k=1}^{n}\begin{pmatrix}
-		n\\
-		k
-		\end{pmatrix}(z-z_0)^{n-1}h^k}{h}\\
-	&= \sum_{n=0}^{\infty} a_n\lim_{h\to 0}\frac{hn(z-z_0)^{n-1} + h^2n((z-z_0)^{n-1} + \cdots)}{h}\\
-	&= \sum_{n=0}^{\infty} a_n n(z-z_0)^{n-1} + \lim_{h\to 0}hn((z-z_0)^{n-1}) + \cdots\\
-	&= \sum_{n=0}^{\infty} a_n n(z-z_0)^{n-1}\\
+			\Bigr|\int_{a}^{b}h(t) dt\Bigr| \approxeq \Bigr|\sum_{k=1}^{n} h(t_k) \triangle t\Bigr| &\leq \sum_{k=1}^{n} |h(t_k)| \triangle t \approxeq \int_{a}^{b} |h(t)| dt\\
+			\therefore \Bigr|\int_{a}^{b}h(t) dt\Bigr| &\leq \int_{a}^{b} |h(t)| dt
 	\end{aligned}
 	\end{equation}
 \end{enumerate}
