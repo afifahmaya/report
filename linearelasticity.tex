@@ -509,7 +509,10 @@ u2
 Using \eqref{eq:12} we build linear elasticity problem as follows:
 \begin{equation}\label{eq:sincantilever}
 \begin{cases}
--div\ \sigma[u]=f(x),\quad f(x)=0\ \text{in}\ \Omega\\
+-div\ \sigma[u]=f(x),\quad f(x)=\begin{pmatrix}
+\lambda \sin x_1 + 2\mu \sin x_1\\
+-\lambda \sin x_2 - 2\mu \sin x_2
+\end{pmatrix}\ \text{in}\ \Omega\\
 
 u=g(x),\quad g(x) = \begin{pmatrix}
 \sin(x_1)\\
@@ -528,7 +531,7 @@ u=g(x),\quad g(x) = \begin{pmatrix}
 Solving \eqref{eq:sincantilever} we get the result as shown in Figure \ref{fig:sincantilever-mesh} and \ref{fig:sincantilever-error}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{picture/conference/sincantilever-mesh}
+	\includegraphics[width=0.6\linewidth]{picture/conference/sincantilever-mesh}
 	\caption{Deformation of Manufactured Solution}
 	\label{fig:sincantilever-mesh}
 \end{figure}
