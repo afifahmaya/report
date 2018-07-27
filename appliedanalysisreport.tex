@@ -44,19 +44,42 @@
 		\begin{equation}\label{eq:3}
 		x^n - x^{n-1}+ \triangle t y^n \leq a \triangle t x^n + \triangle t z^n
 		\end{equation}
-		take summation over $N_T$ for \eqref{eq:3} as follows
+		take summation over $N_T$ for \eqref{eq:3} as follows:
 		\begin{equation}\label{eq:4}
 		\sum_{n=1}^{N_T}x^n - \sum_{n=1}^{N_T}x^{n-1}+ \triangle t \sum_{n=1}^{N_T}y^n \leq a \triangle t \sum_{n=1}^{N_T}x^n + \triangle t \sum_{n=1}^{N_T}z^n
 		\end{equation}
-		from \eqref{eq:4} we know that $x^n$ and $x^{n-1}$ in the left hand side cancelled out one and each other except for the first and last part, so \eqref{eq:4} becomes
-		\begin{align*}
+		from \eqref{eq:4} we know that $x^n$ and $x^{n-1}$ in the left hand side cancelled out one and each other except for the first and last part, so \eqref{eq:4} becomes:
+		\begin{equation}\label{eq:5}
+		\begin{aligned}
 		x^{N_T} -x^0 + \triangle t \sum_{n=1}^{N_T}y^n &\leq a \triangle t \sum_{n=1}^{N_T}x^n + \triangle t \sum_{n=1}^{N_T}z^n\\
 		x^{N_T} + \triangle t \sum_{n=1}^{N_T}y^n &\leq x^0 + a \triangle t \sum_{n=1}^{N_T}x^n + \triangle t \sum_{n=1}^{N_T}z^n\\
 		x^{N_T} - a \triangle t \sum_{n=1}^{N_T}x^n + \triangle t \sum_{n=1}^{N_T}y^n &\leq x^0 + \triangle t \sum_{n=1}^{N_T}z^n\\
+		\end{aligned}
+		\end{equation}
+		\newpage
+		then, for $a>0,\triangle t: \text{small}\,\big( \triangle t \leq \frac{1}{2a} \big), T>0, N_T\leqq \big[ \frac{T}{\triangle t} \big]$ and $x^n, y^n, z^n$ are a non-negative sequences,
+		\iffalse
+		\begin{equation}\label{eq:6}
+		x^{N_T} - a \triangle t \sum_{n=1}^{N_T}x^n \leq \max_{n=0,\cdots,N_T} x^n
+		\end{equation}
+		We will proof \eqref{eq:6} below,
+		\fi
+		we define,
+		$$A := \frac{x^{N_T} - a \triangle t \sum_{n=1}^{N_T}x^n + \triangle t \sum_{n=1}^{N_T}y^n}{x^0 + \triangle t \sum_{n=1}^{N_T}z^n}$$
+		$$B := \frac{\max_{n=0,\cdots,N_T} x^n + \triangle t \sum_{n=1}^{N_T}y^n}{x^0 + \triangle t \sum_{n=1}^{N_T}z^n}$$
+		First, take a condition where $A \geq B$, then,
+		\begin{align*}
+		\frac{\max_{n=0,\cdots,N_T} x^n + \triangle t \sum_{n=1}^{N_T}y^n}{x^0 + \triangle t \sum_{n=1}^{N_T}z^n} &\leq \max_{n=0,\cdots,N_T} x^n + N_T \triangle t \max_{n=0,\cdots,N_T} y^n\\
+		&\leq \max_{n=0,\cdots,N_T} x^n + T y^n = c
 		\end{align*}
-		because $x^n$ is a non-negative sequence, $$\max_{n=0,\cdots,N_T} x^n < \sum_{n=1}^{N_T}x^n$$
-		then, for $a>0,\triangle t: \text{small}\,\big( \triangle t \leq \frac{1}{2a} \big), T>0, N_T\leqq \big[ \frac{T}{\triangle t} \big]$ exist $c>0$ so that:
-		
+		Second, take a condition where $A < B$, it is clear that
+		\begin{align*}
+		\frac{\max_{n=0,\cdots,N_T} x^n + \triangle t \sum_{n=1}^{N_T}y^n}{x^0 + \triangle t \sum_{n=1}^{N_T}z^n} \leq 1 = c
+		\end{align*}
+		then, we can find $c=\max\{1, \max_{n=0,\cdots,N_T} (x^n + T y^n)\}$ such that:
+		\begin{equation}\label{eq:6}
+		\max_{n=0,\cdots,N_T} x^n + \triangle t \sum_{n=1}^{N_T}y^n \leq c\bigg(x^0 + \triangle t \sum_{n=1}^{N_T} z^n\bigg)
+		\end{equation}
 	\end{proof}
 \end{enumerate}
 \end{document}
