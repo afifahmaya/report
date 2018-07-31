@@ -9,8 +9,11 @@
 \usepackage{wrapfig}
 \newtheorem{prob}{Problem}[]
 \newtheorem{prop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
 \usepackage{amssymb}
 \usepackage{enumitem}
+\usepackage[none]{hyphenat}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
@@ -19,58 +22,73 @@
 \DeclareMathOperator*{\capmod}{\cap}
 
 % Title Page
-\title{Assignment 3 \\ Analysis Ia Report}
+\title{Assignment 5 \\ Analysis I Report}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
-\begin{enumerate}
-	\item Let $(X,d)$ be a complete metric space and let $f:X \to X$ be a map. Suppose the iterated map
-	\begin{equation}\label{eq:1}
-	f^k = f \circ \cdots \circ f \quad \text{(k times)}
-	\end{equation}
-	is a contraction for some $k\geq 2$. Prove that $f$ has a unique fixed point $x \in X$.\\
+\begin{prob}
+	Prove that every sequentially compact subset of a metric space is bounded and closed.
+\end{prob}
+	\textbf{Answer:}
+	Let $X$ be a metric space and $K \subset X$ be compact. If $x_n$ is a convergent sequence in $K$ with limit $x \in X$, then every subsequence of $x_n$ converges to $x$. Since $K$ is compact, some subsequence of $x_n$ converges to a limit in $K$, so $x \in K$ and $K$ is closed.\\
 	\newline
-	\textbf{Answer:}\\
-	By the contraction mapping theorem, $f^k$ has a unique fixed point, let's call it $x$, so that
-	\begin{equation}\label{eq:2}
-	f^k(x) = x
-	\end{equation}
-	by \eqref{eq:2} and \eqref{eq:1} we note that $$f^k(f(x)) = f(f^k(x)) = f(x)$$
-	Therefore, $f(x)$ and $x$ are both fixed points of $f^k$. Since $f^k$ has a unique fixed point, $f(x) = x$. Now, we show that for any $x_0 \in X$ the points $f^k(x_0)$ converges to $x$ as $k\to \infty$. Let's consider $f^k(x_0)$ as $k$ runs through some iteration until $N$. i.e. pick $0 \leq i \leq N-1$ look at the points $f^{kN+i}(x_0)$ as $k\to\infty$. Since
-	$$f^{kN+i}(x_0) = f^{kN}(f^i(x_0)) = (f^k)^N(f^i(x_0))$$
-	and $f^k$ is a contraction, it must be tend to $x$ by the contraction mapping theorem. So all k sequences $\{f^{kN+i}(x_0)\}_{k\geq 1}$ tend to $x$.\\
-	$\therefore f$ has a unique fixed point $x \in X$.
-	\newpage
-	\item Complete the proof of Picard-Lindelof Theorem by showing that $A:M \to M$ is a contraction if $h$ is small\\
-	\newline
-	\textbf{Answer:}\\
-	We define:
-	\begin{equation}\label{eq:fa}
-	\text{for}\ x\in M,\quad A(x,t) = x_0 + \int_{t_0}^{t} f(s,x(t)) ds
-	\end{equation}
-	and also consider Lipschitz-continuous
-	\begin{equation}\label{eq:lipschitz}
-	d(f(x,t) - f(y,t)) \leq Ld(x-y)\bigr|\forall(x,t),(y,t)\in S \quad \text{for some}\ L > 0
-	\end{equation}
-	Let's consider two function $x,y \in M$, we want to show
-	\begin{equation}\label{eq:contr}
-	d(A(x), A(y)) \leq K d(x,y)\quad \text{for some}\ K \in (0,1).
-	\end{equation}
-	So let $t$ be such that
-	\begin{equation*}
-	d(A(x), A(y)) = d(A(x,t), A(y,t))
-	\end{equation*}
-	then using definition of $A$
-	\begin{equation}\label{eq:proof}
-	\begin{aligned}
-		d(A(x,t), A(y,t)) &= d\bigg(\int_{t_0}^{t}(f(s,x(t)) - f(s,y(t))) ds \bigg)\\
-		&= \int_{t_0}^{t} d(f(s,x(t)) - f(s,y(t))) ds\\
-		&\leq L \int_{t_0}^{t} d(x-y) ds,\quad f\ \text{is Lipschitz-continuous}\\
-		&\leq Lhd(x-y)\\
-	\end{aligned}
-	\end{equation}
-	based on \eqref{eq:lipschitz} we know that $L>0$, therefore \eqref{eq:proof} is a contraction if $h<\frac{1}{L}$($h$ is small enough).
-\end{enumerate}
+	We use contradiction to prove bounded. Assume $K$ is closed and bounded. Take sequence $X_n \subset \R^n$ where $X_n = (x_1^n, \cdots, x_N^n)$. Since $X_n$ is bounded, each of the sequences $(x_j^n),i\leq j \leq N$, is bounded. Since every bounded sequence in $\R$ has a converging subsequence in $K$, then seting $X(x_1,\cdots,x_N)$, we have that $x_{n_k} \to x \in \R^N$. Since $K$ is closed, $X \in K$ and $K$ is compact.
+	
+\begin{prob}
+	Let $X$ be a Banach space and let $f,g$ be linear operators on $X$, $f:X \to X$ is compact and $g:X \to X$ is continuous. Prove that the composition maps $g \circ f$ and $f \circ g$ are compact.
+\end{prob}
+	\textbf{Answer:}
+	\begin{prop}\label{prop:1}
+		Let $(X,d_x),(Y,d_y): \text{metric space}\quad f:X \to Y$ continuous, then $M\subset X:\ \text{compact} \Rightarrow f(M)$ is compact in $Y$
+	\end{prop}
+	\begin{definition}\label{def:1}
+		$X,Y:$ Banach space, $f:M\subset X \to Y$. $f$ is called a compact mapping if $f$ is continuous and $\forall B \subset M$ bounded, $f(B)$ is relatively compact
+	\end{definition}
+	\begin{enumerate}
+		\item \begin{proof}[$f\circ g$ is compact]
+			Since $f$ is compact, by definition \eqref{def:1}, $f(x)$ is continuous and by proposition \eqref{prop:1}, a continuous function map compact sets into compact sets, therefore $f \circ g$ is compact.
+		\end{proof}
+		\item  \begin{proof}[$g \circ f$ is compact]
+			Since $g$ is continuous, by proposition \eqref{prop:1}, a continuous function map compact sets into compact sets, moreover $f$ is compact, hence subset of $f$ is also compact, therefore $g \circ f$ is compact.
+		\end{proof}
+	\end{enumerate}
+\newpage
+\begin{prob}
+	Let $X = C[0,1]$ and $||u||:= \max_{0\leq x \leq 1} |u(x)|$. For given $\alpha \in \R$ and $f \in X$, consider the nonlinear integral equation:
+	$$u(x) = \alpha \int_{0}^{1} \sin u(x) dx + f(x) \quad (*)$$
+	\begin{enumerate}
+		\item Show that if $|\alpha| < 1$, $(*)$ has a unique solution $u \in X$. (Hint: Contraction mapping principle)
+		\item (extra) Consider the case $|\alpha| \geq 1$. Does $(*)$ has a solution $u\in X$?
+	\end{enumerate}
+\end{prob}
+	\textbf{Answer:}
+	\begin{enumerate}
+		\item 	Let $g(u(x)) = \alpha \int_{0}^{1} \sin u(x) dx + f(x),\ \text{and}\ g(v(x)) = \alpha \int_{0}^{1} \sin v(x) dx + f(x)$, taking distance of $g(u(x))$ and $g(v(x))$, we get
+		\begin{equation}\label{eq:1}
+		\begin{aligned}
+		d(g(u(x)) - g(v(x))) &= \left| \alpha \int_{0}^{1} \sin u(x) dx + f(x) - \alpha \int_{0}^{1} \sin v(x) dx - f(x) \right|\\
+		&= \left| \alpha \int_{0}^{1} (\sin u(x) - \sin v(x)) dx \right|\\
+		\end{aligned}
+		\end{equation}
+		by triangle inequality,
+		\begin{equation}\label{eq:2}
+		d(g(u(x)) - g(v(x))) \leq \left| \alpha \right| \left| \int_{0}^{1} (\sin u(x) - \sin v(x)) dx \right|
+		\end{equation}
+		Since $X=C[0,1]$ and $\left|| u \right|| := \max_{0\leq x \leq 1} \left| u(x) \right|$, we can rewrite \eqref{eq:2} as follows:
+		\begin{equation}\label{eq:3}
+		\begin{aligned}
+		d(g(u(x)) - g(v(x))) &\leq \left| \alpha \right| \max_{0\leq x \leq 1}\left| \int_{0}^{1} (\sin u(x) - \sin v(x)) dx \right|\\
+		&\leq \left| \alpha \right| \left|| u(x) - v(x) \right||
+		\end{aligned}
+		\end{equation}
+		Therefore, (*) satisfied contraction mapping principle, so that $u(x)$ has unique solution $u \in X$ if $\left| \alpha \right| < 1$.
+		
+		\item Assume $u(x)$ and $v(x)$ are fixed point, then it should satisfies
+		\begin{equation}\label{eq:4}
+		0 \leq d(u(x) - v(x)) = d(g(u(x)) - g(v(x))) < d(g(u(x)) - g(v(x)))
+		\end{equation}
+		if we choose $\left| \alpha \right| \geq 1$, then $u(x)$ doesn't satisfied \eqref{eq:4}, therefore $u(x)$ doesn't has a unique solution $u\in X$.
+	\end{enumerate}
 \end{document}

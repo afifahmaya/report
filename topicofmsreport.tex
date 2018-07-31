@@ -1,5 +1,5 @@
 \documentclass[a4paper,12pt]{article}
-\usepackage[a4paper, hmargin={1.5cm,1.5cm}, vmargin={2cm,2cm}]{geometry}
+\usepackage[a4paper, hmargin={1.5cm,1.5cm}, vmargin={1.5cm,1.5cm}]{geometry}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
@@ -24,35 +24,44 @@
 
 
 % Title Page
-\title{Assignment 5\\ Topics of Mathematical Science}
+\title{Assignment 6\\ Topics of Mathematical Science}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
 \begin{enumerate}
-	\item Suppose $h:$ continuous on $[a,b]$ (complex valued), proof that:
+	\item Solve :
 	\begin{equation}\label{eq:1}
-	\Rightarrow \Bigr|\int_{a}^{b}h(t) dt\Bigr| \leq \int_{a}^{b} |h(t)| dt
+	z_0 \in \C, \quad \int_{|\varrho-z_0|=R} \frac{d\varrho}{(\varrho-z_0)^n} = \begin{cases}
+	2\pi i \quad (n=1)\\
+	0 \quad (otherwise)
+	\end{cases}
 	\end{equation}
-	\newline
 	\textbf{Answer:}\\
 	\newline
-	Approximating left hand side of \eqref{eq:1} as Riemann sum, we have:
+	By Cauchy's integral theorem,\\
+	Let $U={\varrho:|\varrho-z_0|<R}$ be a simply connected open subset of $C$ and $f$ a function which is holomorphic on $U$ and continuous on $\overline{U}$. Let $\gamma(t)=e^{it}, t \in [0,2\pi]$  be a loop in $\overline{U}$, then the path integral,
 	\begin{equation}\label{eq:2}
-	\Bigr|\int_{a}^{b}h(t) dt\Bigr| \approxeq \Bigr|\sum_{k=1}^{n} h(t_k) \triangle t\Bigr|
-	\end{equation}
-	By triangle inequality,
+	\oint_\gamma \frac{1}{\varrho} dz = \int_{0}^{2\pi} \frac{ie^{it}}{e^{it}} dt = \int_{0}^{2\pi} i dt = 2\pi i
+	\end{equation}. We define,
+	$$f(\varrho) = \frac{d\varrho}{(\varrho-z_0)^n}, \quad \varrho = z_0 + Re^{it},$$ then we can rewrite \eqref{eq:1} as follows:
 	\begin{equation}\label{eq:3}
-	\Bigr|\sum_{k=1}^{n} h(t_k) \triangle t\Bigr| \leq \sum_{k=1}^{n} |h(t_k)| \triangle t
+	\int_{0}^{2 \pi} \frac{1}{(Re^{it})^n} iRe^{it} dt = \frac{i}{R^{n-1}} \int_{0}^{2\pi}e^{i(1-n)t} dt
 	\end{equation}
-	we know that $\sum_{k=1}^{n} |h(t_k)| \triangle t$ is Riemann sum of $\int_{a}^{b} |h(t)| dt$.
-	Hence,
-	\begin{equation}\label{eq:4}
-	\begin{aligned}
-			\Bigr|\int_{a}^{b}h(t) dt\Bigr| \approxeq \Bigr|\sum_{k=1}^{n} h(t_k) \triangle t\Bigr| &\leq \sum_{k=1}^{n} |h(t_k)| \triangle t \approxeq \int_{a}^{b} |h(t)| dt\\
-			\therefore \Bigr|\int_{a}^{b}h(t) dt\Bigr| &\leq \int_{a}^{b} |h(t)| dt
-	\end{aligned}
-	\end{equation}
+	which according to \eqref{eq:1}, the integral on the right handside equal to $2\pi i$ if $n=1$, therefore,
+	\begin{equation*}\label{eq:4}
+	\frac{i}{R^{n-1}} \int_{0}^{2\pi}e^{i(1-n)t} dt = 	\frac{i}{R^{1-1}} 2\pi i = -2\pi
+	\end{equation*}
+	\item Prove the Residue Theorem
+	\newline
+	Let $D$ be a domain with $f$ is holomorphic around $\partial D$ define by:
+	$$f(z) = \frac{a_{(n-1)}}{(z-z_0)^{(n-1)}} + \cdots + \frac{a_1}{(z-z_0)} + H(z)$$
+	then in it's interior, $f$ has a pole except at point $z_0$. Choosing $D_i$ small enough, and take the integral around $\partial D$ for $f$, we have:
+	$$\int_{\partial D} f(z) dz = \int_{\partial D_i} \frac{a_i}{(z-z_0)^i} + \cdots + \frac{a_1}{(z-z_0)} + H(z) dz$$
+	compute the integration term by term, we get,
+	$$\int_{\partial D_i} \frac{a_1}{(z-z_0)} = 2\pi i a_1 = 2 \pi i\ res(f,z_0)$$
+	if it's interior except at finite number in interior of C, then,
+	$$\int_C f(z) dz = 2 \pi i (res(f,z_1) + \cdots + res(f,z_n))$$
 \end{enumerate}
 \end{document}
