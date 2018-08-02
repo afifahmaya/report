@@ -1,4 +1,4 @@
-\documentclass[a4paper,9pt]{article}
+\documentclass[a4paper,12pt]{article}
 \usepackage[a4paper, hmargin={2cm,2cm}, vmargin={2cm,2cm}]{geometry}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -29,101 +29,86 @@
 
 
 % Title Page
-\title{Topics in Computational Science Report \\ Derivation of Gibbs Energy in Isothermal-Isobaric Ensemble}
+\title{Topics in Computational Science Report \\ Diffusion Equation}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
 \begin{enumerate}
-	\item Derive the following equation,
-		\begin{equation}\label{eq:1}
-		\begin{aligned}
-		\triangle G(r) &\equiv G(r) - G(r_0)\\
-		& = -\int_{r_0}^{r} \langle F(r) \rangle_{r=r'} dr'
-		\end{aligned}
-		\end{equation}
-		\textbf{Answer:}\\
-		\newline
-		Suppose that,
-		\begin{center}
-			\begin{minipage}{0.29\linewidth}
-				\begin{equation}\label{eq:2}
-				G = -k_B T \ln Y_N(P,T)
-				\end{equation}
-			\end{minipage}
-		\quad
-			\begin{minipage}{0.67\linewidth}
-				\begin{equation}\label{eq:3}
-				Y_N(P,T) = \frac{1}{h^{3N}N!} \iiint\exp\Bigg(-\frac{H(\textbf{r}^N,\textbf{p}^N) + PV}{k_B T}\Bigg) d\textbf{r}^N d\textbf{p}^N dV
-				\end{equation}
-			\end{minipage}
-		\end{center}
-	We call \eqref{eq:2} Gibbs free energy and \eqref{eq:3} \textit{configurational integral}.
-		Because \eqref{eq:3} is an indefinite integral, we can rewrite it as follow,
-		\begin{equation}\label{eq:4}
-		\begin{aligned}
-		Y_N(P,T) &= \frac{1}{h^{3N}N!} \iiint\exp\bigg(-\frac{H(\textbf{r}^N,\textbf{p}^N) + PV}{k_B T}\bigg) dV d\textbf{r}^N d\textbf{p}^N\\
-		&= -\frac{1}{h^{3N}N!}\frac{P}{k_B T} \iint\exp\bigg(-\frac{H(\textbf{r}^N,\textbf{p}^N) + PV}{k_B T}\bigg)d\textbf{r}^N d\textbf{p}^N
-		\end{aligned}
-		\end{equation}
-		By using \textbf{Thermodynamic Integration},
-		if the Gibbs free energy, $G$ is a continuous function of $r$, then we can write,
-		\begin{equation}\label{eq:5}
-		\triangle G(r) = \int_{r_0}^{r} \frac{d G(r)}{dr} dr
-		\end{equation}
-		Substitute \eqref{eq:2} to \eqref{eq:5} we get,
-		\begin{equation}\label{eq:6}
-		\triangle G(r) = \int_{r_0}^{r} -k_B T \frac{\partial \ln Y_N(P,T) }{\partial Y_N} \frac{\partial Y_N}{\partial r} = \int_{r_0}^{r} -k_B T \frac{1}{Y_N} \frac{\partial Y_N}{\partial r}
-		\end{equation}
-		From definition of $Y_N$ in \eqref{eq:4}, we can write the following for $\partial Y_N / \partial r$,
-		\begin{equation}\label{eq:7}
-		\frac{\partial Y_N}{\partial r} = -\frac{1}{h^{3N}N!}\frac{P}{k_B T} \iint \frac{\partial}{\partial r} \exp\bigg(-\frac{H(\textbf{r}^N,\textbf{p}^N) + PV}{k_B T}\bigg)d\textbf{r}^N d\textbf{p}^N
-		\end{equation}
-		Applying chain rule to \eqref{eq:7}, thus
-		\begin{equation}\label{eq:8}
-		\frac{\partial Y_N}{\partial r} = \frac{1}{h^{3N}N!}\frac{P}{k_B T}\frac{1}{k_B T} \iint \frac{\partial H(\textbf{r}^N,\textbf{p}^N)}{\partial r} \exp\bigg(-\frac{H(\textbf{r}^N,\textbf{p}^N) + PV}{k_B T}\bigg)d\textbf{r}^N d\textbf{p}^N
-		\end{equation}
-		Substitute \eqref{eq:8}, \eqref{eq:4} into \eqref{eq:6} gives:
-		\begin{equation}\label{eq:9}
-		\begin{aligned}
-		\triangle G(r) &= \int_{r_0}^{r} k_B T \frac{k_B T h^{3N}N!}{P \iint\exp\bigg(-\frac{H(\textbf{r}^N,\textbf{p}^N) + PV}{k_B T}\bigg)d\textbf{r}^N d\textbf{p}^N} \frac{P \iint \frac{\partial H(\textbf{r}^N,\textbf{p}^N)}{\partial r} \exp\bigg(-\frac{H(\textbf{r}^N,\textbf{p}^N) + PV}{k_B T}\bigg)d\textbf{r}^N d\textbf{p}^N}{k_B^2 T^2 h^{3N}N!} dr\\
-		&= \int_{r_0}^{r} \frac{\iint \frac{\partial H(\textbf{r}^N,\textbf{p}^N)}{\partial r} \exp\bigg(-\frac{H(\textbf{r}^N,\textbf{p}^N) + PV}{k_B T}\bigg)d\textbf{r}^N d\textbf{p}^N}{ \iint\exp\bigg(-\frac{H(\textbf{r}^N,\textbf{p}^N) + PV}{k_B T}\bigg)d\textbf{r}^N d\textbf{p}^N} dr
-		\end{aligned}
-		\end{equation}
-		for simplicity, define
-		\begin{equation}\label{eq:10}
-		Z := \iint\exp\bigg(-\frac{H(\textbf{r}^N,\textbf{p}^N) + PV}{k_B T}\bigg)d\textbf{r}^N d\textbf{p}^N
-		\end{equation}
-		Then we can rewrite \eqref{eq:9} as follow,
-		\begin{equation}\label{eq:11}
-		\begin{aligned}
-		\triangle G(r) = \int_{r_0}^{r} \bigg( \frac{1}{Z} \iint \frac{\partial H(\textbf{r}^N,\textbf{p}^N)}{\partial r} \exp\bigg(-\frac{H(\textbf{r}^N,\textbf{p}^N) + PV}{k_B T}\bigg)d\textbf{r}^N d\textbf{p}^N \bigg) dr
-		\end{aligned}
-		\end{equation}
-		By \textbf{Ergodic Hypothesis} for expectation value of $X$,
-		\begin{equation}\label{eq:12}
-		\langle X \rangle = \frac{1}{Z} \iint X \exp\bigg(-\frac{H(\textbf{r}^N,\textbf{p}^N) + PV}{k_B T}\bigg)d\textbf{r}^N d\textbf{p}^N
-		\end{equation}
-		Thus \eqref{eq:11} become,
-		\begin{equation}\label{eq:13}
-		\begin{aligned}
-		\triangle G(r) = \int_{r_0}^{r} \bigg\langle \frac{\partial H(\textbf{r}^N,\textbf{p}^N)}{\partial r} \bigg\rangle_{r=r'} dr'
-		\end{aligned}
-		\end{equation}
-		Recalling \textbf{Hamiltonian} for Free Energy,
-		\begin{equation}\label{eq:14}
-		H(\textbf{r}^N,\textbf{p}^N) := K(\textbf{p}^N) + V(\textbf{r}^N)
-		\end{equation}
-		We consider our system as \textbf{Isothermal-Isobaric} system, the term with \textit{pressure} $\textbf{p}^N$ are constant, therefore we can rewrite \eqref{eq:13} as follow,
-		\begin{equation}\label{eq:15}
-		\triangle G(r) = \int_{r_0}^{r} \bigg\langle \frac{\partial V(r)}{\partial r} \bigg\rangle_{r=r'} dr'
-		\end{equation}
-		\textbf{Driving Force} in Molecular Dynamics is defined by,
-		\begin{equation}\label{eq:16}
-		F(r) := -\frac{\partial V(r)}{\partial r}
-		\end{equation}
-		Therefore,
-		$$\triangle G(r) = -\int_{r_0}^{r} \langle F(r) \rangle_{r=r'} dr'$$
+	\item Suppose a Diffusion Equation in 1D defined by:
+	\begin{equation}\label{eq:1}
+	\frac{\partial \rho(x,t)}{\partial t} = D \frac{\partial^2 \rho(x,t)}{\partial x^2}
+	\end{equation}
+	with initial position (assumption), $x=0$, the solution for \eqref{eq:1} defined by:
+	\begin{equation}\label{eq:2}
+	\rho(x,t) = \frac{1}{\sqrt{4\pi D t}} e^{-\frac{x^2}{4Dt}}
+	\end{equation}
+	Show that \eqref{eq:2} is the solution for \eqref{eq:1}!\\
+	\textbf{Answer:}\\
+	First, taking first order partial time derivative of \eqref{eq:2} we get,
+	\begin{equation}\label{eq:3}
+	\begin{aligned}
+	\rho_t(x,t) = \frac{\partial \rho(x,t)}{\partial t} &= -\frac{1}{2} 4\pi D (4\pi D t)^{-\frac{3}{2}} e^{-\frac{x^2}{4Dt}} + (4\pi D t)^{-\frac{1}{2}} \frac{x^2}{(4Dt)^2} 4D e^{-\frac{x^2}{4Dt}}\\
+	&= \frac{1}{\sqrt{4\pi D t}} e^{-\frac{x^2}{4Dt}} \bigg( -\frac{1}{2} 4\pi D \frac{1}{4\pi Dt} + \frac{x^2}{(4Dt)^2}4D \bigg)\\
+	&= \frac{1}{\sqrt{4\pi D t}} e^{-\frac{x^2}{4Dt}} \bigg( -\frac{1}{2t} + \frac{x^2}{4Dt^2} \bigg)
+	\end{aligned}
+	\end{equation}
+	Then, taking first order partial space derivative of \eqref{eq:2} we get,
+	\begin{equation}\label{eq:4}
+	\begin{aligned}
+	\rho_x(x,t) = \frac{\partial \rho(x,t)}{\partial x} &= -\frac{1}{\sqrt{4\pi D t}}\frac{2x}{4Dt} e^{-\frac{x^2}{4Dt}}\\
+	&= -\frac{1}{\sqrt{4\pi D t}}\frac{x}{2Dt} e^{-\frac{x^2}{4Dt}}
+	\end{aligned}
+	\end{equation}
+	After that, we take partial space derivative of \eqref{eq:4} we get,
+	\begin{equation}\label{eq:5}
+	\begin{aligned}
+	\frac{\partial \rho_x(x,t)}{\partial x} = \frac{\partial^2 \rho(x,t)}{\partial x^2} &= -\frac{1}{\sqrt{4\pi D t}}e^{-\frac{x^2}{4Dt}} \frac{1}{2Dt} + \frac{1}{\sqrt{4\pi D t}} e^{-\frac{x^2}{4Dt}}\frac{x^2}{(2Dt)^2}\\
+	&= \frac{1}{\sqrt{4\pi D t}} e^{-\frac{x^2}{4Dt}}\frac{1}{2Dt} \bigg( -1+\frac{x^2}{2Dt} \bigg)
+	\end{aligned}
+	\end{equation}
+	Substitute \eqref{eq:5} and \eqref{eq:3} into \eqref{eq:1} we have,
+	\begin{equation}\label{eq:6}
+	\begin{aligned}
+	\frac{\partial \rho(x,t)}{\partial t} &= D \frac{\partial^2 \rho(x,t)}{\partial x^2}\\
+	\frac{1}{\sqrt{4\pi D t}} e^{-\frac{x^2}{4Dt}} \bigg( -\frac{1}{2t} + \frac{x^2}{4Dt^2} \bigg) &= D\frac{1}{\sqrt{4\pi D t}} e^{-\frac{x^2}{4Dt}}\frac{1}{2Dt} \bigg( -1+\frac{x^2}{2Dt} \bigg)\\
+	\frac{1}{\sqrt{4\pi D t}} e^{-\frac{x^2}{4Dt}} \bigg( -\frac{1}{2t} + \frac{x^2}{4Dt^2} \bigg) &= \frac{1}{\sqrt{4\pi D t}} e^{-\frac{x^2}{4Dt}}\frac{1}{2t} \bigg( -1+\frac{x^2}{2Dt} \bigg)\\
+	\frac{1}{\sqrt{4\pi D t}} e^{-\frac{x^2}{4Dt}} \bigg( -\frac{1}{2t} + \frac{x^2}{4Dt^2} \bigg) &= \frac{1}{\sqrt{4\pi D t}} e^{-\frac{x^2}{4Dt}} \bigg( -\frac{1}{2t}+\frac{x^2}{4Dt^2} \bigg)
+	\end{aligned}
+	\end{equation}
+	By \eqref{eq:6} we have shown that \eqref{eq:2} satisfies equation \eqref{eq:1}, therefore it is proved that \eqref{eq:2} is the solution of \eqref{eq:1}.
+	
+	\item What did you study in the Topics in Computational Science Class (Professor Nagao Course)?\\
+	\textbf{Answer:}\\
+	In this class, we study about the behaviour of particle as a single and many particle system. As a single particle system, the particle moves to the other side with probability $P$ and the moves is a random walk with average of $\left< x(t) \right> = 0$. Movement of a particle system also can be explained by Langevin Equation defined by:
+	\begin{equation}
+	m \frac{d^2x}{dt^2} = F - \varsigma \frac{dx}{dt} + \xi (t)
+	\end{equation}
+	with:
+	\begin{enumerate}
+		\item $m \frac{d^2x}{dt^2}$: Newton's Equation of Motion
+		\item $\varsigma \frac{dx}{dt}$: Frictional force proportional to velocity
+		\item $\xi (t)$: Random force (on Brownian dynamics)
+	\end{enumerate}
+and average of the Random force, $\left< \xi(t) \right> = 0$ and $\varsigma$ is a constant number. While many particle system can be explained by Fick's Law with flux defined by:
+\begin{equation}
+J(x,t) = \rho(x,t) \left< \frac{dx}{dt} \right> = \rho(x,t) \frac{F(x,t)}{\varsigma}
+\end{equation}
+and Gradient of distribution of particle (density) is
+\begin{equation}
+J(x,t) = -D \frac{\partial \rho(x,t)}{\partial x} + \frac{F(x,t)}{\varsigma}, \quad F=0\rightarrow \text{Fick's law}
+\end{equation}
+We also learn about Smoluchowski's equation which is an extension from the diffusion equation.  At the last lecture, we also learn about the non-equilibrium system for example: biological system and cell universe. We can classify the non-equilibrium system by the relaxation process and the open system.\\
+By relaxation process, we can classify non-equilibrium system into:
+\begin{enumerate}
+	\item Linear relaxation process $\Rightarrow$ fluctuation-dissipation theorem holds.
+	\item Non-linear relaxation process : Internal degree of freedom
+\end{enumerate}
+By the open system, non-equilibrium classified into:
+\begin{enumerate}
+	\item Non-equilibrium steady state : steady state presence of gradient of temperature, or density, or pressure.
+	\item Non-equilibrium unsteady state : Distribution change with time.
+\end{enumerate}
 \end{enumerate}
 \end{document}
