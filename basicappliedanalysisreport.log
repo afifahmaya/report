@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.4.18)  3 AUG 2018 09:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.4.18)  3 AUG 2018 11:47
 entering extended mode
 **./basicappliedanalysisreport.tex
 (basicappliedanalysisreport.tex
@@ -359,34 +359,154 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/Users/alifianmahardhika/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
  [2] [3] [4]
-[5] (basicappliedanalysisreport.aux)
+[5]
+Package epstopdf Info: Source file: <baapict/errori.eps>
+(epstopdf)                    date: 2018-08-03 11:02:54
+(epstopdf)                    size: 21876 bytes
+(epstopdf)             Output file: <baapict/errori-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-08-03 11:23:25
+(epstopdf)                    size: 13109 bytes
+(epstopdf)             Command: <epstopdf --outfile=baapict/errori-eps-converte
+d-to.pdf baapict/errori.eps>
+(epstopdf)             \includegraphics on input line 295.
+Package epstopdf Info: Output file is already uptodate.
+<baapict/errori-eps-converted-to.pdf, id=30, 433.62pt x 289.08pt>
+File: baapict/errori-eps-converted-to.pdf Graphic file (type pdf)
+<use baapict/errori-eps-converted-to.pdf>
+Package pdftex.def Info: baapict/errori-eps-converted-to.pdf  used on input lin
+e 295.
+(pdftex.def)             Requested size: 250.95612pt x 167.30481pt.
+Package epstopdf Info: Source file: <baapict/errorii.eps>
+(epstopdf)                    date: 2018-08-03 11:02:54
+(epstopdf)                    size: 22063 bytes
+(epstopdf)             Output file: <baapict/errorii-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-08-03 11:24:12
+(epstopdf)                    size: 13967 bytes
+(epstopdf)             Command: <epstopdf --outfile=baapict/errorii-eps-convert
+ed-to.pdf baapict/errorii.eps>
+(epstopdf)             \includegraphics on input line 300.
+Package epstopdf Info: Output file is already uptodate.
+<baapict/errorii-eps-converted-to.pdf, id=31, 433.62pt x 289.08pt>
+File: baapict/errorii-eps-converted-to.pdf Graphic file (type pdf)
+<use baapict/errorii-eps-converted-to.pdf>
+Package pdftex.def Info: baapict/errorii-eps-converted-to.pdf  used on input li
+ne 300.
+(pdftex.def)             Requested size: 250.95612pt x 167.30481pt.
+Package epstopdf Info: Source file: <baapict/errmeshimpi.eps>
+(epstopdf)                    date: 2018-08-03 11:45:30
+(epstopdf)                    size: 29347 bytes
+(epstopdf)             Output file: <baapict/errmeshimpi-eps-converted-to.pdf>
+(epstopdf)             Command: <epstopdf --outfile=baapict/errmeshimpi-eps-con
+verted-to.pdf baapict/errmeshimpi.eps>
+(epstopdf)             \includegraphics on input line 309.
+runsystem(epstopdf --outfile=baapict/errmeshimpi-eps-converted-to.pdf baapict/e
+rrmeshimpi.eps)...executed (allowed).
+
+Package epstopdf Info: Result file: <baapict/errmeshimpi-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-08-03 11:47:38
+(epstopdf)                    size: 17702 bytes.
+<baapict/errmeshimpi-eps-converted-to.pdf, id=32, 402.50375pt x 308.15125pt>
+File: baapict/errmeshimpi-eps-converted-to.pdf Graphic file (type pdf)
+<use baapict/errmeshimpi-eps-converted-to.pdf>
+Package pdftex.def Info: baapict/errmeshimpi-eps-converted-to.pdf  used on inpu
+t line 309.
+(pdftex.def)             Requested size: 250.95612pt x 192.12854pt.
+Package epstopdf Info: Source file: <baapict/errmeshimpii.eps>
+(epstopdf)                    date: 2018-08-03 11:45:30
+(epstopdf)                    size: 26498 bytes
+(epstopdf)             Output file: <baapict/errmeshimpii-eps-converted-to.pdf>
+
+(epstopdf)             Command: <epstopdf --outfile=baapict/errmeshimpii-eps-co
+nverted-to.pdf baapict/errmeshimpii.eps>
+(epstopdf)             \includegraphics on input line 314.
+runsystem(epstopdf --outfile=baapict/errmeshimpii-eps-converted-to.pdf baapict/
+errmeshimpii.eps)...executed (allowed).
+
+Package epstopdf Info: Result file: <baapict/errmeshimpii-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2018-08-03 11:47:42
+(epstopdf)                    size: 17087 bytes.
+<baapict/errmeshimpii-eps-converted-to.pdf, id=33, 396.48125pt x 308.15125pt>
+File: baapict/errmeshimpii-eps-converted-to.pdf Graphic file (type pdf)
+<use baapict/errmeshimpii-eps-converted-to.pdf>
+Package pdftex.def Info: baapict/errmeshimpii-eps-converted-to.pdf  used on inp
+ut line 314.
+(pdftex.def)             Requested size: 250.95612pt x 195.0485pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--318
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6 <./baapict/errori-eps-converted-to.pdf> <./baapict/errorii-eps-converted-to.
+pdf>]
+Package epstopdf Info: Source file: <baapict/errmesh.eps>
+(epstopdf)                    date: 2018-08-03 11:02:54
+(epstopdf)                    size: 42750 bytes
+(epstopdf)             Output file: <baapict/errmesh-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-08-03 11:26:06
+(epstopdf)                    size: 67033 bytes
+(epstopdf)             Command: <epstopdf --outfile=baapict/errmesh-eps-convert
+ed-to.pdf baapict/errmesh.eps>
+(epstopdf)             \includegraphics on input line 328.
+Package epstopdf Info: Output file is already uptodate.
+<baapict/errmesh-eps-converted-to.pdf, id=91, 432.61626pt x 308.15125pt>
+File: baapict/errmesh-eps-converted-to.pdf Graphic file (type pdf)
+<use baapict/errmesh-eps-converted-to.pdf>
+Package pdftex.def Info: baapict/errmesh-eps-converted-to.pdf  used on input li
+ne 328.
+(pdftex.def)             Requested size: 250.95612pt x 178.75604pt.
+Package epstopdf Info: Source file: <baapict/errmeshimplicit.eps>
+(epstopdf)                    date: 2018-08-03 11:02:54
+(epstopdf)                    size: 41521 bytes
+(epstopdf)             Output file: <baapict/errmeshimplicit-eps-converted-to.p
+df>
+(epstopdf)                    date: 2018-08-03 11:26:09
+(epstopdf)                    size: 72303 bytes
+(epstopdf)             Command: <epstopdf --outfile=baapict/errmeshimplicit-eps
+-converted-to.pdf baapict/errmeshimplicit.eps>
+(epstopdf)             \includegraphics on input line 333.
+Package epstopdf Info: Output file is already uptodate.
+<baapict/errmeshimplicit-eps-converted-to.pdf, id=92, 434.62375pt x 308.15125pt
+>
+File: baapict/errmeshimplicit-eps-converted-to.pdf Graphic file (type pdf)
+<use baapict/errmeshimplicit-eps-converted-to.pdf>
+Package pdftex.def Info: baapict/errmeshimplicit-eps-converted-to.pdf  used on 
+input line 333.
+(pdftex.def)             Requested size: 250.95612pt x 177.9332pt.
+ [7 <./baapict/errmeshimpi-eps-converted-to.pdf> <./baapict/errmeshimpii-eps-co
+nverted-to.pdf> <./baapict/errmesh-eps-converted-to.pdf> <./baapict/errmeshimpl
+icit-eps-converted-to.pdf>] (basicappliedanalysisreport.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5598 strings out of 493308
- 82486 string characters out of 3138732
- 162144 words of memory out of 3000000
- 9073 multiletter control sequences out of 15000+200000
- 11837 words of font info for 46 fonts, out of 3000000 for 9000
+ 5659 strings out of 493308
+ 84083 string characters out of 3138732
+ 162153 words of memory out of 3000000
+ 9112 multiletter control sequences out of 15000+200000
+ 12838 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,12n,40p,387b,256s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,12n,40p,387b,583s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on basicappliedanalysisreport.pdf (5 pages, 158841 bytes).
+/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on basicappliedanalysisreport.pdf (7 pages, 374706 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
+ 268 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

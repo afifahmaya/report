@@ -255,4 +255,84 @@
 	which, $\omega_1\tau = \arctan\left(\frac{Im(e^{i\omega \tau})}{Re(e^{i\omega \tau})}\right)$,
 	then, $\omega_1\tau = \arctan\left(\frac{Im(e^{i\omega \tau})}{Re(e^{i\omega \tau})}\right) = 0$. Since $\omega_1\tau$ is 0 because there is no imaginer part, therefore, according to von Neumann stability analysis, the implicit scheme on \eqref{eq:22} is \textbf{non-dispersive}.
 \end{enumerate}
+\newpage
+\begin{prob}
+	Implement the "naive" finite difference scheme and the implicit scheme to solve
+	\begin{equation}\label{eq:35}
+	\begin{cases}
+	u_t + u_x = 0 \quad \text{in}\ (0,1) x (0,\infty)\\
+	u(x,0) = f(x) \quad \text{for}\ x\in (0,1)\\
+	u(0,t) = 0 \quad \text{for}\ t\geq 0
+	\end{cases}
+	\end{equation}
+\end{prob}
+\textbf{Answer:}
+\begin{enumerate}
+	\item Exact Solution: We want to find the exact solution of \eqref{eq:35} using general solution $$u(x,t) = f(x)(x-t)$$
+	\begin{enumerate}
+		\item For \begin{equation*}
+		f(x) = \begin{cases}
+		0.25 - |x - 0.25|, \quad x<0.5\\
+		0, \quad x\geq0.5
+		\end{cases}
+		\end{equation*} we have the exact solution as follow:
+		\begin{equation}
+		u(x,t) = (0.25-|x-0.25|)(x-t)
+		\end{equation}
+		
+		\item For $$f(x)=xe^{-100(x-0.25)^2}$$ the exact solution is:
+		\begin{equation}
+		u(x,t) = (x^2-xt)e^{-100(x-0.25)^2}
+		\end{equation}
+	\end{enumerate}
+\item Error plot for naive scheme with error defined by:
+\begin{equation*}
+\max_{0<k<M} |v_k^n-u(kh,n\tau)|
+\end{equation*}
+\begin{figure}[h!]
+	\begin{subfigure}{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{baapict/errori}
+		\caption{Error Plot using (i) initial data}
+	\end{subfigure}
+\begin{subfigure}{0.49\linewidth}
+	\centering
+	\includegraphics[width=\linewidth]{baapict/errorii}
+	\caption{Error Plot using (ii) initial data}
+\end{subfigure}
+\end{figure}\\
+\newline
+Error Plot for Implicit Scheme:
+\begin{figure}[h!]
+	\begin{subfigure}{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{baapict/errmeshimpi}
+		\caption{Error Plot using (i) initial data for implicit scheme}
+	\end{subfigure}
+	\begin{subfigure}{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{baapict/errmeshimpii}
+		\caption{Error Plot using (ii) initial data for implicit scheme}
+	\end{subfigure}
+\end{figure}
+\newpage
+\item Check the maximum error in the naive scheme
+\item Is the error increasing with the same rate if use the initial condition (ii) above?
+\textbf{Answer:} The error is not increasing if using the initial condition (ii), vice versa, the solution is better if using initial condition (ii)
+
+\item How does the maximum of the error behave if the mesh size $M=128,256,512$?
+As shown in the figure below, using "naive" scheme, the solution always blowup, at the other han, using implicit scheme, resulting in stable and convergent result.
+\begin{figure}[h!]
+	\begin{subfigure}{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{baapict/errmesh}
+		\caption{Error plot overtime in Naive Scheme}
+	\end{subfigure}
+	\begin{subfigure}{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{baapict/errmeshimplicit}
+		\caption{Error plot overtime in Implicit Scheme}
+	\end{subfigure}
+\end{figure}
+\end{enumerate}
 \end{document}
