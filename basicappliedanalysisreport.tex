@@ -1,5 +1,5 @@
 \documentclass[a4paper,12pt]{article}
-\usepackage[a4paper, hmargin={2cm,2cm}, vmargin={2cm,2cm}]{geometry}
+\usepackage[a4paper, hmargin={1.5cm,1.5cm}, vmargin={2cm,2cm}]{geometry}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
@@ -20,403 +20,239 @@
 \DeclareMathOperator*{\capmod}{\cap}
 
 % Title Page
-\title{Basics of Applied Analysis A\\Report}
+\title{Basics of Applied Analysis A Report}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
-\begin{prob}\label{problem1}
-	Let $N \in \N, N \geq 2$, and $\alpha > 0$ be given.\\
-	We define $A=(a＿{ij})$ as finite difference discretization of :
+\begin{prob}
+	Discuss the stability of the difference schemes for the transport equation
 	\begin{equation}\label{eq:1}
-	\begin{cases}
-	\alpha u - u'' = f\ \text{in}\ (0,1)\\
-	u(0) = u(1) = 0
-	\end{cases}
+	u_x + bu_x = 0
 	\end{equation}
-	with entries
-	\begin{equation}\label{eq:2}
-	a_{ij} = \begin{cases}
-	\alpha + \frac{2}{h^2},\ &i = j\\
-	-\frac{1}{h^2},\ &|i-j| = 1\\
-	0\ &\text{otherwise}
-	\end{cases}
-	\end{equation}
-	where $h=\frac{1}{N}$
-	\begin{enumerate}[label=(\alph*)]
-		\item To find eigenvalues $\lambda$ s.t. $Av = \lambda v$, We define $v_i := \sin\big(\frac{m\pi i}{N}\big)$ for some $m \in \N$, hence the discrete form of eigen problem becomes:
-		\begin{equation*}
-		\begin{aligned}
-		&\sum_{i=1}^{N} a_{ij} v_j = \lambda v_i\\
-		&\bigg(\alpha+\frac{2}{h^2}\bigg) v_i - \frac{1}{h^2} v_{i+1} - \frac{1}{h^2} v_{i-1} = \lambda v_i\\
-		&\bigg(\alpha+\frac{2}{h^2} - \lambda\bigg) v_i - \frac{1}{h^2} (v_{i+1} + v_{i-1}) = 0\\
-		&\text{substitute $v_i$ to the discrete eigen problem, it becomes}\\
-		&\bigg(\alpha+\frac{2}{h^2} - \lambda\bigg) \sin\bigg(\frac{m\pi i}{N}\bigg) - \frac{1}{h^2} \bigg(\sin\bigg(\frac{m\pi (i+1)}{N}\bigg) + \sin\bigg(\frac{m\pi (i-1)}{N}\bigg)\bigg) = 0\\
-		&\bigg(\alpha+\frac{2}{h^2} - \lambda\bigg) \sin\bigg(\frac{m\pi i}{N}\bigg) - \frac{1}{h^2} \bigg(2\sin\bigg(\frac{m\pi i}{N}\bigg) \cos\bigg(\frac{m\pi}{N}\bigg)\bigg) = 0\\
-		&\sin\frac{m\pi i}{N} \bigg(\alpha+\frac{2}{h^2} - \lambda - \frac{1}{h^2} 2 \cos\bigg(\frac{m\pi}{N}\bigg)\bigg) = 0
-		\end{aligned}
-		\end{equation*}
-		to find $\lambda$, we set $\sin\frac{m\pi i}{N}$ equal to some constant $C$, so that:
-		\begin{equation*}
-		\bigg(\alpha+\frac{2}{h^2} - \lambda - \frac{2}{h^2} \cos\bigg(\frac{m\pi}{N}\bigg)\bigg) = 0
-		\end{equation*}
+	using von Neumann stability analysis:
+	\begin{enumerate}
+		\item "naive" explicit scheme
+		\begin{equation}\label{eq:2}
+		\frac{v_k^{n+1}-v_k^n}{\tau} + b \frac{v_{k+1}^{n}-v_{k-1}^n}{2h} = 0
+		\end{equation}
+		
+		\item implicit scheme
 		\begin{equation}\label{eq:3}
-		\therefore \lambda = \alpha+\frac{2}{h^2} \bigg(1 - \cos\bigg(\frac{m\pi}{N}\bigg) \bigg)
+		\frac{v_k^{n+1}-v_k^n}{\tau} + b \frac{v_{k+1}^{n+1}-v_{k-1}^{n+1}}{2h} = 0
 		\end{equation}
-		With Eigenvectors:
-		\begin{equation*}
-		\therefore v = \sin\bigg(\frac{m\pi i}{N}\bigg)
-		\end{equation*}
 		
-		\item We define spectral radius $\sigma(A) := \max\{|\lambda|\}$, using $\lambda$ computed in \eqref{eq:3}, we get:
-		\begin{equation*}
-		\begin{aligned}
-		\sigma(A) &= \max\{|\lambda|\}\\
-		&= \alpha+\frac{2}{h^2} \bigg(1 - \cos\bigg(\frac{m\pi}{N}\bigg) \bigg)
-		\end{aligned}
-		\end{equation*}
-		then, thanks to the symmetricity of $\lambda$, we can use taylor expansion to approximate the value of $$\cos\bigg(\frac{m\pi}{N}\bigg) \approx 1 - \frac{1}{2}\bigg(\frac{\pi}{N}\bigg)^2$$, hence the spectral radius $\sigma(A)$ can be calculated by:
-		\begin{equation*}
-		\begin{aligned}
-		\sigma(A) &\approx \alpha+\frac{2}{h^2} \bigg(1 - \bigg( 1 - \frac{m^2\pi^2}{2N^2}\bigg) \bigg)\\
-		&\approx \alpha + \frac{2}{h^2} \frac{m^2\pi^2}{2N^2}\\
-		&\therefore \sigma(A) \approx \alpha + (m\pi)^2
-		\end{aligned}
-		\end{equation*}
-		
-		\item Let:
-		\begin{equation*}
-		R := -D^{-1}(L+U)
-		\end{equation*}
-		be the Jacobi iteration matrix, we want to find the eigenvalues and eigenvectors s.t. $Rv = \lambda v$.
-		\begin{equation*}
-		\begin{aligned}
-		Rv =& \lambda v\\
-		-D^{-1}(L+U) v =& \lambda v\\
-		-(L+U) v =& \lambda D v
-		\end{aligned}
-		\end{equation*}
-		the discrete form of the eigen problem is:
-		\begin{equation*}
-		\begin{aligned}
-		\frac{1}{h^2}(v_{i-1} + v_{i+1}) =& \lambda \bigg( \alpha + \frac{2}{h^2} \bigg) v_i
-		\end{aligned}
-		\end{equation*}
-		and then we set, $v_i := \sin\big(\frac{m\pi i}{N}\big)$ and substitute to the discrete form of the eigen problem, thus:
-		\begin{equation*}
-		\begin{aligned}
-		\frac{1}{h^2} \bigg(\sin\bigg(\frac{m\pi (i+1)}{N}\bigg) + \sin\bigg(\frac{m\pi (i-1)}{N}\bigg)\bigg) &= \lambda \bigg( \alpha + \frac{2}{h^2} \bigg) \sin\bigg(\frac{m\pi i}{N}\bigg)\\
-		\frac{1}{h^2} \bigg(2\sin\bigg(\frac{m\pi i}{N}\bigg) \cos\bigg(\frac{m\pi}{N}\bigg)\bigg) &= \lambda \bigg( \alpha + \frac{2}{h^2} \bigg) \sin\bigg(\frac{m\pi i}{N}\bigg)\\
-		\sin\frac{m\pi i}{N} \bigg( \frac{2}{h^2} \cos\bigg(\frac{m\pi}{N}\bigg) - \lambda \bigg( \alpha + \frac{2}{h^2} \bigg) \bigg) &= 0
-		\end{aligned}
-		\end{equation*}
-		to find $\lambda$, we set $\sin\frac{m\pi i}{N}$ equal to some constant $D$, so that:
-		\begin{equation}\label{eq:4}
-		\begin{aligned}
-		&\bigg( \frac{2}{h^2} \cos\bigg(\frac{m\pi}{N}\bigg) - \lambda \bigg( \alpha + \frac{2}{h^2} \bigg) \bigg) = 0\\
-		&\lambda \bigg( \alpha + \frac{2}{h^2} \bigg) = \frac{2}{h^2} \cos\bigg(\frac{m\pi}{N}\bigg)\\
-		\text{with $h=\frac{1}{N}$}\\
-		&\lambda = \frac{\frac{2}{h^2} \cos\big(\frac{m\pi}{N}\big)}{\alpha + \frac{2}{h^2}}
-		\end{aligned}
-		\end{equation}
-		with $h=\frac{1}{N}$, $$\therefore \lambda = \frac{2N^2 \cos\big(\frac{m\pi}{N}\big)}{\alpha + 2N^2}$$
-		
-		\item We define spectral radius $\sigma(R) := \max\{|\lambda|\}$, using $\lambda$ computed in \eqref{eq:4}, we get:
-		\begin{equation*}
-		\begin{aligned}
-		\sigma(R) &= \max\{|\lambda|\}\\
-		&= \frac{2N^2 \cos\big(\frac{m\pi}{N}\big)}{\alpha + 2N^2}
-		\end{aligned}
-		\end{equation*}
-		again, thanks to the symmetricity of $\lambda$, we can use taylor expansion to approximate the value of $$\cos\bigg(\frac{m\pi}{N}\bigg) \approx 1 - \frac{1}{2}\bigg(\frac{m\pi}{N}\bigg)^2$$, hence the spectral radius $\sigma(R)$ can be calculated by:
-		\begin{equation*}
-		\begin{aligned}
-		\therefore\sigma(R) &\approx \frac{2N^2 \bigg( 1 - \frac{m^2\pi^2}{2N^2}\bigg)}{\alpha + 2N^2}\\
-		\end{aligned}
-		\end{equation*}
+		\item Discuss the dissipation and dispersion properties of the implicit scheme in (b). Is it a satisfactory scheme for \eqref{eq:1}
 	\end{enumerate}
 \end{prob}
-\newpage
-\begin{prob}
-	Let $N,h=\frac{1}{N}, \alpha$ and $A$ be as in Problem \ref{problem1}. We define:
+\textbf{Answer:}
+\begin{enumerate}
+	\item von Neumann stability analysis for "naive" explicit scheme:\\
+	we rewrite \eqref{eq:2} become,
+	\begin{equation}\label{eq:4}
+	v_k^{n+1} = v_k^n - \frac{R}{2}(v_{k+1}^n - v_{k-1}^n), \quad R:=\frac{b\tau}{h}
+	\end{equation}
+	then substitute $v_{k+q} = e^{iq\xi}\hat{v}^n$ to \eqref{eq:4}, we get
 	\begin{equation}\label{eq:5}
-	\begin{cases}
-	\alpha u - u'' = \sin(\pi x)\ \text{in}\ (0,1)\\
-	u(0) = u(1) = 0
-	\end{cases}
+	\hat{v}^{n+1} = \hat{v}^n \left( 1- \frac{R}{2} (e^{i\xi}-e^{-i\xi}) \right)
 	\end{equation}
+	then we define, $g(\xi) = \left( 1- \frac{R}{2} (e^{i\xi}-e^{-i\xi}) \right) = 1-iR \sin (\xi)$, taking norm of $g(\xi)$ we get
+	\begin{equation}\label{eq:6}
+	|g(\xi)| = |1-iR\sin (\xi)| = \sqrt{1+R^2\sin^2(\xi)}, \quad \xi = (-\pi,\pi)
+	\end{equation}
+	by \eqref{eq:6} we get $|g(\xi)| > 1$, according to von Neumann stability, the explicit scheme \eqref{eq:2} is unstable.
 	
-	\begin{enumerate}[label=(\alph*)]
-		\item To find the exact solution of $u$, we use general solution for Ordinary Differential Equation (ODE):
-		\begin{equation}\label{eq:6}
-		u(x) = A \sin(\pi x) + B \cos(\pi x)
-		\end{equation}
-		and take the second derivative of $u$
-		\begin{equation}\label{eq:7}
-		u''(x) = -A\pi^2 \sin(\pi x) + B\pi^2 \cos(\pi x)
-		\end{equation}
-		then substitute \eqref{eq:6} and \eqref{eq:7} to \eqref{eq:5}, we get:
-		\begin{equation}\label{eq:8}
-		\begin{aligned}[center]
-		&\alpha(A \sin (\pi x) + B \cos (\pi x)) + A\pi^2 \sin(\pi x) + B\pi^2 \cos(\pi x) &= \sin (\pi x)\\
-		&A(\alpha + \pi^2) \sin (\pi x) + B(\alpha + \pi^2) \cos (\pi x) &= \sin (\pi x)
-		\end{aligned}
-		\end{equation}
-		from \eqref{eq:8} we know that $$A(\alpha + \pi^2) \sin (\pi x) = \sin (\pi x)$$ and $$B(\alpha + \pi^2) \cos (\pi x) = 0$$
-		\begin{eqnarray}\label{eq:9}
-		\therefore A = \frac{1}{(\alpha + \pi^2)} & \therefore B = 0
-		\end{eqnarray}
-		then we substitute \eqref{eq:9} to \eqref{eq:6}, we get the exact solution as:
-		\begin{equation}
-		u(x) = \frac{\sin(\pi x)}{(\alpha + \pi^2)}
-		\end{equation}
-		
-		\item To find exact solution s.t. $Av = b$, with $b_i = \sin(\pi h i)$, we set $$v_i = C \sin (\pi h i)$$ thus,
-		\begin{equation*}
-		\begin{aligned}
-		A v &= b\\
-		\sum_{i=1}^{N-1}a_{ij} v_i &= b_i\\
-		\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg)v_i - \frac{1}{h^2} \big( v_{i+1} + v_{i-1}\big) \bigg) &= \sin(\pi h i)\\
-		\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg)C \sin (\pi h i) - \frac{1}{h^2} \big( C \sin (\pi h (i+1)) + C \sin (\pi h (i-1))\big) \bigg) &= \sin(\pi h i)\\
-		\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg)C \sin (\pi h i) - C \frac{1}{h^2} \big( 2\sin (\pi h i) \cos (\pi h)\big) \bigg) &= \sin(\pi h i)\\
-		\end{aligned}
-		\end{equation*}
-		divide by $\sin (\pi h i)$ on the both side we get:
-		\begin{equation*}
-		C \bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} \cos (\pi h) \bigg) = 1\\
-		\end{equation*}
-		$$\therefore C = \frac{1}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} \cos (\pi h) \bigg)}$$
-		so the exact solution in terms of $v_i$ is: $$v_i = \frac{\sin (\pi h i)}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} \cos (\pi h) \bigg)}$$
-		
-		\item We define $$\epsilon(h) := \max_{1\leq i \leq N-1} |u(hi) - v_i|$$
-		then we use $u(x)$ and $v_i$ that we derived before to find the explicit formula of $\epsilon(h)$:
-		\begin{equation*}
-		\begin{aligned}
-		\epsilon(h) &:= \max_{1\leq i \leq N-1} \Biggr|\frac{\sin(\pi hi)}{(\alpha + \pi^2)} - \frac{\sin (\pi h i)}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} \cos (\pi h) \bigg)}\Biggr|\\
-		\epsilon(h) &:= \max_{1\leq i \leq N-1} \Biggr|\sin(\pi hi) \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} \cos (\pi h) \bigg)} \Bigg) \Biggr|
-		\end{aligned}
-		\end{equation*}
-		for simplicity, we rewrite:
-		$$D :=\sin(\pi hi)$$
-		$$E := \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} \cos (\pi h) \bigg)} \Bigg)$$
-		\begin{equation*}
-		\begin{aligned}
-		\max_{1\leq i \leq N-1} \bigr|DE\bigr| &= \max_{1\leq i \leq N-1} \bigr|D\bigr| \max_{1\leq i \leq N-1} \bigr|E\bigr|\\
-		& = 1 \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} \cos (\pi h) \bigg)} \Bigg)
-		\end{aligned}
-		\end{equation*}
-		then, the explicit formula for $\epsilon (h)$ is:
+	\item von Neumann stability analysis for implicit scheme:\\
+	we rewrite \eqref{eq:3} become,
+	\begin{equation}\label{eq:7}
+	\frac{R}{2} \left(v_{k+1}^{n+1} - v_{k-1}^{n+1}\right) + v_k^{n+1} = v_k^n, \quad R:=\frac{b\tau}{h}
+	\end{equation}
+	then substitute $v_{k+q} = e^{iq\xi}\hat{v}^n$ to \eqref{eq:7}, we get
+	\begin{equation}\label{eq:8}
+	\begin{aligned}
+	\left(1+\frac{R}{2} \left(e^{i\xi}-e^{-i\xi}\right) \right) \hat{v}^{n+1} &= \hat{v}^{n}\\
+	\hat{v}^{n+1} &= \frac{1}{\left(1+\frac{R}{2} \left(e^{i\xi}-e^{-i\xi}\right) \right)} \hat{v}^{n}
+	\end{aligned}
+	\end{equation}
+	then we define, $g(\xi) = \frac{1}{\left(1+\frac{R}{2} \left(e^{i\xi}-e^{-i\xi}\right) \right)} = \frac{1}{\left(1+iR\sin(\xi) \right)}$, taking norm of $g(\xi)$ we get
+	\begin{equation}\label{eq:9}
+	|g(\xi)| = \Bigr|\frac{1}{\left(1+iR\sin(\xi) \right)}\Bigr| = \frac{1}{\sqrt{1+R^2 \sin^2 (\xi)}}, \quad \xi = (-\pi,\pi)
+	\end{equation}
+	by \eqref{eq:9} we get $|g(\xi)| < 1$, according to von Neumann stability, the implicit scheme \eqref{eq:3} is stable.
+	
+	\item To analyze the dissipation and dispersion of \eqref{eq:3}, we substitute $v_{k+p}^{n+q} = e^{i(q\omega\tau + p\beta h)}$ to \eqref{eq:7} we get,
+	\begin{equation}\label{eq:10}
+	\begin{aligned}
+	\frac{R}{2} \left(e^{i(\omega\tau + \beta h)} - e^{i(\omega\tau - \beta h)}\right) + e^{i\omega\tau} &= 1, \quad R:=\frac{b\tau}{h}\\
+	\left(\frac{R}{2} \left(e^{i\beta h} - e^{-i\beta h}\right) + 1 \right) e^{i\omega \tau} &= 1\\
+	\left(iR\sin(\beta h) + 1\right) e^{i\omega \tau} &= 1\\
+	e^{i\omega \tau} &= \frac{1}{\left(iR\sin(\beta h) + 1\right)}
+	\end{aligned}
+	\end{equation}
+	taking norm of $e^{i\omega \tau}$, we get
 		\begin{equation}\label{eq:11}
-		\epsilon(h) = \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} \cos (\pi h) \bigg)} \Bigg)
+		|e^{i\omega \tau}| = e^{-\omega_2\tau} = \frac{1}{R^2\sin^2(\beta h) + 1}
 		\end{equation}
-		around $h=0$, leading order of taylor expansion of $\epsilon (h)$ can be obtained by expand $\cos(\pi h)$, so that
-		$$\cos(\pi h) \approx \cos(a) + \frac{\cos'(a)(\pi h - a)}{1!} + \frac{\cos''(a)(\pi h - a)^2}{2!} + \cdots$$
-		then we take $a=0$, we get
-		$$\cos(\pi h) \approx 1-\frac{1}{2}(\pi h)^2$$
-		substitute it to \eqref{eq:11} we get:
-		\begin{equation*}
-		\begin{aligned}
-		\epsilon(h) &= \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{\bigg( \bigg(\alpha + \frac{2}{h^2}\bigg) - \frac{2}{h^2} (1-\frac{1}{2}(\pi h)^2) \bigg)} \Bigg)\\
-		\epsilon(h) &= \Bigg( \frac{1}{(\alpha + \pi^2)} - \frac{1}{(\alpha + \pi^2)} \Bigg)
-		\end{aligned}
-		\end{equation*}
-		which is just a constant, so the leading order is depend on what order of taylor expansion we choose to approximate the value of $\cos(\pi h)$ around $h=0$. In this case if we choose taylor expansion orde 2, we get the leading term of $\epsilon$ is $\mathbb{O}(F)$ with $F$ is a constant.
-	\end{enumerate}
-\end{prob}
+	by \eqref{eq:11}, $e^{-\omega_2\tau} < 1$, therefore according to von Neumann stability analysis, the implicit scheme on \eqref{eq:3} is \textbf{dissipative}.\\
+	Then, to analyze the dispersion, we take $\arg(e^{i\omega\tau})$,
+	\begin{equation}\label{eq:12}
+	\begin{aligned}
+	\arg(e^{i\omega\tau}) &= \arg(e^{i\omega_1\tau}) + \arg(e^{-\omega_2\tau})\\
+	&= \omega_1\tau + 0
+	\end{aligned}
+	\end{equation}
+	which, $\omega_1\tau = \arctan\left(\frac{Im(e^{i\omega \tau})}{Re(e^{i\omega \tau})}\right)$, we can get the real and imajiner part of $e^{i\omega \tau}$ by first multiplying it with it's rational factor,
+	\begin{equation}\label{eq:13}
+	e^{i\omega \tau} = \frac{1}{\left(iR\sin(\beta h) + 1\right)} \frac{\left(iR\sin(\beta h) - 1\right)}{\left(iR\sin(\beta h) - 1\right)} = -\frac{iR\sin(\beta h)+1}{R^2\sin^2+1}
+	\end{equation}
+	then, $\omega_1\tau = \arctan\left(\frac{Im(e^{i\omega \tau})}{Re(e^{i\omega \tau})}\right) = \frac{R\sin(\beta h)}{1}=R\sin(\beta h)$. Since $\omega_1\tau$ is not a constant, therefore, according to von Neumann stability analysis, the implicit scheme on \eqref{eq:3} is \textbf{dispersive}.
+\end{enumerate}
 \newpage
 \begin{prob}
-	We consider system of linear equations:
-	\begin{equation}\label{eq:12}
-	\begin{cases}
-	-v_{i-1,j}-v_{i+1,j}-v_{i,j-1}-v_{i,j+1}+4v_{i,j} = b_{i,j} & i,j = 1,\cdots , N-1\\
-	v_{0,j} = v_{0,N} = v_{i,0} = v_{i,N} = 0 & i,j = 1,\cdots , N-1
-	\end{cases}
+	Show that the following implicit difference schemes for approximating the solution to
+	\begin{equation}
+	u_t + bu_x = au_{xx}
 	\end{equation}
-	for unknowns $v_{i,j}, i,j = 1,\cdots , N-1$.
-	\begin{enumerate}[label=(\alph*)]
-		\item We want to find the eigenvalues and eigenvectors of the matrix $A$ for the system \eqref{eq:12}. Using the idea of discrete separation variables, we set $w_{i,j} = v_i \tilde{v_j}$ s.t.
-		$$Aw_{i,j} = \lambda w_{i,j}$$
-		\begin{equation*}
-		\begin{aligned}
-		4w_{i,j}-w_{i-1,j}-w_{i+1,j}-w_{i,j-1}-w_{i,j+1} &= \lambda w_{i,j}\\
-		4(v_i \tilde{v_j})-(v_{i-1} \tilde{v_j})-(v_{i+1} \tilde{v_j})-(v_i \tilde{v}_{j-1})-(v_i \tilde{v}_{j+1}) &= \lambda (v_i \tilde{v_j})\\
-		4(v_i \tilde{v_j}) -\tilde{v_j} (v_{i-1} + v_{i+1}) -v_i( \tilde{v}_{j-1} + \tilde{v}_{j+1}) &= \lambda (v_i \tilde{v_j})\\
-		(4-\lambda)(v_i \tilde{v_j}) -\tilde{v_j} (v_{i-1} + v_{i+1}) -v_i( \tilde{v}_{j-1} + \tilde{v}_{j+1}) &= 0\\
-		\end{aligned}
-		\end{equation*}
-		then, divide by $v_i \tilde{v_j}$ on both side, we get:
-		\begin{equation*}
-		\begin{aligned}
-		(4-\lambda) -\frac{(v_{i-1} + v_{i+1})}{v_i} -\frac{( \tilde{v}_{j-1} +\tilde{v}_{j+1})}{\tilde{v}_j} = 0\\
-		(4-\lambda) -\frac{(v_{i-1} + v_{i+1})}{v_i} = \frac{( \tilde{v}_{j-1} +\tilde{v}_{j+1})}{\tilde{v}_j}\\
-		\end{aligned}
-		\end{equation*}
-		now, to satisfies equality, both side should be equal to some constant, let say $G$, hence:
-		\begin{equation*}
-		\begin{aligned}
-		(4-\lambda) -\frac{(v_{i-1} + v_{i+1})}{v_i} = G = \frac{( \tilde{v}_{j-1} +\tilde{v}_{j+1})}{\tilde{v}_j}\\
-		\end{aligned}
-		\end{equation*}
-		
-		First, we solve for:
-		\begin{equation*}
-		\begin{aligned}
-		\frac{( \tilde{v}_{j-1} +\tilde{v}_{j+1})}{\tilde{v}_j} = G\\
-		( \tilde{v}_{j-1} +\tilde{v}_{j+1}) = \tilde{v}_j G\\
-		\end{aligned}
-		\end{equation*}
-		set: $\tilde{v}_j = \varphi^j$
-		\begin{equation*}
-		\begin{aligned}
-		\varphi^{j-1} + \varphi^{j+1} = \varphi^j G\\
-		\varphi^{j-1} + \varphi^{j+1} - \varphi^j G = 0\\
-		\end{aligned}
-		\end{equation*}
-		divide both side by $\varphi^{j-1}$
-		\begin{equation}\label{eq:13}
-		\begin{aligned}
-		1 + \varphi^2 - \varphi G = 0\\
-		\therefore \varphi_\pm = \frac{G \pm \sqrt{(G^2 - 4)}}{2}
-		\end{aligned}
+	are unconditionally stable using the von Neumann stability analysis. Here $R = b\frac{\tau}{h},r=a\frac{\tau}{h^2}$.
+	\begin{enumerate}
+		\item \begin{equation}\label{eq:15}
+		v_{k}^{n+1} + \frac{R}{2}(v_{k+1}^{n+1}-v_{k-1}^{n+1}) - r(v_{k+1}^{n+1}-2v_{k}^{n+1} + v_{k-1}^{n+1}) = v_{k}^{n}
 		\end{equation}
-		here we recall that eigenvector of $\tilde{v}_j$ should be a linear combination of $\varphi$ s.t. $$\tilde{v}_j = c_1\varphi_+^j + c_2\varphi_-^j$$
-		and we know the boundary condition on \eqref{eq:12}, when $j=N$ then $\tilde{v}_N=0$, to satisfies this condition, then $c_1 = -c_2$, then $$\tilde{v}_j = c_1(\varphi_+^j - \varphi_-^j)$$ $\therefore$ $\varphi_+^j$ and $\varphi_-^j$ should be distinguished.\\
-		Hence, we choose $G<2$ for \eqref{eq:13} we then rewrite \eqref{eq:13} as:
-		\begin{equation*}
-		\begin{aligned}
-		\varphi_\pm = \frac{G \pm \sqrt{-(4-G^2)}}{2}\\
-		\varphi_\pm = \frac{G \pm i\sqrt{(4-G^2)}}{2}
-		\end{aligned}
-		\end{equation*}
-		then, the possible solution is $$\varphi_\pm^j = \cos(\theta j) \pm i \sin(\theta j)$$
-		\begin{equation*}
-		\begin{aligned}
-		\therefore \tilde{v}_j &= c_1(\cos(\theta j) + i \sin(\theta j) - (\cos(\theta j) - i \sin(\theta j)))\\
-		\tilde{v}_j &= c_1(2 i \sin(\theta j))
-		\end{aligned}
-		\end{equation*}
-		we choose $c_1 = -\frac{i}{2}$ so that $$\tilde{v}_j = \sin(\theta j)$$
-		inserting boundary condition, when $j=N$ then $\tilde{v}_N=0$, we get:
-		\begin{equation*}
-		\begin{aligned}
-		0 &= \sin(\theta N)\\
-		\theta &= m\pi,\ \forall m:2,4,6\cdots N,\ \text{even}\\
-		\theta &= \frac{m\pi}{N}
-		\end{aligned}
-		\end{equation*}
-		then, we know that from imaginer triangle $$\cos \theta = \frac{G}{2}$$
-		$\therefore G = 2 \cos(\theta) = 2 \cos(\frac{m\pi}{N})$
-		
-		Second, we solve for:
-		$$(4-\lambda) -\frac{(v_{i-1} + v_{i+1})}{v_i} = G$$
-		multiplied both side by $v_i$, we get:
-		\begin{equation*}
-		\begin{aligned}
-		v_i(4-\lambda) -(v_{i-1} + v_{i+1}) = v_i G\\
-		v_i(4-\lambda) -(v_{i-1} + v_{i+1}) - v_i G = 0\\
-		v_i(4-\lambda - G) -(v_{i-1} + v_{i+1}) = 0\\
-		\end{aligned}
-		\end{equation*}
-		set $v_i = \xi^i$
-		\begin{equation*}
-		\begin{aligned}
-		\xi^i(4-\lambda - G) -(\xi^{i-1} + \xi^{i+1}) = 0\\
-		\end{aligned}
-		\end{equation*}
-		divide both side by $\xi^{i-1}$
-		\begin{equation*}
-		\begin{aligned}
-		\xi(4-\lambda - G) -(1 + \xi^2) = 0\\
-		\xi^2 - \xi(4-\lambda - G) + 1 = 0\\
-		\therefore \xi_\pm = \frac{(4-\lambda - G) \pm \sqrt{(4-\lambda - G)^2 - 4}}{2}
-		\end{aligned}
-		\end{equation*}
-		take $2H = (4-\lambda - G)$
-		\begin{equation}\label{eq:14}
-		\begin{aligned}
-		\xi_\pm = \frac{2H \pm \sqrt{(2H)^2 - 4}}{2}\\
-		\xi_\pm = H \pm \sqrt{H^2 - 1}
-		\end{aligned}
+		\item \begin{equation}\label{eq:16}
+		v_{k}^{n+1} + \frac{R}{4}(v_{k+1}^{n+1}-v_{k-1}^{n+1}) - \frac{r}{2}(v_{k+1}^{n+1}-2v_{k}^{n+1} + v_{k-1}^{n+1}) = v_{k}^{n} - \frac{R}{4}(v_{k+1}^{n}-v_{k-1}^{n}) + \frac{r}{2}(v_{k+1}^{n}-2v_{k}^{n} + v_{k-1}^{n})
 		\end{equation}
-		here we recall that eigenvector of $v_i$ should be a linear combination of $\xi$ s.t. $$v_i = d_1\xi_+^i + d_2\xi_-^i$$
-		and we know the boundary condition on \eqref{eq:12}, when $i=N$ then $v_N=0$, to satisfies this condition, then $d_1 = -d_2$, then $$v_i = d_1(\xi+^j - \xi_-^j)$$ $\therefore$ $\xi_+^j$ and $\xi_-^j$ should be distinguished.\\
-		Hence, we choose $H<1$ for \eqref{eq:14} we then rewrite \eqref{eq:14} as:
-		\begin{equation*}
-		\begin{aligned}
-		\xi_\pm = H \pm \sqrt{-(1-H^2)}\\
-		\xi_\pm = H \pm i\sqrt{(1-H^2)}
-		\end{aligned}
-		\end{equation*}
-		then, the possible solution is $$\xi_\pm^i = \cos(\theta i) \pm I \sin(\theta i)$$
-		here i use "I" as imaginer number, so it is not confusing between "i" index and "I" imaginer number.
-		\begin{equation*}
-		\begin{aligned}
-		\therefore v_i &= d_1(\cos(\theta i) + I \sin(\theta i) - (\cos(\theta i) - I \sin(\theta i)))\\
-		v_i &= d_1(2 I \sin(\theta i))
-		\end{aligned}
-		\end{equation*}
-		we choose $d_1 = -\frac{I}{2}$ so that $$v_i = \sin(\theta i)$$
-		inserting boundary condition, when $i=N$ then $v_N=0$, we get:
-		\begin{equation*}
-		\begin{aligned}
-		0 &= \sin(\theta N)\\
-		\theta &= m\pi,\ \forall m:2,4,6\cdots N,\ \text{even}\\
-		\theta &= \frac{m\pi}{N}
-		\end{aligned}
-		\end{equation*}
-		then, we know that from imaginer triangle $$\cos \theta = H$$
-		$\therefore H = \cos(\theta) = \cos(\frac{m\pi}{N})$\\
-		substitute $H$ and $G$ to $2H=(4-\lambda-G)$, we get
-		\begin{equation*}
-		\begin{aligned}
-		2 \cos\bigg(\frac{m\pi}{N}\bigg) = 4-\lambda -2 \cos\bigg(\frac{m\pi}{N}\bigg)\\
-		\lambda = 4 -2 \cos\bigg(\frac{m\pi}{N}\bigg) -2 \cos\bigg(\frac{m\pi}{N}\bigg)\\
-		\therefore \lambda = 4 -2 \bigg(\cos\bigg(\frac{m\pi}{N}\bigg) + \cos\bigg(\frac{m\pi}{N}\bigg) \bigg)\\
-		\end{aligned}
-		\end{equation*}
-		for the eigenvectors, we already know that 
-		$$w_{i,j} = v_i \tilde{v_j}$$
-		$$v_i = \sin(\theta i)$$
-		$$\tilde{v}_j = \sin(\theta j)$$
-		$$\therefore w_{i,j} = \sin\bigg(\frac{m\pi i}{N}\bigg) \sin\bigg(\frac{m\pi j}{N}\bigg)$$
-		
-		\item I attached the Python Code that solves \eqref{eq:12} in \ref{code}
-		
-		\item Minimal Number of Iterations K such the:
-		\begin{equation*}
-		\max_{1\leq i,j\leq N-1} \Bigg|v_{i,j}^{(K+1)} - v_{i,j}^{(K)}\Bigg| \leq 10^{-4}
-		\end{equation*}
-		\begin{enumerate}
-			\item N = 10
-			\begin{enumerate}
-				\item Jacobi, K = 53
-				\item Gauss-Seidel, K = 33
-				\item SOR (omega=1.5), K = 12
-			\end{enumerate}
-			\item N = 20
-			\begin{enumerate}
-				\item Jacobi, K = 137
-				\item Gauss-Seidel, K = 94
-				\item SOR (omega=1.5), K = 45
-			\end{enumerate}
-			\item N = 50
-			\begin{enumerate}
-				\item Jacobi, K = 1
-				\item Gauss-Seidel, K = 173
-				\item SOR (omega=1.5), K = 148
-			\end{enumerate}
-		\end{enumerate}
-		
-		\item Optimal $\omega_b$ for SOR:
-		\begin{enumerate}
-			\item N = 10, $\omega_b$ = 1.16527511683289
-			\item N = 20, $\omega_b$ = 1.2933223938735654
-			\item N = 50, $\omega_b$ = 1.3746381523099196
-		\end{enumerate}
 	\end{enumerate}
 \end{prob}
-\newpage
-\section{Attachment}\label{code}
-\lstinputlisting[basicstyle=\ttfamily\tiny,language=Python]{linsolv.py}
+\textbf{Answer:}
+\begin{enumerate}
+	\item Substitute $v_{k+q}=e^{iq\xi}\hat{v}^n$ to \eqref{eq:15} we get,
+	\begin{equation}\label{eq:17}
+	\begin{aligned}
+	\hat{v}^{n+1} + \frac{R}{2}(e^{i\xi} - e^{-i\xi}) \hat{v}^{n+1} - r(e^{i\xi}-2+e^{-i\xi})\hat{v}^{n+1} = \hat{v}^n\\
+	\hat{v}^{n+1} \bigg( 1 + \frac{R}{2}(e^{i\xi} - e^{-i\xi}) - r(e^{i\xi}-2+e^{-i\xi}) \bigg) = \hat{v}^n\\
+	\hat{v}^{n+1} = \frac{1}{\bigg( 1 + \frac{R}{2}(e^{i\xi} - e^{-i\xi}) - r(e^{i\xi}-2+e^{-i\xi}) \bigg)} \hat{v}^n
+	\end{aligned}
+	\end{equation}
+	then, we define:
+	\begin{equation}\label{eq:18}
+	\begin{aligned}
+	g(\xi) &= \frac{1}{\bigg( 1 + \frac{R}{2}(e^{i\xi} - e^{-i\xi}) - r(e^{i\xi}-2+e^{-i\xi}) \bigg)} = \frac{1}{\bigg(1+iR\sin(\xi) +r(2\cos(\xi)-2)\bigg)}\\ 
+	&=\frac{1}{\bigg(1+iR\sin(\xi) +r(-4\sin^2(\frac{\xi}{2}))\bigg)}
+	\end{aligned}
+	\end{equation}
+	by \eqref{eq:18}, $g(\xi)<1$, according to von Neumann stability analysis, if $g(\xi)<1$ the scheme will be unconditionally stable.
+	
+	\item Substitute $v_{k+q}=e^{iq\xi}\hat{v}^n$ to \eqref{eq:16} we get,
+	\begin{equation}\label{eq:19}
+	\begin{aligned}
+	\hat{v}^{n+1} + \frac{R}{4}(e^{i\xi} - e^{-i\xi}) \hat{v}^{n+1} - \frac{r}{2}(e^{i\xi}-2+e^{-i\xi})\hat{v}^{n+1} &= \hat{v}^n -\frac{R}{4}(e^{i\xi} - e^{-i\xi}) \hat{v}^{n} +\frac{r}{2}(e^{i\xi}-2+e^{-i\xi})\hat{v}^{n}\\
+	\hat{v}^{n+1} \bigg( 1 + \frac{R}{4}(e^{i\xi} - e^{-i\xi})- \frac{r}{2}(e^{i\xi}-2+e^{-i\xi}) \bigg) &= \hat{v}^n
+	\bigg( 1 -\frac{R}{4}(e^{i\xi} - e^{-i\xi}) +\frac{r}{2}(e^{i\xi}-2+e^{-i\xi}) \bigg)\\
+	\hat{v}^{n+1} &= \frac{\bigg( 1 -\frac{R}{4}(e^{i\xi} - e^{-i\xi}) +\frac{r}{2}(e^{i\xi}-2+e^{-i\xi}) \bigg)}{\bigg( 1 + \frac{R}{4}(e^{i\xi} - e^{-i\xi})- \frac{r}{2}(e^{i\xi}-2+e^{-i\xi}) \bigg)}\hat{v}^n
+	\end{aligned}
+	\end{equation}
+	then, we define:
+	\begin{equation}\label{eq:20}
+	\begin{aligned}
+	g(\xi) &= \frac{\bigg( 1 -\frac{R}{4}(e^{i\xi} - e^{-i\xi}) +\frac{r}{2}(e^{i\xi}-2+e^{-i\xi}) \bigg)}{\bigg( 1 + \frac{R}{4}(e^{i\xi} - e^{-i\xi})- \frac{r}{2}(e^{i\xi}-2+e^{-i\xi}) \bigg)} = \frac{\bigg( 1 -\frac{R}{4}(2i\sin(\xi)) +\frac{r}{2}(2\cos(\xi)-2) \bigg)}{\bigg( 1 + \frac{R}{4}(2i\sin(\xi))- \frac{r}{2}(2\cos(\xi)-2) \bigg)}\\ 
+	&=\frac{\bigg( 1 -\frac{R}{4}(2i\sin(\xi)) +\frac{r}{2}(-4\sin^2(\frac{\xi}{2})) \bigg)}{\bigg( 1 + \frac{R}{4}(2i\sin(\xi))- \frac{r}{2}(-4\sin^2(\frac{\xi}{2})) \bigg)}
+	\end{aligned}
+	\end{equation}
+	by \eqref{eq:20}, $g(\xi)<1$, according to von Neumann stability analysis, if $g(\xi)<1$ the scheme will be unconditionally stable.
+\end{enumerate}
+
+\begin{prob}
+	Discuss the dissipation and dispersion of the following implicit numerical schemes for the wave equation
+	\begin{enumerate}
+		\item \begin{equation}\label{eq:21}
+		\frac{v_k^{n+1} -2v_k^n+v_k^{n-1}}{\tau^2} = \frac{v_{k+1}^{n+1}-2v_k^{n+1}+v_{k-1}^{n+1}}{h^2}
+		\end{equation}
+		\item \begin{equation}\label{eq:22}
+		\frac{v_k^{n+1} -2v_k^n+v_k^{n-1}}{\tau^2} = \frac{v_{k+1}^{n+1}-2v_k^{n+1}+v_{k-1}^{n+1}}{2h^2} + \frac{v_{k+1}^{n-1}-2v_k^{n-1}+v_{k-1}^{n-1}}{2h^2}
+		\end{equation}
+	\end{enumerate}
+\end{prob}
+\textbf{Answer:}
+\begin{enumerate}
+	\item Substitute $v_{k+p}^{n+q} = e^{i(q\omega\tau + p\beta h)}\hat{v}^n$ with $R=\frac{\tau}{h}$ to \eqref{eq:21} we get,
+	\begin{equation}\label{eq:23}
+	\begin{aligned}
+	\frac{(e^{i\omega\tau} -2 + e^{-i\omega\tau})}{\tau^2}\hat{v}^n &= \frac{(e^{i(\omega\tau+\beta h)}-2e^{i\omega\tau}+e^{i(\omega\tau-\beta h)})}{h^2}\hat{v}^n\\
+	e^{i\omega\tau} -2 + e^{-i\omega\tau} &= R^2(2\cos(\beta h)-2)e^{i\omega\tau}\\
+	\end{aligned}
+	\end{equation}
+	take $g=e^{i\omega\tau}$, \eqref{eq:23} become
+	\begin{equation}
+	\begin{aligned}
+	-2 + g^{-1} + g\left(1 - R^2(2\cos(\beta h)-2)\right) &= 0\\
+	-2 + g^{-1} + g\left(1 - R^2(-4\sin^2(\frac{\beta h}{2}))\right) &= 0\\
+	\end{aligned}
+	\end{equation}
+	multiple by $g$ we get
+	\begin{equation}\label{eq:25}
+	\begin{aligned}
+	g^2(1-R^2(-4\sin^2(\frac{\beta h}{2}))) -2g + 1 = 0
+	\end{aligned}
+	\end{equation}
+	solving \eqref{eq:25} we get,
+	\begin{equation}\label{eq:26}
+	g = e^{i\omega\tau} = \frac{1\pm i2R\sin(\frac{\beta h}{2})}{(1-R^2(-4\sin^2(\frac{\beta h}{2})))}
+	\end{equation}
+	taking norm of \eqref{eq:26}, we get
+	\begin{equation}\label{eq:27}
+	|e^{i\omega\tau}| = e^{i\omega_2\tau} = \max_{-\pi \leq \frac{\beta h}{2} \leq \pi} \left| \frac{1\pm i2R\sin(\frac{\beta h}{2})}{(1-R^2(-4\sin^2(\frac{\beta h}{2})))} \right| = \frac{1\pm 2R}{1+4R^2}
+	\end{equation}
+	from \eqref{eq:27}, $e^{i\omega_2\tau} < 1$, therefore according to von Neumann stability analysis, the implicit numerical scheme on \eqref{eq:21} is \textbf{dissipative}.
+	
+	Then, to analyze the dispersion, we take $\arg(e^{i\omega\tau})$,
+	\begin{equation}\label{eq:28}
+	\begin{aligned}
+	\arg(e^{i\omega\tau}) &= \arg(e^{i\omega_1\tau}) + \arg(e^{-\omega_2\tau})\\
+	&= \omega_1\tau + 0
+	\end{aligned}
+	\end{equation}
+	which, $\omega_1\tau = \arctan\left(\frac{Im(e^{i\omega \tau})}{Re(e^{i\omega \tau})}\right)$,
+	then, $\omega_1\tau = \arctan\left(\frac{Im(e^{i\omega \tau})}{Re(e^{i\omega \tau})}\right) = \frac{2R\sin(\beta h)}{1}=2R\sin(\beta h)$. Since $\omega_1\tau$ is not a constant, therefore, according to von Neumann stability analysis, the implicit scheme on \eqref{eq:21} is \textbf{dispersive}.
+	
+	\item Substitute $v_{k+p}^{n+q} = e^{i(q\omega\tau + p\beta h)}\hat{v}^n$ with $R=\frac{\tau^2}{2h^2}$ to \eqref{eq:22} we get,
+	\begin{equation}\label{eq:29}
+	\begin{aligned}
+	&\frac{(e^{i\omega\tau} -2 + e^{-i\omega\tau})}{\tau^2}\hat{v}^n = \frac{(e^{i(\omega\tau+\beta h)}-2e^{i\omega\tau}+e^{i(\omega\tau-\beta h)})}{2h^2}\hat{v}^n + \frac{(e^{i(-\omega\tau+\beta h)}-2e^{-i\omega\tau}+e^{-i(\omega\tau+\beta h)})}{2h^2}\hat{v}^n\\
+	&(e^{i\omega\tau}-2+e^{-i\omega\tau}) = R \left( (2\cos(\beta h)-2)e^{i\omega\tau} + (2\cos(\beta h)-2)e^{-i\omega\tau} \right)\\
+	&(e^{i\omega\tau}-2+e^{-i\omega\tau}) - R \left( (2\cos(\beta h)-2)e^{i\omega\tau} + (2\cos(\beta h)-2)e^{-i\omega\tau} \right) = 0\\
+	&e^{i\omega\tau} \left( 1- R (2\cos(\beta h)-2)\right) + e^{-i\omega\tau} \left( 1- R (2\cos(\beta h)-2)\right) -2 = 0
+	\end{aligned}
+	\end{equation}
+	take $g=e^{i\omega\tau}$, \eqref{eq:29} become
+	\begin{equation}
+	\begin{aligned}
+	g \left( 1- R (2\cos(\beta h)-2)\right) + g^{-1} \left( 1- R (2\cos(\beta h)-2)\right) -2 = 0\\
+	g \left( 1- R (-4\sin^2(\frac{\beta h}{2})\right) + g^{-1} \left( 1- R (-4\sin^2(\frac{\beta h}{2})\right) -2 = 0\\
+	\end{aligned}
+	\end{equation}
+	multiple by $g$, we get
+	\begin{equation}\label{eq:31}
+	g^2 \left( 1- R (-4\sin^2(\frac{\beta h}{2})\right) + \left( 1- R (-4\sin^2(\frac{\beta h}{2})\right) -2g = 0
+	\end{equation}
+	solving \eqref{eq:31} we get,
+	\begin{equation}\label{eq:32}
+	g = e^{i\omega\tau} = \frac{2\pm \sqrt{4-4(1+4R\sin^2(\frac{\beta h}{2}))^2}}{2(1+4R\sin^2(\frac{\beta h}{2}))}
+	\end{equation}
+	taking norm of \eqref{eq:32}, we get
+	\begin{equation}\label{eq:33}
+	|e^{i\omega\tau}| = e^{i\omega_2\tau} = \max_{-\pi \leq \frac{\beta h}{2} \leq \pi} \left| \frac{2\pm \sqrt{4-4(1+4R\sin^2(\frac{\beta h}{2}))^2}}{2(1+4R\sin^2(\frac{\beta h}{2}))} \right| = \frac{2\pm (1+4R)}{2(1+4R)}
+	\end{equation}
+	from \eqref{eq:33}, $e^{i\omega_2\tau} = 1$, therefore according to von Neumann stability analysis, the implicit numerical scheme on \eqref{eq:22} is \textbf{non-dissipative}.
+	
+	Then, to analyze the dispersion, we take $\arg(e^{i\omega\tau})$,
+	\begin{equation}\label{eq:28}
+	\begin{aligned}
+	\arg(e^{i\omega\tau}) &= \arg(e^{i\omega_1\tau}) + \arg(e^{-\omega_2\tau})\\
+	&= \omega_1\tau + 0
+	\end{aligned}
+	\end{equation}
+	which, $\omega_1\tau = \arctan\left(\frac{Im(e^{i\omega \tau})}{Re(e^{i\omega \tau})}\right)$,
+	then, $\omega_1\tau = \arctan\left(\frac{Im(e^{i\omega \tau})}{Re(e^{i\omega \tau})}\right) = 0$. Since $\omega_1\tau$ is 0 because there is no imaginer part, therefore, according to von Neumann stability analysis, the implicit scheme on \eqref{eq:22} is \textbf{non-dispersive}.
+\end{enumerate}
 \end{document}
