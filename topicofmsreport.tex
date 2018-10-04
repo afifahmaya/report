@@ -14,6 +14,7 @@
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\W}{\mathbb{W}}
@@ -24,44 +25,191 @@
 
 
 % Title Page
-\title{Assignment 6\\ Topics of Mathematical Science}
+\title{Assignment 7\\ Topics of Mathematical Science}
 \author{Alifian Mahardhika Maulana}
 
 
 \begin{document}
 \maketitle
+		Formula for the residue of $f$ at $z_0$ pole of order $m$ is following,
+		\begin{equation}\label{eq:1}
+		res(f;z_0) = \lim_{z\to z_0} \frac{1}{(m-1)!} \frac{d^{m-1}}{dz^{m-1}} \left[ (z-z_0)^m f(z)\right]
+		\end{equation}
 \begin{enumerate}
-	\item Solve :
-	\begin{equation}\label{eq:1}
-	z_0 \in \C, \quad \int_{|\varrho-z_0|=R} \frac{d\varrho}{(\varrho-z_0)^n} = \begin{cases}
-	2\pi i \quad (n=1)\\
-	0 \quad (otherwise)
-	\end{cases}
-	\end{equation}
-	\textbf{Answer:}\\
-	\newline
-	By Cauchy's integral theorem,\\
-	Let $U={\varrho:|\varrho-z_0|<R}$ be a simply connected open subset of $C$ and $f$ a function which is holomorphic on $U$ and continuous on $\overline{U}$. Let $\gamma(t)=e^{it}, t \in [0,2\pi]$  be a loop in $\overline{U}$, then the path integral,
-	\begin{equation}\label{eq:2}
-	\oint_\gamma \frac{1}{\varrho} dz = \int_{0}^{2\pi} \frac{ie^{it}}{e^{it}} dt = \int_{0}^{2\pi} i dt = 2\pi i
-	\end{equation}. We define,
-	$$f(\varrho) = \frac{d\varrho}{(\varrho-z_0)^n}, \quad \varrho = z_0 + Re^{it},$$ then we can rewrite \eqref{eq:1} as follows:
-	\begin{equation}\label{eq:3}
-	\int_{0}^{2 \pi} \frac{1}{(Re^{it})^n} iRe^{it} dt = \frac{i}{R^{n-1}} \int_{0}^{2\pi}e^{i(1-n)t} dt
-	\end{equation}
-	which according to \eqref{eq:1}, the integral on the right handside equal to $2\pi i$ if $n=1$, therefore,
-	\begin{equation*}\label{eq:4}
-	\frac{i}{R^{n-1}} \int_{0}^{2\pi}e^{i(1-n)t} dt = 	\frac{i}{R^{1-1}} 2\pi i = -2\pi
+	\item Find the poles and residues of the following:
+	\begin{enumerate}
+		\item $\frac{1}{z^2+5z+6}$, poles $z_0=\begin{cases}
+		-3, m= 1\\
+		-2, m= 1\\
+		\end{cases}$, using formula \eqref{eq:1}, we can compute the residues as follow:
+		\begin{equation*}
+		\begin{aligned}
+		res(f;-2) &= \lim_{z\to -2} \frac{1}{(0)!} \left[ (z+2) \frac{1}{(z+2)(z+3)}\right] = 1\\
+		res(f;-3) &= \lim_{z\to -3} \frac{1}{(0)!} \left[ (z+3) \frac{1}{(z+2)(z+3)}\right] = -1
+		\end{aligned}
+		\end{equation*}
+		
+		\item $\frac{z}{(z^2-1)^2}$, it has poles $z_0=\begin{cases}
+		1, m= 2\\
+		-1, m= 2\\
+		\end{cases}$, using formula \eqref{eq:1}, we can compute the residues as follow:
+		\begin{equation*}
+		\begin{aligned}
+		res(f;1) &= \lim_{z\to 1} \frac{1}{(1)!} \frac{d}{dz} \left[ (z-1)^2 \frac{z}{(z+1)^2(z-1)^2}\right] = 0\\
+		res(f;-1) &= \lim_{z\to -1} \frac{1}{(1)!} \frac{d}{dz} \left[ (z+1)^2 \frac{z}{(z+1)^2(z-1)^2}\right] = 0\\
+		\end{aligned}
+		\end{equation*}
+		
+		\item $\frac{1}{(z+1)^2 (z+2)}$, it has poles $z_0=\begin{cases}
+		1, m= 2\\
+		-2, m= 1\\
+		\end{cases}$, using formula \eqref{eq:1}, we can compute the residues as follow:
+		\begin{equation*}
+		\begin{aligned}
+		res(f;-1) &= \lim_{z\to -1} \frac{1}{(1)!} \frac{d}{dz} \left[ (z+1)^2 \frac{1}{(z+1)^2(z+2)}\right] = -1\\
+		res(f;-2) &= \lim_{z\to -2} \frac{1}{(0)!} \left[ (z+2) \frac{1}{(z+1)^2(z+2)}\right] = 1\\
+		\end{aligned}
+		\end{equation*}
+		
+		\item $\frac{z^4+2z+1}{(z-1)^2}$, it has poles $z_0=1,m=2$, using formula \eqref{eq:1}, we can compute the residues as follow:
+		\begin{equation*}
+		\begin{aligned}
+		res(f;1) &= \lim_{z\to 1} \frac{1}{(1)!} \frac{d}{dz} \left[ (z-1)^2 \frac{z^4+2z+1}{(z-1)^2}\right] = 6\\
+		\end{aligned}
+		\end{equation*}
+		
+		\item $\frac{z^3+z+1}{(z+1)^2(z+2)}$, it has poles $z_0=\begin{cases}
+		-1, m= 2\\
+		-2, m= 1\\
+		\end{cases}$, using formula \eqref{eq:1}, we can compute the residues as follow:
+		\begin{equation*}
+		\begin{aligned}
+		res(f;-1) &= \lim_{z\to -1} \frac{1}{(1)!} \frac{d}{dz} \left[ (z+1)^2 \frac{z^3+z+1}{(z+1)^2(z+2)}\right] = 5\\
+		res(f;-2) &= \lim_{z\to -2} \frac{1}{(0)!} \left[ (z+2) \frac{z^3+z+1}{(z+1)^2(z+2)}\right] = -10\\
+		\end{aligned}
+		\end{equation*}
+		
+		\item $\frac{1}{z^m(1-z)^n}$, it has poles $z_0=\begin{cases}
+		0, m= m\\
+		1, m= n\\
+		\end{cases}$, using formula \eqref{eq:1}, we can compute the residues as follow:
+		\begin{equation*}
+		\begin{aligned}
+		res(f;0) &= \lim_{z\to 0} \frac{1}{(m-1)!} \frac{d^{m-1}}{dz^{m-1}} \left[ (z)^m \frac{1}{(z)^m(1-z)^n}\right] = \frac{(n+m-2)!}{(m-1)!(n-1)!}\\
+		res(f;1) &= \lim_{z\to 1} \frac{1}{(n-1)!} \frac{d^{n-1}}{dz^{n-1}} \left[ -(1-z)^n \frac{1}{(z)^m(1-z)^n}\right] = - \frac{(m+n-2)!}{(n-1)!(m-1)!}\\
+		\end{aligned}
+		\end{equation*}
+	\end{enumerate}
+
+\textbf{Cauchy Residue Theorem}: the integral of $f(z)$ along $B(z_0,r) = \{z\in \C | |z-z_0|<r\}$ is equal to $2\pi i$ times the sum of the residues of the singularities in the interior of the contour,
+\begin{equation}\label{eq:2}
+\int_{\partial B(z_0,r)} f(z)dz = 2\pi i \sum\limits_{z_k\in \partial B} res(f;zk)
+\end{equation}
+\item Calculate the following line integrals with the Residue theorem \eqref{eq:2}
+\begin{enumerate}
+	\item $$\int_{\partial B(0,1)} \frac{1}{z^2+5z+6}dz$$ it has poles, $z=\{-3,-2\}$, with $B(0,1) = \{z\in \C | |z|<1\}$, because the poles outside of the ball, $$\int_{\partial B(0,1)} \frac{1}{z^2+5z+6}dz = 0$$
+	
+	\item $$\int_{\partial B(0,2)} \frac{z}{(z^2-1)^2}dz$$ it has poles $z=\begin{cases}
+	1, m= 2\\
+	-1, m= 2\\
+	\end{cases}$, with $B(0,2) = \{z\in \C | |z|<2\}$, because the poles inside of the ball, hence, $$\int_{\partial B(0,2)} \frac{z}{(z^2-1)^2}dz = 2\pi i (res(f;1) + res(f;-1))$$
+	with each residue, we computed as follow:
+	\begin{equation*}
+	\begin{aligned}
+	res(f;1) &= \lim_{z\to 1} \frac{1}{(1)!} \frac{d}{dz} \left[ (z-1)^2 \frac{z}{(z-1)^2(z+1)^2}\right] = 0\\
+	res(f;-1) &= \lim_{z\to -1} \frac{1}{(1)!} \frac{d}{dz} \left[ (z+1)^2 \frac{z}{(z-1)^2(z+1)^2}\right] = 0\\
+	\end{aligned}
 	\end{equation*}
-	\item Prove the Residue Theorem
-	\newline
-	Let $D$ be a domain with $f$ is holomorphic around $\partial D$ define by:
-	$$f(z) = \frac{a_{(n-1)}}{(z-z_0)^{(n-1)}} + \cdots + \frac{a_1}{(z-z_0)} + H(z)$$
-	then in it's interior, $f$ has a pole except at point $z_0$. Choosing $D_i$ small enough, and take the integral around $\partial D$ for $f$, we have:
-	$$\int_{\partial D} f(z) dz = \int_{\partial D_i} \frac{a_i}{(z-z_0)^i} + \cdots + \frac{a_1}{(z-z_0)} + H(z) dz$$
-	compute the integration term by term, we get,
-	$$\int_{\partial D_i} \frac{a_1}{(z-z_0)} = 2\pi i a_1 = 2 \pi i\ res(f,z_0)$$
-	if it's interior except at finite number in interior of C, then,
-	$$\int_C f(z) dz = 2 \pi i (res(f,z_1) + \cdots + res(f,z_n))$$
+	therefore,
+	$$\int_{\partial B(0,2)} \frac{z}{(z^2-1)^2}dz = 2\pi i (res(f;1) + res(f;-1)) = 2\pi i (0 + 0) = 0$$
+	
+	\item $$\int_{\partial B(0,2)} \frac{1}{(z+1)^2(z+3)}dz$$ it has poles $z=\begin{cases}
+	-1, m= 2\\
+	-3, m= 1\\
+	\end{cases}$, with $B(0,2) = \{z\in \C | |z|<2\}$, because the poles inside of the ball is just $z = -1$, hence, $$\int_{\partial B(0,2)} \frac{1}{(z+1)^2(z+3)}dz = 2\pi i (res(f;-1))$$
+	with residue, we computed as follow:
+	\begin{equation*}
+	\begin{aligned}
+	res(f;-1) &= \lim_{z\to -1} \frac{1}{(1)!} \frac{d}{dz} \left[ (z+1)^2 \frac{1}{(z+1)^2(z+3)}\right] = -\frac{1}{4}\\
+	\end{aligned}
+	\end{equation*}
+	thus, $$\int_{\partial B(0,2)} \frac{1}{(z+1)^2(z+3)}dz = 2\pi i (res(f;-1)) = \frac{i\pi}{2}$$
+\end{enumerate}
+
+Method of residues, \textbf{Application to compute improper integral}:
+Let $R(x) = P(x)/Q(x)$ be a rational function of a real variable satisfying the following two criteria: $Q(x) \neq 0$ and $deg (Q) − deg (P) \geq2$
+\begin{equation}
+\int_{-\infty}^{\infty} R(x) dx = 2 \pi i\sum_{Im(\alpha_k) > 0} res(R(x);\alpha_k)
+\end{equation}
+\item Evaluate the following integrals by the method of residues.
+\begin{enumerate}
+	\item $$\int_{0}^{2\pi} \frac{d\theta}{a+\sin\theta}, \quad (a>1)$$
+	we change the form into,
+	$$\int_{|z|=1} \frac{2}{z^2+i2az-1} dz$$, it has poles $\alpha=\begin{cases}
+	i\left( -\frac{a}{2} -\frac{1}{2}\sqrt{a^2-1} \right)\\
+	i\left( -\frac{a}{2} +\frac{1}{2}\sqrt{a^2-1} \right)\\
+	\end{cases}$,thus the residue is,
+	\begin{equation*}
+	res(f;\alpha) = \lim_{z\to \alpha} (z-\alpha)f(z) = \lim_{z\to \alpha} \frac{2}{\alpha - \beta} = \frac{1}{i\sqrt{a^2-1}}
+	\end{equation*}
+	therefore
+	\begin{equation*}
+	\int_{0}^{2\pi} \frac{d\theta}{a+\sin\theta} = 2\pi i res(f;\alpha) = \frac{2\pi}{\sqrt{a^2-1}}
+	\end{equation*}
+	
+	\item $$\int_{-\infty}^{\infty} \frac{x^2}{x^4+5x^2+6}dx$$, it has poles $\alpha=\begin{cases}
+	i\sqrt{2}, m = 1\\
+	i\sqrt{3}, m = 1\\
+	-i\sqrt{2}, m = 1\\
+	-i\sqrt{3}, m = 1\\
+	\end{cases}$,thus the residue is,
+	\begin{equation*}
+	\begin{aligned}
+	res(f;i\sqrt{2}) = \lim_{z\to i\sqrt{2}} \left( \frac{(z-i\sqrt{2})z^2}{(z^2+2)(z^2+3)} \right) = -\frac{\sqrt{2}}{i2}\\
+	res(f;i\sqrt{3}) = \lim_{z\to i\sqrt{3}} \left( \frac{(z-i\sqrt{3})z^2}{(z^2+2)(z^2+3)} \right) = \frac{\sqrt{3}}{i2}
+	\end{aligned}
+	\end{equation*}
+	therefore,
+	\begin{equation*}
+	\int_{-\infty}^{\infty} \frac{x^2}{x^4+5x^2+6}dx = 2\pi i (res(f;i\sqrt{2}) + res(f;i\sqrt{3})) = \pi \left( \sqrt{3} - \sqrt{2} \right)
+	\end{equation*}
+	
+	\item $$\int_{-\infty}^{\infty} \frac{x \sin x}{x^2 + a^2} dx, \quad (a\neq 0)$$
+	we can rewrite as,
+	\begin{equation*}
+	Im\left( \int_{-\infty}^{\infty} \frac{xe^{ix}}{x^2+a^2} dx \right)
+	\end{equation*}, it has poles $\alpha=\{ia,-ia\}$,thus the residue is,
+	\begin{equation*}
+	res(f;ia) = \lim_{z\to ia} \left( (z-ia) \frac{ze^{iz}}{(z-ia)(z+ia)} \right) = \frac{e^{-\alpha}}{2}
+	\end{equation*}
+	Therefore,
+	\begin{equation*}
+	\int_{-\infty}^{\infty} \frac{x \sin x}{x^2 + a^2} dx = Im\left( \int_{-\infty}^{\infty} \frac{xe^{ix}}{x^2+a^2} dx \right) = Im(i\pi e^{-a}) = \pi e^{-a}
+	\end{equation*}
+\end{enumerate}
+
+\item Let $\D = \{ z\in \C | |z|<1 \}$, compute
+\begin{equation*}
+\int_{\partial \D} \frac{|dz|}{|z-a|^2}, \quad (|a|<1)
+\end{equation*}
+we can rewrite as,
+\begin{equation*}
+\int_{0}^{2\pi} \frac{d\theta}{1-2a\cos \theta + a^2}
+\end{equation*}
+on $a>1, |\alpha|<1$, then $\alpha$ is the only pole of $R(z)$ in $\{ |z|<1 \}$, therefore, we get the integral
+\begin{equation*}
+\int_{0}^{2\pi} \frac{d\theta}{1-2a\cos \theta + a^2} = R(z) = \int_{|z|=1} \frac{1}{i}\frac{-1}{az^2 - (1+a^2)z+a} dz
+\end{equation*}, it has poles $\alpha=\{\frac{1}{a}, a\}$, for $|a|<1$, the only pole is on $\{ |z| < 1\}$, thus the residue is,
+\begin{equation*}
+res(R(z);a) = \lim_{z\to a} (z-a)\frac{-1}{a(z-\frac{1}{a})(z-a)} = \frac{1}{i} \frac{-1}{a(a-\frac{1}{a})} = \frac{-1}{i(a^2-1)}
+\end{equation*}
+Therefore,
+\begin{equation*}
+\begin{aligned}
+\int_{\partial \D} \frac{|dz|}{|z-a|^2} &= \int_{0}^{2\pi} \frac{d\theta}{1-2a\cos \theta + a^2}\\
+&= 2\pi i res(R(z);\alpha) = 2\pi i \left( \frac{-1}{i(a^2-1)} \right)\\
+&= \frac{-2\pi}{a^2-1} = \frac{2\pi}{1-a^2}
+\end{aligned}
+\end{equation*}
 \end{enumerate}
 \end{document}
