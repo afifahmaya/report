@@ -387,6 +387,111 @@ We can see the result from 2D and 3D case in the figure \ref{fig:errorplot} belo
 \end{figure}
 
 \newpage
+\section{Manufactured Solution}
+We define error estimation
+\begin{equation}
+error:=||u_n-u_{exact}|| = O(h^\alpha)\quad \alpha=\text{EOC(Experimental Order of Convergence)}
+\end{equation}
+We try to solve linear elasticity based on exact solution defined by:
+\begin{equation}\label{eq:12}
+u_{exact} = \begin{pmatrix}
+u1\\
+u2
+\end{pmatrix} = \begin{pmatrix}
+\sin(x_1)\\
+-\sin(x_2)
+\end{pmatrix}
+\end{equation}
+Using \eqref{eq:12} we build linear elasticity problem as follows:
+\begin{equation}\label{eq:sincantilever}
+\begin{cases}
+-div\ \sigma[u]=f(x),\quad f(x)=\begin{pmatrix}
+\lambda \sin x_1 + 2\mu \sin x_1\\
+-\lambda \sin x_2 - 2\mu \sin x_2
+\end{pmatrix}\ \text{in}\ \Omega\\
+
+u=g(x),\quad g(x) = \begin{pmatrix}
+\sin(x_1)\\
+-\sin(x_2)
+\end{pmatrix} = \begin{pmatrix}
+\pm 1\\
+-\sin(x_2)
+\end{pmatrix}\ \text{on}\ \Gamma_D\\
+
+\sigma[u] \nu = q(x), \quad q(x) = \begin{pmatrix}
+0\\
+\pm \lambda \cos(x_1)
+\end{pmatrix}\ \text{on}\ \Gamma_N
+\end{cases}
+\end{equation}
+Solving \eqref{eq:sincantilever} we get the result as shown in Figure \ref{fig:sincantilever-mesh} and \ref{fig:sincantilever-error}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{picture/conference/sincantilever-mesh}
+	\caption{Deformation of Manufactured Solution}
+	\label{fig:sincantilever-mesh}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{picture/conference/sincantilever-error}
+	\caption{Error plot in Logscale}
+	\label{fig:sincantilever-error}
+\end{figure}
+
+\newpage
+\section{The Convergence of variational Approach to Crack Propagation}
+We solved problem \eqref{eq:weakcrack} using model as shown in figure \ref{fig:mesh-deform-crack} and numerical parameter like in table \ref{tab:parametertable}, the difference from linear elasticity problem is the domain. In the crack propagation case, we disturb the domain with adding some so called "crack path" into the domain. For this case, we use n(division number) = 32 and d(width of the crack) = 0.01 [m]. The result of our simulation shown the figure \ref{fig:crackresult}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{picture/conference/mesh-deform-crack}
+	\caption{Deformation of Cracked Domain}
+	\label{fig:mesh-deform-crack}
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{subfigure}[b]{\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/totalenergy}
+		\caption{Total Energy}
+		\label{fig:totalenergy}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/elastic}
+		\caption{Elastic Energy}
+		\label{fig:elastic}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/cracklength}
+		\caption{Crack Length}
+		\label{fig:cracklength}
+	\end{subfigure}
+	\caption{Elastic Energy, Crack Length, and Total Energy}
+	\label{fig:crackresult}
+\end{figure}
+\subsection{Convergence Analysis}
+Since we don't have an exact solution for problem \eqref{eq:weakcrack}, we will define $$u_h:= u^k \iff \max|u^k-u^{k-1}| \leq \epsilon$$ $k$ is index of the current solution and $\epsilon$ is a small number, $\epsilon > 0$.\\
+There are three types of error that we will compute, Infinity Error, $H^1(\Omega)$ and $L^2(\Omega)$, each of them defined by:
+\begin{eqnarray}
+||u_h - u||_\infty = \max|u_h-u|\\
+||u||^2_{H^1(\Omega)} = \int_\Omega |u|^2 dx + \int_\Omega |\triangledown u|^2 dx\\
+||u||^2_{L^2(\Omega)} = \int_\Omega |u|^2 dx
+\end{eqnarray}
+We can see the result from 2D case in the figure \ref{fig:all2dcrackerror} below:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/conference/all2dcrackerror}
+	\caption{Convergence on 2D Cracked Domain}
+	\label{fig:all2dcrackerror}
+\end{figure}
+
+%Linear Elasticity Cantilever Beam
+\iffalse
+\newpage
 \section{Linear Elasticity with Crack Propagation}
 We solved problem \eqref{eq:weakcrack} using same model as shown in figure \ref{fig:3dmodel} and numerical parameter like in table \ref{tab:parametertable}, the difference from linear elasticity problem is the domain. In the crack propagation case, we disturb the domain with adding some so called "crack path" into the domain. For this case, we use n(division number) = 32 and d(width of the crack) = 0.001 [m]. The result of our simulation shown the figure \ref{fig:crackmodel} for 2D case:
 \begin{figure}[h!]
@@ -447,6 +552,7 @@ We also calculated the elastic energy using equation \eqref{eq:elasticen}, below
 	\caption{Elasticity Energy Profile Crack Problem Model in 2D}
 	\label{fig:elasticenergy}
 \end{figure}
+
 \newpage
 \subsection{Convergence Analysis}
 Since we don't have an exact solution for problem \eqref{eq:weakcrack}, we will define $$u_h:= u^k \iff \max|u^k-u^{k-1}| \leq \epsilon$$ $k$ is index of the current solution and $\epsilon$ is a small number, $\epsilon > 0$.\\
@@ -471,7 +577,7 @@ We can see the result from 2D and 3D case in the figure \ref{fig:errorplotcrack}
 		\caption{2D Crack Error P2 Plot in Logscale}
 		\label{fig:2derrorP2crack}
 	\end{subfigure}
-\iffalse
+	\iffalse
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{picture/conference/all3derrorP1}
@@ -485,61 +591,9 @@ We can see the result from 2D and 3D case in the figure \ref{fig:errorplotcrack}
 		\caption{3D Error P2 Plot in Logscale}
 		\label{fig:3derrorP2crack}
 	\end{subfigure}
-\fi
+	\fi
 	\caption{Error Plot in Logscale}
 	\label{fig:errorplotcrack}
-\end{figure}
-
-\newpage
-\section{Manufactured Solution}
-We define error estimation
-\begin{equation}
-error:=||u_n-u_{exact}|| = O(h^\alpha)\quad \alpha=\text{EOC(Experimental Order of Convergence)}
-\end{equation}
-We try to solve linear elasticity based on exact solution defined by:
-\begin{equation}\label{eq:12}
-u_{exact} = \begin{pmatrix}
-u1\\
-u2
-\end{pmatrix} = \begin{pmatrix}
-\sin(x_1)\\
--\sin(x_2)
-\end{pmatrix}
-\end{equation}
-Using \eqref{eq:12} we build linear elasticity problem as follows:
-\begin{equation}\label{eq:sincantilever}
-\begin{cases}
--div\ \sigma[u]=f(x),\quad f(x)=\begin{pmatrix}
-\lambda \sin x_1 + 2\mu \sin x_1\\
--\lambda \sin x_2 - 2\mu \sin x_2
-\end{pmatrix}\ \text{in}\ \Omega\\
-
-u=g(x),\quad g(x) = \begin{pmatrix}
-\sin(x_1)\\
--\sin(x_2)
-\end{pmatrix} = \begin{pmatrix}
-\pm 1\\
--\sin(x_2)
-\end{pmatrix}\ \text{on}\ \Gamma_D\\
-
-\sigma[u] \nu = q(x), \quad q(x) = \begin{pmatrix}
-0\\
-\pm \lambda \cos(x_1)
-\end{pmatrix}\ \text{on}\ \Gamma_N
-\end{cases}
-\end{equation}
-Solving \eqref{eq:sincantilever} we get the result as shown in Figure \ref{fig:sincantilever-mesh} and \ref{fig:sincantilever-error}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.6\linewidth]{picture/conference/sincantilever-mesh}
-	\caption{Deformation of Manufactured Solution}
-	\label{fig:sincantilever-mesh}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\linewidth]{picture/conference/sincantilever-error}
-	\caption{Error plot in Logscale}
-	\label{fig:sincantilever-error}
 \end{figure}
 \newpage
 \section{V-Shaped Crack}
@@ -566,4 +620,5 @@ Solving \eqref{eq:sincantilever} we get the result as shown in Figure \ref{fig:s
 	\caption{Elastic Energy Profile and Total Energy}
 	\label{fig:totalelastic-vshaped}
 \end{figure}
+\fi
 \end{document}
