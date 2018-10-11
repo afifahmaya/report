@@ -439,17 +439,15 @@ Solving \eqref{eq:sincantilever} we get the result as shown in Figure \ref{fig:s
 \end{figure}
 
 \newpage
-<<<<<<< HEAD
 \section{The Convergence of variational Approach to Crack Propagation}
+\subsection{Simulation}
 We solved problem \eqref{eq:weakcrack} using model as shown in figure \ref{fig:mesh-deform-crack} and numerical parameter like in table \ref{tab:parametertable}, the difference from linear elasticity problem is the domain. In the crack propagation case, we disturb the domain with adding some so called "crack path" into the domain. For this case, we use n(division number) = 32 and d(width of the crack) = 0.01 [m]. The result of our simulation shown the figure \ref{fig:crackresult}.
-
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{picture/conference/mesh-deform-crack}
 	\caption{Deformation of Cracked Domain}
 	\label{fig:mesh-deform-crack}
 \end{figure}
-
 \begin{figure}[h!]
 	\begin{subfigure}[b]{\linewidth}
 		\centering
@@ -474,7 +472,7 @@ We solved problem \eqref{eq:weakcrack} using model as shown in figure \ref{fig:m
 	\caption{Elastic Energy, Crack Length, and Total Energy}
 	\label{fig:crackresult}
 \end{figure}
-\subsection{Convergence Analysis}
+\subsubsection{Convergence Analysis}
 Since we don't have an exact solution for problem \eqref{eq:weakcrack}, we will define $$u_h:= u^k \iff \max|u^k-u^{k-1}| \leq \epsilon$$ $k$ is index of the current solution and $\epsilon$ is a small number, $\epsilon > 0$.\\
 There are three types of error that we will compute, Infinity Error, $H^1(\Omega)$ and $L^2(\Omega)$, each of them defined by:
 \begin{eqnarray}
@@ -485,16 +483,66 @@ There are three types of error that we will compute, Infinity Error, $H^1(\Omega
 We can see the result from 2D case in the figure \ref{fig:all2dcrackerror} below:
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{picture/conference/all2dcrackerror}
+	\includegraphics[width=0.7\linewidth]{picture/conference/crackerrP2P1}
 	\caption{Convergence on 2D Cracked Domain}
 	\label{fig:all2dcrackerror}
 \end{figure}
+\newline
+\newpage
+%Case Study
+\subsection{Case Study}
+We solved problem \eqref{eq:weakcrack} using model as shown in figure \ref{fig:mesh-deform-case} and numerical parameter like in table \ref{tab:parametertable}, the difference from simulation case is the domain. In this case study, we change the width of the cantilever beam to 0.3[m]. The result is shown the figure \ref{fig:crackcase}.
 
-%Linear Elasticity Cantilever Beam
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\linewidth]{picture/conference/mesh-deform-case}
+	\caption{Deformation of Cracked Domain}
+	\label{fig:mesh-deform-case}
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{subfigure}[b]{\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/totalenergycase}
+		\caption{Total Energy}
+		\label{fig:totalenergycase}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/elasticcase}
+		\caption{Elastic Energy}
+		\label{fig:elasticcase}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/cracklengthcase}
+		\caption{Crack Length}
+		\label{fig:cracklengthcase}
+	\end{subfigure}
+	\caption{Elastic Energy, Crack Length, and Total Energy}
+	\label{fig:crackcase}
+\end{figure}
+\subsection{Convergence Analysis}
+Since we don't have an exact solution for problem \eqref{eq:weakcrack}, we will define $$u_h:= u^k \iff \max|u^k-u^{k-1}| \leq \epsilon$$ $k$ is index of the current solution and $\epsilon$ is a small number, $\epsilon > 0$.\\
+There are three types of error that we will compute, Infinity Error, $H^1(\Omega)$ and $L^2(\Omega)$, each of them defined by:
+\begin{eqnarray}
+||u_h - u||_\infty = \max|u_h-u|\\
+||u||^2_{H^1(\Omega)} = \int_\Omega |u|^2 dx + \int_\Omega |\triangledown u|^2 dx\\
+||u||^2_{L^2(\Omega)} = \int_\Omega |u|^2 dx
+\end{eqnarray}
+We can see the result from 2D case in the figure \ref{fig:all2dcrackerrorcase} below:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/conference/crackerrP2P1case}
+	\caption{Convergence on 2D Cracked Domain}
+	\label{fig:all2dcrackerrorcase}
+\end{figure}
+
+%Linear Crack Elasticity Cantilever Beam
 \iffalse
 \newpage
-=======
->>>>>>> c44e73b7ceff9f5d95adf36a2c6780a0c555bb5c
 \section{Linear Elasticity with Crack Propagation}
 We solved problem \eqref{eq:weakcrack} using same model as shown in figure \ref{fig:3dmodel} and numerical parameter like in table \ref{tab:parametertable}, the difference from linear elasticity problem is the domain. In the crack propagation case, we disturb the domain with adding some so called "crack path" into the domain. For this case, we use n(division number) = 32 and d(width of the crack) = 0.001 [m]. The result of our simulation shown the figure \ref{fig:crackmodel} for 2D case:
 \begin{figure}[h!]
@@ -555,7 +603,6 @@ We also calculated the elastic energy using equation \eqref{eq:elasticen}, below
 	\caption{Elasticity Energy Profile Crack Problem Model in 2D}
 	\label{fig:elasticenergy}
 \end{figure}
-
 \newpage
 \subsection{Convergence Analysis}
 Since we don't have an exact solution for problem \eqref{eq:weakcrack}, we will define $$u_h:= u^k \iff \max|u^k-u^{k-1}| \leq \epsilon$$ $k$ is index of the current solution and $\epsilon$ is a small number, $\epsilon > 0$.\\
@@ -598,10 +645,6 @@ We can see the result from 2D and 3D case in the figure \ref{fig:errorplotcrack}
 	\caption{Error Plot in Logscale}
 	\label{fig:errorplotcrack}
 \end{figure}
-<<<<<<< HEAD
-=======
-
->>>>>>> c44e73b7ceff9f5d95adf36a2c6780a0c555bb5c
 \newpage
 \section{V-Shaped Crack}
 \begin{figure}[h!]
@@ -628,4 +671,5 @@ We can see the result from 2D and 3D case in the figure \ref{fig:errorplotcrack}
 	\label{fig:totalelastic-vshaped}
 \end{figure}
 \fi
+
 \end{document}
