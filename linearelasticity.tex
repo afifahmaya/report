@@ -534,142 +534,54 @@ There are three types of error that we will compute, Infinity Error, $H^1(\Omega
 \end{eqnarray}
 We can see the result from 2D case in the figure \ref{fig:all2dcrackerrorcase} below:
 \begin{figure}[h!]
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/crackerrP2P1case}
+		\caption{Convergence on 2D Cracked Domain}
+		\label{fig:all2dcrackerrorcase}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/manyelastic}
+		\caption{Elastic Energy of Various Division Number (N)}
+		\label{fig:manyelastic}
+	\end{subfigure}
+	\caption{Convergence Analysis}
+	\label{fig:converganalysis}
+\end{figure}
+\newpage
+\subsection{3D Crack Propagation Study Case}
+We solved problem \eqref{eq:weakcrack} in 3D using model as shown in figure \ref{fig:3dcrack-mesh} and numerical parameter like in table \ref{tab:parametertable}. The result is shown the figure \ref{fig:crack3d}.
+\begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{picture/conference/crackerrP2P1case}
-	\caption{Convergence on 2D Cracked Domain}
-	\label{fig:all2dcrackerrorcase}
+	\includegraphics[width=0.7\linewidth]{picture/conference/3dcrack-mesh}
+	\caption{Deformation of Cracked Domain in 3D}
+	\label{fig:3dcrack-mesh}
 \end{figure}
 
-%Linear Crack Elasticity Cantilever Beam
-\iffalse
-\newpage
-\section{Linear Elasticity with Crack Propagation}
-We solved problem \eqref{eq:weakcrack} using same model as shown in figure \ref{fig:3dmodel} and numerical parameter like in table \ref{tab:parametertable}, the difference from linear elasticity problem is the domain. In the crack propagation case, we disturb the domain with adding some so called "crack path" into the domain. For this case, we use n(division number) = 32 and d(width of the crack) = 0.001 [m]. The result of our simulation shown the figure \ref{fig:crackmodel} for 2D case:
 \begin{figure}[h!]
-	\begin{subfigure}[b]{0.5\linewidth}
+	\begin{subfigure}[b]{\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{picture/conference/crackmodel2d}
-		\caption{Elasticity with Crack Propagation Model in 2D}
-		\label{fig:2dcrack}
+		\includegraphics[width=\linewidth]{picture/conference/totalenergy3d}
+		\caption{Total Energy in 3D}
+		\label{fig:totalenergy3d}
 	\end{subfigure}
 	\quad
-	\begin{subfigure}[b]{0.5\linewidth}
+	\begin{subfigure}[b]{0.49\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{picture/conference/cracksol2d}
-		\caption{Deformation of the material in Crack Propagation Case on 2D}
-		\label{fig:2dcrackfinal}
+		\includegraphics[width=\linewidth]{picture/conference/elastic3d}
+		\caption{Elastic Energy in 3D}
+		\label{fig:elastic3d}
 	\end{subfigure}
 	\quad
-	\begin{subfigure}[b]{0.5\linewidth}
+	\begin{subfigure}[b]{0.49\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{picture/conference/crackmodel3d}
-		\caption{Elasticity with Crack Propagation Model in 3D}
-		\label{fig:3dcrack}
+		\includegraphics[width=\linewidth]{picture/conference/cracklength3d}
+		\caption{Crack Length}
+		\label{fig:cracklength3d}
 	\end{subfigure}
-	\quad
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{picture/conference/cracksol3d}
-		\caption{Deformation of the material in Crack Propagation Case on 3D}
-		\label{fig:3dcrackfinal}
-	\end{subfigure}
-	\caption{Elasticity with Crack Propagation Case in 2D and 3D}
-	\label{fig:crackmodel}
-\end{figure}\\
-\newpage
-After that, we also compare our 2D and 3D model in crack propagation case, the result is shown in the figure \ref{fig:compelast}\\
-\begin{figure}[h!]
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{picture/conference/compare2d}
-		\caption{Solution in 2D}
-		\label{fig:2dcomp}
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{picture/conference/compare3d}
-		\caption{Solution in 3D}
-		\label{fig:3dcomp}
-	\end{subfigure}
-	\caption{Elasticity with Crack Propagation Case in 2D and 3D}
-	\label{fig:compelast}
+	\caption{Elastic Energy, Crack Length, and Total Energy}
+	\label{fig:crack3d}
 \end{figure}
-\newline
-We also calculated the elastic energy using equation \eqref{eq:elasticen}, below is the result of the energy profile from our model in figure \ref{fig:crackmodel}.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.8\linewidth]{picture/conference/elastic}
-	\caption{Elasticity Energy Profile Crack Problem Model in 2D}
-	\label{fig:elasticenergy}
-\end{figure}
-\newpage
-\subsection{Convergence Analysis}
-Since we don't have an exact solution for problem \eqref{eq:weakcrack}, we will define $$u_h:= u^k \iff \max|u^k-u^{k-1}| \leq \epsilon$$ $k$ is index of the current solution and $\epsilon$ is a small number, $\epsilon > 0$.\\
-There are three types of error that we will compute, Infinity Error, $H^1(\Omega)$ and $L^2(\Omega)$, each of them defined by:
-\begin{eqnarray}
-||u_h - u||_\infty = \max|u_h-u|\\
-||u||^2_{H^1(\Omega)} = \int_\Omega |u|^2 dx + \int_\Omega |\triangledown u|^2 dx\\
-||u||^2_{L^2(\Omega)} = \int_\Omega |u|^2 dx
-\end{eqnarray}
-We can see the result from 2D and 3D case in the figure \ref{fig:errorplotcrack} below:
-\begin{figure}[h!]
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{picture/conference/all2derrorP1crack}
-		\caption{2D Crack Error P1 Plot in Logscale}
-		\label{fig:2derrorP1crack}
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{picture/conference/all2derrorP2crack}
-		\caption{2D Crack Error P2 Plot in Logscale}
-		\label{fig:2derrorP2crack}
-	\end{subfigure}
-	\iffalse
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{picture/conference/all3derrorP1}
-		\caption{3D Error P1 Plot in Logscale}
-		\label{fig:3derrorP1crack}
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{picture/conference/all3derrorP2}
-		\caption{3D Error P2 Plot in Logscale}
-		\label{fig:3derrorP2crack}
-	\end{subfigure}
-	\fi
-	\caption{Error Plot in Logscale}
-	\label{fig:errorplotcrack}
-\end{figure}
-\newpage
-\section{V-Shaped Crack}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=\linewidth]{picture/conference/cracked-vshape}
-	\caption{V-Shaped Crack}
-	\label{fig:vshaped-mesh}
-\end{figure}
-\begin{figure}[h!]
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{picture/conference/elastic-vshape}
-		\caption{Elastic Energy Profile}
-		\label{fig:vshaped-elastic}
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{picture/conference/totalenergy-vshape}
-		\caption{Total Energy V-Shaped}
-		\label{fig:totalenergy-vshaped}
-	\end{subfigure}
-	\caption{Elastic Energy Profile and Total Energy}
-	\label{fig:totalelastic-vshaped}
-\end{figure}
-\fi
-
 \end{document}
