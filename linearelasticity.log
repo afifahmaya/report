@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.8.10)  18 OCT 2018 18:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.8.10)  19 OCT 2018 16:18
 entering extended mode
 **./linearelasticity.tex
 (linearelasticity.tex
@@ -1444,12 +1444,12 @@ ference/elasticcase-eps-converted-to.pdf> <./picture/conference/cracklengthcase
 -eps-converted-to.pdf> <./picture/conference/crackerrP2P1case-eps-converted-to.
 pdf> <./picture/conference/manyelastic-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <picture/conference/totalenergy3d.eps>
-(epstopdf)                    date: 2018-10-18 16:51:13
-(epstopdf)                    size: 48679 bytes
+(epstopdf)                    date: 2018-10-19 15:36:16
+(epstopdf)                    size: 59890 bytes
 (epstopdf)             Output file: <picture/conference/totalenergy3d-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2018-10-18 17:58:48
-(epstopdf)                    size: 20392 bytes
+(epstopdf)                    date: 2018-10-19 16:10:58
+(epstopdf)                    size: 23485 bytes
 (epstopdf)             Command: <epstopdf --outfile=picture/conference/totalene
 rgy3d-eps-converted-to.pdf picture/conference/totalenergy3d.eps>
 (epstopdf)             \includegraphics on input line 566.
@@ -1463,12 +1463,12 @@ Package pdftex.def Info: picture/conference/totalenergy3d-eps-converted-to.pdf
  used on input line 566.
 (pdftex.def)             Requested size: 455.24411pt x 203.39085pt.
 Package epstopdf Info: Source file: <picture/conference/elastic3d.eps>
-(epstopdf)                    date: 2018-10-18 16:51:12
-(epstopdf)                    size: 23294 bytes
+(epstopdf)                    date: 2018-10-19 15:36:08
+(epstopdf)                    size: 30589 bytes
 (epstopdf)             Output file: <picture/conference/elastic3d-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2018-10-18 17:58:51
-(epstopdf)                    size: 19051 bytes
+(epstopdf)                    date: 2018-10-19 16:10:58
+(epstopdf)                    size: 38839 bytes
 (epstopdf)             Command: <epstopdf --outfile=picture/conference/elastic3
 d-eps-converted-to.pdf picture/conference/elastic3d.eps>
 (epstopdf)             \includegraphics on input line 573.
@@ -1482,12 +1482,12 @@ Package pdftex.def Info: picture/conference/elastic3d-eps-converted-to.pdf  use
 d on input line 573.
 (pdftex.def)             Requested size: 223.07211pt x 148.71686pt.
 Package epstopdf Info: Source file: <picture/conference/cracklength3d.eps>
-(epstopdf)                    date: 2018-10-18 16:51:13
-(epstopdf)                    size: 26797 bytes
+(epstopdf)                    date: 2018-10-19 15:36:25
+(epstopdf)                    size: 26804 bytes
 (epstopdf)             Output file: <picture/conference/cracklength3d-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2018-10-18 17:58:53
-(epstopdf)                    size: 20687 bytes
+(epstopdf)                    date: 2018-10-19 16:10:59
+(epstopdf)                    size: 20642 bytes
 (epstopdf)             Command: <epstopdf --outfile=picture/conference/cracklen
 gth3d-eps-converted-to.pdf picture/conference/cracklength3d.eps>
 (epstopdf)             \includegraphics on input line 580.
@@ -1542,9 +1542,9 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX
 s/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/symbols/msbm10.pfb>
-Output written on linearelasticity.pdf (13 pages, 2835866 bytes).
+Output written on linearelasticity.pdf (13 pages, 3075036 bytes).
 PDF statistics:
- 1058 PDF objects out of 1200 (max. 8388607)
+ 1059 PDF objects out of 1200 (max. 8388607)
  62 named destinations out of 1000 (max. 500000)
  417 words of extra memory for PDF output out of 10000 (max. 10000000)
 
