@@ -584,4 +584,82 @@ We solved problem \eqref{eq:weakcrack} in 3D using model as shown in figure \ref
 	\caption{Elastic Energy, Crack Length, and Total Energy}
 	\label{fig:crack3d}
 \end{figure}
+
+\newpage
+\subsection{Crack Location and Geometry Analysis}
+Below is the result from various type of crack location \ref{fig:varcrack} and geometry ratio as shown in the table \ref{tab:avarloc}.
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		Number	&	a[m]	\\
+		\hline
+		0	&	0.2	\\
+		1	&	0.3	\\
+		2	&	0.4	\\
+		3	&	0.5	\\
+		4	&	0.6	\\
+		5	&	0.7	\\
+		6	&	0.8	\\
+		7	&	0.9	\\
+		8	&	1	\\
+		9	&	1.1	\\
+		10	&	1.2	\\
+		11	&	1.3	\\
+		12	&	1.4	\\
+		13	&	1.5	\\
+		\hline
+	\end{tabular}
+	\caption{Variation of Crack Location (a)}
+	\label{tab:avarloc}
+\end{table}
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/manyelastic-avar}
+		\caption{Various Elastic Energy}
+		\label{fig:manyelastic-avar}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/manycracklength-avar}
+		\caption{Various Crack Length}
+		\label{fig:manycracklength-avar}
+	\end{subfigure}
+	\caption{Elastic Energy, Crack Length of Various Crack Location}
+	\label{fig:varcrack}
+\end{figure}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Number	&	A	&	B	&	Ratio	\\
+		\hline
+		0	&	1	&	0.1	&	10	\\
+		1	&	1.5	&	0.1	&	15	\\
+		2	&	2	&	0.1	&	20	\\
+		3	&	2.5	&	0.1	&	25	\\
+		4	&	3	&	0.1	&	30	\\
+		\hline
+	\end{tabular}
+	\caption{Variation of Geometry Ratio}
+	\label{tab:gvar}
+\end{table}
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/manyelastic-gvar}
+		\caption{Various Elastic Energy}
+		\label{fig:manyelastic-gvar}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/manycracklength-gvar}
+		\caption{Various Crack Length}
+		\label{fig:manycracklength-gvar}
+	\end{subfigure}
+	\caption{Elastic Energy, Crack Length of Various Geometry Ratio}
+	\label{fig:gvar}
+\end{figure}
 \end{document}
