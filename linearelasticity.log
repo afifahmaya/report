@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.17)  24 OCT 2018 01:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.17)  7 NOV 2018 10:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -955,24 +955,24 @@ File: picture/3dmodellinearelasticity.png Graphic file (type png)
 
 <use picture/3dmodellinearelasticity.png>
 Package pdftex.def Info: picture/3dmodellinearelasticity.png used on input line
- 250.
+ 251.
 (pdftex.def)             Requested size: 227.62206pt x 173.95816pt.
  [4 <./picture/3dmodellinearelasticity.png>] <picture/conference/2d1.png, id=15
 7, 1552.80125pt x 823.075pt>
 File: picture/conference/2d1.png Graphic file (type png)
 
 <use picture/conference/2d1.png>
-Package pdftex.def Info: picture/conference/2d1.png used on input line 268.
+Package pdftex.def Info: picture/conference/2d1.png used on input line 269.
 (pdftex.def)             Requested size: 227.62206pt x 120.64268pt.
 
 <picture/conference/3d1.png, id=158, 1552.80125pt x 823.075pt>
 File: picture/conference/3d1.png Graphic file (type png)
 
 <use picture/conference/3d1.png>
-Package pdftex.def Info: picture/conference/3d1.png used on input line 275.
+Package pdftex.def Info: picture/conference/3d1.png used on input line 276.
 (pdftex.def)             Requested size: 227.62206pt x 120.64268pt.
 
-Overfull \hbox (13.38336pt too wide) in paragraph at lines 266--279
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 267--280
 [][]  [] 
  []
 
@@ -980,7 +980,7 @@ Overfull \hbox (13.38336pt too wide) in paragraph at lines 266--279
 File: picture/conference/2dstress.png Graphic file (type png)
 
 <use picture/conference/2dstress.png>
-Package pdftex.def Info: picture/conference/2dstress.png used on input line 287
+Package pdftex.def Info: picture/conference/2dstress.png used on input line 288
 .
 (pdftex.def)             Requested size: 227.62206pt x 120.64268pt.
 
@@ -988,11 +988,11 @@ Package pdftex.def Info: picture/conference/2dstress.png used on input line 287
 File: picture/conference/3dstress.png Graphic file (type png)
 
 <use picture/conference/3dstress.png>
-Package pdftex.def Info: picture/conference/3dstress.png used on input line 294
+Package pdftex.def Info: picture/conference/3dstress.png used on input line 295
 .
 (pdftex.def)             Requested size: 227.62206pt x 120.64268pt.
 
-Overfull \hbox (13.38336pt too wide) in paragraph at lines 285--298
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 286--299
 [][]  [] 
  []
 
@@ -1003,7 +1003,7 @@ File: picture/conference/2dstress1.png Graphic file (type png)
 
 <use picture/conference/2dstress1.png>
 Package pdftex.def Info: picture/conference/2dstress1.png used on input line 30
-6.
+7.
 (pdftex.def)             Requested size: 227.62206pt x 213.98602pt.
 
 <picture/conference/3dstress1.png, id=174, 1676.2625pt x 1575.8875pt>
@@ -1011,10 +1011,10 @@ File: picture/conference/3dstress1.png Graphic file (type png)
 
 <use picture/conference/3dstress1.png>
 Package pdftex.def Info: picture/conference/3dstress1.png used on input line 31
-2.
+3.
 (pdftex.def)             Requested size: 227.62206pt x 213.98602pt.
 
-Overfull \hbox (13.38336pt too wide) in paragraph at lines 304--316
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 305--317
 [][]  [] 
  []
 
@@ -1022,7 +1022,7 @@ Overfull \hbox (13.38336pt too wide) in paragraph at lines 304--316
 File: picture/conference/3dslice4.png Graphic file (type png)
 
 <use picture/conference/3dslice4.png>
-Package pdftex.def Info: picture/conference/3dslice4.png used on input line 324
+Package pdftex.def Info: picture/conference/3dslice4.png used on input line 325
 .
 (pdftex.def)             Requested size: 227.62206pt x 120.64268pt.
 
@@ -1030,7 +1030,7 @@ Package pdftex.def Info: picture/conference/3dslice4.png used on input line 324
 File: picture/conference/3dslice6.png Graphic file (type png)
 
 <use picture/conference/3dslice6.png>
-Package pdftex.def Info: picture/conference/3dslice6.png used on input line 330
+Package pdftex.def Info: picture/conference/3dslice6.png used on input line 331
 .
 (pdftex.def)             Requested size: 227.62206pt x 120.64268pt.
 
@@ -1038,7 +1038,7 @@ Package pdftex.def Info: picture/conference/3dslice6.png used on input line 330
 File: picture/conference/3dslice8.png Graphic file (type png)
 
 <use picture/conference/3dslice8.png>
-Package pdftex.def Info: picture/conference/3dslice8.png used on input line 336
+Package pdftex.def Info: picture/conference/3dslice8.png used on input line 337
 .
 (pdftex.def)             Requested size: 227.62206pt x 120.64268pt.
 
@@ -1046,16 +1046,16 @@ Package pdftex.def Info: picture/conference/3dslice8.png used on input line 336
 File: picture/conference/3dslice9.png Graphic file (type png)
 
 <use picture/conference/3dslice9.png>
-Package pdftex.def Info: picture/conference/3dslice9.png used on input line 342
+Package pdftex.def Info: picture/conference/3dslice9.png used on input line 343
 .
 (pdftex.def)             Requested size: 227.62206pt x 120.64268pt.
 
-Overfull \hbox (13.38336pt too wide) in paragraph at lines 322--345
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 323--346
 [][]  []
  []
 
 
-Overfull \hbox (13.38336pt too wide) in paragraph at lines 322--345
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 323--346
 []  [] 
  []
 
@@ -1071,7 +1071,7 @@ ted-to.pdf>
 (epstopdf)                    size: 22417 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/all2der
 rorP1-eps-converted-to.pdf picture/conference/all2derrorP1.eps>
-(epstopdf)             \includegraphics on input line 361.
+(epstopdf)             \includegraphics on input line 362.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/all2derrorP1-eps-converted-to.pdf, id=194, 466.74374pt x 30
@@ -1080,7 +1080,7 @@ File: picture/conference/all2derrorP1-eps-converted-to.pdf Graphic file (type p
 df)
  <use picture/conference/all2derrorP1-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/all2derrorP1-eps-converted-to.pdf u
-sed on input line 361.
+sed on input line 362.
 (pdftex.def)             Requested size: 227.62206pt x 150.28072pt.
 Package epstopdf Info: Source file: <picture/conference/all2derrorP2.eps>
 (epstopdf)                    date: 2018-10-04 21:41:58
@@ -1091,7 +1091,7 @@ ted-to.pdf>
 (epstopdf)                    size: 22689 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/all2der
 rorP2-eps-converted-to.pdf picture/conference/all2derrorP2.eps>
-(epstopdf)             \includegraphics on input line 368.
+(epstopdf)             \includegraphics on input line 369.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/all2derrorP2-eps-converted-to.pdf, id=195, 466.74374pt x 30
@@ -1100,7 +1100,7 @@ File: picture/conference/all2derrorP2-eps-converted-to.pdf Graphic file (type p
 df)
  <use picture/conference/all2derrorP2-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/all2derrorP2-eps-converted-to.pdf u
-sed on input line 368.
+sed on input line 369.
 (pdftex.def)             Requested size: 227.62206pt x 150.28072pt.
 Package epstopdf Info: Source file: <picture/conference/all3derrorP1.eps>
 (epstopdf)                    date: 2018-10-04 21:41:58
@@ -1111,7 +1111,7 @@ ted-to.pdf>
 (epstopdf)                    size: 18818 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/all3der
 rorP1-eps-converted-to.pdf picture/conference/all3derrorP1.eps>
-(epstopdf)             \includegraphics on input line 374.
+(epstopdf)             \includegraphics on input line 375.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/all3derrorP1-eps-converted-to.pdf, id=196, 464.73625pt x 30
@@ -1120,7 +1120,7 @@ File: picture/conference/all3derrorP1-eps-converted-to.pdf Graphic file (type p
 df)
  <use picture/conference/all3derrorP1-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/all3derrorP1-eps-converted-to.pdf u
-sed on input line 374.
+sed on input line 375.
 (pdftex.def)             Requested size: 227.62206pt x 150.9249pt.
 Package epstopdf Info: Source file: <picture/conference/all3derrorP2.eps>
 (epstopdf)                    date: 2018-10-04 21:41:58
@@ -1131,7 +1131,7 @@ ted-to.pdf>
 (epstopdf)                    size: 19794 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/all3der
 rorP2-eps-converted-to.pdf picture/conference/all3derrorP2.eps>
-(epstopdf)             \includegraphics on input line 381.
+(epstopdf)             \includegraphics on input line 382.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/all3derrorP2-eps-converted-to.pdf, id=197, 464.73625pt x 30
@@ -1140,15 +1140,15 @@ File: picture/conference/all3derrorP2-eps-converted-to.pdf Graphic file (type p
 df)
  <use picture/conference/all3derrorP2-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/all3derrorP2-eps-converted-to.pdf u
-sed on input line 381.
+sed on input line 382.
 (pdftex.def)             Requested size: 227.62206pt x 150.9249pt.
 
-Overfull \hbox (13.38336pt too wide) in paragraph at lines 359--385
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 360--386
 [][]  []
  []
 
 
-Overfull \hbox (13.38336pt too wide) in paragraph at lines 359--385
+Overfull \hbox (13.38336pt too wide) in paragraph at lines 360--386
 []  [] 
  []
 
@@ -1165,7 +1165,7 @@ converted-to.pdf>
 (epstopdf)                    size: 74628 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/sincant
 ilever-mesh-eps-converted-to.pdf picture/conference/sincantilever-mesh.eps>
-(epstopdf)             \includegraphics on input line 430.
+(epstopdf)             \includegraphics on input line 431.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/sincantilever-mesh-eps-converted-to.pdf, id=414, 598.235pt 
@@ -1175,7 +1175,7 @@ type pdf)
 
 <use picture/conference/sincantilever-mesh-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/sincantilever-mesh-eps-converted-to
-.pdf used on input line 430.
+.pdf used on input line 431.
 (pdftex.def)             Requested size: 273.14923pt x 192.95067pt.
 Package epstopdf Info: Source file: <picture/conference/sincantilever-error.eps
 >
@@ -1187,7 +1187,7 @@ Package epstopdf Info: Source file: <picture/conference/sincantilever-error.eps
 (epstopdf)                    size: 24115 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/sincant
 ilever-error-eps-converted-to.pdf picture/conference/sincantilever-error.eps>
-(epstopdf)             \includegraphics on input line 436.
+(epstopdf)             \includegraphics on input line 437.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/sincantilever-error-eps-converted-to.pdf, id=415, 466.74374
@@ -1197,7 +1197,7 @@ File: picture/conference/sincantilever-error-eps-converted-to.pdf Graphic file
 
 <use picture/conference/sincantilever-error-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/sincantilever-error-eps-converted-t
-o.pdf used on input line 436.
+o.pdf used on input line 437.
 (pdftex.def)             Requested size: 227.62206pt x 150.28072pt.
  [8 <./picture/conference/sincantilever-mesh-eps-converted-to.pdf> <./picture/c
 onference/sincantilever-error-eps-converted-to.pdf>]
@@ -1210,7 +1210,7 @@ onverted-to.pdf>
 (epstopdf)                    size: 1015038 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/mesh-de
 form-crack-eps-converted-to.pdf picture/conference/mesh-deform-crack.eps>
-(epstopdf)             \includegraphics on input line 447.
+(epstopdf)             \includegraphics on input line 448.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/mesh-deform-crack-eps-converted-to.pdf, id=486, 598.235pt x
@@ -1219,18 +1219,18 @@ File: picture/conference/mesh-deform-crack-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use picture/conference/mesh-deform-crack-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/mesh-deform-crack-eps-converted-to.
-pdf used on input line 447.
+pdf used on input line 448.
 (pdftex.def)             Requested size: 273.14923pt x 192.95067pt.
 Package epstopdf Info: Source file: <picture/conference/totalenergy.eps>
-(epstopdf)                    date: 2018-10-04 21:41:58
-(epstopdf)                    size: 57463 bytes
+(epstopdf)                    date: 2018-11-06 14:22:38
+(epstopdf)                    size: 58607 bytes
 (epstopdf)             Output file: <picture/conference/totalenergy-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2018-10-04 21:41:58
-(epstopdf)                    size: 23751 bytes
+(epstopdf)                    date: 2018-11-06 14:23:58
+(epstopdf)                    size: 20969 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/totalen
 ergy-eps-converted-to.pdf picture/conference/totalenergy.eps>
-(epstopdf)             \includegraphics on input line 454.
+(epstopdf)             \includegraphics on input line 455.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/totalenergy-eps-converted-to.pdf, id=487, 613.29124pt x 278
@@ -1239,18 +1239,18 @@ File: picture/conference/totalenergy-eps-converted-to.pdf Graphic file (type pd
 f)
  <use picture/conference/totalenergy-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/totalenergy-eps-converted-to.pdf us
-ed on input line 454.
+ed on input line 455.
 (pdftex.def)             Requested size: 455.24411pt x 206.38608pt.
 Package epstopdf Info: Source file: <picture/conference/elastic.eps>
-(epstopdf)                    date: 2018-10-04 21:41:58
-(epstopdf)                    size: 39398 bytes
+(epstopdf)                    date: 2018-11-06 14:22:29
+(epstopdf)                    size: 39902 bytes
 (epstopdf)             Output file: <picture/conference/elastic-eps-converted-t
 o.pdf>
-(epstopdf)                    date: 2018-10-04 21:41:58
-(epstopdf)                    size: 131400 bytes
+(epstopdf)                    date: 2018-11-06 14:23:59
+(epstopdf)                    size: 128240 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/elastic
 -eps-converted-to.pdf picture/conference/elastic.eps>
-(epstopdf)             \includegraphics on input line 461.
+(epstopdf)             \includegraphics on input line 462.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/elastic-eps-converted-to.pdf, id=488, 433.62pt x 289.08pt>
@@ -1258,18 +1258,18 @@ File: picture/conference/elastic-eps-converted-to.pdf Graphic file (type pdf)
 
 <use picture/conference/elastic-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/elastic-eps-converted-to.pdf used o
-n input line 461.
+n input line 462.
 (pdftex.def)             Requested size: 223.07211pt x 148.71686pt.
 Package epstopdf Info: Source file: <picture/conference/cracklength.eps>
-(epstopdf)                    date: 2018-10-04 21:41:58
-(epstopdf)                    size: 25970 bytes
+(epstopdf)                    date: 2018-11-06 14:23:11
+(epstopdf)                    size: 25810 bytes
 (epstopdf)             Output file: <picture/conference/cracklength-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2018-10-04 21:41:58
-(epstopdf)                    size: 20055 bytes
+(epstopdf)                    date: 2018-11-06 14:24:00
+(epstopdf)                    size: 17990 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/crackle
 ngth-eps-converted-to.pdf picture/conference/cracklength.eps>
-(epstopdf)             \includegraphics on input line 468.
+(epstopdf)             \includegraphics on input line 469.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/cracklength-eps-converted-to.pdf, id=489, 433.62pt x 289.08
@@ -1278,10 +1278,10 @@ File: picture/conference/cracklength-eps-converted-to.pdf Graphic file (type pd
 f)
  <use picture/conference/cracklength-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/cracklength-eps-converted-to.pdf us
-ed on input line 468.
+ed on input line 469.
 (pdftex.def)             Requested size: 223.07211pt x 148.71686pt.
 
-Overfull \hbox (4.28348pt too wide) in paragraph at lines 452--472
+Overfull \hbox (4.28348pt too wide) in paragraph at lines 453--473
 []  [] 
  []
 
@@ -1297,7 +1297,7 @@ ted-to.pdf>
 (epstopdf)                    size: 17734 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/cracker
 rP2P1-eps-converted-to.pdf picture/conference/crackerrP2P1.eps>
-(epstopdf)             \includegraphics on input line 486.
+(epstopdf)             \includegraphics on input line 487.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/crackerrP2P1-eps-converted-to.pdf, id=492, 472.76625pt x 30
@@ -1306,10 +1306,10 @@ File: picture/conference/crackerrP2P1-eps-converted-to.pdf Graphic file (type p
 df)
  <use picture/conference/crackerrP2P1-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/crackerrP2P1-eps-converted-to.pdf u
-sed on input line 486.
+sed on input line 487.
 (pdftex.def)             Requested size: 318.66948pt x 207.71568pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 482--491
+Underfull \hbox (badness 10000) in paragraph at lines 483--492
 
  []
 
@@ -1326,7 +1326,7 @@ nverted-to.pdf>
 (epstopdf)                    size: 203853 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/mesh-de
 form-case-eps-converted-to.pdf picture/conference/mesh-deform-case.eps>
-(epstopdf)             \includegraphics on input line 498.
+(epstopdf)             \includegraphics on input line 499.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/mesh-deform-case-eps-converted-to.pdf, id=507, 598.235pt x 
@@ -1335,42 +1335,42 @@ File: picture/conference/mesh-deform-case-eps-converted-to.pdf Graphic file (ty
 pe pdf)
  <use picture/conference/mesh-deform-case-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/mesh-deform-case-eps-converted-to.p
-df used on input line 498.
+df used on input line 499.
 (pdftex.def)             Requested size: 455.24411pt x 321.57585pt.
 
 [10 <./picture/conference/totalenergy-eps-converted-to.pdf> <./picture/conferen
 ce/elastic-eps-converted-to.pdf> <./picture/conference/cracklength-eps-converte
 d-to.pdf> <./picture/conference/crackerrP2P1-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <picture/conference/totalenergycase.eps>
-(epstopdf)                    date: 2018-10-12 07:13:59
-(epstopdf)                    size: 56519 bytes
+(epstopdf)                    date: 2018-11-06 13:58:55
+(epstopdf)                    size: 57831 bytes
 (epstopdf)             Output file: <picture/conference/totalenergycase-eps-con
 verted-to.pdf>
-(epstopdf)                    date: 2018-10-12 07:16:56
-(epstopdf)                    size: 19164 bytes
+(epstopdf)                    date: 2018-11-06 14:15:34
+(epstopdf)                    size: 19413 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/totalen
 ergycase-eps-converted-to.pdf picture/conference/totalenergycase.eps>
-(epstopdf)             \includegraphics on input line 506.
+(epstopdf)             \includegraphics on input line 507.
 Package epstopdf Info: Output file is already uptodate.
 
-<picture/conference/totalenergycase-eps-converted-to.pdf, id=663, 616.3025pt x 
-278.03876pt>
+<picture/conference/totalenergycase-eps-converted-to.pdf, id=663, 622.325pt x 2
+78.03876pt>
 File: picture/conference/totalenergycase-eps-converted-to.pdf Graphic file (typ
 e pdf)
  <use picture/conference/totalenergycase-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/totalenergycase-eps-converted-to.pd
-f used on input line 506.
-(pdftex.def)             Requested size: 455.24411pt x 205.38484pt.
+f used on input line 507.
+(pdftex.def)             Requested size: 455.24411pt x 203.39085pt.
 Package epstopdf Info: Source file: <picture/conference/elasticcase.eps>
-(epstopdf)                    date: 2018-10-12 07:13:52
-(epstopdf)                    size: 29833 bytes
+(epstopdf)                    date: 2018-11-06 13:54:36
+(epstopdf)                    size: 29822 bytes
 (epstopdf)             Output file: <picture/conference/elasticcase-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2018-10-12 07:16:58
-(epstopdf)                    size: 35387 bytes
+(epstopdf)                    date: 2018-11-06 14:15:35
+(epstopdf)                    size: 35418 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/elastic
 case-eps-converted-to.pdf picture/conference/elasticcase.eps>
-(epstopdf)             \includegraphics on input line 513.
+(epstopdf)             \includegraphics on input line 514.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/elasticcase-eps-converted-to.pdf, id=664, 433.62pt x 289.08
@@ -1379,18 +1379,18 @@ File: picture/conference/elasticcase-eps-converted-to.pdf Graphic file (type pd
 f)
  <use picture/conference/elasticcase-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/elasticcase-eps-converted-to.pdf us
-ed on input line 513.
+ed on input line 514.
 (pdftex.def)             Requested size: 223.07211pt x 148.71686pt.
 Package epstopdf Info: Source file: <picture/conference/cracklengthcase.eps>
-(epstopdf)                    date: 2018-10-12 07:14:09
-(epstopdf)                    size: 26705 bytes
+(epstopdf)                    date: 2018-11-06 13:58:31
+(epstopdf)                    size: 27666 bytes
 (epstopdf)             Output file: <picture/conference/cracklengthcase-eps-con
 verted-to.pdf>
-(epstopdf)                    date: 2018-10-12 07:16:59
-(epstopdf)                    size: 16096 bytes
+(epstopdf)                    date: 2018-11-06 14:15:36
+(epstopdf)                    size: 14428 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/crackle
 ngthcase-eps-converted-to.pdf picture/conference/cracklengthcase.eps>
-(epstopdf)             \includegraphics on input line 520.
+(epstopdf)             \includegraphics on input line 521.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/cracklengthcase-eps-converted-to.pdf, id=665, 433.62pt x 28
@@ -1399,10 +1399,10 @@ File: picture/conference/cracklengthcase-eps-converted-to.pdf Graphic file (typ
 e pdf)
  <use picture/conference/cracklengthcase-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/cracklengthcase-eps-converted-to.pd
-f used on input line 520.
+f used on input line 521.
 (pdftex.def)             Requested size: 223.07211pt x 148.71686pt.
 
-Overfull \hbox (4.28348pt too wide) in paragraph at lines 504--524
+Overfull \hbox (4.28348pt too wide) in paragraph at lines 505--525
 []  [] 
  []
 
@@ -1418,7 +1418,7 @@ nverted-to.pdf>
 (epstopdf)                    size: 19357 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/cracker
 rP2P1case-eps-converted-to.pdf picture/conference/crackerrP2P1case.eps>
-(epstopdf)             \includegraphics on input line 539.
+(epstopdf)             \includegraphics on input line 540.
 Package epstopdf Info: Output file is already uptodate.
 
 <picture/conference/crackerrP2P1case-eps-converted-to.pdf, id=668, 472.76625pt 
@@ -1427,31 +1427,36 @@ File: picture/conference/crackerrP2P1case-eps-converted-to.pdf Graphic file (ty
 pe pdf)
  <use picture/conference/crackerrP2P1case-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/crackerrP2P1case-eps-converted-to.p
-df used on input line 539.
+df used on input line 540.
 (pdftex.def)             Requested size: 223.07211pt x 145.40004pt.
 Package epstopdf Info: Source file: <picture/conference/manyelastic.eps>
-(epstopdf)                    date: 2018-10-18 18:02:40
-(epstopdf)                    size: 60503 bytes
+(epstopdf)                    date: 2018-11-06 15:13:44
+(epstopdf)                    size: 60813 bytes
 (epstopdf)             Output file: <picture/conference/manyelastic-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2018-10-18 18:02:40
-(epstopdf)                    size: 25661 bytes
+(epstopdf)                    date: 2018-11-06 15:14:37
+(epstopdf)                    size: 22072 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/manyela
 stic-eps-converted-to.pdf picture/conference/manyelastic.eps>
-(epstopdf)             \includegraphics on input line 546.
+(epstopdf)             \includegraphics on input line 547.
 Package epstopdf Info: Output file is already uptodate.
 
-<picture/conference/manyelastic-eps-converted-to.pdf, id=669, 394.47375pt x 352
+<picture/conference/manyelastic-eps-converted-to.pdf, id=669, 400.49625pt x 352
 .31625pt>
 File: picture/conference/manyelastic-eps-converted-to.pdf Graphic file (type pd
 f)
  <use picture/conference/manyelastic-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/manyelastic-eps-converted-to.pdf us
-ed on input line 546.
-(pdftex.def)             Requested size: 223.07211pt x 199.23108pt.
+ed on input line 547.
+(pdftex.def)             Requested size: 223.07211pt x 196.2367pt.
 
-Overfull \hbox (4.28348pt too wide) in paragraph at lines 537--550
+Overfull \hbox (4.28348pt too wide) in paragraph at lines 538--551
 [][]  [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 535--555
+
  []
 
 
@@ -1463,12 +1468,12 @@ File: picture/conference/3dcrack-mesh.png Graphic file (type png)
 
 <use picture/conference/3dcrack-mesh.png>
 Package pdftex.def Info: picture/conference/3dcrack-mesh.png used on input line
- 558.
+ 560.
 (pdftex.def)             Requested size: 318.66948pt x 164.46027pt.
- [12 <./picture/conference/totalenergycase-eps-converted-to.pdf> <./picture/con
-ference/elasticcase-eps-converted-to.pdf> <./picture/conference/cracklengthcase
--eps-converted-to.pdf> <./picture/conference/crackerrP2P1case-eps-converted-to.
-pdf> <./picture/conference/manyelastic-eps-converted-to.pdf>]
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 Package epstopdf Info: Source file: <picture/conference/totalenergy3d.eps>
 (epstopdf)                    date: 2018-10-24 00:35:43
 (epstopdf)                    size: 59890 bytes
@@ -1478,16 +1483,16 @@ rted-to.pdf>
 (epstopdf)                    size: 23485 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/totalen
 ergy3d-eps-converted-to.pdf picture/conference/totalenergy3d.eps>
-(epstopdf)             \includegraphics on input line 566.
+(epstopdf)             \includegraphics on input line 568.
 Package epstopdf Info: Output file is already uptodate.
 
-<picture/conference/totalenergy3d-eps-converted-to.pdf, id=885, 622.325pt x 278
+<picture/conference/totalenergy3d-eps-converted-to.pdf, id=685, 622.325pt x 278
 .03876pt>
 File: picture/conference/totalenergy3d-eps-converted-to.pdf Graphic file (type 
 pdf)
  <use picture/conference/totalenergy3d-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/totalenergy3d-eps-converted-to.pdf 
-used on input line 566.
+used on input line 568.
 (pdftex.def)             Requested size: 455.24411pt x 203.39085pt.
 Package epstopdf Info: Source file: <picture/conference/elastic3d.eps>
 (epstopdf)                    date: 2018-10-24 00:35:43
@@ -1498,16 +1503,16 @@ Package epstopdf Info: Source file: <picture/conference/elastic3d.eps>
 (epstopdf)                    size: 38839 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/elastic
 3d-eps-converted-to.pdf picture/conference/elastic3d.eps>
-(epstopdf)             \includegraphics on input line 573.
+(epstopdf)             \includegraphics on input line 575.
 Package epstopdf Info: Output file is already uptodate.
 
-<picture/conference/elastic3d-eps-converted-to.pdf, id=886, 433.62pt x 289.08pt
+<picture/conference/elastic3d-eps-converted-to.pdf, id=686, 433.62pt x 289.08pt
 >
 File: picture/conference/elastic3d-eps-converted-to.pdf Graphic file (type pdf)
 
  <use picture/conference/elastic3d-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/elastic3d-eps-converted-to.pdf used
- on input line 573.
+ on input line 575.
 (pdftex.def)             Requested size: 223.07211pt x 148.71686pt.
 Package epstopdf Info: Source file: <picture/conference/cracklength3d.eps>
 (epstopdf)                    date: 2018-10-24 00:35:43
@@ -1518,124 +1523,153 @@ rted-to.pdf>
 (epstopdf)                    size: 20642 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/crackle
 ngth3d-eps-converted-to.pdf picture/conference/cracklength3d.eps>
-(epstopdf)             \includegraphics on input line 580.
+(epstopdf)             \includegraphics on input line 582.
 Package epstopdf Info: Output file is already uptodate.
 
-<picture/conference/cracklength3d-eps-converted-to.pdf, id=887, 433.62pt x 289.
+<picture/conference/cracklength3d-eps-converted-to.pdf, id=687, 433.62pt x 289.
 08pt>
 File: picture/conference/cracklength3d-eps-converted-to.pdf Graphic file (type 
 pdf)
  <use picture/conference/cracklength3d-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/cracklength3d-eps-converted-to.pdf 
-used on input line 580.
+used on input line 582.
 (pdftex.def)             Requested size: 223.07211pt x 148.71686pt.
 
-Overfull \hbox (4.28348pt too wide) in paragraph at lines 564--584
+Overfull \hbox (4.28348pt too wide) in paragraph at lines 566--586
 []  [] 
  []
 
-[13 <./picture/conference/3dcrack-mesh.png> <./picture/conference/totalenergy3d
--eps-converted-to.pdf> <./picture/conference/elastic3d-eps-converted-to.pdf> <.
-/picture/conference/cracklength3d-eps-converted-to.pdf>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12 <./picture/conference/totalenergycase-eps-converted-to.pdf> <./picture/conf
+erence/elasticcase-eps-converted-to.pdf> <./picture/conference/cracklengthcase-
+eps-converted-to.pdf> <./picture/conference/crackerrP2P1case-eps-converted-to.p
+df> <./picture/conference/manyelastic-eps-converted-to.pdf>]
+<picture/conference/CrackDimension.png, id=892, 534.99875pt x 212.795pt>
+File: picture/conference/CrackDimension.png Graphic file (type png)
+
+<use picture/conference/CrackDimension.png>
+Package pdftex.def Info: picture/conference/CrackDimension.png used on input li
+ne 594.
+(pdftex.def)             Requested size: 227.62206pt x 90.5357pt.
 Package epstopdf Info: Source file: <picture/conference/manyelastic-avar.eps>
-(epstopdf)                    date: 2018-10-23 23:10:16
-(epstopdf)                    size: 63840 bytes
+(epstopdf)                    date: 2018-11-06 20:19:22
+(epstopdf)                    size: 66864 bytes
 (epstopdf)             Output file: <picture/conference/manyelastic-avar-eps-co
 nverted-to.pdf>
-(epstopdf)                    date: 2018-10-24 00:55:36
-(epstopdf)                    size: 22697 bytes
+(epstopdf)                    date: 2018-11-06 20:25:14
+(epstopdf)                    size: 23220 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/manyela
 stic-avar-eps-converted-to.pdf picture/conference/manyelastic-avar.eps>
-(epstopdf)             \includegraphics on input line 619.
+(epstopdf)             \includegraphics on input line 626.
 Package epstopdf Info: Output file is already uptodate.
 
-<picture/conference/manyelastic-avar-eps-converted-to.pdf, id=1002, 394.47375pt
- x 352.31625pt>
+<picture/conference/manyelastic-avar-eps-converted-to.pdf, id=893, 400.49625pt 
+x 352.31625pt>
 File: picture/conference/manyelastic-avar-eps-converted-to.pdf Graphic file (ty
 pe pdf)
  <use picture/conference/manyelastic-avar-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/manyelastic-avar-eps-converted-to.p
-df used on input line 619.
-(pdftex.def)             Requested size: 223.07211pt x 199.23108pt.
+df used on input line 626.
+(pdftex.def)             Requested size: 223.07211pt x 196.2367pt.
 Package epstopdf Info: Source file: <picture/conference/manycracklength-avar.ep
 s>
-(epstopdf)                    date: 2018-10-23 23:12:28
-(epstopdf)                    size: 54013 bytes
+(epstopdf)                    date: 2018-11-06 20:19:30
+(epstopdf)                    size: 53994 bytes
 (epstopdf)             Output file: <picture/conference/manycracklength-avar-ep
 s-converted-to.pdf>
-(epstopdf)                    date: 2018-10-24 00:55:37
-(epstopdf)                    size: 20453 bytes
+(epstopdf)                    date: 2018-11-06 20:25:16
+(epstopdf)                    size: 20670 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/manycra
 cklength-avar-eps-converted-to.pdf picture/conference/manycracklength-avar.eps>
 
-(epstopdf)             \includegraphics on input line 625.
+(epstopdf)             \includegraphics on input line 632.
 Package epstopdf Info: Output file is already uptodate.
 
-<picture/conference/manycracklength-avar-eps-converted-to.pdf, id=1003, 396.481
-25pt x 352.31625pt>
+<picture/conference/manycracklength-avar-eps-converted-to.pdf, id=894, 396.4812
+5pt x 352.31625pt>
 File: picture/conference/manycracklength-avar-eps-converted-to.pdf Graphic file
  (type pdf)
 
 <use picture/conference/manycracklength-avar-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/manycracklength-avar-eps-converted-
-to.pdf used on input line 625.
+to.pdf used on input line 632.
 (pdftex.def)             Requested size: 223.07211pt x 198.22578pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[13 <./picture/conference/3dcrack-mesh.png> <./picture/conference/totalenergy3d
+-eps-converted-to.pdf> <./picture/conference/elastic3d-eps-converted-to.pdf> <.
+/picture/conference/cracklength3d-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <picture/conference/manyelastic-gvar.eps>
-(epstopdf)                    date: 2018-10-23 23:59:51
-(epstopdf)                    size: 26756 bytes
+(epstopdf)                    date: 2018-11-06 22:03:46
+(epstopdf)                    size: 32645 bytes
 (epstopdf)             Output file: <picture/conference/manyelastic-gvar-eps-co
 nverted-to.pdf>
-(epstopdf)                    date: 2018-10-24 01:02:13
-(epstopdf)                    size: 13611 bytes
+(epstopdf)                    date: 2018-11-06 22:08:38
+(epstopdf)                    size: 15696 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/manyela
 stic-gvar-eps-converted-to.pdf picture/conference/manyelastic-gvar.eps>
-(epstopdf)             \includegraphics on input line 652.
+(epstopdf)             \includegraphics on input line 660.
 Package epstopdf Info: Output file is already uptodate.
 
-<picture/conference/manyelastic-gvar-eps-converted-to.pdf, id=1004, 394.47375pt
+<picture/conference/manyelastic-gvar-eps-converted-to.pdf, id=1010, 400.49625pt
  x 352.31625pt>
 File: picture/conference/manyelastic-gvar-eps-converted-to.pdf Graphic file (ty
 pe pdf)
  <use picture/conference/manyelastic-gvar-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/manyelastic-gvar-eps-converted-to.p
-df used on input line 652.
-(pdftex.def)             Requested size: 223.07211pt x 199.23108pt.
+df used on input line 660.
+(pdftex.def)             Requested size: 223.07211pt x 196.2367pt.
 Package epstopdf Info: Source file: <picture/conference/manycracklength-gvar.ep
 s>
-(epstopdf)                    date: 2018-10-24 00:00:16
-(epstopdf)                    size: 31895 bytes
+(epstopdf)                    date: 2018-11-06 22:03:55
+(epstopdf)                    size: 34328 bytes
 (epstopdf)             Output file: <picture/conference/manycracklength-gvar-ep
 s-converted-to.pdf>
-(epstopdf)                    date: 2018-10-24 01:02:13
-(epstopdf)                    size: 15822 bytes
+(epstopdf)                    date: 2018-11-06 22:08:39
+(epstopdf)                    size: 23362 bytes
 (epstopdf)             Command: <repstopdf --outfile=picture/conference/manycra
 cklength-gvar-eps-converted-to.pdf picture/conference/manycracklength-gvar.eps>
 
-(epstopdf)             \includegraphics on input line 658.
+(epstopdf)             \includegraphics on input line 666.
 Package epstopdf Info: Output file is already uptodate.
 
-<picture/conference/manycracklength-gvar-eps-converted-to.pdf, id=1005, 402.503
-75pt x 352.31625pt>
+<picture/conference/manycracklength-gvar-eps-converted-to.pdf, id=1011, 400.496
+25pt x 352.31625pt>
 File: picture/conference/manycracklength-gvar-eps-converted-to.pdf Graphic file
  (type pdf)
 
 <use picture/conference/manycracklength-gvar-eps-converted-to.pdf>
 Package pdftex.def Info: picture/conference/manycracklength-gvar-eps-converted-
-to.pdf used on input line 658.
-(pdftex.def)             Requested size: 223.07211pt x 195.25829pt.
+to.pdf used on input line 666.
+(pdftex.def)             Requested size: 223.07211pt x 196.2367pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[14 <./picture/conference/manyelastic-avar-eps-converted-to.pdf> <./picture/con
-ference/manycracklength-avar-eps-converted-to.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 665.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[14 <./picture/conference/CrackDimension.png> <./picture/conference/manyelastic
+-avar-eps-converted-to.pdf> <./picture/conference/manycracklength-avar-eps-conv
+erted-to.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 673.
  [15 <./picture/conference/manyelastic-gvar-eps-converted-to.pdf> <./picture/co
 nference/manycracklength-gvar-eps-converted-to.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 665.
- (./linearelasticity.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 665.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 665.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 673.
+
+(./linearelasticity.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 673.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 673.
 Package rerunfilecheck Info: File `linearelasticity.out' has not changed.
 (rerunfilecheck)             Checksum: 24F8C05CEB3E4D4B40B8098932FB4145;1224.
 
@@ -1644,10 +1678,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 26711 strings out of 493014
- 521984 string characters out of 6133351
- 578439 words of memory out of 5000000
- 29763 multiletter control sequences out of 15000+600000
+ 26718 strings out of 493014
+ 522200 string characters out of 6133351
+ 578489 words of memory out of 5000000
+ 29768 multiletter control sequences out of 15000+600000
  14098 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,13n,73p,10413b,670s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1667,10 +1701,10 @@ e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
 16/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on linearelasticity.pdf (15 pages, 3110677 bytes).
+Output written on linearelasticity.pdf (15 pages, 3111528 bytes).
 PDF statistics:
- 1226 PDF objects out of 1440 (max. 8388607)
- 378 compressed objects within 4 object streams
- 69 named destinations out of 1000 (max. 500000)
- 445 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1234 PDF objects out of 1440 (max. 8388607)
+ 382 compressed objects within 4 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 450 words of extra memory for PDF output out of 10000 (max. 10000000)
 

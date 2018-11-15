@@ -232,13 +232,14 @@ In this simulation, we use a cantilever beam (Mild Steel Material) as the domain
 		\hline
 		Numerical Parameter & Typical Value [unit] & Nondimensionalized value\\
 		\hline
-		Young's modulus (E) & $2.1 \times 10^7$ [Pa] & 210\\
 		Poisson's ratio ($\nu$) & 0.3 [-] & 0.3\\
+		Young's modulus (E) & $4.0 \times 10^{10}$ [Pa] & $4.0 \times 10^7$\\
 		Gravity constant (f) & 9.80655 [N/kg] & 9.80655\\
 		Weight (q) & 0 [N] & 0\\
 		Length (L) & 3.0 [m] & 3.0\\
-		Depth (h) & 0.2 [m] & 0.2\\
+		Depth (h) & 0.3 [m] & 0.3\\
 		Width (b) & 0.25 [m] & 0.25\\
+		Effective Fracture Toughness ($\gamma_{eff}$) & 0.5[-] & 0.5\\
 		\hline
 	\end{tabular}
 \caption{Material properties and numerical parameters}
@@ -550,6 +551,7 @@ We can see the result from 2D case in the figure \ref{fig:all2dcrackerrorcase} b
 	\caption{Convergence Analysis}
 	\label{fig:converganalysis}
 \end{figure}
+\newline
 \newpage
 \subsection{3D Crack Propagation Study Case}
 We solved problem \eqref{eq:weakcrack} in 3D using model as shown in figure \ref{fig:3dcrack-mesh} and numerical parameter like in table \ref{tab:parametertable}. The result is shown the figure \ref{fig:crack3d}.
@@ -584,30 +586,35 @@ We solved problem \eqref{eq:weakcrack} in 3D using model as shown in figure \ref
 	\caption{Elastic Energy, Crack Length, and Total Energy}
 	\label{fig:crack3d}
 \end{figure}
-
 \newpage
 \subsection{Crack Location and Geometry Analysis}
-Below is the result from various type of crack location \ref{fig:varcrack} and geometry ratio as shown in the table \ref{tab:avarloc}.
+Figure \ref{fig:varcrack} show the result from various type of crack location based on table \ref{tab:avarloc} and crack dimension in figure \ref{fig:dimcrack}.
+\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.5\linewidth]{picture/conference/CrackDimension}
+		\caption{Crack Dimension}
+		\label{fig:dimcrack}
+\end{figure}
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|}
 		\hline
-		Number	&	a[m]	\\
+		Number (i)	&	a[m]	\\
 		\hline
-		0	&	0.2	\\
-		1	&	0.3	\\
-		2	&	0.4	\\
-		3	&	0.5	\\
-		4	&	0.6	\\
-		5	&	0.7	\\
-		6	&	0.8	\\
-		7	&	0.9	\\
-		8	&	1	\\
-		9	&	1.1	\\
-		10	&	1.2	\\
-		11	&	1.3	\\
-		12	&	1.4	\\
-		13	&	1.5	\\
+0	&	1.5	\\
+1	&	1.4	\\
+2	&	1.3	\\
+3	&	1.2	\\
+4	&	1.1	\\
+5	&	1	\\
+6	&	0.9	\\
+7	&	0.8	\\
+8	&	0.7	\\
+9	&	0.6	\\
+10	&	0.5	\\
+11	&	0.4	\\
+12	&	0.3	\\
+13	&	0.2	\\
 		\hline
 	\end{tabular}
 	\caption{Variation of Crack Location (a)}
@@ -629,18 +636,19 @@ Below is the result from various type of crack location \ref{fig:varcrack} and g
 	\caption{Elastic Energy, Crack Length of Various Crack Location}
 	\label{fig:varcrack}
 \end{figure}
-
+\newpage
+While figure \ref{fig:gvar} show the result of various geometry ratio in table \ref{tab:gvar}.
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
 		\hline
-		Number	&	A	&	B	&	Ratio	\\
+		Number (i)	&	L (m)	&	h (m)	&	Ratio	\\
 		\hline
-		0	&	1	&	0.1	&	10	\\
-		1	&	1.5	&	0.1	&	15	\\
-		2	&	2	&	0.1	&	20	\\
-		3	&	2.5	&	0.1	&	25	\\
-		4	&	3	&	0.1	&	30	\\
+0	&	3	&	0.3	&	10	\\
+1	&	5	&	0.3	&	16.67	\\
+2	&	7	&	0.3	&	23.33	\\
+3	&	9	&	0.3	&	30	\\
+4	&	11	&	0.3	&	36.67	\\
 		\hline
 	\end{tabular}
 	\caption{Variation of Geometry Ratio}
