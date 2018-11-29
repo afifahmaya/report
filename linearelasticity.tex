@@ -670,4 +670,99 @@ While figure \ref{fig:gvar} show the result of various geometry ratio in table \
 	\caption{Elastic Energy, Crack Length of Various Geometry Ratio}
 	\label{fig:gvar}
 \end{figure}
+\newpage
+\subsection{Comparison 3D and 2D Model}
+In this section we will discuss about relevance between 2 dimension crack model and 3 dimension crack model, how they related one and each other, we will focus on the elastic energy to compare.
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/2d-crack-model}
+		\caption{2D Crack Model}
+		\label{fig:2d-crack-model}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/3d-crack-model}
+		\caption{3D Crack Model}
+		\label{fig:3d-crack-model}
+	\end{subfigure}
+	\caption{2D and 3D Crack Model}
+	\label{fig:compare2d3d}
+\end{figure}
+As seen in figure \ref{fig:compare2d3d} the difference in 3D and 2D model is just in the width of the beam ($w$). Therefore, we can write the solution of deformation in 3D as:
+\begin{equation*}
+u = \begin{pmatrix}
+u_1(x_1,x_2,x_3) & \cdots & \cdots\\
+u_2(x_1,x_2,x_3) & \ddots & \vdots\\
+u_3(x_1,x_2,x_3) & \cdots & \cdots\\
+\end{pmatrix}
+\end{equation*}
+however in 2D we write the solution as:
+\begin{equation*}
+\tilde{u} = \begin{pmatrix}
+\tilde{u_1}(x_1,x_2) & \cdots\\
+\tilde{u_2}(x_1,x_2) & \cdots\\
+\end{pmatrix}
+\end{equation*}
+Moreover, the elastic energy in 3D can be written as,
+\begin{equation*}
+E(u) = \frac{1}{2} \int_{\Omega \setminus \Sigma} \sigma : e \ dx = E(A) + \gamma A
+\end{equation*}
+while in 2D we write the elastic energy as,
+\begin{equation*}
+\tilde{E}(\tilde{u}) = \frac{1}{2} \int_{\Omega' \setminus \Sigma'} \tilde{\sigma} : \tilde{e} \ d\tilde{x} = \tilde{E}(L) + \gamma L
+\end{equation*}
+Using above notation, we assume 3D model and 2D model related as,
+\begin{equation*}
+\begin{aligned}
+E(u) = E(A) + \gamma A &= E(wL) + \gamma (wL)\\
+&\approx w \tilde{E}(L) + w \gamma L\\
+&\approx w (\tilde{E}(L) + \gamma L)
+\end{aligned}
+\end{equation*}
+then, we try to prove this consideration by multiplying elastic energy profile in 2D by $w$ as shown in \ref{fig:elasticcompare},
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/conference/elastic_compare}
+	\caption{Elastic Energy Comparison 2D and 3D}
+	\label{fig:elasticcompare}
+\end{figure}
+\subsection{Dependency on Stress Intensity Factor ($K_I$)}
+In previous section, we defined elastic energy ($E$) which can be calculated by an independent variable $\gamma$, which later we call $\gamma$ as the \textit{Fracture Toughness} of a material, in some references, it also depend on the Stress Intensity Factor ($K_I$) addressed as,
+\begin{equation*}
+\gamma = \frac{K_I^2}{E}
+\end{equation*}
+in 3D, while in 2D, we calculated $\gamma$ as follows,
+\begin{equation*}
+\tilde{\gamma} = \frac{K_I^2}{E'} = \frac{K_I^2(1-\nu^2)}{E}
+\end{equation*}
+below is the result, where we compare elastic energy in 2D and 3D with and without involved $K_I$ in solving the crack propagation problem.
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/cracklength_2d_ki}
+		\caption{Comparison on 2D Crack Length with Stress Intensity Factor ($K_I$)}
+		\label{fig:cracklength2dki}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/elastic_2d_ki}
+		\caption{Comparison on 2D Elastic Energy with Stress Intensity Factor ($K_I$)}
+		\label{fig:elastic2dki}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/cracklength_3d_ki}
+		\caption{Comparison on 3D Crack Length with Stress Intensity Factor ($K_I$)}
+		\label{fig:cracklength3dki}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/elastic_3d_ki}
+		\caption{Comparison on 3D Elastic Energy with Stress Intensity Factor ($K_I$)}
+		\label{fig:elastic3dki}
+	\end{subfigure}
+\end{figure}
 \end{document}
