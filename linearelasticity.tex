@@ -484,7 +484,7 @@ There are three types of error that we will compute, Infinity Error, $H^1(\Omega
 We can see the result from 2D case in the figure \ref{fig:all2dcrackerror} below:
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{picture/conference/crackerrP2P1}
+	\includegraphics[width=0.7\linewidth]{picture/conference/crackerrp1}
 	\caption{Convergence on 2D Cracked Domain}
 	\label{fig:all2dcrackerror}
 \end{figure}
@@ -537,7 +537,7 @@ We can see the result from 2D case in the figure \ref{fig:all2dcrackerrorcase} b
 \begin{figure}[h!]
 	\begin{subfigure}[b]{0.49\linewidth}
 		\centering
-		\includegraphics[width=\linewidth]{picture/conference/crackerrP2P1case}
+		\includegraphics[width=\linewidth]{picture/conference/crackerrp1case}
 		\caption{Convergence on 2D Cracked Domain}
 		\label{fig:all2dcrackerrorcase}
 	\end{subfigure}
@@ -765,4 +765,80 @@ below is the result, where we compare elastic energy in 2D and 3D with and witho
 		\label{fig:elastic3dki}
 	\end{subfigure}
 \end{figure}
+\newpage
+\subsection{Multiple Crack Location}
+In this section, we try to give crack path in two location, like shown in figure \ref{fig:multicrack-model}, then solve the same problem as written in equation \ref{eq:weakcrack}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/conference/multicrack-model}
+	\caption{Model of Multiple Crack Location}
+	\label{fig:multicrack-model}
+\end{figure}
+The deformation is shown in figure \ref{fig:multicrack-deform}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/conference/multicrack-deform}
+	\caption{Deformation of Multiple Crack Location}
+	\label{fig:multicrack-deform}
+\end{figure}
+Below is the energy profile, total energy, and crack length calculated from the left crack,
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.49\linewidth}
+	\centering
+\includegraphics[width=\linewidth]{picture/conference/multicrack-elastic}
+\caption{Multiple Crack Elastic Energy Profile}
+\label{fig:multicrack-elastic}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\linewidth}
+	\centering
+	\includegraphics[width=\linewidth]{picture/conference/multicrack-2d}
+	\caption{Multiple Crack Location Surface Energy Profile}
+	\label{fig:multicrack-2d}
+\end{subfigure}
+\end{figure}
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{picture/conference/multicrack-cracklength}
+		\caption{Multiple Crack Location Crack Length}
+		\label{fig:multicrack-cracklength}
+	\end{subfigure}
+\begin{subfigure}[b]{0.49\linewidth}
+	\centering
+	\includegraphics[width=\linewidth]{picture/conference/multicrack-totalenergy}
+	\caption{Multiple Crack Total Energy}
+	\label{fig:multicrack-totalenergy}
+\end{subfigure}
+\end{figure}
+\subsubsection{Crack Distance Analysis}
+We vary the distance (d) between two crack in our domain and solve the same problem as equation \ref{eq:weakcrack}. The result is shown in the figure \ref{fig:manyelastic-lvar}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{picture/conference/manyelastic-lvar}
+	\caption{Various Elastic Energy Profile}
+	\label{fig:manyelastic-lvar}
+\end{figure}
+\subsubsection{3D Multiple Crack}
+We also did simulation of multiple crack location in 3 dimension, the result is shown in
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.49\linewidth}
+	\centering
+\includegraphics[width=\linewidth]{picture/conference/cracklength-multi-3d}
+\caption{3D Multiple Crack Length}
+\label{fig:cracklength-multi-3d}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\linewidth}
+	\centering
+\includegraphics[width=\linewidth]{picture/conference/elastic-multi-3d}
+\caption{3D Multiple Crack Elastic Energy}
+\label{fig:elastic-multi-3d}
+	\end{subfigure}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/conference/totalenergy-multi-3d}
+	\caption{3D Multiple Crack Total Energy}
+	\label{fig:totalenergy-multi-3d}
+\end{figure}
+
 \end{document}
