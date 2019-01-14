@@ -223,7 +223,26 @@ then, we define elastic energy:
 \begin{equation}\label{eq:elasticen}
 E(v,L) := \frac{1}{2}a_L(v,v) - l(v),\ (v\in V_L)
 \end{equation}
-\newpage
+then, Francfort and Marigo introduced the total energy:
+\begin{equation}
+\tilde{\varepsilon}(L,g) := \tilde{E}(L,g) + \gamma L \ \text{(L:=$|\Sigma|$)}
+\end{equation}
+where $\tilde{E}(L,g)$ is elastic energy and $\gamma L$ is surface energy. The condition $(G\geq \gamma)$ is also equivalent to $\frac{\partial \tilde{\varepsilon}}{\partial L}(L,g(t))\leq 0$.
+Then they consider
+\begin{equation}
+\begin{cases}
+L(t) := \argmin_{L^-(t)\leq L \leq L_\infty}\\
+L^-(t) := \sup_{L<t} L(s)
+\end{cases}
+\end{equation}
+Suppose the boundary condition $g(t)$ on $\Gamma_D$ is $g(t)=tg_0(x)$ $(x\in \Gamma_D)$, then the elastic energy becomes
+\begin{equation}
+\tilde{E}(L,tg_0) = t^2\tilde{E}(L,g_0)
+\end{equation}
+and the total energy becomes
+\begin{equation}
+\tilde{\varepsilon}(L,tg_0) = t^2 \tilde{E}(L,g_0) + \gamma L
+\end{equation}
 \section{Modelling and Simulation}
 In this simulation, we use a cantilever beam (Mild Steel Material) as the domain, which is a thin rectangular cross section introduced by Timoshenkol Goodier (1970), then we specify nondimensionalized parameter for simulation as shown in table \ref{parametertable}.
 \begin{table}[h!]
@@ -727,27 +746,27 @@ then, we try to prove this consideration by multiplying elastic energy profile i
 	\caption{Elastic Energy Comparison 2D and 3D}
 	\label{fig:elasticcompare}
 \end{figure}
-\subsection{Dependency on Stress Intensity Factor ($K_I$)}
-In previous section, we defined elastic energy ($E$) which can be calculated by an independent variable $\gamma$, which later we call $\gamma$ as the \textit{Fracture Toughness} of a material, in some references, it also depend on the Stress Intensity Factor ($K_I$) addressed as,
+\subsection{Dependency on Stress Intensity Factor ($K_{IC}$)}
+In previous section, we defined elastic energy ($E$) which can be calculated by an independent variable $\gamma$, which later we call $\gamma$ as the \textit{Fracture Toughness} of a material, in some references, it also depend on the Stress Intensity Factor ($K_{IC}$) addressed as,
 \begin{equation*}
-\gamma = \frac{K_I^2}{E}
+\gamma = \frac{K_{IC}^2}{E}
 \end{equation*}
 in 3D, while in 2D, we calculated $\gamma$ as follows,
 \begin{equation*}
-\tilde{\gamma} = \frac{K_I^2}{E'} = \frac{K_I^2(1-\nu^2)}{E}
+\tilde{\gamma} = \frac{K_{IC}^2}{E'} = \frac{K_{IC}^2(1-\nu^2)}{E}
 \end{equation*}
-below is the result, where we compare elastic energy in 2D and 3D with and without involved $K_I$ in solving the crack propagation problem.
+below is the result, where we compare elastic energy in 2D and 3D with and without involved $K_{IC}$ in solving the crack propagation problem.
 \begin{figure}[h!]
 	\begin{subfigure}[b]{0.49\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{picture/conference/cracklength_2d_ki}
-		\caption{Comparison on 2D Crack Length with Stress Intensity Factor ($K_I$)}
+		\caption{Comparison on 2D Crack Length with Stress Intensity Factor ($K_{IC}$)}
 		\label{fig:cracklength2dki}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.49\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{picture/conference/elastic_2d_ki}
-		\caption{Comparison on 2D Elastic Energy with Stress Intensity Factor ($K_I$)}
+		\caption{Comparison on 2D Elastic Energy with Stress Intensity Factor ($K_{IC}$)}
 		\label{fig:elastic2dki}
 	\end{subfigure}
 \end{figure}
@@ -755,13 +774,13 @@ below is the result, where we compare elastic energy in 2D and 3D with and witho
 	\begin{subfigure}[b]{0.49\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{picture/conference/cracklength_3d_ki}
-		\caption{Comparison on 3D Crack Length with Stress Intensity Factor ($K_I$)}
+		\caption{Comparison on 3D Crack Length with Stress Intensity Factor ($K_{IC}$)}
 		\label{fig:cracklength3dki}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.49\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{picture/conference/elastic_3d_ki}
-		\caption{Comparison on 3D Elastic Energy with Stress Intensity Factor ($K_I$)}
+		\caption{Comparison on 3D Elastic Energy with Stress Intensity Factor ($K_{IC}$)}
 		\label{fig:elastic3dki}
 	\end{subfigure}
 \end{figure}
@@ -810,6 +829,33 @@ Below is the energy profile, total energy, and crack length calculated from the 
 	\label{fig:multicrack-totalenergy}
 \end{subfigure}
 \end{figure}
+\subsubsection{Contour Plot Elastic Energy}
+For better understanding about the elastic energy profile of multiple crack location, we try to use contour plot, like shown in figure
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/conference/elasticdouble-same}
+	\caption{Contour Plot of Multiple Crack Elastic energy with tip 1 and tip 2 moving at the same time}
+	\label{fig:elasticdouble-same}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/conference/elasticdouble-tip1}
+	\caption{Contour Plot of Multiple Crack Elastic energy with tip 1 move 10 percent faster than tip 2}
+	\label{fig:elasticdouble-tip1}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/conference/elasticdouble-tip2}
+	\caption{Contour Plot of Multiple Crack Elastic energy with tip 1 move 10 percent slower than tip 2}
+	\label{fig:elasticdouble-tip2}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{picture/conference/elasticdouble-tip105}
+	\caption{Contour Plot of Multiple Crack Elastic energy with tip 1 move 50 percent slower than tip 2}
+	\label{fig:elasticdouble-tip105}
+\end{figure}
+\iffalse
 \subsubsection{Crack Distance Analysis}
 We vary the distance (d) between two crack in our domain and solve the same problem as equation \ref{eq:weakcrack}. The result is shown in the figure \ref{fig:manyelastic-lvar}
 \begin{figure}[h!]
@@ -840,5 +886,6 @@ We also did simulation of multiple crack location in 3 dimension, the result is 
 	\caption{3D Multiple Crack Total Energy}
 	\label{fig:totalenergy-multi-3d}
 \end{figure}
+\fi
 
 \end{document}
