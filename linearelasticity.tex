@@ -201,6 +201,9 @@ a(v,v) &= \int_\Omega (\Cmod e[v]) : e[v] dx\\
 	\end{cases}
 	\end{equation*}
 \end{theorem}
+
+%commented
+\iffalse
 \section{Linear Elasticity with Crack Propagation Case}
 \subsection{Strong Form}
 Let's consider Linear Elasticity with Crack Propagation Case:
@@ -784,6 +787,9 @@ below is the result, where we compare elastic energy in 2D and 3D with and witho
 		\label{fig:elastic3dki}
 	\end{subfigure}
 \end{figure}
+\fi
+%end of comment
+
 \newpage
 \subsection{Multiple Crack Location}
 In this section, we try to give crack path in two location, like shown in figure \ref{fig:multicrack-model}, then solve the same problem as written in equation \ref{eq:weakcrack}.
@@ -831,25 +837,84 @@ Below is the energy profile, total energy, and crack length calculated from the 
 \end{figure}
 \subsubsection{Contour Plot Elastic Energy}
 For better understanding about the elastic energy profile of multiple crack location, we try to use contour plot, like shown in figure
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{picture/conference/elasticdouble-same}
 	\caption{Contour Plot of Multiple Crack Elastic energy with tip 1 and tip 2 moving at the same time}
 	\label{fig:elasticdouble-same}
 \end{figure}
-\begin{figure}
+from figure \ref{fig:elasticdouble-same} we consider a "gradient flow" (a curve of maximal slope) of E w.r.t. $|.|_p$
+\begin{equation}
+x = (x_1,x_2), \begin{cases}
+|x|_p := (|x_1|^p + |x_2|^p)^{\frac{1}{2}}\ 1\leq p < \infty\\
+|x|_\infty := \max(|x_1|,|x_2|)\ p=\infty
+\end{cases}
+\end{equation}
+When $x(t) = (x_1(t), x_2(t))$ is "gradient flow"?\\
+in \underline{p=2 case},\\
+$\frac{d}{dt}E(x(t))$: How the energy changes along the curve $x(t)$.\\
+$\frac{d}{dt}E(x(t)) = \nabla E(x(t)).x'(t)$\\
+To find the velocity (= speed and direction): $x'(t) = |x'(t)|\frac{x'(t)}{|x'(t)|} = vn \begin{cases}
+v\geq 0 \\
+n \in \R^2 \\
+|n| = 1
+\end{cases}$\\
+which direction is the most effective to reduce the energy?\\
+\begin{equation}\label{emin}
+\min_{|n|=1}\bigg[\frac{d}{dt} E(x(t))\bigg] = \min_{|n|=1}\big[\nabla E(x(t)).(vn)\big] = v \min_{|n|=1}\big[\nabla E(x(t)).n\big]
+\end{equation}
+before we proceed to our problem, let's take an example with $a:=(a_1,a_2)$:
+\begin{equation}
+\min_{|n=1|}(a.n) = \min_{n_1^2 + n_2^2 = 1}(a_1n_1 + a_2n_2)
+\end{equation}
+if $a//n$ in the same direction,
+\begin{equation}
+\begin{aligned}
+\Rightarrow a &= |a|n\\
+n&=\frac{a}{|a|}\\
+a.n &= a.\bigg(\frac{a}{|a|}\bigg) =\frac{|a|^2}{|a|} = |a|
+\end{aligned}
+\end{equation}
+suppose that $f(n) = (a.n)$, to find the minimizer, we take "gradient" of the function ($f(n)$)
+\begin{equation}
+\begin{aligned}
+-\nabla f(n) &= - \bigg(\frac{\partial f}{\partial n_1}, \frac{\partial f}{\partial n_2} \bigg)\\
+&= - \bigg( \frac{\partial (a.n)}{\partial n_1}, \frac{\partial (a.n)}{\partial n_2} \bigg)\\
+&= - \bigg( \frac{\partial (a_1n_1 + a_2n_2)}{\partial n_1}, \frac{\partial (a_1n_1 + a_2n_2)}{\partial n_2} \bigg)\\
+&= - (a_1,a_2)
+\end{aligned}
+\end{equation}
+because we know that $n=\frac{a}{|a|}$, the direction of minimizer of $f(n)$ is
+\begin{equation}
+n = \frac{a}{|a|} = \frac{-(a_1,a_2)}{\sqrt{a_1^2 + a_2^2}}
+\end{equation}
+we applied the same technique to find minimizer of E,\\
+suppose that $f(n) = (\nabla E(x(t)).n)$, to find the minimizer, we take "gradient" of the function ($f(n)$)
+\begin{equation}
+\begin{aligned}
+-\nabla f(n) &= - \bigg(\frac{\partial f}{\partial n_1}, \frac{\partial f}{\partial n_2} \bigg)\\
+&= - \bigg( \frac{\partial (\nabla E(x(t)).n)}{\partial n_1}, \frac{\partial (\nabla E(x(t)).n)}{\partial n_2} \bigg)\\
+&= - \bigg( \frac{\partial (a_1n_1 + a_2n_2)}{\partial n_1}, \frac{\partial (a_1n_1 + a_2n_2)}{\partial n_2} \bigg)\\
+&= - (a_1,a_2)
+\end{aligned}
+\end{equation}
+because we know that $n=\frac{a}{|a|}$, the direction of minimizer of $f(n)$ is
+\begin{equation}
+n = \frac{a}{|a|} = \frac{-(a_1,a_2)}{\sqrt{a_1^2 + a_2^2}}
+\end{equation}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{picture/conference/elasticdouble-tip1}
 	\caption{Contour Plot of Multiple Crack Elastic energy with tip 1 move 10 percent faster than tip 2}
 	\label{fig:elasticdouble-tip1}
 \end{figure}
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{picture/conference/elasticdouble-tip2}
 	\caption{Contour Plot of Multiple Crack Elastic energy with tip 1 move 10 percent slower than tip 2}
 	\label{fig:elasticdouble-tip2}
 \end{figure}
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{picture/conference/elasticdouble-tip105}
 	\caption{Contour Plot of Multiple Crack Elastic energy with tip 1 move 50 percent slower than tip 2}
