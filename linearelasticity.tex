@@ -203,7 +203,7 @@ a(v,v) &= \int_\Omega (\Cmod e[v]) : e[v] dx\\
 \end{theorem}
 
 %commented
-\iffalse
+\iftrue
 \section{Linear Elasticity with Crack Propagation Case}
 \subsection{Strong Form}
 Let's consider Linear Elasticity with Crack Propagation Case:
@@ -894,13 +894,7 @@ suppose that $f(n) = (\nabla E(x(t)).n)$, to find the minimizer, we take "gradie
 \begin{aligned}
 -\nabla f(n) &= - \bigg(\frac{\partial f}{\partial n_1}, \frac{\partial f}{\partial n_2} \bigg)\\
 &= - \bigg( \frac{\partial (\nabla E(x(t)).n)}{\partial n_1}, \frac{\partial (\nabla E(x(t)).n)}{\partial n_2} \bigg)\\
-&= - \bigg( \frac{\partial (a_1n_1 + a_2n_2)}{\partial n_1}, \frac{\partial (a_1n_1 + a_2n_2)}{\partial n_2} \bigg)\\
-&= - (a_1,a_2)
 \end{aligned}
-\end{equation}
-because we know that $n=\frac{a}{|a|}$, the direction of minimizer of $f(n)$ is
-\begin{equation}
-n = \frac{a}{|a|} = \frac{-(a_1,a_2)}{\sqrt{a_1^2 + a_2^2}}
 \end{equation}
 \begin{figure}[h]
 	\centering
